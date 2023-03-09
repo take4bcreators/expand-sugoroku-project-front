@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "gatsby develop",
+        "detail": "開発プレビュー用のサーバーを立ち上げます",
+        "icon": {
+          "color": "terminal.ansiYellow",
+          "id": "run-all"
+        },
+        "type": "shell",
+        "command": "gatsby",
+        "args": ["develop", "--open"],
+        "group": "none",
+        "presentation": {
+          "reveal": "always",
+          "clear": true,
+          "echo": true
+        },
+        "problemMatcher": [],
+      },
+      {
+        "label": "gatsby build",
+        "detail": "本番用ファイルをpublicフォルダに出力します",
+        "icon": {
+          "color": "terminal.ansiBlue",
+          "id": "package"
+        },
+        "type": "shell",
+        "command": "gatsby",
+        "args": ["build"],
+        "group": "build",
+        "presentation": {
+          "reveal": "always",
+          "clear": true,
+          "echo": true
+        },
+        "problemMatcher": [],
+      },
+      {
+        "label": "gatsby serve",
+        "detail": "build後の本番用ファイルをプレビューします",
+        "icon": {
+          "color": "terminal.ansiMagenta",
+          "id": "window"
+        },
+        "type": "shell",
+        "command": "gatsby",
+        "args": ["serve", "--open"],
+        "group": "none",
+        "presentation": {
+          "reveal": "always",
+          "clear": true,
+          "echo": true
+        },
+        "problemMatcher": [],
+      },
+    ]
+}
