@@ -34,7 +34,7 @@ export default function Setup() {
   
   return (
     <>
-      <div className='page'>
+      <div>
           {usePageElem}
       </div>
     </>

@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
+import { StorageKeys } from '../../module/StorageKeys';
 
-const STORAGE_SAVE_KEY_NAME: string = 'sgpj_setup_board';
+
+// @remind ボード名は JSON から読み込むようにする
 const boardNames: string[] = ['池袋カフェ', '池袋居酒屋', '市ヶ谷カフェ', '市ヶ谷居酒屋'];
 
 export default function SetupBoard() {
@@ -13,16 +15,23 @@ export default function SetupBoard() {
   
   // ローカルストレージから現在の値を取得
   useEffect(() => {
-    setSelectedBoard(localStorage.getItem(STORAGE_SAVE_KEY_NAME) ?? '');
+    setSelectedBoard(localStorage.getItem(StorageKeys.setupBoard) ?? '');
   }, []);
-  console.log('[localStorage] ' + STORAGE_SAVE_KEY_NAME + ' : ' + selectedBoard);
+  console.log('[localStorage] ' + StorageKeys.setupBoard + ' : ' + selectedBoard);
   
   // 選択しているボードが変わったらステートを更新して、ローカルストレージにも保存
   const changeStateAndStorage = (e: { target: HTMLInputElement }) => {
     setSelectedBoard(e.target.value);
-    localStorage.setItem(STORAGE_SAVE_KEY_NAME, e.target.value);
+    localStorage.setItem(StorageKeys.setupBoard, e.target.value);
     console.log('[save] ' + e.target.value);
   };
+  
+  
+  function checkInput(): void {
+    // @remind 入力チェック＆メッセージ表示処理を入れる
+    console.log('--- checkInput ---');
+  }
+  
   
   return (
     <>
@@ -57,7 +66,7 @@ export default function SetupBoard() {
               <Link to='/'>戻る</Link>
             </button>
             <button type="button" name="nextbtn" className="c-button">
-              <Link to='./?state=player'>次のSTEPに進む</Link>
+              <Link to='./?state=player' onClick={checkInput}>次のSTEPに進む</Link>
             </button>
           </form>
         </section>

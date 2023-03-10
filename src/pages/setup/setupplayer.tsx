@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import '../../sass/style.scss'
 
+import { StorageKeys } from '../../module/StorageKeys';
 
-const STORAGE_SAVE_KEY_NAME: string = 'sgpj_setup_player';
+
 const DEFAULT_PLAYER_COUNT: number = 5;
 
 export default function SetupPlayer() {
@@ -13,12 +14,14 @@ export default function SetupPlayer() {
   
   // ローカルストレージから現在の値を取得
   useEffect((): void => {
-    const playerListJSON = localStorage.getItem(STORAGE_SAVE_KEY_NAME);
-    if (playerListJSON !== null) {
+    const playerListJSON = localStorage.getItem(StorageKeys.setupPlayer) ?? '[""]';
+    try {
       setPlayerList(JSON.parse(playerListJSON) ?? ['']);
+    } catch (error) {
+      setPlayerList(['']);
     }
   }, []);
-  console.log('[localStorage] ' + STORAGE_SAVE_KEY_NAME + ' : ' + playerList);
+  console.log('[localStorage] ' + StorageKeys.setupPlayer + ' : ' + playerList);
   
   
   let userCount: number = DEFAULT_PLAYER_COUNT;
@@ -35,9 +38,13 @@ export default function SetupPlayer() {
     }
     playerList[keyNum] = e.target.value;
     setPlayerList(playerList);
-    localStorage.setItem(STORAGE_SAVE_KEY_NAME, JSON.stringify(playerList));
+    localStorage.setItem(StorageKeys.setupPlayer, JSON.stringify(playerList));
   };
   
+  function checkInput(): void {
+    // @remind 入力チェック＆メッセージ表示処理を入れる
+    console.log('--- checkInput ---');
+  }
   
   return (
     <>
@@ -74,7 +81,7 @@ export default function SetupPlayer() {
                 <Link to='./?state=board'>戻る</Link>
               </button>
               <button type="button" name="nextbtn" className="c-button">
-                <Link to='./?state=confirmation'>次のSTEPに進む</Link>
+                <Link to='./?state=confirmation' onClick={checkInput}>次のSTEPに進む</Link>
               </button>
             </form>
           </div>
@@ -83,7 +90,3 @@ export default function SetupPlayer() {
     </>
   )
 }
-
-
-
-
