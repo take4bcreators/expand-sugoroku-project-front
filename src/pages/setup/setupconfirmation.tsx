@@ -41,7 +41,7 @@ export default function SetupConfirmation() {
             order: null,
             point: 0,
             location: 0,
-            skip: 0,
+            skipcnt: 0,
             isfinish: false,
         };
         playersInfoArr.push(onePlayerObj);
