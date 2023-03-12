@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 // import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
-import { PlayingStates } from '../../module/PlayingStates';
-import { StorageKeys } from '../../module/StorageKeys';
+import { PlayingStates } from '../../ts/module/PlayingStates';
+import { StorageKeys } from '../../ts/module/StorageKeys';
 import Standby from './standby';
 import DecideOrder from './decideorder';
 

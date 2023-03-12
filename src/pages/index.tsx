@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import '../sass/style.scss';
 
 import { useState, useEffect } from 'react';
-import { StorageKeys } from '../module/StorageKeys';
+import { StorageKeys } from '../ts/module/StorageKeys';
 
 
 const PAGE_TITLE: string = 'すごろくツール';

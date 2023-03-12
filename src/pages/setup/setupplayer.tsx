@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import '../../sass/style.scss'
 
-import { StorageKeys } from '../../module/StorageKeys';
+import { StorageKeys } from '../../ts/module/StorageKeys';
 
 
 const DEFAULT_PLAYER_COUNT: number = 5;

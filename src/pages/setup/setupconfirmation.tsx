@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import { Link } from "gatsby"
 import '../../sass/style.scss'
 
-import { PlayingStates } from '../../module/PlayingStates';
-import { StorageKeys } from '../../module/StorageKeys';
+import { PlayingStates } from '../../ts/module/PlayingStates';
+import { StorageKeys } from '../../ts/module/StorageKeys';
+import { PlayerInfo } from '../../ts/interface/PlayerInfo';
 
 
 export default function SetupConfirmation() {
@@ -33,7 +34,7 @@ export default function SetupConfirmation() {
     const playersInfoArr = [];
     for (const index in cleanPlayerList) {
         const playerID = index.padStart(3, '0');
-        const onePlayerObj = {
+        const onePlayerObj: PlayerInfo = {
             id: playerID,
             name: cleanPlayerList[index],
             icon: '0',
