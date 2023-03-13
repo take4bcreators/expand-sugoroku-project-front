@@ -3,14 +3,16 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
-// import { PlayingStates } from '../../ts/module/PlayingStates';
+import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 import { PlayerInfo } from '../../ts/interface/PlayerInfo';
 
-const PAGE_TITLE: string = '順番決め | すごろくツール';
+import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 
 
-export default function DecideOrder() {
+
+
+export default function DecideOrder(props: PlayingStateIO): JSX.Element {
   
   // 情報保持用ステート
   const [numPlayers, setNumPlayers] = useState('');
@@ -83,14 +85,17 @@ export default function DecideOrder() {
         {
           playerNameElem.map((elem) => elem)
         }
-        <div
-          // @todo 次の画面に飛ぶ関数を作って onclick で割り当てる
-          // onClick={}
+        <Link
+          to='/playing/'
+          onClick={() => {
+            localStorage.setItem(StorageKeys.playingState, PlayingStates.standy);
+            props.setPlayingState(PlayingStates.standy);
+          }}
         >
           → 次に進む
-        </div>
+        </Link>
       </>
-    )
+    );
     
     // ストレージと情報保持用ステートにプレイヤー情報と結果表示用要素を戻す
     const newPlayerInfoJSON = JSON.stringify(playerInfoArr);
@@ -123,13 +128,13 @@ export default function DecideOrder() {
         </section>
       </main>
     </>
-  )
+  );
 }
 
 export function Head() {
   return (
     <>
-      <title>{PAGE_TITLE}</title>
+      <title>順番決め | すごろくツール</title>
     </>
   );
 }

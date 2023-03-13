@@ -1,15 +1,17 @@
 import React from 'react';
 // import { useState, useEffect } from 'react';
-// import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 import '../../sass/style.scss';
+
+import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 
 
 const PAGE_TITLE: string = '〇〇さんのターン | すごろくツール';
 
 
-export default function Standby() {
+export default function Standby(props: PlayingStateIO): JSX.Element {
   
-  
+  console.log('props.playingState : ' + props.playingState);
   
   return (
     <>
@@ -23,7 +25,7 @@ export default function Standby() {
         <section>
           <div>プレイヤー情報</div>
           <div>すごろく盤面</div>
-          <div>トップ画面へ</div>
+          <Link to='/'>トップ画面へ</Link>
         </section>
       </main>
     </>

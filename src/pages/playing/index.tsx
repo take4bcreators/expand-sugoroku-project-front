@@ -9,11 +9,13 @@ import Standby from './standby';
 import DecideOrder from './decideorder';
 
 
-const PAGE_TITLE: string = 'すごろくツール';
+const DEFAULT_PAGE_TITLE: string = 'すごろくツール';
 
 
 
-export default function Playing() {
+
+
+export default function Playing(): JSX.Element {
   
   
   const [playingState, setPlayingState] = useState('');
@@ -34,10 +36,14 @@ export default function Playing() {
   console.log('playingState : ' + playingState);
   switch (playingState) {
     case PlayingStates.decideOrder:
-      usePageElem = (<DecideOrder />);
+      usePageElem = (
+        <DecideOrder playingState={playingState} setPlayingState={setPlayingState} />
+      );
       break;
     case PlayingStates.standy:
-      usePageElem = (<Standby />);
+      usePageElem = (
+        <Standby playingState={playingState} setPlayingState={setPlayingState} />
+      );
       break;
     default:
       break;
@@ -52,17 +58,10 @@ export default function Playing() {
 }
 
 
-// export function changeState(state: string): void {
-//   setPlayingState(state);
-//   localStorage.setItem(STORAGE_SAVE_KEY_NAME, state);
-//   console.log('[save] ' + STORAGE_SAVE_KEY_NAME + state);
-// }
-
-
 export function Head() {
   return (
     <>
-      <title>{PAGE_TITLE}</title>
+      <title>{DEFAULT_PAGE_TITLE}</title>
     </>
   );
 }
