@@ -3,6 +3,8 @@
 export const StorageKeys = {
     /** セットアップ時の選択されたボード名 */
     setupBoard: 'sgpj_setup_board',
+    /** セットアップ時の選択されたボードのID */
+    setupBoardID: 'sgpj_setup_boardid',
     /** セットアップ時の入力されたプレイヤー情報 */
     setupPlayer: 'sgpj_setup_player',
     /** プレイ画面の状態識別文字列 */
@@ -11,6 +13,8 @@ export const StorageKeys = {
     playingNumPlayers: 'sgpj_playing_num_players',
     /** プレイ中のボード名 */
     playingBoard: 'sgpj_playing_board',
+    /** プレイ中のボードのID */
+    playingBoardID: 'sgpj_playing_boardid',
     /** プレイヤー情報 */
     playingPlayers: 'sgpj_playing_players',
     /** 現在の順番番号 */

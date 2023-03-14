@@ -5,7 +5,8 @@ import '../../sass/style.scss'
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
-import { PlayerInfo } from '../../ts/interface/PlayerInfo';
+
+import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 
 
 export default function SetupConfirmation() {
@@ -57,6 +58,7 @@ export default function SetupConfirmation() {
     // ゲーム実施用ストレージをセット
     localStorage.setItem(StorageKeys.playingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
     localStorage.setItem(StorageKeys.playingBoard, boardName); // ボード名
+    localStorage.setItem(StorageKeys.playingBoardID, '0'); // ボードID    @remind ボードIDを動的にする
     localStorage.setItem(StorageKeys.playingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
     localStorage.setItem(StorageKeys.playingState, PlayingStates.decideOrder); // 状態ID
     localStorage.setItem(StorageKeys.playingCurrentOrderNum, '0'); // 現在の順番番号

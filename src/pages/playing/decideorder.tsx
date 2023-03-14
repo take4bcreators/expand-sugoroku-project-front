@@ -5,8 +5,8 @@ import '../../sass/style.scss';
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
-import { PlayerInfo } from '../../ts/interface/PlayerInfo';
 
+import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 
 
@@ -122,9 +122,6 @@ export default function DecideOrder(props: PlayingStateIO): JSX.Element {
         <section>
           <div>
           </div>
-        </section>
-        <section>
-          <Link to='/'>トップ画面へ</Link>
         </section>
       </main>
     </>

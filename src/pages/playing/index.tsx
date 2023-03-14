@@ -8,8 +8,9 @@ import { StorageKeys } from '../../ts/module/StorageKeys';
 import Standby from './standby';
 import DecideOrder from './decideorder';
 
+import PlayingLayout from '../../components/PlayingLayout';
 
-const DEFAULT_PAGE_TITLE: string = 'すごろくツール';
+import SEO from '../../components/SEO';
 
 
 
@@ -49,19 +50,21 @@ export default function Playing(): JSX.Element {
       break;
   }
   
-  
   return (
     <>
-      {usePageElem}
+      <PlayingLayout>
+        {usePageElem}
+      </PlayingLayout>
     </>
   );
 }
 
 
-export function Head() {
+export const Head = () => {
+  const pageTitle: string = 'SUGOROKU!!';
   return (
-    <>
-      <title>{DEFAULT_PAGE_TITLE}</title>
-    </>
-  );
+      <SEO
+          pageTitle={pageTitle}
+      />
+  )
 }
