@@ -5472,6 +5472,14 @@ gatsby-transformer-csv@^5.7.0:
     "@babel/runtime" "^7.20.13"
     csvtojson "^2.0.10"
 
+gatsby-transformer-json@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-5.7.0.tgz#ece5a026a39c3187e2f98f090106debf8edf4eb9"
+  integrity sha512-k+NCxvwtnEI1RwhTnimeNuGLXhe9TvBamj33Mlbla5kFBuZpG95ON0PnwUPOcitWBdJF+TQ6tdlLHoRzZMoI7g==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    bluebird "^3.7.2"
+
 gatsby-worker@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-worker/-/gatsby-worker-2.7.0.tgz#2d3cfced5ecac1d345d5c4e8b896aca282e7a72a"

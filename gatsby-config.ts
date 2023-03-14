@@ -13,6 +13,7 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-transformer-csv`,             // CSV使用用
+    `gatsby-transformer-json`,            // JSON使用用
   ],
 }
 
