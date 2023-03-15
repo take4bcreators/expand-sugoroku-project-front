@@ -15,10 +15,15 @@ import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 
 
+// type Props = {
+//   props: PlayingStateIO,
+// }
 
-export default function Standby(props: PlayingStateIO): JSX.Element {
-  console.log('props.playingState : ' + props.playingState);
+// export default ({ props }: Props) => {
+// export default function DecideOrder(props: PlayingStateIO): JSX.Element {
+export default (props : PlayingStateIO) => {
   
+  console.log('props.playingState : ' + props.playingState);
   
   const data = useStaticQuery(graphql`
     query {
@@ -57,16 +62,13 @@ export default function Standby(props: PlayingStateIO): JSX.Element {
       }
     }
   `)
-  // console.log(' ------ useStaticQuery ------ ');
-  // console.log(data.allBoardsJson.edges[0].node.board);
-  // console.log(' ------ useStaticQuery ------ ');
   const board = data.allBoardsJson;
-  
   
   
   // インスタンス変数
   const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
   const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
+  const [diceNumber, setDiceNumber] = useState<number | undefined>(undefined);
   
   useEffect(() => {
     // プレイヤーの数を取得
@@ -86,22 +88,61 @@ export default function Standby(props: PlayingStateIO): JSX.Element {
   }
   
   
+  
+  const rollDice = () => {
+    // 1 〜 6 までの数字でランダム値を生成
+    const DICE_VALUE_COUNT = 6;
+    const randomValue = Math.floor(Math.random() * DICE_VALUE_COUNT);
+    const diceResult = randomValue + 1;
+    setDiceNumber(diceResult);
+  }
+  
+  
+  
+  let displayElem = (
+    <>
+      <p
+        onClick={rollDice}
+      >
+        →→ クリックでサイコロをふる ←←
+      </p>
+      <Link
+        to='/playing/'
+        onClick={() => {
+          localStorage.setItem(StorageKeys.playingState, PlayingStates.standy);
+          props.setPlayingState(PlayingStates.standy);
+        }}
+      >
+        ← 戻る
+      </Link>
+    </>
+  );
+  if (diceNumber !== undefined) {
+    displayElem = (
+      <>
+        <p>「 {diceNumber} 」</p>
+        <Link
+            to='/playing/'
+            onClick={() => {
+              localStorage.setItem(StorageKeys.playingLastDiceNum, diceNumber.toString());
+              localStorage.setItem(StorageKeys.playingState, PlayingStates.squareEvent);
+              props.setPlayingState(PlayingStates.squareEvent);
+            }}
+        >
+          マスに進む →→→
+        </Link>
+      </>
+    )
+  }
+  
+  
   return (
     <>
       <main>
         <section>
           <h1>{player?.name ?? ''} さんのターン</h1>
           <p>現在地：{curLocationName}</p>
-          <p>現在のポイント： {player?.point ?? ''}</p>
-          <Link
-          to='/playing/'
-          onClick={() => {
-            localStorage.setItem(StorageKeys.playingState, PlayingStates.dice);
-            props.setPlayingState(PlayingStates.dice);
-          }}
-          >
-            → さいころをふる
-          </Link>
+          {displayElem}
         </section>
       </main>
     </>

@@ -5,11 +5,13 @@ import '../../sass/style.scss';
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
-import Standby from './standby';
-import DecideOrder from './decideorder';
+
+import Standby from './Standby';
+import DecideOrder from './DecideOrder';
+import Dice from './Dice';
+import SquareEvent from './SquareEvent';
 
 import PlayingLayout from '../../components/PlayingLayout';
-
 import SEO from '../../components/SEO';
 
 
@@ -44,6 +46,16 @@ export default function Playing(): JSX.Element {
     case PlayingStates.standy:
       usePageElem = (
         <Standby playingState={playingState} setPlayingState={setPlayingState} />
+      );
+      break;
+    case PlayingStates.dice:
+      usePageElem = (
+        <Dice playingState={playingState} setPlayingState={setPlayingState} />
+      );
+      break;
+    case PlayingStates.squareEvent:
+      usePageElem = (
+        <SquareEvent playingState={playingState} setPlayingState={setPlayingState} />
       );
       break;
     default:

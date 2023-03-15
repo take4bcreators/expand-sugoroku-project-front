@@ -15,8 +15,9 @@ import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 
 
-
-export default function Standby(props: PlayingStateIO): JSX.Element {
+// export default ({ props }: Props) => {
+// export default function SqEv(props: PlayingStateIO): JSX.Element {
+export default (props : PlayingStateIO) => {
   console.log('props.playingState : ' + props.playingState);
   
   
@@ -57,9 +58,6 @@ export default function Standby(props: PlayingStateIO): JSX.Element {
       }
     }
   `)
-  // console.log(' ------ useStaticQuery ------ ');
-  // console.log(data.allBoardsJson.edges[0].node.board);
-  // console.log(' ------ useStaticQuery ------ ');
   const board = data.allBoardsJson;
   
   
@@ -90,18 +88,7 @@ export default function Standby(props: PlayingStateIO): JSX.Element {
     <>
       <main>
         <section>
-          <h1>{player?.name ?? ''} さんのターン</h1>
-          <p>現在地：{curLocationName}</p>
-          <p>現在のポイント： {player?.point ?? ''}</p>
-          <Link
-          to='/playing/'
-          onClick={() => {
-            localStorage.setItem(StorageKeys.playingState, PlayingStates.dice);
-            props.setPlayingState(PlayingStates.dice);
-          }}
-          >
-            → さいころをふる
-          </Link>
+          <h1>マスのイベント</h1>
         </section>
       </main>
     </>

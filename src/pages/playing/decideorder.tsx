@@ -107,7 +107,7 @@ export default function DecideOrder(props: PlayingStateIO): JSX.Element {
   
   
   // 順番決めのボタンを押す前後で表示を変える
-  let buttonElem = (<div onClick={decideOrder}>-- 画面をクリックしてください --</div>);
+  let buttonElem = (<div onClick={decideOrder}>→→ ここをクリックしてください ←←</div>);
   if (resultElem !== undefined) {
     buttonElem = resultElem;
   }
