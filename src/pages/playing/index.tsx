@@ -43,7 +43,7 @@ export default function Playing(): JSX.Element {
         <DecideOrder playingState={playingState} setPlayingState={setPlayingState} />
       );
       break;
-    case PlayingStates.standy:
+    case PlayingStates.standby:
       usePageElem = (
         <Standby playingState={playingState} setPlayingState={setPlayingState} />
       );

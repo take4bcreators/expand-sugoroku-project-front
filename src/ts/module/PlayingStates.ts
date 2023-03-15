@@ -4,7 +4,7 @@ export const PlayingStates = {
     /** 順番決め画面 */
     decideOrder: 'decideOrder',
     /** 待機画面 */
-    standy: 'standy',
+    standby: 'standby',
     /** サイコロ画面 */
     dice: 'dice',
     /** サイコロ終了画面 */

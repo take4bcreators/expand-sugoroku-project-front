@@ -88,8 +88,8 @@ export default function DecideOrder(props: PlayingStateIO): JSX.Element {
         <Link
           to='/playing/'
           onClick={() => {
-            localStorage.setItem(StorageKeys.playingState, PlayingStates.standy);
-            props.setPlayingState(PlayingStates.standy);
+            localStorage.setItem(StorageKeys.playingState, PlayingStates.standby);
+            props.setPlayingState(PlayingStates.standby);
           }}
         >
           → 次に進む
