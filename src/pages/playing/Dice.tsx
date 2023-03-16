@@ -14,7 +14,7 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
-export default (props : PlayingPageChildProps) => {
+export default (props : PlayingPageChildProps): JSX.Element => {
   console.log(props);
   
   // インスタンス変数

@@ -10,6 +10,7 @@ export default class SgpjStorageIO {
   playersKey: string = StorageKeys.playingPlayers;
   curOrderNumKey: string = StorageKeys.playingCurrentOrderNum;
   boardIdKey: string = StorageKeys.playingBoardID
+  numPlayers: string = StorageKeys.playingNumPlayers
   
   
   constructor(strage: Storage = localStorage) {
@@ -109,7 +110,7 @@ export default class SgpjStorageIO {
     return curOrder;
   }
   
-  
+  /** 現在プレイ中のボードの番号を取得 */
   getPlayingBoardID(): number | undefined  {
     const playingBoardIdStr = this.strage.getItem(this.boardIdKey);
     if (playingBoardIdStr === null) {
@@ -123,6 +124,23 @@ export default class SgpjStorageIO {
     }
     return playingBoardID;
   }
+  
+  /** ストレージから現在のプレイヤー数を数値で取得 */
+  getNumPlayers(): number | undefined {
+    const numPlayersStr = this.strage.getItem(this.numPlayers);
+    if (numPlayersStr === null) {
+      console.error('numPlayersStr is ' + numPlayersStr);
+      return undefined;
+    }
+    const numPlayersInt = parseInt(numPlayersStr);
+    if (isNaN(numPlayersInt)) {
+      console.error('numPlayersInt is NaN');
+      return undefined;
+    }
+    return numPlayersInt;
+  }
+  
+  
   
   
   /** 現在のプレイヤー情報を更新 */
@@ -152,6 +170,32 @@ export default class SgpjStorageIO {
     playerInfoArr[curPlayerIndex] = playerObject;
     const nextPlayersJSON = JSON.stringify(playerInfoArr);
     this.strage.setItem(this.playersKey, nextPlayersJSON);
+    return true;
+  }
+  
+  
+  /** 次の順番に更新 */
+  updateNextOrderNum(): boolean {
+    const curOrderNum = this.getCurrentOrderNumber();
+    if (curOrderNum === undefined) {
+      console.error('curOrderNum is ' + curOrderNum);
+      return false;
+    }
+    
+    // 現在のプレイヤー数を取得
+    const numPlayersInt = this.getNumPlayers();
+    if (numPlayersInt === undefined) {
+      console.error('numPlayersInt is ' + numPlayersInt);
+      return false;
+    }
+    
+    //  次の順番番号を設定
+    let nextOrder = curOrderNum + 1;
+    if (nextOrder >= numPlayersInt) {
+        nextOrder = 0;
+    }
+    localStorage.setItem(this.curOrderNumKey, nextOrder.toString());
+    
     return true;
   }
   
