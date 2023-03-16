@@ -8,7 +8,7 @@ type OnRouteUpdateType = {
 
 // ブラウザスクリプト実行用
 export const onRouteUpdate = ({ location, prevLocation }: OnRouteUpdateType) => {
-  console.log('onRouteUpdate location.pathname : ' + location.pathname);
+  console.log('[SGPJ] [onRouteUpdate] location.pathname : ' + location.pathname);
 }
 
 // // context使用用

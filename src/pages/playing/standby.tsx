@@ -10,59 +10,13 @@ import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
-
-import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
+import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
-export default function Standby(props: PlayingStateIO): JSX.Element {
-  console.log('props.playingState : ' + props.playingState);
-  
-  
-  const data = useStaticQuery(graphql`
-    query {
-      allBoardsJson {
-        edges {
-          node {
-            board {
-              goal
-              id
-              name
-            }
-            square {
-              id
-              goalFlag
-              event {
-                skip
-                point
-                name
-                move
-                minigame
-                flag
-                desc
-              }
-              minigame {
-                name
-                id
-                desc
-              }
-              store {
-                name
-                desc
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-  // console.log(' ------ useStaticQuery ------ ');
-  // console.log(data.allBoardsJson.edges[0].node.board);
-  // console.log(' ------ useStaticQuery ------ ');
-  const board = data.allBoardsJson;
-  
-  
+export default (props: PlayingPageChildProps): JSX.Element => {
+  console.log(props);
   
   // インスタンス変数
   const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
@@ -74,14 +28,14 @@ export default function Standby(props: PlayingStateIO): JSX.Element {
     setPlayer(stio.getCurrentPlayer());
     setPlayBoard(stio.getPlayingBoardID());
   }, []);
-  console.log('[load] player : ' + player);
+  console.log('[SGPJ] [load] player : ' + player);
   
-  
+  // 現在の場所の名前を取得
   let curLocationName = '';
   if (playBoard !== undefined) {
     const loc = player?.location;
     if (loc !== undefined) {
-      curLocationName = board.edges[playBoard].node.square[loc].store.name;
+      curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[loc].store.name;
     }
   }
   
@@ -94,11 +48,11 @@ export default function Standby(props: PlayingStateIO): JSX.Element {
           <p>現在地：{curLocationName}</p>
           <p>現在のポイント： {player?.point ?? ''}</p>
           <Link
-          to='/playing/'
-          onClick={() => {
-            localStorage.setItem(StorageKeys.playingState, PlayingStates.dice);
-            props.setPlayingState(PlayingStates.dice);
-          }}
+            to='/playing/'
+            onClick={() => {
+              localStorage.setItem(StorageKeys.playingState, PlayingStates.dice);
+              props.setPlayingState(PlayingStates.dice);
+            }}
           >
             → さいころをふる
           </Link>

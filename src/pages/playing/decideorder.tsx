@@ -7,12 +7,13 @@ import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
-import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
+import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
 
-export default function DecideOrder(props: PlayingStateIO): JSX.Element {
+export default (props: PlayingPageChildProps): JSX.Element => {
+  console.log(props);
   
   // 情報保持用ステート
   const [numPlayers, setNumPlayers] = useState('');
@@ -26,8 +27,8 @@ export default function DecideOrder(props: PlayingStateIO): JSX.Element {
     // ユーザー情報を取得
     setPlayerInfoJSON(localStorage.getItem(StorageKeys.playingPlayers) ?? '');
   }, []);
-  console.log('[load] ' + StorageKeys.playingNumPlayers + ' : ' + numPlayers);
-  console.log('[load] ' + StorageKeys.playingPlayers + ' : ' + playerInfoJSON);
+  console.log('[SGPJ] [load] ' + StorageKeys.playingNumPlayers + ' : ' + numPlayers);
+  console.log('[SGPJ] [load] ' + StorageKeys.playingPlayers + ' : ' + playerInfoJSON);
   
   
   // 順番決めボタンが押された時の処理

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
@@ -10,58 +9,13 @@ import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
-
-import type { PlayingStateIO } from '../../ts/type/PlayingStateIO';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
-import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
+import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
-// type Props = {
-//   props: PlayingStateIO,
-// }
 
-// export default ({ props }: Props) => {
-// export default function DecideOrder(props: PlayingStateIO): JSX.Element {
-export default (props : PlayingStateIO) => {
-  console.log('props.playingState : ' + props.playingState);
-  
-  const data = useStaticQuery<AllBoardsJson>(graphql`
-    query {
-      allBoardsJson {
-        edges {
-          node {
-            board {
-              goal
-              id
-              name
-            }
-            square {
-              id
-              goalFlag
-              event {
-                skip
-                point
-                name
-                move
-                minigame
-                flag
-                desc
-              }
-              minigame {
-                name
-                id
-                desc
-              }
-              store {
-                name
-                desc
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+export default (props : PlayingPageChildProps) => {
+  console.log(props);
   
   // インスタンス変数
   const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
@@ -75,17 +29,17 @@ export default (props : PlayingStateIO) => {
     setPlayer(stio.getCurrentPlayer());
     setPlayBoardNum(stio.getPlayingBoardID());
   }, []);
-  console.log('[load] player : ' + player);
+  console.log('[SGPJ] [load] player : ' + player);
   
   // ボード情報取得
-  type BoardNodeType = typeof data.allBoardsJson.edges[0]['node'];
+  type BoardNodeType = typeof props.data.allBoardsJson.edges[0]['node'];
   let playBoard: BoardNodeType | undefined = undefined;
   // 今回止まるのマスの情報格納用オブジェクトの初期化（拡張性を考慮してオブジェクトを使用）
   const curLocationData = {
     name: '',
   };
   if (playBoardNum !== undefined) {
-    playBoard = data.allBoardsJson.edges[playBoardNum].node;
+    playBoard = props.data.allBoardsJson.edges[playBoardNum].node;
     const curLocation = player?.location;
     if (curLocation !== undefined) {
       curLocationData.name = playBoard.square[curLocation].store.name;
