@@ -89,7 +89,7 @@
                     "minigame": true
                 },
                 "minigame": {
-                    "id": "rendagame",
+                    "id": "renda",
                     "name": "連打ゲーム",
                     "desc": "とことん連打しよう！！"
                 }

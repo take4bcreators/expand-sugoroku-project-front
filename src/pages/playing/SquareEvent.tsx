@@ -43,7 +43,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   if (playBoard !== undefined) {
     const loc = player?.location;
     if (loc !== undefined) {
-      const curLocation = props.data.allBoardsJson.edges[playBoard].node.square[loc]
+      const curLocation = props.data.allBoardsJson.edges[playBoard].node.square[loc];
       curLocationData.name = curLocation.store.name;
       curLocationData.desc = curLocation.store.desc;
       curLocationData.eventFlag = curLocation.event.flag;
@@ -94,8 +94,9 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>{curLocationData.eventName}</p>
         <p>{curLocationData.eventDesc}</p>
         <Link to='/playing/' onClick={() => {
-          // @todo ミニゲーム待機画面への画面遷移を入れる
-          
+          console.log(' ---- PlayingStates.minigameReady BEFORE ----');
+          moveScreenTo(PlayingStates.minigameReady);
+          console.log(' ---- PlayingStates.minigameReady AFTER ----');
         }}>
           →→ ミニゲームへ進む
         </Link>

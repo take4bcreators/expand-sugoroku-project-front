@@ -29,4 +29,6 @@ export const StorageKeys = {
     playingGoalIndex: 'sgpj_playing_goal_index',
     /** 最後に行ったミニゲームのランク文字列 */
     playingLastMinigameRank: 'sgpj_playing_last_minigame_rank',
+    /** 最後に発行されたミニゲームの結果を保存するためのキー */
+    playingLastMinigameKey: 'sgpj_playing_last_minigame_key',
 }

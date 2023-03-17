@@ -67,6 +67,7 @@ export default function SetupConfirmation() {
     localStorage.setItem(StorageKeys.playingIsEnd, 'false'); // 終了フラグ
     localStorage.setItem(StorageKeys.playingGoalIndex, goalIndex.toString()); // ゴールのマス番号
     localStorage.setItem(StorageKeys.playingLastMinigameRank, ''); // ミニゲームの結果（ランク文字列）
+    localStorage.setItem(StorageKeys.playingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
   }
   
   function removeSetupData(): void {

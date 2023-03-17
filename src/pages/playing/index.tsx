@@ -7,6 +7,8 @@ import Standby from './Standby';
 import DecideOrder from './DecideOrder';
 import Dice from './Dice';
 import SquareEvent from './SquareEvent';
+import MinigameReady from './MinigameReady';
+import MinigameResult from './MinigameResult';
 
 import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
@@ -64,6 +66,26 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
     case PlayingStates.squareEvent:
       usePageElem = (
         <SquareEvent
+          data={data}
+          location={location}
+          playingState={playingState}
+          setPlayingState={setPlayingState}
+        />
+      );
+      break;
+    case PlayingStates.minigameReady:
+      usePageElem = (
+        <MinigameReady
+          data={data}
+          location={location}
+          playingState={playingState}
+          setPlayingState={setPlayingState}
+        />
+      );
+      break;
+    case PlayingStates.minigameResult:
+      usePageElem = (
+        <MinigameResult
           data={data}
           location={location}
           playingState={playingState}

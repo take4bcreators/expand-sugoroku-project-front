@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
