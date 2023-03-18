@@ -9,7 +9,6 @@ import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
-import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
@@ -18,24 +17,44 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   console.log(props);
   
   // インスタンス変数
-  const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
-  const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [doEffect, setDoEffect] = useState(false);
   
   useEffect(() => {
-    // プレイヤーの数を取得
-    const stio = new SgpjStorageIO(localStorage);
-    setPlayer(stio.getCurrentPlayer());
-    setPlayBoard(stio.getPlayingBoardID());
+    setStio(new SgpjStorageIO(localStorage));
+    setDoEffect(true);
   }, []);
-  console.log('[SGPJ] [load] player : ' + player);
+  if (!doEffect) return (<></>);
+  console.log('[SGPJ] [load] player : ' + stio?.getCurrentPlayer());
+  
+  if (stio === undefined) {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
+  
+  // すべてのプレイヤーがゴール済みであればエンディング画面へ移行
+  const isAllPlayersGoal = stio.checkAllPlayersGoalReached() ?? false;
+  if (isAllPlayersGoal) {
+    return (
+      <>
+        <Link to="/playing/" onClick={() => {
+          localStorage.setItem(StorageKeys.playingState, PlayingStates.ending);
+          props.setPlayingState(PlayingStates.ending);
+        }}>
+          →→ 結果発表画面へすすむ ←←
+        </Link>
+      </>
+    );
+  }
+  
   
   // 現在の場所の名前を取得
   let curLocationName = '';
-  if (playBoard !== undefined) {
-    const loc = player?.location;
-    if (loc !== undefined) {
-      curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[loc].store.name;
-    }
+  const playBoard = stio.getPlayingBoardID();
+  const player = stio.getCurrentPlayer();
+  const loc = player?.location;
+  if (playBoard !== undefined && loc !== undefined) {
+    curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[loc].store.name;
   }
   
   

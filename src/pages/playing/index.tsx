@@ -9,6 +9,7 @@ import Dice from './Dice';
 import SquareEvent from './SquareEvent';
 import MinigameReady from './MinigameReady';
 import MinigameResult from './MinigameResult';
+import Ending from './Ending';
 
 import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
@@ -86,6 +87,16 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
     case PlayingStates.minigameResult:
       usePageElem = (
         <MinigameResult
+          data={data}
+          location={location}
+          playingState={playingState}
+          setPlayingState={setPlayingState}
+        />
+      );
+      break;
+    case PlayingStates.ending:
+      usePageElem = (
+        <Ending
           data={data}
           location={location}
           playingState={playingState}

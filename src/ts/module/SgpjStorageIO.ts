@@ -201,6 +201,32 @@ export default class SgpjStorageIO {
   
   
   
+  /** すべてのプレイヤーがゴールしたかを確認する */
+  checkAllPlayersGoalReached(): boolean | undefined {
+    // プレイヤー数を取得
+    const numPlayers = this.getNumPlayers();
+    if (numPlayers === undefined) {
+      return undefined;
+    }
+    // プレイヤーオブジェクトを取得
+    const playerObjects = this.getPlayerInfoObject();
+    if (playerObjects === undefined) {
+      return undefined;
+    }
+    // ゴール済みプレイヤーをカウント
+    let finishedPlayerCount = 0;
+    for (const playerObject of playerObjects) {
+        if (playerObject['isfinish']) {
+            finishedPlayerCount++;
+        }
+    }
+    // 判定
+    if (numPlayers === finishedPlayerCount) {
+      return true;
+    }
+    return false;
+  }
+  
   
   
   
