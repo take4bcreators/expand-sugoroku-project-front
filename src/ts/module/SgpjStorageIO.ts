@@ -23,21 +23,21 @@ export default class SgpjStorageIO {
     // ストレージからプレイヤー情報を配列で取得
     const playerInfoArr = this.getPlayerInfoObject();
     if (playerInfoArr === undefined) {
-      console.error('playerInfoArr is ' + playerInfoArr);
+      console.warn('playerInfoArr is ' + playerInfoArr);
       return undefined;
     }
     
     // ストレージから現在の順番番号を取得
     const curOrder = this.getCurrentOrderNumber();
     if (curOrder === undefined) {
-      console.error('curOrder is ' + curOrder);
+      console.warn('curOrder is ' + curOrder);
       return undefined;
     }
     
     // プレイヤー情報と現在の順番番号から、現在のプレイヤーのオブジェクトを取得
     const curPlayerObject = playerInfoArr.find(e => e.order === curOrder);
     if (curPlayerObject === undefined) {
-      console.error('curPlayerObject is ' + curPlayerObject);
+      console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined;
     }
     return curPlayerObject;
@@ -47,7 +47,7 @@ export default class SgpjStorageIO {
   getCurrentPlayerName(): string | undefined {
     const curPlayerObject = this.getCurrentPlayer();
     if (curPlayerObject === undefined) {
-      console.error('curPlayerObject is ' + curPlayerObject);
+      console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined
     }
     return curPlayerObject.name;
@@ -57,7 +57,7 @@ export default class SgpjStorageIO {
   getCurrentPlayerPoint(): number | undefined {
     const curPlayerObject = this.getCurrentPlayer();
     if (curPlayerObject === undefined) {
-      console.error('curPlayerObject is ' + curPlayerObject);
+      console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined
     }
     return curPlayerObject.point;
@@ -67,7 +67,7 @@ export default class SgpjStorageIO {
   getCurrentPlayerLocation(): number | undefined {
     const curPlayerObject = this.getCurrentPlayer();
     if (curPlayerObject === undefined) {
-      console.error('curPlayerObject is ' + curPlayerObject);
+      console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined
     }
     return curPlayerObject.location;
@@ -81,14 +81,14 @@ export default class SgpjStorageIO {
   getPlayerInfoObject(): PlayerInfo[] | undefined {
     const playerInfoJSON = this.strage.getItem(this.playersKey);
     if (playerInfoJSON === null) {
-      console.error('playerInfoJSON is ' + playerInfoJSON);
+      console.warn('playerInfoJSON is ' + playerInfoJSON);
       return undefined;
     }
     let playerInfoArr: PlayerInfo[];
     try {
       playerInfoArr = JSON.parse(playerInfoJSON);
     } catch (error) {
-      console.error('playerInfoJSON JSON.parse Error');
+      console.warn('playerInfoJSON JSON.parse Error');
       return undefined;
     }
     return playerInfoArr;
@@ -99,12 +99,12 @@ export default class SgpjStorageIO {
   getCurrentOrderNumber(): number | undefined {
     const curOrderStr = this.strage.getItem(this.curOrderNumKey);
     if (curOrderStr === null) {
-      console.error('curOrderStr is ' + curOrderStr);
+      console.warn('curOrderStr is ' + curOrderStr);
       return undefined;
     }
     const curOrder = parseInt(curOrderStr);
     if (isNaN(curOrder)) {
-      console.error('curOrder is NaN');
+      console.warn('curOrder is NaN');
       return undefined;
     }
     return curOrder;
@@ -114,12 +114,12 @@ export default class SgpjStorageIO {
   getPlayingBoardID(): number | undefined  {
     const playingBoardIdStr = this.strage.getItem(this.boardIdKey);
     if (playingBoardIdStr === null) {
-      console.error('playingBoardIdStr is ' + playingBoardIdStr);
+      console.warn('playingBoardIdStr is ' + playingBoardIdStr);
       return undefined;
     }
     const playingBoardID = parseInt(playingBoardIdStr);
     if (isNaN(playingBoardID)) {
-      console.error('playingBoardID is NaN');
+      console.warn('playingBoardID is NaN');
       return undefined;
     }
     return playingBoardID;
@@ -129,12 +129,12 @@ export default class SgpjStorageIO {
   getNumPlayers(): number | undefined {
     const numPlayersStr = this.strage.getItem(this.numPlayers);
     if (numPlayersStr === null) {
-      console.error('numPlayersStr is ' + numPlayersStr);
+      console.warn('numPlayersStr is ' + numPlayersStr);
       return undefined;
     }
     const numPlayersInt = parseInt(numPlayersStr);
     if (isNaN(numPlayersInt)) {
-      console.error('numPlayersInt is NaN');
+      console.warn('numPlayersInt is NaN');
       return undefined;
     }
     return numPlayersInt;
@@ -148,21 +148,21 @@ export default class SgpjStorageIO {
     // ストレージからプレイヤー情報を配列で取得
     const playerInfoArr = this.getPlayerInfoObject();
     if (playerInfoArr === undefined) {
-      console.error('playerInfoArr is ' + playerInfoArr);
+      console.warn('playerInfoArr is ' + playerInfoArr);
       return false;
     }
     
     // ストレージから現在の順番番号を取得
     const curOrder = this.getCurrentOrderNumber();
     if (curOrder === undefined) {
-      console.error('curOrder is ' + curOrder);
+      console.warn('curOrder is ' + curOrder);
       return false;
     }
     
     // プレイヤー情報と現在の順番番号から、現在のプレイヤーの配列内番号を取得
     const curPlayerIndex = playerInfoArr.findIndex(e => e.order === curOrder)
     if (curPlayerIndex === -1) {
-      console.error('curPlayerIndex is ' + curPlayerIndex);
+      console.warn('curPlayerIndex is ' + curPlayerIndex);
       return false;
     }
     
@@ -178,14 +178,14 @@ export default class SgpjStorageIO {
   updateNextOrderNum(): boolean {
     const curOrderNum = this.getCurrentOrderNumber();
     if (curOrderNum === undefined) {
-      console.error('curOrderNum is ' + curOrderNum);
+      console.warn('curOrderNum is ' + curOrderNum);
       return false;
     }
     
     // 現在のプレイヤー数を取得
     const numPlayersInt = this.getNumPlayers();
     if (numPlayersInt === undefined) {
-      console.error('numPlayersInt is ' + numPlayersInt);
+      console.warn('numPlayersInt is ' + numPlayersInt);
       return false;
     }
     

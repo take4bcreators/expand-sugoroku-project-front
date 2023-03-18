@@ -39,7 +39,7 @@ export default function SetupConfirmation() {
             id: playerID,
             name: cleanPlayerList[index],
             icon: '0',
-            order: null,
+            order: -1,
             point: 0,
             location: 0,
             skipcnt: 0,

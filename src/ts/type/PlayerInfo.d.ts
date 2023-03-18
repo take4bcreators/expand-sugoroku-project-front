@@ -13,9 +13,9 @@ export type PlayerInfo = {
     /** 
      * プレイヤーの順番番号
      *     0 から連番で付与する
-     *     順番決めが未実施の場合は null
+     *     順番決めが未実施の場合は -1
      */
-    order: number | null,
+    order: number,
     /** プレイヤーの現在のポイント */
     point: number,
     /** プレイヤーの現在のマス番号 */

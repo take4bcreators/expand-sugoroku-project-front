@@ -24,7 +24,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   
   useEffect(() => {
     setStio(new SgpjStorageIO(localStorage));
-    setSgmgr(new SgpjGameManager(props, localStorage));
+    // setSgmgr(new SgpjGameManager(props, localStorage));
+    setSgmgr(new SgpjGameManager(props.setPlayingState, localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
