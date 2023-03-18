@@ -227,6 +227,19 @@ export default class SgpjStorageIO {
     return false;
   }
   
+  /** 現在のプレイヤーのお休み数を1減らす */
+  decrementCurPlayerSkipCnt(): boolean {
+    const curPlayer = this.getCurrentPlayer();
+    if (curPlayer === undefined) {
+      return false;
+    }
+    curPlayer.skipcnt = curPlayer.skipcnt - 1;
+    if (curPlayer.skipcnt < 0) {
+      curPlayer.skipcnt = 0;
+    }
+    const updateResult = this.updateCurrentPlayer(curPlayer);
+    return updateResult;
+  }
   
   
   
