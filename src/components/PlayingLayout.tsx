@@ -1,15 +1,30 @@
 import React, { ReactNode } from 'react';
 import PlayingHeader from './PlayingHeader';
-import PlayingFooter from './PlayingFooter';
+import PlayingFooterTypeA from './PlayingFooterTypeA';
+import PlayingFooterTypeB from './PlayingFooterTypeB';
 
-type ChildType = {
-    children?: ReactNode
+type PropsType = {
+    children?: ReactNode,
+    footerType: ('A' | 'B'),
 }
 
-export default ({children}: ChildType) => (
-    <div>
-        <PlayingHeader />
-            {children}
-        <PlayingFooter />
-    </div>
-)
+export default ({ children, footerType }: PropsType) => {
+  let footerNode = (<></>);
+  switch (footerType) {
+    case 'A':
+      footerNode = (<PlayingFooterTypeA />);
+      break;
+    case 'B':
+      footerNode = (<PlayingFooterTypeB />);
+      break;
+    default:
+      break;
+  }
+  return (
+    <>
+      <PlayingHeader />
+      {children}
+      {footerNode}
+    </>
+  );
+}

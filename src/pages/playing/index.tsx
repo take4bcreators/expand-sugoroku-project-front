@@ -33,6 +33,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
   
   // 現在のストレージの状態によりページ内容の表示を変える
   let usePageElem: JSX.Element;
+  let footerType: ('A' | 'B') = 'A';
   switch (playingState) {
     case PlayingStates.decideOrder:
       usePageElem = (
@@ -43,6 +44,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'B';
       break;
     case PlayingStates.standby:
       usePageElem = (
@@ -53,6 +55,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'A';
       break;
     case PlayingStates.dice:
       usePageElem = (
@@ -63,6 +66,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'B';
       break;
     case PlayingStates.squareEvent:
       usePageElem = (
@@ -73,6 +77,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'A';
       break;
     case PlayingStates.minigameReady:
       usePageElem = (
@@ -83,6 +88,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'A';
       break;
     case PlayingStates.minigameResult:
       usePageElem = (
@@ -93,6 +99,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'B';
       break;
     case PlayingStates.ending:
       usePageElem = (
@@ -103,6 +110,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
           setPlayingState={setPlayingState}
         />
       );
+      footerType = 'B';
       break;
     default:
       usePageElem = (<div>ロード中...</div>);
@@ -110,7 +118,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
   }
   
   return (
-    <PlayingLayout>
+    <PlayingLayout footerType={footerType}>
       {usePageElem}
     </PlayingLayout>
   );
