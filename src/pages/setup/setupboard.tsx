@@ -1,26 +1,21 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
+
 import '../../sass/style.scss';
 
 import { StorageKeys } from '../../ts/module/StorageKeys';
-
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 
 
-// @remind ボード名は JSON から読み込むようにする
-// const boardNames: string[] = ['池袋カフェ', '池袋居酒屋', '市ヶ谷カフェ', '市ヶ谷居酒屋'];
 
 type ThisPageProps = {
   data: AllBoardsJson,
 }
 
-
-
 export default ({ data }: ThisPageProps) => {
   const [selectedBoard, setSelectedBoard] = useState('');
   const [doEffect, setDoEffect] = useState(false);
-  
   useEffect(() => {
     setSelectedBoard(localStorage.getItem(StorageKeys.setupBoard) ?? '');
     setDoEffect(true);
@@ -28,19 +23,11 @@ export default ({ data }: ThisPageProps) => {
   if (!doEffect) return (<></>);
   console.log('[SGPJ] [localStorage] ' + StorageKeys.setupBoard + ' : ' + selectedBoard);
   
-  
   // ボードデータの取得
   const boards = data.allBoardsJson.edges;
   const boardNames = boards.map(board => board.node.board.name);
   const boardIDs = boards.map(board => board.node.board.id);
   
-  
-  // 選択しているボードが変わったらステートを更新して、ローカルストレージにも保存
-  // const changeStateAndStorage = (e: { target: HTMLInputElement }) => {
-  //   setSelectedBoard(e.target.value);
-  //   localStorage.setItem(StorageKeys.setupBoard, e.target.value);
-  //   console.log('[SGPJ] [save] ' + e.target.value);
-  // };
   const changeStateAndStorage = (e: { target: HTMLInputElement }) => {
     const boardID = e.target.dataset.boardid ?? ''
     setSelectedBoard(boardID);
@@ -48,12 +35,14 @@ export default ({ data }: ThisPageProps) => {
     console.log('[SGPJ] [save] ' + boardID);
   };
   
-  
   function checkInput(): void {
-    // @remind 入力チェック＆メッセージ表示処理を入れる
-    console.log('--- checkInput ---');
+    if (selectedBoard === '') {
+      console.warn('[SGPJ] selectedBoard is none');
+      window.alert('ボードを選択してください');
+    } else {
+      navigate('./?state=player');
+    }
   }
-  
   
   return (
     <>
@@ -89,7 +78,7 @@ export default ({ data }: ThisPageProps) => {
               <Link to='/'>戻る</Link>
             </button>
             <button type="button" name="nextbtn" className="c-button">
-              <Link to='./?state=player' onClick={checkInput}>次のSTEPに進む</Link>
+              <span onClick={checkInput}>次のSTEPに進む</span>
             </button>
           </form>
         </section>

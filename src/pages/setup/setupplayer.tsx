@@ -1,18 +1,19 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
+
 import '../../sass/style.scss'
 
+import { existsSameValue } from '../../ts/module/SgpjCommonModules';
 import { StorageKeys } from '../../ts/module/StorageKeys';
+
 
 
 const DEFAULT_PLAYER_COUNT: number = 5;
 
-export default function SetupPlayer() {
-  // インスタンス変数
+export default () => {
   const [playerList, setPlayerList] = useState(['']);
-  
-  // ローカルストレージから現在の値を取得
+  const [doEffect, setDoEffect] = useState(false);
   useEffect((): void => {
     const playerListJSON = localStorage.getItem(StorageKeys.setupPlayer) ?? '[""]';
     try {
@@ -20,8 +21,9 @@ export default function SetupPlayer() {
     } catch (error) {
       setPlayerList(['']);
     }
+    setDoEffect(true);
   }, []);
-  console.log('[localStorage] ' + StorageKeys.setupPlayer + ' : ' + playerList);
+  if (!doEffect) return (<></>);
   
   
   let userCount: number = DEFAULT_PLAYER_COUNT;
@@ -42,8 +44,15 @@ export default function SetupPlayer() {
   };
   
   function checkInput(): void {
-    // @remind 入力チェック＆メッセージ表示処理を入れる
-    console.log('--- checkInput ---');
+    if (playerList.length < 2) {
+      window.alert('2人以上入力してください');
+    } else if (playerList.length >= 100) {
+      window.alert('プレイヤーの数は99人以下にしてください');
+    } else if (existsSameValue(playerList)) {
+      window.alert('同じ名前のプレイヤーは設定できません');
+    } else {
+      navigate('./?state=confirmation');
+    }
   }
   
   return (
@@ -81,7 +90,7 @@ export default function SetupPlayer() {
                 <Link to='./?state=board'>戻る</Link>
               </button>
               <button type="button" name="nextbtn" className="c-button">
-                <Link to='./?state=confirmation' onClick={checkInput}>次のSTEPに進む</Link>
+                <span onClick={checkInput}>次のSTEPに進む</span>
               </button>
             </form>
           </div>
