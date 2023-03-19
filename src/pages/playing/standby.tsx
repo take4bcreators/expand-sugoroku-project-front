@@ -114,7 +114,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       <main>
         <section>
           <h1>{player?.name ?? ''} さんのターン</h1>
-          <p>現在地：{curLocationName}</p>
+          <p>現在地：[{playerLocation}] {curLocationName}</p>
           <p>現在のポイント： {player?.point ?? ''}</p>
           {innerElem}
         </section>

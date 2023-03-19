@@ -36,6 +36,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   let playBoard: BoardNodeType | undefined = undefined;
   // 今回止まるのマスの情報格納用オブジェクトの初期化（拡張性を考慮してオブジェクトを使用）
   const curLocationData = {
+    number: 0,
     name: '',
   };
   if (playBoardNum !== undefined) {
@@ -43,6 +44,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     const curLocation = player?.location;
     if (curLocation !== undefined) {
       curLocationData.name = playBoard.square[curLocation].store.name;
+      curLocationData.number = curLocation;
     }
   }
   
@@ -161,7 +163,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       <main>
         <section>
           <h1>{player?.name ?? ''} さんのターン</h1>
-          <p>現在地：{curLocationData.name}</p>
+          <p>現在地：[{curLocationData.number}] {curLocationData.name}</p>
           {displayElem}
         </section>
       </main>
