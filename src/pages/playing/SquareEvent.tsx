@@ -59,9 +59,24 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
+  // すべてのプレイヤーがゴール済みであるかを確認
+  const isAllPlayersGoal = stio.checkAllPlayersGoalReached() ?? false;
+  
   // 現在のストレージの状態によりページ内容の表示を変える
   let usePageElem: JSX.Element;
-  if (!curLocationData.eventFlag) {
+  if (isAllPlayersGoal) {
+    // 全員ゴールした場合は、エンディング画面へのリンクを貼る
+    usePageElem = (
+      <>
+        <Link to='/playing/' onClick={() => {
+          stio.updateNextOrderNum();
+          sgmgr.moveScreenTo(PlayingStates.ending);
+        }}>
+          →→ 最終結果画面へ進む
+        </Link>
+      </>
+    );
+  } else if (!curLocationData.eventFlag) {
     // イベントがない場合はその旨を表示
     usePageElem = (
       <>

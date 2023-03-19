@@ -32,18 +32,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     return (<></>);
   }
   
-  // すべてのプレイヤーがゴール済みであればエンディング画面へ移行
-  const isAllPlayersGoal = stio.checkAllPlayersGoalReached() ?? false;
-  if (isAllPlayersGoal) {
-    return (
-      <>
-        <Link to="/playing/" onClick={() => {sgmgr.moveScreenTo(PlayingStates.ending)}}>
-          →→ 結果発表画面へすすむ ←←
-        </Link>
-      </>
-    );
-  }
-  
   // 表示用要素
   let innerElem = (
     <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.dice)}}>
