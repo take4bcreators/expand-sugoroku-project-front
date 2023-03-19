@@ -17,5 +17,14 @@ export default class SgpjSugorokuManager {
     return;
   }
   
+  /** サイコロを振る */
+  rollDice(): number {
+    const DICE_VALUE_COUNT = 6;
+    const randomValue = Math.floor(Math.random() * DICE_VALUE_COUNT);
+    const diceResult = randomValue + 1;
+    return diceResult;
+  }
+  
+  
 }
 

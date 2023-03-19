@@ -5,31 +5,34 @@ import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
-
+import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
-import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
 export default (props : PlayingPageChildProps): JSX.Element => {
-  console.log(props);
-  
-  // インスタンス変数
-  const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
-  const [playBoardNum, setPlayBoardNum] = useState<number | undefined>(undefined);
   const [diceNumber, setDiceNumber] = useState<number | undefined>(undefined);
-  
-  // ストレージからの取得
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
+  const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    // プレイヤーの数を取得
-    const stio = new SgpjStorageIO(localStorage);
-    setPlayer(stio.getCurrentPlayer());
-    setPlayBoardNum(stio.getPlayingBoardID());
+    setStio(new SgpjStorageIO(localStorage));
+    setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
+    setDoEffect(true);
   }, []);
-  console.log('[SGPJ] [load] player : ' + player);
+  if (!doEffect) return (<></>);
+  if (stio === undefined) {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
+  if (sgmgr === undefined) {
+    console.error('[SGPJ] SgpjGameManager is undefined');
+    return (<></>);
+  }
+  
   
   // ボード情報取得
   type BoardNodeType = typeof props.data.allBoardsJson.edges[0]['node'];
@@ -39,45 +42,32 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     number: 0,
     name: '',
   };
+  // 情報取得
+  const player = stio.getCurrentPlayer();
+  const playBoardNum = stio.getPlayingBoardID();
   if (playBoardNum !== undefined) {
     playBoard = props.data.allBoardsJson.edges[playBoardNum].node;
-    const curLocation = player?.location;
-    if (curLocation !== undefined) {
-      curLocationData.name = playBoard.square[curLocation].store.name;
-      curLocationData.number = curLocation;
+    const playerLocation = player?.location;
+    if (playerLocation !== undefined) {
+      curLocationData.name = playBoard.square[playerLocation].store.name;
+      curLocationData.number = playerLocation;
     }
-  }
-  
-  // サイコロを振る（クリックされた際に使用）
-  function rollDice(): void {
-    const DICE_VALUE_COUNT = 6;
-    const randomValue = Math.floor(Math.random() * DICE_VALUE_COUNT);
-    const diceResult = randomValue + 1;
-    setDiceNumber(diceResult);
-    return;
-  }
-  
-  // 待機画面に戻るアクション（クリックされた際に使用）
-  function backToStandbyScreen(): void {
-    localStorage.setItem(StorageKeys.playingState, PlayingStates.standby);
-    props.setPlayingState(PlayingStates.standby);
-    return;
   }
   
   // 表示する要素の初期化
   let displayElem = (
     <>
-      <p onClick={rollDice}>
+      <p onClick={() => {setDiceNumber(sgmgr.rollDice())}}>
         →→ クリックでサイコロをふる ←←
       </p>
-      <Link to='/playing/' onClick={backToStandbyScreen}>
+      <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.standby)}}>
         ← 戻る
       </Link>
     </>
   );
   
   // サイコロを振った後の表示と処理
-  if (diceNumber !== undefined) {
+  if (typeof diceNumber !== 'undefined') {
     // 次のマス情報格納用オブジェクトの初期化
     const nextLocationData = {
       dataReady: false,
@@ -88,7 +78,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       skip: 0,
     };
     // 次のマスの情報を取得する
-    if (playBoard !== undefined) {
+    if (typeof playBoard !== 'undefined') {
       const curLocation = player?.location ?? NaN;
       let nextLocation = curLocation + diceNumber;
       const goalIndex = playBoard.board.goal;
@@ -113,7 +103,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
     
     // データの状態が問題なければマスに進むボタンを設置
-    if (nextLocationData.dataReady && player !== undefined) {
+    if (nextLocationData.dataReady && typeof player !== 'undefined') {
       displayElem = (
         <>
           <p>「 {diceNumber} 」</p>
@@ -129,13 +119,10 @@ export default (props : PlayingPageChildProps): JSX.Element => {
                 nextPlayer.skipcnt += nextLocationData.skip;
                 nextPlayer.isfinish = nextLocationData.isfinish;
                 nextPlayer.location = nextLocationData.location;
-                const stio = new SgpjStorageIO(localStorage);
                 const updateResult = stio.updateCurrentPlayer(nextPlayer);
-                
                 // ユーザー情報UPDATEが問題ない場合は、シーンを更新する
                 if (updateResult) {
-                  localStorage.setItem(StorageKeys.playingState, PlayingStates.squareEvent);
-                  props.setPlayingState(PlayingStates.squareEvent);
+                  sgmgr.moveScreenTo(PlayingStates.squareEvent)
                 } else {
                   console.error('[SGPJ] Failed to update user information.');
                 }
@@ -149,14 +136,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       displayElem = (
         <>
           <p>エラーが発生しました</p>
-          <Link to='/playing/' onClick={backToStandbyScreen}>
+          <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.standby)}}>
             ← 戻る
           </Link>
         </>
       );
     }
   }
-  
   
   return (
     <>
@@ -170,13 +156,3 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     </>
   )
 }
-
-// export function Head() {
-//   return (
-//     <>
-//       <title>スタンバイ画面</title>
-//     </>
-//   );
-// }
-
-
