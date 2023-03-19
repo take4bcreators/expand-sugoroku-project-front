@@ -59,6 +59,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
+  // ゴール済みの場合はゴールボーナスを詳細として表示
+  if (player?.isfinish) {
+    const goalPlayerCount = stio.getGoalPlayerCount();
+    const goalPoint = sgmgr.getGoalPoint(goalPlayerCount);
+    curLocationData.desc = `ゴールボーナス： ${goalPoint} pt.`;
+  }
+  
   // すべてのプレイヤーがゴール済みであるかを確認
   const isAllPlayersGoal = stio.checkAllPlayersGoalReached() ?? false;
   

@@ -141,6 +141,17 @@ export default class SgpjStorageIO {
   }
   
   
+  /** 現在ゴール済みのプレイヤーの数を返す
+   * 情報取得に失敗した場合は NaN を返す
+   */
+  getGoalPlayerCount(): number {
+    const players = this.getPlayerInfoObject();
+    if (typeof players === 'undefined') {
+      return NaN;
+    }
+    const count = players.filter(player => player.isfinish).length;
+    return count;
+  }
   
   
   /** 現在のプレイヤー情報を更新 */

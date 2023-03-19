@@ -25,6 +25,23 @@ export default class SgpjSugorokuManager {
     return diceResult;
   }
   
+  /** ゴール時に付与されるポイントを返す */
+  getGoalPoint(goalOrder: number): number {
+    // ゴール順に応じたポイント
+    // @remind 設定ファイルで管理したい
+    const GOAL_POINT_MAP = new Map([
+      [1, 100],
+      [2, 50],
+      [3, 30],
+    ]);
+    let goalPoint = GOAL_POINT_MAP.get(goalOrder);
+    if (typeof goalPoint === 'undefined') {
+      goalPoint = 0;
+    }
+    return goalPoint;
+  }
+  
+  
   
 }
 

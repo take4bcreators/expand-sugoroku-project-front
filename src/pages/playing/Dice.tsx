@@ -98,6 +98,11 @@ export default (props : PlayingPageChildProps): JSX.Element => {
             nextLocationData.skip = 0;
           }
         }
+        // ゴール済みの場合はゴール順に応じてポイントを付与
+        if (nextLocationData.isfinish) {
+          const goalPlayerCount = stio.getGoalPlayerCount();
+          nextLocationData.point = sgmgr.getGoalPoint(goalPlayerCount + 1);
+        }
         nextLocationData.dataReady = true;
       }
     }
