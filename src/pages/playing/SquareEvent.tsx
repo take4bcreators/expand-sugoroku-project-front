@@ -5,29 +5,31 @@ import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
-
+import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 import { PlayingStates } from '../../ts/module/PlayingStates';
-import { StorageKeys } from '../../ts/module/StorageKeys';
 
-import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
 export default (props : PlayingPageChildProps): JSX.Element => {
-  // インスタンス変数
-  const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
-  const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
-  
   useEffect(() => {
-    const stio = new SgpjStorageIO(localStorage);
-    setPlayer(stio.getCurrentPlayer());
-    setPlayBoard(stio.getPlayingBoardID());
+    setStio(new SgpjStorageIO(localStorage));
+    setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [load] player : ' + player);
+  if (typeof stio === 'undefined') {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
+  if (typeof sgmgr === 'undefined') {
+    console.error('[SGPJ] SgpjGameManager is undefined');
+    return (<></>);
+  }
   
   // 今回止まったマスの情報格納用オブジェクトの初期化
   const curLocationData = {
@@ -39,11 +41,14 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     minigame: false,
     eventMove: 0,
   };
+  
   // マスの情報取得
-  if (playBoard !== undefined) {
-    const loc = player?.location;
-    if (loc !== undefined) {
-      const curLocation = props.data.allBoardsJson.edges[playBoard].node.square[loc];
+  const board = stio.getPlayingBoardID();
+  const player = stio.getCurrentPlayer();
+  if (board !== undefined) {
+    const playerLocation = player?.location;
+    if (playerLocation !== undefined) {
+      const curLocation = props.data.allBoardsJson.edges[board].node.square[playerLocation];
       curLocationData.name = curLocation.store.name;
       curLocationData.desc = curLocation.store.desc;
       curLocationData.eventFlag = curLocation.event.flag;
@@ -54,34 +59,16 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  
-  // 次の順番にする処理をクリック時用に定義
-  function setNextOrderNum(): void {
-    const stio = new SgpjStorageIO(localStorage);
-    const updateResult = stio.updateNextOrderNum();
-    if (!updateResult) {
-      console.error('[SGPJ] Failed to update user information.');
-    }
-    return;
-  }
-  
-  // 画面移動のアクションをクリック時用に定義
-  function moveScreenTo(screen: string): void {
-    localStorage.setItem(StorageKeys.playingState, screen);
-    props.setPlayingState(screen);
-    return;
-  }
-  
   // 現在のストレージの状態によりページ内容の表示を変える
-  let usePageElem: JSX.Element = (<section></section>);
+  let usePageElem: JSX.Element;
   if (!curLocationData.eventFlag) {
     // イベントがない場合はその旨を表示
     usePageElem = (
       <>
         <p>イベントはありません</p>
         <Link to='/playing/' onClick={() => {
-          setNextOrderNum();
-          moveScreenTo(PlayingStates.standby);
+          stio.updateNextOrderNum();
+          sgmgr.moveScreenTo(PlayingStates.standby);
         }}>
           →→ 次の人の番へすすむ ←←
         </Link>
@@ -94,9 +81,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>{curLocationData.eventName}</p>
         <p>{curLocationData.eventDesc}</p>
         <Link to='/playing/' onClick={() => {
-          console.log(' ---- PlayingStates.minigameReady BEFORE ----');
-          moveScreenTo(PlayingStates.minigameReady);
-          console.log(' ---- PlayingStates.minigameReady AFTER ----');
+          sgmgr.moveScreenTo(PlayingStates.minigameReady);
         }}>
           →→ ミニゲームへ進む
         </Link>
@@ -112,15 +97,9 @@ export default (props : PlayingPageChildProps): JSX.Element => {
           // 移動した後のプレイヤーの状態をストレージに保存
           const nextPlayer = Object.assign({}, player);
           nextPlayer.location = nextPlayer.location + curLocationData.eventMove;
-          const stio = new SgpjStorageIO(localStorage);
-          const updateResult = stio.updateCurrentPlayer(nextPlayer);
-          // ユーザー情報UPDATEが問題合った場合は、エラーを出力
-          if (!updateResult) {
-            console.error('[SGPJ] Failed to update user information.');
-            // @remind ユーザーへの情報表示をいれる（ゲームは続行でOK？）
-          }
-          setNextOrderNum();
-          moveScreenTo(PlayingStates.standby);
+          stio.updateCurrentPlayer(nextPlayer);
+          stio.updateNextOrderNum();
+          sgmgr.moveScreenTo(PlayingStates.standby);
         }}>
           →→ 次の人の番へすすむ
         </Link>
@@ -133,15 +112,14 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>{curLocationData.eventName}</p>
         <p>{curLocationData.eventDesc}</p>
         <Link to='/playing/' onClick={() => {
-          setNextOrderNum();
-          moveScreenTo(PlayingStates.standby);
+          stio.updateNextOrderNum();
+          sgmgr.moveScreenTo(PlayingStates.standby);
         }}>
           →→ 次の人の番へすすむ
         </Link>
       </>
     );
   }
-  
   
   return (
     <>
@@ -156,13 +134,3 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     </>
   )
 }
-
-// export function Head() {
-//   return (
-//     <>
-//       <title>スタンバイ画面</title>
-//     </>
-//   );
-// }
-
-

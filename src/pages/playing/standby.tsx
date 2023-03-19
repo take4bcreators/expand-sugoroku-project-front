@@ -5,32 +5,24 @@ import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
-import SgpjGameManager from '../../ts/module/SgpjSugorokuManager';
+import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
-// import { StorageKeys } from '../../ts/module/StorageKeys';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
-  console.log(props);
-  
-  // インスタンス変数
   const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
-  const [sgmgr, setSgmgr] = useState<SgpjGameManager | undefined>(undefined);
+  const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
-  
   useEffect(() => {
     setStio(new SgpjStorageIO(localStorage));
-    // setSgmgr(new SgpjGameManager(props, localStorage));
-    setSgmgr(new SgpjGameManager(props.setPlayingState, localStorage));
+    setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [load] player : ' + stio?.getCurrentPlayer());
-  
   if (stio === undefined) {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
@@ -39,7 +31,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     console.error('[SGPJ] SgpjGameManager is undefined');
     return (<></>);
   }
-  
   
   // すべてのプレイヤーがゴール済みであればエンディング画面へ移行
   const isAllPlayersGoal = stio.checkAllPlayersGoalReached() ?? false;
@@ -52,7 +43,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       </>
     );
   }
-  
   
   // 表示用要素
   let innerElem = (
@@ -108,7 +98,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[playerLocation].store.name;
   }
   
-  
   return (
     <>
       <main>
@@ -122,13 +111,3 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     </>
   )
 }
-
-// export function Head() {
-//   return (
-//     <>
-//       <title>スタンバイ画面</title>
-//     </>
-//   );
-// }
-
-
