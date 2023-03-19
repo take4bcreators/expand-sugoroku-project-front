@@ -66,7 +66,6 @@ export const query = graphql`
       edges {
         node {
           board {
-            goal
             id
             name
           }
