@@ -45,7 +45,7 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
     console.error('[SGPJ] players is undefined');
     return (<></>);
   }
-  players.sort((a, b) => a['order'] - b['order']);
+  players.sort((a, b) => a.order - b.order);
   
   // 現在のプレイヤーに印をつけるために情報を取得
   const curOrderNum = stio.getCurrentOrderNumber();
