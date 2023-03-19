@@ -19,7 +19,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   
   // インスタンス変数
   const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
-  const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
+  // const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
   const [minigameRank, setMinigameRank] = useState('');
   const [doEffect, setDoEffect] = useState(false);
   
@@ -27,7 +27,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     // プレイヤーの数を取得
     const stio = new SgpjStorageIO(localStorage);
     setPlayer(stio.getCurrentPlayer());
-    setPlayBoard(stio.getPlayingBoardID());
+    // setPlayBoard(stio.getPlayingBoardID());
     setMinigameRank(localStorage.getItem(StorageKeys.playingLastMinigameRank) ?? '');
     setDoEffect(true);
   }, []);

@@ -1,5 +1,6 @@
 import { StorageKeys } from './StorageKeys';
 import type { PlayerInfo } from '../type/PlayerInfo';
+import type { BoardData } from '../type/BoardData';
 
 
 export default class SgpjStorageIO {
@@ -9,8 +10,9 @@ export default class SgpjStorageIO {
   /** ストレージに入出力する際のキーとなる文字列 */
   playersKey: string = StorageKeys.playingPlayers;
   curOrderNumKey: string = StorageKeys.playingCurrentOrderNum;
-  boardIdKey: string = StorageKeys.playingBoardID
-  numPlayers: string = StorageKeys.playingNumPlayers
+  boardIdKey: string = StorageKeys.playingBoardID;
+  numPlayers: string = StorageKeys.playingNumPlayers;
+  boardData: string = StorageKeys.playingBoardData;
   
   
   constructor(strage: Storage = localStorage) {
@@ -110,20 +112,41 @@ export default class SgpjStorageIO {
     return curOrder;
   }
   
-  /** 現在プレイ中のボードの番号を取得 */
-  getPlayingBoardID(): number | undefined  {
-    const playingBoardIdStr = this.strage.getItem(this.boardIdKey);
-    if (playingBoardIdStr === null) {
-      console.warn('playingBoardIdStr is ' + playingBoardIdStr);
+  // /** 現在プレイ中のボードの番号を取得 */
+  // getPlayingBoardID(): number | undefined  {
+  //   const playingBoardIdStr = this.strage.getItem(this.boardIdKey);
+  //   if (playingBoardIdStr === null) {
+  //     console.warn('playingBoardIdStr is ' + playingBoardIdStr);
+  //     return undefined;
+  //   }
+  //   const playingBoardID = parseInt(playingBoardIdStr);
+  //   if (isNaN(playingBoardID)) {
+  //     console.warn('playingBoardID is NaN');
+  //     return undefined;
+  //   }
+  //   return playingBoardID;
+  // }
+  
+  
+  /** 現在プレイ中のボードを取得 */
+  getPlayingBoard(): BoardData | undefined {
+    const playingBoardDataStr = this.strage.getItem(this.boardData);
+    if (playingBoardDataStr === null) {
+      console.warn('playingBoardDataStr is ' + playingBoardDataStr);
       return undefined;
     }
-    const playingBoardID = parseInt(playingBoardIdStr);
-    if (isNaN(playingBoardID)) {
-      console.warn('playingBoardID is NaN');
+    let playingBoardData: BoardData;
+    try {
+      playingBoardData = JSON.parse(playingBoardDataStr);
+    } catch (error) {
+      console.warn('JSON.parse ERROR');
+      console.warn(error);
       return undefined;
     }
-    return playingBoardID;
+    return playingBoardData;
   }
+  
+  
   
   /** ストレージから現在のプレイヤー数を数値で取得 */
   getNumPlayers(): number | undefined {

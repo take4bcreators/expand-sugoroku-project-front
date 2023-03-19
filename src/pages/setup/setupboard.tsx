@@ -19,10 +19,15 @@ type ThisPageProps = {
 
 export default ({ data }: ThisPageProps) => {
   const [selectedBoard, setSelectedBoard] = useState('');
+  const [doEffect, setDoEffect] = useState(false);
+  
   useEffect(() => {
     setSelectedBoard(localStorage.getItem(StorageKeys.setupBoard) ?? '');
+    setDoEffect(true);
   }, []);
+  if (!doEffect) return (<></>);
   console.log('[SGPJ] [localStorage] ' + StorageKeys.setupBoard + ' : ' + selectedBoard);
+  
   
   // ボードデータの取得
   const boards = data.allBoardsJson.edges;

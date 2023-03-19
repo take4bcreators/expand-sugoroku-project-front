@@ -50,13 +50,21 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
   // 現在のプレイヤーに印をつけるために情報を取得
   const curOrderNum = stio.getCurrentOrderNumber();
   
+  // // 場所名の表示をするためにボード情報取得
+  // const curPlayingBoardID = stio.getPlayingBoardID();
+  // if (typeof curPlayingBoardID === 'undefined') {
+  //   console.error('[SGPJ] curPlayingBoardID is undefined');
+  //   return (<></>);
+  // }
+  // const playBoard = data.allBoardsJson.edges[curPlayingBoardID].node;
+  
   // 場所名の表示をするためにボード情報取得
-  const curPlayingBoardID = stio.getPlayingBoardID();
-  if (typeof curPlayingBoardID === 'undefined') {
+  const board = stio.getPlayingBoard();
+  if (typeof board === 'undefined') {
     console.error('[SGPJ] curPlayingBoardID is undefined');
     return (<></>);
   }
-  const playBoard = data.allBoardsJson.edges[curPlayingBoardID].node;
+  // const playBoard = data.allBoardsJson.edges[curPlayingBoardID].node;
   
   
   // 表示用に要素を組み立てる
@@ -78,7 +86,7 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
           
           // 現在の場所を取得
           const playerLocation = player.location;
-          const playerLocationName = playBoard.square[playerLocation].store.name;
+          const playerLocationName = board.square[playerLocation].store.name;
           
           return (
             <section key={index}>

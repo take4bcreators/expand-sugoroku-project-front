@@ -43,12 +43,28 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   };
   
   // マスの情報取得
-  const board = stio.getPlayingBoardID();
+  // const board = stio.getPlayingBoardID();
+  // const player = stio.getCurrentPlayer();
+  // if (board !== undefined) {
+  //   const playerLocation = player?.location;
+  //   if (playerLocation !== undefined) {
+  //     const curLocation = props.data.allBoardsJson.edges[board].node.square[playerLocation];
+  //     curLocationData.name = curLocation.store.name;
+  //     curLocationData.desc = curLocation.store.desc;
+  //     curLocationData.eventFlag = curLocation.event.flag;
+  //     curLocationData.eventName = curLocation.event.name;
+  //     curLocationData.eventDesc = curLocation.event.desc;
+  //     curLocationData.minigame = curLocation.event.minigame;
+  //     curLocationData.eventMove = curLocation.event.move;
+  //   }
+  // }
+  // マスの情報取得
   const player = stio.getCurrentPlayer();
-  if (board !== undefined) {
+  const board = stio.getPlayingBoard();
+  if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
-    if (playerLocation !== undefined) {
-      const curLocation = props.data.allBoardsJson.edges[board].node.square[playerLocation];
+    if (typeof playerLocation !== 'undefined') {
+      const curLocation = board.square[playerLocation];
       curLocationData.name = curLocation.store.name;
       curLocationData.desc = curLocation.store.desc;
       curLocationData.eventFlag = curLocation.event.flag;

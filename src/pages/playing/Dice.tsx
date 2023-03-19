@@ -34,25 +34,47 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   }
   
   
-  // ボード情報取得
-  type BoardNodeType = typeof props.data.allBoardsJson.edges[0]['node'];
-  let playBoard: BoardNodeType | undefined = undefined;
-  // 今回止まるのマスの情報格納用オブジェクトの初期化（拡張性を考慮してオブジェクトを使用）
+  // // ボード情報取得
+  // type BoardNodeType = typeof props.data.allBoardsJson.edges[0]['node'];
+  // let playBoard: BoardNodeType | undefined = undefined;
+  // // 今回止まるのマスの情報格納用オブジェクトの初期化（拡張性を考慮してオブジェクトを使用）
+  // const curLocationData = {
+  //   number: 0,
+  //   name: '',
+  // };
+  // // 情報取得
+  // const player = stio.getCurrentPlayer();
+  // const playBoardNum = stio.getPlayingBoardID();
+  // if (playBoardNum !== undefined) {
+  //   playBoard = props.data.allBoardsJson.edges[playBoardNum].node;
+  //   const playerLocation = player?.location;
+  //   if (playerLocation !== undefined) {
+  //     curLocationData.name = playBoard.square[playerLocation].store.name;
+  //     curLocationData.number = playerLocation;
+  //   }
+  // }
+  
   const curLocationData = {
     number: 0,
     name: '',
   };
   // 情報取得
   const player = stio.getCurrentPlayer();
-  const playBoardNum = stio.getPlayingBoardID();
-  if (playBoardNum !== undefined) {
-    playBoard = props.data.allBoardsJson.edges[playBoardNum].node;
+  const board = stio.getPlayingBoard();
+  if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
     if (playerLocation !== undefined) {
-      curLocationData.name = playBoard.square[playerLocation].store.name;
+      curLocationData.name = board.square[playerLocation].store.name;
       curLocationData.number = playerLocation;
     }
   }
+  
+  
+  
+  
+  
+  
+  
   
   // 表示する要素の初期化
   let displayElem = (
@@ -78,10 +100,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       skip: 0,
     };
     // 次のマスの情報を取得する
-    if (typeof playBoard !== 'undefined') {
+    // if (typeof playBoard !== 'undefined') {
+    if (typeof board !== 'undefined') {
       const curLocation = player?.location ?? NaN;
       let nextLocation = curLocation + diceNumber;
-      const goalIndex = playBoard.board.goal;
+      // const goalIndex = playBoard.board.goal;
+      // const goalIndex = board.board.goal;
+      const goalIndex = board.square.length - 1;
       // 移動先がゴールを超えていればゴールにする
       if (!isNaN(nextLocation) && nextLocation >= goalIndex) {
         nextLocation = goalIndex;
@@ -90,10 +115,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       // 移動先のマスの情報を取得
       if (!isNaN(nextLocation)) {
         nextLocationData.location = nextLocation;
-        nextLocationData.eventflag = playBoard.square[nextLocation].event.flag;
+        // nextLocationData.eventflag = playBoard.square[nextLocation].event.flag;
+        nextLocationData.eventflag = board.square[nextLocation].event.flag;
         if (nextLocationData.eventflag) {
-          nextLocationData.point = playBoard.square[nextLocation].event.point;
-          nextLocationData.skip = playBoard.square[nextLocation].event.skip;
+          // nextLocationData.point = playBoard.square[nextLocation].event.point;
+          // nextLocationData.skip = playBoard.square[nextLocation].event.skip;
+          nextLocationData.point = board.square[nextLocation].event.point;
+          nextLocationData.skip = board.square[nextLocation].event.skip;
           if (nextLocationData.skip < 0) {
             nextLocationData.skip = 0;
           }

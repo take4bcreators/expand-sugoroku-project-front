@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
@@ -19,22 +20,36 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   console.log(props);
   
   // インスタンス変数
-  const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
-  const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
+  // const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
+  // const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
+  
   const [minigameKey, setMinigameKey] = useState('');
   
   const [doEffect, setDoEffect] = useState(false);
   
   useEffect(() => {
     // プレイヤーの数を取得
-    const stio = new SgpjStorageIO(localStorage);
-    setPlayer(stio.getCurrentPlayer());
-    setPlayBoard(stio.getPlayingBoardID());
+    // const stio = new SgpjStorageIO(localStorage);
+    // setPlayer(stio.getCurrentPlayer());
+    // setPlayBoard(stio.getPlayingBoardID());
+    setStio(new SgpjStorageIO(localStorage));
+    setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setMinigameKey(localStorage.getItem(StorageKeys.playingLastMinigameKey) ?? '');
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [load] player : ' + player);
+  if (stio === undefined) {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
+  if (sgmgr === undefined) {
+    console.error('[SGPJ] SgpjSugorokuManager is undefined');
+    return (<></>);
+  }
+  
+  
   
   
   // ミニゲームから返ってきたらミニゲーム結果画面へ進む
@@ -62,11 +77,24 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     minigameId: '',
     minigamePath: '',
   };
+  // // マスの情報取得
+  // if (playBoard !== undefined) {
+  //   const loc = player?.location;
+  //   if (loc !== undefined) {
+  //     const curLocation = props.data.allBoardsJson.edges[playBoard].node.square[loc];
+  //     curLocationData.minigameName = curLocation.minigame.name;
+  //     curLocationData.minigameDesc = curLocation.minigame.desc;
+  //     curLocationData.minigameId = curLocation.minigame.id;
+  //     curLocationData.minigamePath = MINIGAME_DIR + '/' + curLocation.minigame.id + '/';
+  //   }
+  // }
   // マスの情報取得
-  if (playBoard !== undefined) {
-    const loc = player?.location;
-    if (loc !== undefined) {
-      const curLocation = props.data.allBoardsJson.edges[playBoard].node.square[loc];
+  const player = stio.getCurrentPlayer();
+  const board = stio.getPlayingBoard();
+  if (typeof board !== 'undefined') {
+    const playerLocation = player?.location;
+    if (typeof playerLocation !== 'undefined') {
+      const curLocation = board.square[playerLocation];
       curLocationData.minigameName = curLocation.minigame.name;
       curLocationData.minigameDesc = curLocation.minigame.desc;
       curLocationData.minigameId = curLocation.minigame.id;
@@ -74,15 +102,19 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     }
   }
   
+  
+  
+  
+  
   // 次の順番にする処理をクリック時用に定義
-  function setNextOrderNum(): void {
-    const stio = new SgpjStorageIO(localStorage);
-    const updateResult = stio.updateNextOrderNum();
-    if (!updateResult) {
-      console.error('[SGPJ] Failed to update user information.');
-    }
-    return;
-  }
+  // function setNextOrderNum(): void {
+  //   const stio = new SgpjStorageIO(localStorage);
+  //   const updateResult = stio.updateNextOrderNum();
+  //   if (!updateResult) {
+  //     console.error('[SGPJ] Failed to update user information.');
+  //   }
+  //   return;
+  // }
   
   // 画面移動のアクションをクリック時用に定義
   function moveScreenTo(screen: string): void {
@@ -90,7 +122,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     props.setPlayingState(screen);
     return;
   }
-  
   
   // ミニゲームキー用ランダム文字列生成
   function createRandomString(length: number) {

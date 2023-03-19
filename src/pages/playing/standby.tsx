@@ -78,12 +78,19 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     );
   }
   
+  // // 現在の場所の名前を取得
+  // let curLocationName = '';
+  // const playBoard = stio.getPlayingBoardID();
+  // const playerLocation = player.location;
+  // if (playBoard !== undefined && playerLocation !== undefined) {
+  //   curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[playerLocation].store.name;
+  // }
   // 現在の場所の名前を取得
   let curLocationName = '';
-  const playBoard = stio.getPlayingBoardID();
+  const board = stio.getPlayingBoard();
   const playerLocation = player.location;
-  if (playBoard !== undefined && playerLocation !== undefined) {
-    curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[playerLocation].store.name;
+  if (typeof board !== 'undefined' && typeof playerLocation !== 'undefined') {
+    curLocationName = board.square[playerLocation].store.name;
   }
   
   return (
