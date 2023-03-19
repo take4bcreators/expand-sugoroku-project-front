@@ -1,4 +1,4 @@
-import { StorageKeys } from './StorageKeys';
+import { StorageKeys, storageKeysType } from './StorageKeys';
 import type { PlayerInfo } from '../type/PlayerInfo';
 import type { BoardData } from '../type/BoardData';
 
@@ -17,6 +17,18 @@ export default class SgpjStorageIO {
   
   constructor(strage: Storage = localStorage) {
     this.strage = strage;
+  }
+  
+  
+  /** 単純にストレージから取得 */
+  getItem(item: storageKeysType): string | null {
+    return this.strage.getItem(item);
+  }
+  
+  /** 単純にストレージへ保存 */
+  setItem(key: storageKeysType, value: string): void {
+    this.strage.setItem(key, value);
+    return;
   }
   
   

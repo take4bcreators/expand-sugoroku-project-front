@@ -1,65 +1,58 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+
 import '../../sass/style.scss';
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
-import type { PlayerInfo } from '../../ts/type/PlayerInfo';
+import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
+
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
-
 export default (props: PlayingPageChildProps): JSX.Element => {
-  console.log(props);
-  
-  // 情報保持用ステート
-  const [numPlayers, setNumPlayers] = useState('');
-  const [playerInfoJSON, setPlayerInfoJSON] = useState('');
   const [resultElem, setResultElem] = useState<JSX.Element | undefined>(undefined);
-  
-  // ローカルストレージ取得用
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
+  const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    // プレイヤーの数を取得
-    setNumPlayers(localStorage.getItem(StorageKeys.playingNumPlayers) ?? '');
-    // ユーザー情報を取得
-    setPlayerInfoJSON(localStorage.getItem(StorageKeys.playingPlayers) ?? '');
+    setStio(new SgpjStorageIO(localStorage));
+    setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
+    setDoEffect(true);
   }, []);
-  console.log('[SGPJ] [load] ' + StorageKeys.playingNumPlayers + ' : ' + numPlayers);
-  console.log('[SGPJ] [load] ' + StorageKeys.playingPlayers + ' : ' + playerInfoJSON);
-  
+  if (!doEffect) return (<></>);
+  if (typeof stio === 'undefined') {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
+  if (typeof sgmgr === 'undefined') {
+    console.error('[SGPJ] SgpjSugorokuManager is undefined');
+    return (<></>);
+  }
   
   // 順番決めボタンが押された時の処理
-  function decideOrder(): void {
+  const decideOrder = (): void => {
     // 連番をランダムにした配列を生成
-    const numPlayersInt = parseInt(numPlayers);
-    console.log('numPlayersInt : ' + numPlayersInt);
-    if (Number.isNaN(numPlayersInt)) {
-      console.error('numPlayersInt is NaN');
-      console.error(numPlayersInt);
+    const numPlayers = stio.getNumPlayers();
+    if (typeof numPlayers === 'undefined') {
+      console.error('numPlayers is ' + numPlayers);
       // @remind ここにエラー時にトップへ戻る処理を追加する
       return;
     }
-    const numberArr = [...Array(numPlayersInt).keys()];
+    const numberArr = [...Array(numPlayers).keys()];
     numberArr.sort(() => Math.random() - 0.5);
     
-    // ストレージから取得したユーザー情報をJSON→オブジェクトに戻す
-    if (playerInfoJSON === '') {
-      console.error('playerInfoJSON is ' + playerInfoJSON);
+    // ストレージからユーザー情報を取得
+    const playerInfoArr = stio.getPlayerInfoObject();
+    if (typeof playerInfoArr === 'undefined') {
+      console.error('playerInfoArr is ' + playerInfoArr);
       // @remind ここにエラー時にトップへ戻る処理を追加する
       return;
     }
-    let playerInfoArr: PlayerInfo[];
-    try {
-      playerInfoArr = JSON.parse(playerInfoJSON);
-    } catch (error) {
-      console.error('playerInfoJSON JSON.parse Error');
-      // @remind ここにエラー時にトップへ戻る処理を追加する
-      return;
-    }
-    
     // ランダム配列を用いて各プレイヤーの順番を決定して連想配列で保持
     const resultMap = new Map();
     numberArr.forEach((value, index) => {
@@ -73,9 +66,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         const orderNumber = index + 1;
         const playerName = resultMap.get(index);
         playerNameElem.push((
-          <p
-            key={orderNumber}
-          >
+          <p key={orderNumber}>
             {orderNumber} : {playerName} さん
           </p>
         ))
@@ -86,13 +77,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         {
           playerNameElem.map((elem) => elem)
         }
-        <Link
-          to='/playing/'
-          onClick={() => {
-            localStorage.setItem(StorageKeys.playingState, PlayingStates.standby);
-            props.setPlayingState(PlayingStates.standby);
-          }}
-        >
+        <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.standby)}}>
           → 次に進む
         </Link>
       </>
@@ -100,16 +85,14 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     
     // ストレージと情報保持用ステートにプレイヤー情報と結果表示用要素を戻す
     const newPlayerInfoJSON = JSON.stringify(playerInfoArr);
-    localStorage.setItem(StorageKeys.playingPlayers, newPlayerInfoJSON);
-    setPlayerInfoJSON(newPlayerInfoJSON);
+    stio.setItem(StorageKeys.playingPlayers, newPlayerInfoJSON);
     setResultElem(displayRetultElem);
     return;
   }
   
-  
   // 順番決めのボタンを押す前後で表示を変える
   let buttonElem = (<div onClick={decideOrder}>→→ ここをクリックしてください ←←</div>);
-  if (resultElem !== undefined) {
+  if (typeof resultElem !== 'undefined') {
     buttonElem = resultElem;
   }
   
@@ -128,12 +111,3 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     </>
   );
 }
-
-export function Head() {
-  return (
-    <>
-      <title>順番決め | すごろくツール</title>
-    </>
-  );
-}
-

@@ -31,4 +31,7 @@ export const StorageKeys = {
     playingLastMinigameRank: 'sgpj_playing_last_minigame_rank',
     /** 最後に発行されたミニゲームの結果を保存するためのキー */
     playingLastMinigameKey: 'sgpj_playing_last_minigame_key',
-}
+} as const;
+
+/** キーの情報一覧のみを許容する型 */
+export type storageKeysType = typeof StorageKeys[keyof typeof StorageKeys];

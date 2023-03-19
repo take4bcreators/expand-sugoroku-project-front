@@ -14,6 +14,7 @@ import Ending from './Ending';
 import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
 
+import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
@@ -22,13 +23,19 @@ import type { PlayingPageParentProps } from '../../ts/type/PlayingPageProps';
 
 
 export default ({data, location}: PlayingPageParentProps): JSX.Element => {
-  // インスタンス変数
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
   const [playingState, setPlayingState] = useState('');
-  
-  // ローカルストレージから現在の値を取得
+  const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
+    setStio(new SgpjStorageIO(localStorage));
     setPlayingState(localStorage.getItem(StorageKeys.playingState) ?? '');
+    setDoEffect(true);
   }, []);
+  if (!doEffect) return (<></>);
+  if (typeof stio === 'undefined') {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
   console.log('[SGPJ] [load] ' + StorageKeys.playingState + ' : ' + playingState);
   
   // 現在のストレージの状態によりページ内容の表示を変える
@@ -126,12 +133,51 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
 
 
 export const Head = () => {
-  const pageTitle: string = 'SUGOROKU!!';
+  // const pageTitle: string = 'SUGOROKU!!';
+  // return (
+  //     <SEO
+  //         pageTitle={pageTitle}
+  //     />
+  // );
+  
+  const [playingState, setPlayingState] = useState('');
+  useEffect(() => {
+    setPlayingState(localStorage.getItem(StorageKeys.playingState) ?? '');
+  }, []);
+  
+  let pageTitle = '';
+  switch (playingState) {
+    case PlayingStates.decideOrder:
+      pageTitle = '順番決め | SUGOROKU!!';
+      break;
+    case PlayingStates.standby:
+      pageTitle = '〇〇さんのターン | SUGOROKU!!';
+      break;
+    case PlayingStates.dice:
+      pageTitle = 'サイコロ | SUGOROKU!!';
+      break;
+    case PlayingStates.squareEvent:
+      pageTitle = 'マスイベント | SUGOROKU!!';
+      break;
+    case PlayingStates.minigameReady:
+      pageTitle = 'ミニゲーム | SUGOROKU!!';
+      break;
+    case PlayingStates.minigameResult:
+      pageTitle = 'ミニゲーム結果 | SUGOROKU!!';
+      break;
+    case PlayingStates.ending:
+      pageTitle = '最終結果 | SUGOROKU!!';
+      break;
+    default:
+      pageTitle = 'SUGOROKU!!';
+      break;
+  }
+  
   return (
       <SEO
           pageTitle={pageTitle}
       />
-  )
+  );
 }
 
 
