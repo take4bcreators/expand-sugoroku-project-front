@@ -1,14 +1,22 @@
 import React from 'react';
 import { useLocation } from '@reach/router';
+import { graphql } from 'gatsby'
+
 import SetupBoard from './setupboard';
 import SetupPlayer from './setupplayer';
 import SetupConfirmation from './setupconfirmation';
 import '../../sass/style.scss';
 
+import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 
 const PAGE_TITLE: string = 'はじめから | すごろくツール';
 
-export default function Setup() {
+type ThisPageProps = {
+  data: AllBoardsJson,
+}
+
+
+export default ({ data }: ThisPageProps) => {
   
   const locat = useLocation();
   const params = new URLSearchParams(locat.search);
@@ -17,7 +25,7 @@ export default function Setup() {
   let usePageElem: JSX.Element = (<></>);
   switch (state) {
     case 'board':
-      usePageElem = (<SetupBoard />);
+      usePageElem = (<SetupBoard data={data} />);
       console.log('board');
       break;
     case 'player':
@@ -25,7 +33,7 @@ export default function Setup() {
       console.log('player');
       break;
     case 'confirmation':
-      usePageElem = (<SetupConfirmation />);
+      usePageElem = (<SetupConfirmation data={data} />);
       console.log('confirmation');
       break;
     default:
@@ -48,3 +56,44 @@ export function Head() {
     </>
   );
 }
+
+
+// ボード情報取得用クエリ
+//   取得したデータは、ページの { data } に渡される
+export const query = graphql`
+  query {
+    allBoardsJson {
+      edges {
+        node {
+          board {
+            goal
+            id
+            name
+          }
+          square {
+            id
+            goalFlag
+            event {
+              skip
+              point
+              name
+              move
+              minigame
+              flag
+              desc
+            }
+            minigame {
+              name
+              id
+              desc
+            }
+            store {
+              name
+              desc
+            }
+          }
+        }
+      }
+    }
+  }
+`

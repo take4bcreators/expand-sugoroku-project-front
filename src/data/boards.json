@@ -2,7 +2,7 @@
     {
         "board": {
             "id": "000",
-            "name": "テスト用ボード",
+            "name": "テスト用浜松町ボード",
             "goal": 7
         },
         "square": [
@@ -162,6 +162,147 @@
             },
             {
                 "id": 7,
+                "goalFlag": true,
+                "store": {
+                    "name": "ゴール！",
+                    "desc": "ゴール！！"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "desc": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "desc": ""
+                }
+            }
+        ]
+    },
+    {
+        "board": {
+            "id": "001",
+            "name": "ミニゲームテスト用ボード",
+            "goal": 5
+        },
+        "square": [
+            {
+                "id": 0,
+                "goalFlag": false,
+                "store": {
+                    "name": "スタート地点",
+                    "desc": "スタート地点"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "desc": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "desc": ""
+                }
+            },
+            {
+                "id": 1,
+                "goalFlag": false,
+                "store": {
+                    "name": "お店その1",
+                    "desc": "コーヒーショップです。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "desc": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "desc": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 2,
+                "goalFlag": false,
+                "store": {
+                    "name": "お店その2",
+                    "desc": "居酒屋です。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "desc": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "desc": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 3,
+                "goalFlag": false,
+                "store": {
+                    "name": "お店その3",
+                    "desc": "レストランです。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "desc": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "desc": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 4,
+                "goalFlag": false,
+                "store": {
+                    "name": "お店その4",
+                    "desc": "高級焼肉店です。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "desc": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "desc": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 5,
                 "goalFlag": true,
                 "store": {
                     "name": "ゴール！",

@@ -7,19 +7,32 @@ import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
+import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 
 
-export default function SetupConfirmation() {
-  // インスタンス変数
-  const [boardName, setBoardName] = useState('');
+type ThisPageProps = {
+  data: AllBoardsJson,
+}
+
+export default ({ data }: ThisPageProps) => {
+  const [boardID, setBoardID] = useState('');
   const [playerList, setPlayerList] = useState(['']);
+  const [doEffect, setDoEffect] = useState(false);
   
   // ローカルストレージから現在の値を取得
   useEffect(() => {
-    setBoardName(localStorage.getItem(StorageKeys.setupBoard) ?? '');
+    setBoardID(localStorage.getItem(StorageKeys.setupBoard) ?? '');
     const playerListJSON = localStorage.getItem(StorageKeys.setupPlayer) ?? '[""]';
     setPlayerList(JSON.parse(playerListJSON) ?? ['']);
+    setDoEffect(true);
   }, []);
+  if (!doEffect) return (<></>);
+  
+  // 選択中のボードのボードIDと名前を取得する
+  const boards = data.allBoardsJson.edges;
+  const selectedBoard = boards.filter(board => board.node.board.id === boardID)[0];
+  const selectedBoardID = selectedBoard.node.board.id;
+  const selectedBoardName = selectedBoard.node.board.name;
   
   
   function saveNewGameData(): void {
@@ -50,22 +63,20 @@ export default function SetupConfirmation() {
     const playersInfoJSON = JSON.stringify(playersInfoArr);
     console.log('playersInfoJSON : ' + playersInfoJSON);
     
-    // @todo JSONファイルからボードの情報を読み込む処理を追加する
-    const boardDataJSON = '[{}]';
-    const boardDataArr = JSON.parse(boardDataJSON);
-    const goalIndex = boardDataArr.length - 1;
+    // 今回使用するボードの情報をJSONに変換
+    const boardDataJSON = JSON.stringify(selectedBoard.node);
     
     // ゲーム実施用ストレージをセット
     localStorage.setItem(StorageKeys.playingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
-    localStorage.setItem(StorageKeys.playingBoard, boardName); // ボード名
-    localStorage.setItem(StorageKeys.playingBoardID, '0'); // ボードID    @remind ボードIDを動的にする
+    localStorage.setItem(StorageKeys.playingBoard, selectedBoardName); // ボード名
+    localStorage.setItem(StorageKeys.playingBoardID, selectedBoardID); // ボードID
     localStorage.setItem(StorageKeys.playingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
     localStorage.setItem(StorageKeys.playingState, PlayingStates.decideOrder); // 状態ID
     localStorage.setItem(StorageKeys.playingCurrentOrderNum, '0'); // 現在の順番番号
     localStorage.setItem(StorageKeys.playingLastDiceNum, '-1'); // サイコロの出目
     localStorage.setItem(StorageKeys.playingBoardData, boardDataJSON); // ボードの内容情報
     localStorage.setItem(StorageKeys.playingIsEnd, 'false'); // 終了フラグ
-    localStorage.setItem(StorageKeys.playingGoalIndex, goalIndex.toString()); // ゴールのマス番号
+    // localStorage.setItem(StorageKeys.playingGoalIndex, goalIndex.toString()); // ゴールのマス番号 @note ※現在処理としては不使用
     localStorage.setItem(StorageKeys.playingLastMinigameRank, ''); // ミニゲームの結果（ランク文字列）
     localStorage.setItem(StorageKeys.playingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
   }
@@ -87,7 +98,7 @@ export default function SetupConfirmation() {
         <section>
           <h1>確認</h1>
           <h2>ボード</h2>
-          <p>{boardName}</p>
+          <p>{selectedBoardName}</p>
           <h2>プレイヤー</h2>
           {
             playerList.map(playerName => {
