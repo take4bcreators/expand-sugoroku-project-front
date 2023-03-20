@@ -147,27 +147,27 @@ export const Head = () => {
   
   let pageTitle = '';
   switch (playingState) {
-    case PlayingStates.decideOrder:
-      pageTitle = '順番決め | SUGOROKU!!';
-      break;
-    case PlayingStates.standby:
-      pageTitle = '〇〇さんのターン | SUGOROKU!!';
-      break;
-    case PlayingStates.dice:
-      pageTitle = 'サイコロ | SUGOROKU!!';
-      break;
-    case PlayingStates.squareEvent:
-      pageTitle = 'マスイベント | SUGOROKU!!';
-      break;
-    case PlayingStates.minigameReady:
-      pageTitle = 'ミニゲーム | SUGOROKU!!';
-      break;
-    case PlayingStates.minigameResult:
-      pageTitle = 'ミニゲーム結果 | SUGOROKU!!';
-      break;
-    case PlayingStates.ending:
-      pageTitle = '最終結果 | SUGOROKU!!';
-      break;
+    // case PlayingStates.decideOrder:
+    //   pageTitle = '順番決め | SUGOROKU!!';
+    //   break;
+    // case PlayingStates.standby:
+    //   pageTitle = '〇〇さんのターン | SUGOROKU!!';
+    //   break;
+    // case PlayingStates.dice:
+    //   pageTitle = 'サイコロ | SUGOROKU!!';
+    //   break;
+    // case PlayingStates.squareEvent:
+    //   pageTitle = 'マスイベント | SUGOROKU!!';
+    //   break;
+    // case PlayingStates.minigameReady:
+    //   pageTitle = 'ミニゲーム | SUGOROKU!!';
+    //   break;
+    // case PlayingStates.minigameResult:
+    //   pageTitle = 'ミニゲーム結果 | SUGOROKU!!';
+    //   break;
+    // case PlayingStates.ending:
+    //   pageTitle = '最終結果 | SUGOROKU!!';
+    //   break;
     default:
       pageTitle = 'SUGOROKU!!';
       break;

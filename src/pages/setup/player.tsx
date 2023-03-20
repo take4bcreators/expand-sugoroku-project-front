@@ -4,12 +4,11 @@ import { Link, navigate } from 'gatsby';
 
 import '../../sass/style.scss'
 
+import { AppConst } from '../../ts/config/const';
 import { existsSameValue } from '../../ts/module/SgpjCommonModules';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
 
-
-const DEFAULT_PLAYER_COUNT: number = 5;
 
 export default () => {
   const [playerList, setPlayerList] = useState(['']);
@@ -26,8 +25,8 @@ export default () => {
   if (!doEffect) return (<></>);
   
   
-  let userCount: number = DEFAULT_PLAYER_COUNT;
-  if (playerList.length > DEFAULT_PLAYER_COUNT) {
+  let userCount: number = AppConst.DEFAULT_SETUP_PLAYER_COUNT;
+  if (playerList.length > AppConst.DEFAULT_SETUP_PLAYER_COUNT) {
     userCount = playerList.length;
   }
   const seqNums = [...Array(userCount).keys()];

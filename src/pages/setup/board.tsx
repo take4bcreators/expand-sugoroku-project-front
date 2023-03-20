@@ -4,6 +4,8 @@ import { Link, navigate } from 'gatsby';
 
 import '../../sass/style.scss';
 
+import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+
 import { StorageKeys } from '../../ts/module/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 
@@ -15,27 +17,32 @@ type ThisPageProps = {
 
 export default ({ data }: ThisPageProps) => {
   const [selectedBoard, setSelectedBoard] = useState('');
+  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setSelectedBoard(localStorage.getItem(StorageKeys.setupBoard) ?? '');
+    setStio(new SgpjStorageIO(localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [localStorage] ' + StorageKeys.setupBoard + ' : ' + selectedBoard);
+  if (typeof stio === 'undefined') {
+    console.error('[SGPJ] SgpjStorageIO is undefined');
+    return (<></>);
+  }
   
   // ボードデータの取得
   const boards = data.allBoardsJson.edges;
   const boardNames = boards.map(board => board.node.board.name);
   const boardIDs = boards.map(board => board.node.board.id);
   
-  const changeStateAndStorage = (e: { target: HTMLInputElement }) => {
+  const changeStateAndStorage = (e: { target: HTMLInputElement }): void => {
     const boardID = e.target.dataset.boardid ?? ''
     setSelectedBoard(boardID);
-    localStorage.setItem(StorageKeys.setupBoard, boardID);
+    stio.setItem(StorageKeys.setupBoard, boardID);
     console.log('[SGPJ] [save] ' + boardID);
   };
   
-  function checkInput(): void {
+  const checkInput = (): void => {
     if (selectedBoard === '') {
       console.warn('[SGPJ] selectedBoard is none');
       window.alert('ボードを選択してください');

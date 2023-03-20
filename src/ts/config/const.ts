@@ -19,4 +19,8 @@ export namespace AppConst {
         [3, 30],
     ]);
     
+    
+    /** セットアップ時に表示するプレイヤー入力欄の数 */
+    export const DEFAULT_SETUP_PLAYER_COUNT: number = 5;
+    
 }

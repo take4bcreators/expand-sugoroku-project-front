@@ -31,6 +31,25 @@ export default class SgpjStorageIO {
     return;
   }
   
+  /** 単純にストレージから削除 */
+  removeItem(key: storageKeysType): void {
+    this.strage.removeItem(key);
+    return;
+  }
+  
+  /** ストレージから定義されているすべてのデータを削除 */
+  removeAllItem(): void {
+    for (const storageKey of Object.values(StorageKeys)) {
+      this.strage.removeItem(storageKey);
+    }
+    return;
+  }
+  
+  /** ストレージからすべてのデータを削除（内部でclear使用） */
+  removeAllItemPurge(): void {
+    this.strage.clear();
+    return;
+  }
   
   /** 現在のプレイヤー情報オブジェクトを取得 */
   getCurrentPlayer(): PlayerInfo | undefined {
