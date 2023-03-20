@@ -2,7 +2,7 @@ import { StorageKeys } from '../config/StorageKeys';
 import { AppConst } from '../config/const';
 
 
-export default class SgpjSugorokuManager {
+export default class SugorokuManager {
   storage: Storage;
   setPlayingStateFunc: React.Dispatch<React.SetStateAction<string>>;
   

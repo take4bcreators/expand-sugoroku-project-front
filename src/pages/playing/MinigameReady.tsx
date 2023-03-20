@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import '../../sass/style.scss';
 
 import StorageDAO from '../../ts/module/StorageDAO';
-import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
+import SugorokuManager from '../../ts/module/SugorokuManager';
 import { createRandomString } from '../../ts/module/SgpjCommonModules';
 
 import { PlayingStates } from '../../ts/config/PlayingStates';
@@ -19,12 +19,12 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 export default (props: PlayingPageChildProps): JSX.Element => {
   const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
-  const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
+  const [sgmgr, setSgmgr] = useState<SugorokuManager | undefined>(undefined);
   const [minigameKey, setMinigameKey] = useState('');
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setStdao(new StorageDAO(localStorage));
-    setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
+    setSgmgr(new SugorokuManager(props.setPlayingState, localStorage));
     setMinigameKey(localStorage.getItem(StorageKeys.PlayingLastMinigameKey) ?? '');
     setDoEffect(true);
   }, []);

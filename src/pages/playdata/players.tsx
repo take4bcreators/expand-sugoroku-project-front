@@ -7,7 +7,7 @@ import '../../sass/style.scss';
 
 
 import StorageDAO from '../../ts/module/StorageDAO';
-import SgpjGameManager from '../../ts/module/SgpjSugorokuManager';
+import SgpjGameManager from '../../ts/module/SugorokuManager';
 
 // import { PlayingStates } from '../../ts/module/PlayingStates';
 // import { StorageKeys } from '../../ts/module/StorageKeys';
