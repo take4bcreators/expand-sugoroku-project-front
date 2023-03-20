@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import '../../sass/style.scss';
 
-import Standby from './Standby';
-import DecideOrder from './DecideOrder';
-import Dice from './Dice';
-import SquareEvent from './SquareEvent';
-import MinigameReady from './MinigameReady';
-import MinigameResult from './MinigameResult';
-import Ending from './Ending';
+import Standby from './standby';
+import DecideOrder from './decideOrder';
+import Dice from './dice';
+import SquareEvent from './squareEvent';
+import MinigameReady from './minigameReady';
+import MinigameResult from './minigameResult';
+import Ending from './ending';
 
 import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
