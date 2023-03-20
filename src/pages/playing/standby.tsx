@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 
 import { PlayingStates } from '../../ts/config/PlayingStates';
@@ -14,16 +14,16 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (stio === undefined) {
+  if (stdao === undefined) {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
@@ -40,7 +40,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   );
   
   // 現在のプレイヤーを取得
-  const player = stio.getCurrentPlayer();
+  const player = stdao.getCurrentPlayer();
   if (player === undefined) {
     console.error('[SGPJ] stio.getCurrentPlayer is undefined');
     return (<></>);
@@ -52,7 +52,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       <>
         <p>〜〜 ゴール済みです 〜〜</p>
         <Link to='/playing/' onClick={() => {
-          stio.updateNextOrderNum();
+          stdao.updateNextOrderNum();
           sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           → 次の人へ進む
@@ -68,8 +68,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         <p>〜〜 このターンおやすみ中 〜〜</p>
         <p>おやすみターン数：{player.skipcnt}</p>
         <Link to='/playing/' onClick={() => {
-          stio.updateNextOrderNum();
-          stio.decrementCurPlayerSkipCnt();
+          stdao.updateNextOrderNum();
+          stdao.decrementCurPlayerSkipCnt();
           sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           → 次の人へ進む
@@ -87,7 +87,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   // }
   // 現在の場所の名前を取得
   let curLocationName = '';
-  const board = stio.getPlayingBoard();
+  const board = stdao.getPlayingBoard();
   const playerLocation = player.location;
   if (typeof board !== 'undefined' && typeof playerLocation !== 'undefined') {
     curLocationName = board.square[playerLocation].store.name;

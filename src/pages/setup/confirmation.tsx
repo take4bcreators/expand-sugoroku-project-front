@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "gatsby"
 import '../../sass/style.scss'
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
@@ -19,17 +19,17 @@ type ThisPageProps = {
 export default ({ data }: ThisPageProps) => {
   const [boardID, setBoardID] = useState('');
   const [playerList, setPlayerList] = useState(['']);
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setBoardID(localStorage.getItem(StorageKeys.SetupBoard) ?? '');
     const playerListJSON = localStorage.getItem(StorageKeys.SetupPlayer) ?? '[""]';
     setPlayerList(JSON.parse(playerListJSON) ?? ['']);
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
@@ -72,22 +72,22 @@ export default ({ data }: ThisPageProps) => {
     const boardDataJSON = JSON.stringify(selectedBoard.node);
     
     // ゲーム実施用ストレージをセット
-    stio.setItem(StorageKeys.PlayingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
-    stio.setItem(StorageKeys.PlayingBoard, selectedBoardName); // ボード名
-    stio.setItem(StorageKeys.PlayingBoardID, selectedBoardID); // ボードID
-    stio.setItem(StorageKeys.PlayingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
-    stio.setItem(StorageKeys.PlayingState, PlayingStates.DecideOrder); // 状態ID
-    stio.setItem(StorageKeys.PlayingCurrentOrderNum, '0'); // 現在の順番番号
-    stio.setItem(StorageKeys.PlayingLastDiceNum, '-1'); // サイコロの出目
-    stio.setItem(StorageKeys.PlayingBoardData, boardDataJSON); // ボードの内容情報
-    stio.setItem(StorageKeys.PlayingIsEnd, 'false'); // 終了フラグ
-    stio.setItem(StorageKeys.PlayingLastMinigameRank, ''); // ミニゲームの結果（ランク文字列）
-    stio.setItem(StorageKeys.PlayingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
+    stdao.setItem(StorageKeys.PlayingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
+    stdao.setItem(StorageKeys.PlayingBoard, selectedBoardName); // ボード名
+    stdao.setItem(StorageKeys.PlayingBoardID, selectedBoardID); // ボードID
+    stdao.setItem(StorageKeys.PlayingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
+    stdao.setItem(StorageKeys.PlayingState, PlayingStates.DecideOrder); // 状態ID
+    stdao.setItem(StorageKeys.PlayingCurrentOrderNum, '0'); // 現在の順番番号
+    stdao.setItem(StorageKeys.PlayingLastDiceNum, '-1'); // サイコロの出目
+    stdao.setItem(StorageKeys.PlayingBoardData, boardDataJSON); // ボードの内容情報
+    stdao.setItem(StorageKeys.PlayingIsEnd, 'false'); // 終了フラグ
+    stdao.setItem(StorageKeys.PlayingLastMinigameRank, ''); // ミニゲームの結果（ランク文字列）
+    stdao.setItem(StorageKeys.PlayingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
   }
   
   const removeSetupData = (): void => {
-    stio.removeItem(StorageKeys.SetupBoard);
-    stio.removeItem(StorageKeys.SetupPlayer);
+    stdao.removeItem(StorageKeys.SetupBoard);
+    stdao.removeItem(StorageKeys.SetupPlayer);
   }
   
   

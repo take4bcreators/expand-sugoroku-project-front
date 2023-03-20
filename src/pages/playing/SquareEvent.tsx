@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 
@@ -13,16 +13,16 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 export default (props : PlayingPageChildProps): JSX.Element => {
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
@@ -59,8 +59,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   //   }
   // }
   // マスの情報取得
-  const player = stio.getCurrentPlayer();
-  const board = stio.getPlayingBoard();
+  const player = stdao.getCurrentPlayer();
+  const board = stdao.getPlayingBoard();
   if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
     if (typeof playerLocation !== 'undefined') {
@@ -77,13 +77,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   
   // ゴール済みの場合はゴールボーナスを詳細として表示
   if (player?.isfinish) {
-    const goalPlayerCount = stio.getGoalPlayerCount();
+    const goalPlayerCount = stdao.getGoalPlayerCount();
     const goalPoint = sgmgr.getGoalPoint(goalPlayerCount);
     curLocationData.desc = `ゴールボーナス： ${goalPoint} pt.`;
   }
   
   // すべてのプレイヤーがゴール済みであるかを確認
-  const isAllPlayersGoal = stio.checkAllPlayersGoalReached() ?? false;
+  const isAllPlayersGoal = stdao.checkAllPlayersGoalReached() ?? false;
   
   // 現在のストレージの状態によりページ内容の表示を変える
   let usePageElem: JSX.Element;
@@ -92,7 +92,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     usePageElem = (
       <>
         <Link to='/playing/' onClick={() => {
-          stio.updateNextOrderNum();
+          stdao.updateNextOrderNum();
           sgmgr.moveScreenTo(PlayingStates.Ending);
         }}>
           →→ 最終結果画面へ進む
@@ -105,7 +105,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       <>
         <p>イベントはありません</p>
         <Link to='/playing/' onClick={() => {
-          stio.updateNextOrderNum();
+          stdao.updateNextOrderNum();
           sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           →→ 次の人の番へすすむ ←←
@@ -135,8 +135,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
           // 移動した後のプレイヤーの状態をストレージに保存
           const nextPlayer = Object.assign({}, player);
           nextPlayer.location = nextPlayer.location + curLocationData.eventMove;
-          stio.updateCurrentPlayer(nextPlayer);
-          stio.updateNextOrderNum();
+          stdao.updateCurrentPlayer(nextPlayer);
+          stdao.updateNextOrderNum();
           sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           →→ 次の人の番へすすむ
@@ -150,7 +150,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>{curLocationData.eventName}</p>
         <p>{curLocationData.eventDesc}</p>
         <Link to='/playing/' onClick={() => {
-          stio.updateNextOrderNum();
+          stdao.updateNextOrderNum();
           sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           →→ 次の人の番へすすむ

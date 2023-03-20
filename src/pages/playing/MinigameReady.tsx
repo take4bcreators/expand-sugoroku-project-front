@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 import { createRandomString } from '../../ts/module/SgpjCommonModules';
 
@@ -18,18 +18,18 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
   const [minigameKey, setMinigameKey] = useState('');
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setMinigameKey(localStorage.getItem(StorageKeys.PlayingLastMinigameKey) ?? '');
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (stio === undefined) {
+  if (stdao === undefined) {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
@@ -61,8 +61,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   };
   
   // マスの情報取得
-  const player = stio.getCurrentPlayer();
-  const board = stio.getPlayingBoard();
+  const player = stdao.getCurrentPlayer();
+  const board = stdao.getPlayingBoard();
   if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
     if (typeof playerLocation !== 'undefined') {
@@ -85,7 +85,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
             <a onClick={() => {
               const keyStr = createRandomString(8);
               // localStorage.setItem(StorageKeys.playingLastMinigameKey, keyStr);
-              stio.setItem(StorageKeys.PlayingLastMinigameKey, keyStr);
+              stdao.setItem(StorageKeys.PlayingLastMinigameKey, keyStr);
               location.href = curLocationData.minigamePath + '?mode=sugoroku&key=' + keyStr;
             }}>
               →→ ミニゲームをはじめる ←←
@@ -93,7 +93,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
           </p>
           <Link to='/playing/' onClick={() => {
             // localStorage.setItem(StorageKeys.playingLastMinigameRank, 'c');
-            stio.setItem(StorageKeys.PlayingLastMinigameRank, 'c');
+            stdao.setItem(StorageKeys.PlayingLastMinigameRank, 'c');
             sgmgr.moveScreenTo(PlayingStates.MinigameResult);
           }}>
             ミニゲームをやらずに次へ進める

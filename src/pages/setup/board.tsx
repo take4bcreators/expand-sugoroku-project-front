@@ -4,7 +4,7 @@ import { Link, navigate } from 'gatsby';
 
 import '../../sass/style.scss';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
@@ -17,15 +17,15 @@ type ThisPageProps = {
 
 export default ({ data }: ThisPageProps) => {
   const [selectedBoard, setSelectedBoard] = useState('');
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setSelectedBoard(localStorage.getItem(StorageKeys.SetupBoard) ?? '');
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
@@ -38,7 +38,7 @@ export default ({ data }: ThisPageProps) => {
   const changeStateAndStorage = (e: { target: HTMLInputElement }): void => {
     const boardID = e.target.dataset.boardid ?? ''
     setSelectedBoard(boardID);
-    stio.setItem(StorageKeys.SetupBoard, boardID);
+    stdao.setItem(StorageKeys.SetupBoard, boardID);
     console.log('[SGPJ] [save] ' + boardID);
   };
   

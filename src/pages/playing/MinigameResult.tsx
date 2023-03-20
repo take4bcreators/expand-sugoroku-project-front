@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
@@ -21,8 +21,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   const [minigameRank, setMinigameRank] = useState('');
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    const stio = new SgpjStorageIO(localStorage);
-    setPlayer(stio.getCurrentPlayer());
+    const stdao = new StorageDAO(localStorage);
+    setPlayer(stdao.getCurrentPlayer());
     setMinigameRank(localStorage.getItem(StorageKeys.PlayingLastMinigameRank) ?? '');
     setDoEffect(true);
   }, []);
@@ -41,7 +41,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   
   // 次の順番にする処理をクリック時用に定義
   function setNextOrderNum(): void {
-    const stio = new SgpjStorageIO(localStorage);
+    const stio = new StorageDAO(localStorage);
     const updateResult = stio.updateNextOrderNum();
     if (!updateResult) {
       console.error('[SGPJ] Failed to update user information.');
@@ -60,7 +60,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
           <Link to='/playing/' onClick={() => {
             const nextPlayer = Object.assign({}, player);
             nextPlayer.point = nextPlayer.point + getPoint;
-            const stio = new SgpjStorageIO(localStorage);
+            const stio = new StorageDAO(localStorage);
             const updateResult = stio.updateCurrentPlayer(nextPlayer);
             // ユーザー情報UPDATEが問題合った場合は、エラーを出力
             if (!updateResult) {

@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import '../../sass/style.scss';
 
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import SgpjGameManager from '../../ts/module/SgpjSugorokuManager';
 
 // import { PlayingStates } from '../../ts/module/PlayingStates';
@@ -24,23 +24,23 @@ export type ThisPageParentProps = {
 
 export default ({ data }: ThisPageParentProps): JSX.Element => {
   // インスタンス変数
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [load] stio : ' + stio);
+  console.log('[SGPJ] [load] stio : ' + stdao);
   
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
   
   // プレイヤーオブジェクト配列を取得してプレイ順にソート
-  const players = stio.getPlayerInfoObject();
+  const players = stdao.getPlayerInfoObject();
   if (typeof players === 'undefined') {
     console.error('[SGPJ] players is undefined');
     return (<></>);
@@ -48,7 +48,7 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
   players.sort((a, b) => a.order - b.order);
   
   // 現在のプレイヤーに印をつけるために情報を取得
-  const curOrderNum = stio.getCurrentOrderNumber();
+  const curOrderNum = stdao.getCurrentOrderNumber();
   
   // // 場所名の表示をするためにボード情報取得
   // const curPlayingBoardID = stio.getPlayingBoardID();
@@ -59,7 +59,7 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
   // const playBoard = data.allBoardsJson.edges[curPlayingBoardID].node;
   
   // 場所名の表示をするためにボード情報取得
-  const board = stio.getPlayingBoard();
+  const board = stdao.getPlayingBoard();
   if (typeof board === 'undefined') {
     console.error('[SGPJ] curPlayingBoardID is undefined');
     return (<></>);

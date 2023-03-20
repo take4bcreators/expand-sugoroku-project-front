@@ -14,7 +14,7 @@ import Ending from './ending';
 import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 
@@ -23,16 +23,16 @@ import type { PlayingPageParentProps } from '../../ts/type/PlayingPageProps';
 
 
 export default ({data, location}: PlayingPageParentProps): JSX.Element => {
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [playingState, setPlayingState] = useState('');
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }

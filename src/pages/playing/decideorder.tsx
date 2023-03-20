@@ -7,7 +7,7 @@ import '../../sass/style.scss';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
@@ -16,16 +16,16 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 export default (props: PlayingPageChildProps): JSX.Element => {
   const [resultElem, setResultElem] = useState<JSX.Element | undefined>(undefined);
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [sgmgr, setSgmgr] = useState<SgpjSugorokuManager | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setSgmgr(new SgpjSugorokuManager(props.setPlayingState, localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
@@ -37,7 +37,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   // 順番決めボタンが押された時の処理
   const decideOrder = (): void => {
     // 連番をランダムにした配列を生成
-    const numPlayers = stio.getNumPlayers();
+    const numPlayers = stdao.getNumPlayers();
     if (typeof numPlayers === 'undefined') {
       console.error('numPlayers is ' + numPlayers);
       // @remind ここにエラー時にトップへ戻る処理を追加する
@@ -47,7 +47,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     numberArr.sort(() => Math.random() - 0.5);
     
     // ストレージからユーザー情報を取得
-    const playerInfoArr = stio.getPlayerInfoObject();
+    const playerInfoArr = stdao.getPlayerInfoObject();
     if (typeof playerInfoArr === 'undefined') {
       console.error('playerInfoArr is ' + playerInfoArr);
       // @remind ここにエラー時にトップへ戻る処理を追加する
@@ -85,7 +85,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     
     // ストレージと情報保持用ステートにプレイヤー情報と結果表示用要素を戻す
     const newPlayerInfoJSON = JSON.stringify(playerInfoArr);
-    stio.setItem(StorageKeys.PlayingPlayers, newPlayerInfoJSON);
+    stdao.setItem(StorageKeys.PlayingPlayers, newPlayerInfoJSON);
     setResultElem(displayRetultElem);
     return;
   }

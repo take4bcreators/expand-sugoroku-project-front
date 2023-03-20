@@ -3,7 +3,7 @@ import type { PlayerInfo } from '../type/PlayerInfo';
 import type { BoardData } from '../type/BoardData';
 
 
-export default class SgpjStorageIO {
+export default class StorageDAO {
   
   /** オブジェクト内で使用するストレージ */
   strage: Storage;

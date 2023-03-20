@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import '../../sass/style.scss';
 
-import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import { generateRankingArr } from '../../ts/module/SgpjCommonModules';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
@@ -11,20 +11,20 @@ import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 export default (_props : PlayingPageChildProps): JSX.Element => {
-  const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setStio(new SgpjStorageIO(localStorage));
+    setStdao(new StorageDAO(localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (typeof stio === 'undefined') {
+  if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
   
   // プレイヤーオブジェクト配列を取得してポイントの大きい順にソート
-  const players = stio.getPlayerInfoObject();
+  const players = stdao.getPlayerInfoObject();
   if (typeof players === 'undefined') {
     console.error('[SGPJ] players is undefined');
     return (<></>);
