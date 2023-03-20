@@ -6,7 +6,7 @@ import '../../sass/style.scss';
 
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
-import { createRandomString } from '../../ts/module/SgpjCommonModules';
+import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
 
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
@@ -83,7 +83,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
           <p>{curLocationData.minigameDesc}</p>
           <p>
             <a onClick={() => {
-              const keyStr = createRandomString(8);
+              const keyStr = util.createRandomString(8);
               // localStorage.setItem(StorageKeys.playingLastMinigameKey, keyStr);
               stdao.setItem(StorageKeys.PlayingLastMinigameKey, keyStr);
               location.href = curLocationData.minigamePath + '?mode=sugoroku&key=' + keyStr;

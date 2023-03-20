@@ -5,7 +5,7 @@ import { Link, navigate } from 'gatsby';
 import '../../sass/style.scss'
 
 import { AppConst } from '../../ts/config/const';
-import { existsSameValue } from '../../ts/module/SgpjCommonModules';
+import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 
 
@@ -47,7 +47,7 @@ export default () => {
       window.alert('2人以上入力してください');
     } else if (playerList.length >= 100) {
       window.alert('プレイヤーの数は99人以下にしてください');
-    } else if (existsSameValue(playerList)) {
+    } else if (util.existsSameValue(playerList)) {
       window.alert('同じ名前のプレイヤーは設定できません');
     } else {
       navigate('./?state=confirmation');

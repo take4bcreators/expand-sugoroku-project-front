@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import '../../sass/style.scss';
 
 import StorageDAO from '../../ts/module/StorageDAO';
-import { generateRankingArr } from '../../ts/module/SgpjCommonModules';
+import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
@@ -32,7 +32,7 @@ export default (_props : PlayingPageChildProps): JSX.Element => {
   players.sort((a, b) => a.point - b.point).reverse();
   
   // ランキング配列の取得
-  const rankingArr = generateRankingArr(players.map(player => player.point));
+  const rankingArr = util.generateRankingArr(players.map(player => player.point));
   
   return (
     <>
