@@ -9,42 +9,28 @@ import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
 
+import { AppConst } from '../../ts/config/const';
+
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
-  console.log(props);
-  
-  // インスタンス変数
   const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
-  // const [playBoard, setPlayBoard] = useState<number | undefined>(undefined);
   const [minigameRank, setMinigameRank] = useState('');
   const [doEffect, setDoEffect] = useState(false);
-  
   useEffect(() => {
-    // プレイヤーの数を取得
     const stio = new SgpjStorageIO(localStorage);
     setPlayer(stio.getCurrentPlayer());
-    // setPlayBoard(stio.getPlayingBoardID());
     setMinigameRank(localStorage.getItem(StorageKeys.playingLastMinigameRank) ?? '');
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
   console.log('[SGPJ] [load] player : ' + player);
   
-  // ランクに対するポイント
-  // @remind 設定ファイルで管理したい
-  const rankPointMap = new Map([
-    ['s', 50],
-    ['a', 30],
-    ['b', 10],
-    ['c', 0]
-  ]);
-  
   // ランクに応じたポイントをセット
-  const getPoint = rankPointMap.get('minigameRank') ?? 0
+  const getPoint = AppConst.RANK_POINTS.get(minigameRank.toLowerCase()) ?? 0
   
   // 画面移動のアクションをクリック時用に定義
   function moveScreenTo(screen: string): void {
@@ -62,7 +48,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     }
     return;
   }
-  
   
   
   return (

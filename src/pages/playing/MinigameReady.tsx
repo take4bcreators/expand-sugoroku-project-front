@@ -6,9 +6,12 @@ import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
+import { createRandomString } from '../../ts/module/SgpjCommonModules';
 
 import { PlayingStates } from '../../ts/module/PlayingStates';
 import { StorageKeys } from '../../ts/module/StorageKeys';
+
+import { AppConst } from '../../ts/config/const';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
@@ -49,9 +52,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  // ミニゲームフォルダのパス（ビルド後のパスを指定）
-  const MINIGAME_DIR: string = '../minigame';
-  
   // 今回止まったマスの情報格納用オブジェクトの初期化
   const curLocationData = {
     minigameName: '',
@@ -70,26 +70,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       curLocationData.minigameName = curLocation.minigame.name;
       curLocationData.minigameDesc = curLocation.minigame.desc;
       curLocationData.minigameId = curLocation.minigame.id;
-      curLocationData.minigamePath = MINIGAME_DIR + '/' + curLocation.minigame.id + '/';
+      curLocationData.minigamePath = AppConst.MINIGAME_DIR + '/' + curLocation.minigame.id + '/';
     }
-  }
-  
-  // 画面移動のアクションをクリック時用に定義
-  function moveScreenTo(screen: string): void {
-    localStorage.setItem(StorageKeys.playingState, screen);
-    props.setPlayingState(screen);
-    return;
-  }
-  
-  // ミニゲームキー用ランダム文字列生成
-  function createRandomString(length: number) {
-    const S = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const L = length;
-    let rnd = '';
-    for (var i = 0; i < L; i++) {
-      rnd += S.charAt(Math.floor(Math.random() * S.length));
-    }
-    return rnd;
   }
   
   
@@ -102,15 +84,17 @@ export default (props: PlayingPageChildProps): JSX.Element => {
           <p>
             <a onClick={() => {
               const keyStr = createRandomString(8);
-              localStorage.setItem(StorageKeys.playingLastMinigameKey, keyStr);
+              // localStorage.setItem(StorageKeys.playingLastMinigameKey, keyStr);
+              stio.setItem(StorageKeys.playingLastMinigameKey, keyStr);
               location.href = curLocationData.minigamePath + '?mode=sugoroku&key=' + keyStr;
             }}>
               →→ ミニゲームをはじめる ←←
             </a>
           </p>
           <Link to='/playing/' onClick={() => {
-            localStorage.setItem(StorageKeys.playingLastMinigameRank, 'c');
-            moveScreenTo(PlayingStates.minigameResult);
+            // localStorage.setItem(StorageKeys.playingLastMinigameRank, 'c');
+            stio.setItem(StorageKeys.playingLastMinigameRank, 'c');
+            sgmgr.moveScreenTo(PlayingStates.minigameResult);
           }}>
             ミニゲームをやらずに次へ進める
           </Link>
