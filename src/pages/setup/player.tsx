@@ -6,7 +6,7 @@ import '../../sass/style.scss'
 
 import { AppConst } from '../../ts/config/const';
 import { existsSameValue } from '../../ts/module/SgpjCommonModules';
-import { StorageKeys } from '../../ts/module/StorageKeys';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 
 
 
@@ -14,7 +14,7 @@ export default () => {
   const [playerList, setPlayerList] = useState(['']);
   const [doEffect, setDoEffect] = useState(false);
   useEffect((): void => {
-    const playerListJSON = localStorage.getItem(StorageKeys.setupPlayer) ?? '[""]';
+    const playerListJSON = localStorage.getItem(StorageKeys.SetupPlayer) ?? '[""]';
     try {
       setPlayerList(JSON.parse(playerListJSON) ?? ['']);
     } catch (error) {
@@ -39,7 +39,7 @@ export default () => {
     }
     playerList[keyNum] = e.target.value;
     setPlayerList(playerList);
-    localStorage.setItem(StorageKeys.setupPlayer, JSON.stringify(playerList));
+    localStorage.setItem(StorageKeys.SetupPlayer, JSON.stringify(playerList));
   };
   
   function checkInput(): void {

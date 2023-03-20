@@ -15,8 +15,8 @@ import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
-import { PlayingStates } from '../../ts/module/PlayingStates';
-import { StorageKeys } from '../../ts/module/StorageKeys';
+import { PlayingStates } from '../../ts/config/PlayingStates';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 
 import type { PlayingPageParentProps } from '../../ts/type/PlayingPageProps';
 
@@ -28,7 +28,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setStio(new SgpjStorageIO(localStorage));
-    setPlayingState(localStorage.getItem(StorageKeys.playingState) ?? '');
+    setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
@@ -36,13 +36,13 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
   }
-  console.log('[SGPJ] [load] ' + StorageKeys.playingState + ' : ' + playingState);
+  console.log('[SGPJ] [load] ' + StorageKeys.PlayingState + ' : ' + playingState);
   
   // 現在のストレージの状態によりページ内容の表示を変える
   let usePageElem: JSX.Element;
   let footerType: ('A' | 'B') = 'A';
   switch (playingState) {
-    case PlayingStates.decideOrder:
+    case PlayingStates.DecideOrder:
       usePageElem = (
         <DecideOrder
           data={data}
@@ -53,7 +53,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       );
       footerType = 'B';
       break;
-    case PlayingStates.standby:
+    case PlayingStates.Standby:
       usePageElem = (
         <Standby
           data={data}
@@ -64,7 +64,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       );
       footerType = 'A';
       break;
-    case PlayingStates.dice:
+    case PlayingStates.Dice:
       usePageElem = (
         <Dice
           data={data}
@@ -75,7 +75,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       );
       footerType = 'B';
       break;
-    case PlayingStates.squareEvent:
+    case PlayingStates.SquareEvent:
       usePageElem = (
         <SquareEvent
           data={data}
@@ -86,7 +86,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       );
       footerType = 'A';
       break;
-    case PlayingStates.minigameReady:
+    case PlayingStates.MinigameReady:
       usePageElem = (
         <MinigameReady
           data={data}
@@ -97,7 +97,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       );
       footerType = 'A';
       break;
-    case PlayingStates.minigameResult:
+    case PlayingStates.MinigameResult:
       usePageElem = (
         <MinigameResult
           data={data}
@@ -108,7 +108,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       );
       footerType = 'B';
       break;
-    case PlayingStates.ending:
+    case PlayingStates.Ending:
       usePageElem = (
         <Ending
           data={data}
@@ -142,7 +142,7 @@ export const Head = () => {
   
   const [playingState, setPlayingState] = useState('');
   useEffect(() => {
-    setPlayingState(localStorage.getItem(StorageKeys.playingState) ?? '');
+    setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
   }, []);
   
   let pageTitle = '';

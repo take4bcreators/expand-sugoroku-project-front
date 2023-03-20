@@ -6,7 +6,7 @@ import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
-import { PlayingStates } from '../../ts/module/PlayingStates';
+import { PlayingStates } from '../../ts/config/PlayingStates';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
@@ -93,7 +93,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       <>
         <Link to='/playing/' onClick={() => {
           stio.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.ending);
+          sgmgr.moveScreenTo(PlayingStates.Ending);
         }}>
           →→ 最終結果画面へ進む
         </Link>
@@ -106,7 +106,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>イベントはありません</p>
         <Link to='/playing/' onClick={() => {
           stio.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.standby);
+          sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           →→ 次の人の番へすすむ ←←
         </Link>
@@ -119,7 +119,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>{curLocationData.eventName}</p>
         <p>{curLocationData.eventDesc}</p>
         <Link to='/playing/' onClick={() => {
-          sgmgr.moveScreenTo(PlayingStates.minigameReady);
+          sgmgr.moveScreenTo(PlayingStates.MinigameReady);
         }}>
           →→ ミニゲームへ進む
         </Link>
@@ -137,7 +137,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
           nextPlayer.location = nextPlayer.location + curLocationData.eventMove;
           stio.updateCurrentPlayer(nextPlayer);
           stio.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.standby);
+          sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           →→ 次の人の番へすすむ
         </Link>
@@ -151,7 +151,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <p>{curLocationData.eventDesc}</p>
         <Link to='/playing/' onClick={() => {
           stio.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.standby);
+          sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           →→ 次の人の番へすすむ
         </Link>

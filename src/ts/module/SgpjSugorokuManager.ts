@@ -1,4 +1,4 @@
-import { StorageKeys } from './StorageKeys';
+import { StorageKeys } from '../config/StorageKeys';
 import { AppConst } from '../config/const';
 
 
@@ -13,7 +13,7 @@ export default class SgpjSugorokuManager {
   
   /** 指定した画面へ移動する */
   moveScreenTo(screen: string): void {
-    this.storage.setItem(StorageKeys.playingState, screen);
+    this.storage.setItem(StorageKeys.PlayingState, screen);
     this.setPlayingStateFunc(screen);
     return;
   }

@@ -7,7 +7,7 @@ import '../../sass/style.scss';
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
 
-import { PlayingStates } from '../../ts/module/PlayingStates';
+import { PlayingStates } from '../../ts/config/PlayingStates';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
@@ -34,7 +34,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   
   // 表示用要素
   let innerElem = (
-    <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.dice)}}>
+    <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Dice)}}>
       → さいころをふる
     </Link>
   );
@@ -53,7 +53,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         <p>〜〜 ゴール済みです 〜〜</p>
         <Link to='/playing/' onClick={() => {
           stio.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.standby);
+          sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           → 次の人へ進む
         </Link>
@@ -70,7 +70,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         <Link to='/playing/' onClick={() => {
           stio.updateNextOrderNum();
           stio.decrementCurPlayerSkipCnt();
-          sgmgr.moveScreenTo(PlayingStates.standby);
+          sgmgr.moveScreenTo(PlayingStates.Standby);
         }}>
           → 次の人へ進む
         </Link>

@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 
 import '../../sass/style.scss';
 
-import { PlayingStates } from '../../ts/module/PlayingStates';
-import { StorageKeys } from '../../ts/module/StorageKeys';
+import { PlayingStates } from '../../ts/config/PlayingStates';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
@@ -77,7 +77,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         {
           playerNameElem.map((elem) => elem)
         }
-        <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.standby)}}>
+        <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
           → 次に進む
         </Link>
       </>
@@ -85,7 +85,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     
     // ストレージと情報保持用ステートにプレイヤー情報と結果表示用要素を戻す
     const newPlayerInfoJSON = JSON.stringify(playerInfoArr);
-    stio.setItem(StorageKeys.playingPlayers, newPlayerInfoJSON);
+    stio.setItem(StorageKeys.PlayingPlayers, newPlayerInfoJSON);
     setResultElem(displayRetultElem);
     return;
   }

@@ -1,4 +1,4 @@
-import { StorageKeys, storageKeysType } from './StorageKeys';
+import { StorageKeys, StorageKeysMembers } from '../config/StorageKeys';
 import type { PlayerInfo } from '../type/PlayerInfo';
 import type { BoardData } from '../type/BoardData';
 
@@ -8,11 +8,11 @@ export default class SgpjStorageIO {
   /** オブジェクト内で使用するストレージ */
   strage: Storage;
   /** ストレージに入出力する際のキーとなる文字列 */
-  playersKey: string = StorageKeys.playingPlayers;
-  curOrderNumKey: string = StorageKeys.playingCurrentOrderNum;
-  boardIdKey: string = StorageKeys.playingBoardID;
-  numPlayers: string = StorageKeys.playingNumPlayers;
-  boardData: string = StorageKeys.playingBoardData;
+  playersKey: string = StorageKeys.PlayingPlayers;
+  curOrderNumKey: string = StorageKeys.PlayingCurrentOrderNum;
+  boardIdKey: string = StorageKeys.PlayingBoardID;
+  numPlayers: string = StorageKeys.PlayingNumPlayers;
+  boardData: string = StorageKeys.PlayingBoardData;
   
   
   constructor(strage: Storage = localStorage) {
@@ -21,18 +21,18 @@ export default class SgpjStorageIO {
   
   
   /** 単純にストレージから取得 */
-  getItem(item: storageKeysType): string | null {
+  getItem(item: StorageKeysMembers): string | null {
     return this.strage.getItem(item);
   }
   
   /** 単純にストレージへ保存 */
-  setItem(key: storageKeysType, value: string): void {
+  setItem(key: StorageKeysMembers, value: string): void {
     this.strage.setItem(key, value);
     return;
   }
   
   /** 単純にストレージから削除 */
-  removeItem(key: storageKeysType): void {
+  removeItem(key: StorageKeysMembers): void {
     this.strage.removeItem(key);
     return;
   }

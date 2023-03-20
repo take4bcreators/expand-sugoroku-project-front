@@ -6,8 +6,8 @@ import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 import SgpjSugorokuManager from '../../ts/module/SgpjSugorokuManager';
-import { PlayingStates } from '../../ts/module/PlayingStates';
-import { StorageKeys } from '../../ts/module/StorageKeys';
+import { PlayingStates } from '../../ts/config/PlayingStates';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 
@@ -82,7 +82,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       <p onClick={() => {setDiceNumber(sgmgr.rollDice())}}>
         →→ クリックでサイコロをふる ←←
       </p>
-      <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.standby)}}>
+      <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
         ← 戻る
       </Link>
     </>
@@ -144,7 +144,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
               to='/playing/'
               onClick={() => {
                 // サイコロの出目をストレージに保存
-                localStorage.setItem(StorageKeys.playingLastDiceNum, diceNumber.toString());
+                localStorage.setItem(StorageKeys.PlayingLastDiceNum, diceNumber.toString());
                 
                 // 移動した後のプレイヤーの状態をストレージに保存
                 const nextPlayer = Object.assign({}, player);
@@ -155,7 +155,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
                 const updateResult = stio.updateCurrentPlayer(nextPlayer);
                 // ユーザー情報UPDATEが問題ない場合は、シーンを更新する
                 if (updateResult) {
-                  sgmgr.moveScreenTo(PlayingStates.squareEvent)
+                  sgmgr.moveScreenTo(PlayingStates.SquareEvent)
                 } else {
                   console.error('[SGPJ] Failed to update user information.');
                 }
@@ -169,7 +169,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       displayElem = (
         <>
           <p>エラーが発生しました</p>
-          <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.standby)}}>
+          <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
             ← 戻る
           </Link>
         </>

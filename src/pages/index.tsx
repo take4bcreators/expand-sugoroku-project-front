@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import '../sass/style.scss';
 
 import { useState, useEffect } from 'react';
-import { StorageKeys } from '../ts/module/StorageKeys';
+import { StorageKeys } from '../ts/config/StorageKeys';
 
 
 const PAGE_TITLE: string = 'すごろくツール';
@@ -13,7 +13,7 @@ export default function Home() {
   // 初回であれば「つづきから」のリンクを無効にする
   const [playingState, setPlayingState] = useState('');
   useEffect(() => {
-    setPlayingState(localStorage.getItem(StorageKeys.playingState) ?? '');
+    setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
   }, []);
   let continueLink: JSX.Element = (<Link to="playing/">つづきから</Link>);
   if (playingState === '') {

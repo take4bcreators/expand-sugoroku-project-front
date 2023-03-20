@@ -6,7 +6,7 @@ import '../../sass/style.scss';
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 
-import { StorageKeys } from '../../ts/module/StorageKeys';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 
 
@@ -20,7 +20,7 @@ export default ({ data }: ThisPageProps) => {
   const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setSelectedBoard(localStorage.getItem(StorageKeys.setupBoard) ?? '');
+    setSelectedBoard(localStorage.getItem(StorageKeys.SetupBoard) ?? '');
     setStio(new SgpjStorageIO(localStorage));
     setDoEffect(true);
   }, []);
@@ -38,7 +38,7 @@ export default ({ data }: ThisPageProps) => {
   const changeStateAndStorage = (e: { target: HTMLInputElement }): void => {
     const boardID = e.target.dataset.boardid ?? ''
     setSelectedBoard(boardID);
-    stio.setItem(StorageKeys.setupBoard, boardID);
+    stio.setItem(StorageKeys.SetupBoard, boardID);
     console.log('[SGPJ] [save] ' + boardID);
   };
   

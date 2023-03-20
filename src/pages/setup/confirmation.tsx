@@ -5,8 +5,8 @@ import '../../sass/style.scss'
 
 import SgpjStorageIO from '../../ts/module/SgpjStorageIO';
 
-import { PlayingStates } from '../../ts/module/PlayingStates';
-import { StorageKeys } from '../../ts/module/StorageKeys';
+import { PlayingStates } from '../../ts/config/PlayingStates';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
@@ -22,8 +22,8 @@ export default ({ data }: ThisPageProps) => {
   const [stio, setStio] = useState<SgpjStorageIO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setBoardID(localStorage.getItem(StorageKeys.setupBoard) ?? '');
-    const playerListJSON = localStorage.getItem(StorageKeys.setupPlayer) ?? '[""]';
+    setBoardID(localStorage.getItem(StorageKeys.SetupBoard) ?? '');
+    const playerListJSON = localStorage.getItem(StorageKeys.SetupPlayer) ?? '[""]';
     setPlayerList(JSON.parse(playerListJSON) ?? ['']);
     setStio(new SgpjStorageIO(localStorage));
     setDoEffect(true);
@@ -72,22 +72,22 @@ export default ({ data }: ThisPageProps) => {
     const boardDataJSON = JSON.stringify(selectedBoard.node);
     
     // ゲーム実施用ストレージをセット
-    stio.setItem(StorageKeys.playingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
-    stio.setItem(StorageKeys.playingBoard, selectedBoardName); // ボード名
-    stio.setItem(StorageKeys.playingBoardID, selectedBoardID); // ボードID
-    stio.setItem(StorageKeys.playingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
-    stio.setItem(StorageKeys.playingState, PlayingStates.decideOrder); // 状態ID
-    stio.setItem(StorageKeys.playingCurrentOrderNum, '0'); // 現在の順番番号
-    stio.setItem(StorageKeys.playingLastDiceNum, '-1'); // サイコロの出目
-    stio.setItem(StorageKeys.playingBoardData, boardDataJSON); // ボードの内容情報
-    stio.setItem(StorageKeys.playingIsEnd, 'false'); // 終了フラグ
-    stio.setItem(StorageKeys.playingLastMinigameRank, ''); // ミニゲームの結果（ランク文字列）
-    stio.setItem(StorageKeys.playingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
+    stio.setItem(StorageKeys.PlayingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
+    stio.setItem(StorageKeys.PlayingBoard, selectedBoardName); // ボード名
+    stio.setItem(StorageKeys.PlayingBoardID, selectedBoardID); // ボードID
+    stio.setItem(StorageKeys.PlayingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
+    stio.setItem(StorageKeys.PlayingState, PlayingStates.DecideOrder); // 状態ID
+    stio.setItem(StorageKeys.PlayingCurrentOrderNum, '0'); // 現在の順番番号
+    stio.setItem(StorageKeys.PlayingLastDiceNum, '-1'); // サイコロの出目
+    stio.setItem(StorageKeys.PlayingBoardData, boardDataJSON); // ボードの内容情報
+    stio.setItem(StorageKeys.PlayingIsEnd, 'false'); // 終了フラグ
+    stio.setItem(StorageKeys.PlayingLastMinigameRank, ''); // ミニゲームの結果（ランク文字列）
+    stio.setItem(StorageKeys.PlayingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
   }
   
   const removeSetupData = (): void => {
-    stio.removeItem(StorageKeys.setupBoard);
-    stio.removeItem(StorageKeys.setupPlayer);
+    stio.removeItem(StorageKeys.SetupBoard);
+    stio.removeItem(StorageKeys.SetupPlayer);
   }
   
   
