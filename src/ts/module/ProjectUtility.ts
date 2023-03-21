@@ -17,6 +17,17 @@ export namespace ProjectUtility {
         return set.size != arr.length;
     }
     
+    /**
+     * 配列の要素から 空文字、undefined、null を除外した要素を返す汎用関数。
+     * スペース、0、false は除外されません。元の配列には影響ありません。
+     * https://ryjkmr.com/javascript-array-remove-leave-zero-element/
+     * @param arr 処理対象の配列
+     * @returns 空文字、undefined、nullを除外した配列
+     */
+    export function generateCleanArr<T>(arr: Array<T>): Array<T> {
+        return arr.filter(v => v !== '' && typeof v !== 'undefined' && v !== null);
+    }
+    
     /** 
      * ランダムな文字列を生成する汎用関数
      * https://webfrontend.ninja/js-random-string/

@@ -1,31 +1,24 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+import { StorageKeys } from '../ts/config/StorageKeys';
 import '../sass/style.scss';
 
-import { useState, useEffect } from 'react';
-import { StorageKeys } from '../ts/config/StorageKeys';
 
 
 const PAGE_TITLE: string = 'すごろくツール';
 
-export default function Home() {
-  
-  // 初回であれば「つづきから」のリンクを無効にする
+export default () => {
   const [playingState, setPlayingState] = useState('');
   useEffect(() => {
     setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
   }, []);
-  let continueLink: JSX.Element = (<Link to="playing/">つづきから</Link>);
-  if (playingState === '') {
-    continueLink = (<p>つづきから</p>);
-  }
-  
   
   return (
     <>
       <h1>{PAGE_TITLE}</h1>
       <div>
-        {continueLink}
+        {playingState === '' ? <p>つづきから</p> : <Link to="playing/">つづきから</Link>}
       </div>
       <div>
         <Link to='setup/?state=board'>
@@ -35,6 +28,7 @@ export default function Home() {
     </>
   );
 }
+
 
 export function Head() {
   return (

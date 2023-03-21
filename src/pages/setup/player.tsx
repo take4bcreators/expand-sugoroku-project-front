@@ -1,12 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
-
-import '../../sass/style.scss'
-
-import { AppConst } from '../../ts/config/const';
 import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
+import { AppConst } from '../../ts/config/const';
 import { StorageKeys } from '../../ts/config/StorageKeys';
+import '../../sass/style.scss'
 
 
 
@@ -43,11 +41,12 @@ export default () => {
   };
   
   function checkInput(): void {
-    if (playerList.length < 2) {
+    const cleanPlayerList = util.generateCleanArr(playerList);
+    if (cleanPlayerList.length < 2) {
       window.alert('2人以上入力してください');
-    } else if (playerList.length >= 100) {
+    } else if (cleanPlayerList.length >= 100) {
       window.alert('プレイヤーの数は99人以下にしてください');
-    } else if (util.existsSameValue(playerList)) {
+    } else if (util.existsSameValue(cleanPlayerList)) {
       window.alert('同じ名前のプレイヤーは設定できません');
     } else {
       navigate('./?state=confirmation');

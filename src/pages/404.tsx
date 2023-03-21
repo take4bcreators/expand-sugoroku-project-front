@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import '../sass/style.scss';
 
-export default function NotFound() {
+
+export default () => {
   return (
     <>
       <div>
@@ -12,6 +13,7 @@ export default function NotFound() {
     </>
   );
 }
+
 
 export function Head() {
   return (

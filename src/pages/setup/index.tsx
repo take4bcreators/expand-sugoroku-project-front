@@ -1,14 +1,11 @@
 import React from 'react';
 import { useLocation } from '@reach/router';
 import { graphql } from 'gatsby'
-
-import '../../sass/style.scss';
-
 import SetupBoard from './board';
 import SetupPlayer from './player';
 import SetupConfirmation from './confirmation';
-
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
+import '../../sass/style.scss';
 
 
 

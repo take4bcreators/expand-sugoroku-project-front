@@ -1,15 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from "gatsby"
-import '../../sass/style.scss'
-
 import StorageDAO from '../../ts/module/StorageDAO';
-
+import { ProjectUtility as util} from '../../ts/module/ProjectUtility';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
+import '../../sass/style.scss'
+
 
 
 type ThisPageProps = {
@@ -40,10 +39,10 @@ export default ({ data }: ThisPageProps) => {
   const selectedBoardID = selectedBoard.node.board.id;
   const selectedBoardName = selectedBoard.node.board.name;
   
-  
+  // ゲームスタート時にストレージに必要なデータを保存する処理
   const saveNewGameData = (): void => {
     // プレイヤー配列から空要素を除去
-    const cleanPlayerList = playerList.filter(Boolean);
+    const cleanPlayerList = util.generateCleanArr(playerList);
     // プレイヤー数は 1000 人以下に限定する
     if (cleanPlayerList.length > 1000) {
       // @remind エラー表示処理を追加したい（画面上部にエラー表示→トップに自動遷移）
@@ -85,11 +84,11 @@ export default ({ data }: ThisPageProps) => {
     stdao.setItem(StorageKeys.PlayingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
   }
   
+  // ゲームスタート時にストレージからセットアップ用情報を削除する処理
   const removeSetupData = (): void => {
     stdao.removeItem(StorageKeys.SetupBoard);
     stdao.removeItem(StorageKeys.SetupPlayer);
   }
-  
   
   return (
     <>
