@@ -3,6 +3,7 @@
 
 /**
  * すごろくツール連携用モジュール
+ * パラメータ：?mode=sugoroku&key=hogehoge
  */
 export class SugorokuConnection {
     /** モードを識別するためのパラメータキー */
