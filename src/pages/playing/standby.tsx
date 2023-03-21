@@ -1,15 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-
-import '../../sass/style.scss';
-
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
-
 import { PlayingStates } from '../../ts/config/PlayingStates';
-
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -23,12 +19,12 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (stdao === undefined) {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+  if (typeof stdao === 'undefined') {
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
-  if (sgmgr === undefined) {
-    console.error('[SGPJ] SgpjGameManager is undefined');
+  if (typeof sgmgr === 'undefined') {
+    console.error('[SGPJ] sgmgr is undefined');
     return (<></>);
   }
   
@@ -41,8 +37,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   
   // 現在のプレイヤーを取得
   const player = stdao.getCurrentPlayer();
-  if (player === undefined) {
-    console.error('[SGPJ] stio.getCurrentPlayer is undefined');
+  if (typeof player === 'undefined') {
+    console.error('[SGPJ] player is undefined');
     return (<></>);
   }
   
@@ -78,13 +74,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     );
   }
   
-  // // 現在の場所の名前を取得
-  // let curLocationName = '';
-  // const playBoard = stio.getPlayingBoardID();
-  // const playerLocation = player.location;
-  // if (playBoard !== undefined && playerLocation !== undefined) {
-  //   curLocationName = props.data.allBoardsJson.edges[playBoard].node.square[playerLocation].store.name;
-  // }
   // 現在の場所の名前を取得
   let curLocationName = '';
   const board = stdao.getPlayingBoard();

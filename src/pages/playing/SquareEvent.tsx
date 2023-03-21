@@ -1,14 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-
-import '../../sass/style.scss';
-
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
 import { PlayingStates } from '../../ts/config/PlayingStates';
-
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -23,15 +20,15 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   }, []);
   if (!doEffect) return (<></>);
   if (typeof stdao === 'undefined') {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
   if (typeof sgmgr === 'undefined') {
-    console.error('[SGPJ] SgpjGameManager is undefined');
+    console.error('[SGPJ] sgmgr is undefined');
     return (<></>);
   }
   
-  // 今回止まったマスの情報格納用オブジェクトの初期化
+  // 今回止まったマスの情報を取得
   const curLocationData = {
     name: '',
     desc: '',
@@ -41,24 +38,6 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     minigame: false,
     eventMove: 0,
   };
-  
-  // マスの情報取得
-  // const board = stio.getPlayingBoardID();
-  // const player = stio.getCurrentPlayer();
-  // if (board !== undefined) {
-  //   const playerLocation = player?.location;
-  //   if (playerLocation !== undefined) {
-  //     const curLocation = props.data.allBoardsJson.edges[board].node.square[playerLocation];
-  //     curLocationData.name = curLocation.store.name;
-  //     curLocationData.desc = curLocation.store.desc;
-  //     curLocationData.eventFlag = curLocation.event.flag;
-  //     curLocationData.eventName = curLocation.event.name;
-  //     curLocationData.eventDesc = curLocation.event.desc;
-  //     curLocationData.minigame = curLocation.event.minigame;
-  //     curLocationData.eventMove = curLocation.event.move;
-  //   }
-  // }
-  // マスの情報取得
   const player = stdao.getCurrentPlayer();
   const board = stdao.getPlayingBoard();
   if (typeof board !== 'undefined') {

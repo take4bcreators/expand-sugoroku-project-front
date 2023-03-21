@@ -1,12 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
-import '../../sass/style.scss';
-
 import StorageDAO from '../../ts/module/StorageDAO';
 import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
-
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -19,7 +16,7 @@ export default (_props : PlayingPageChildProps): JSX.Element => {
   }, []);
   if (!doEffect) return (<></>);
   if (typeof stdao === 'undefined') {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
   

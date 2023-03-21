@@ -29,7 +29,7 @@ export default ({ data }: ThisPageProps) => {
   }, []);
   if (!doEffect) return (<></>);
   if (typeof stdao === 'undefined') {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
   

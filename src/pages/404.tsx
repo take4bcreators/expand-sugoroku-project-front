@@ -15,7 +15,7 @@ export default () => {
 }
 
 
-export function Head() {
+export const Head = () => {
   return (
     <>
       <title>404 Not Found</title>

@@ -1,39 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
-import { graphql } from 'gatsby';
-
+import { Link, graphql } from 'gatsby';
+import SEO from '../../components/SEO';
+import StorageDAO from '../../ts/module/StorageDAO';
 import '../../sass/style.scss';
 
 
-import StorageDAO from '../../ts/module/StorageDAO';
-import SgpjGameManager from '../../ts/module/SugorokuManager';
 
-// import { PlayingStates } from '../../ts/module/PlayingStates';
-// import { StorageKeys } from '../../ts/module/StorageKeys';
-
-// import PlayingLayout from '../../components/PlayingLayout';
-
-import SEO from '../../components/SEO';
-import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
-
-export type ThisPageParentProps = {
-    data: AllBoardsJson,
-}
-
-
-export default ({ data }: ThisPageParentProps): JSX.Element => {
-  // インスタンス変数
+export default (): JSX.Element => {
   const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
-  
   useEffect(() => {
     setStdao(new StorageDAO(localStorage));
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [load] stio : ' + stdao);
-  
   if (typeof stdao === 'undefined') {
     console.error('[SGPJ] SgpjStorageIO is undefined');
     return (<></>);
@@ -50,22 +31,12 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
   // 現在のプレイヤーに印をつけるために情報を取得
   const curOrderNum = stdao.getCurrentOrderNumber();
   
-  // // 場所名の表示をするためにボード情報取得
-  // const curPlayingBoardID = stio.getPlayingBoardID();
-  // if (typeof curPlayingBoardID === 'undefined') {
-  //   console.error('[SGPJ] curPlayingBoardID is undefined');
-  //   return (<></>);
-  // }
-  // const playBoard = data.allBoardsJson.edges[curPlayingBoardID].node;
-  
   // 場所名の表示をするためにボード情報取得
   const board = stdao.getPlayingBoard();
   if (typeof board === 'undefined') {
     console.error('[SGPJ] curPlayingBoardID is undefined');
     return (<></>);
   }
-  // const playBoard = data.allBoardsJson.edges[curPlayingBoardID].node;
-  
   
   // 表示用に要素を組み立てる
   const buildElem = (
@@ -106,7 +77,6 @@ export default ({ data }: ThisPageParentProps): JSX.Element => {
     </section>
   );
   
-  
   return (
     <>
       <h1>プレイヤー情報</h1>
@@ -127,45 +97,3 @@ export const Head = () => {
       />
   )
 }
-
-
-// ボード情報取得用クエリ
-//   取得したデータは、ページの { data } に渡される
-export const query = graphql`
-  query {
-    allBoardsJson {
-      edges {
-        node {
-          board {
-            id
-            name
-          }
-          square {
-            id
-            goalFlag
-            event {
-              skip
-              point
-              name
-              move
-              minigame
-              flag
-              desc
-            }
-            minigame {
-              name
-              id
-              desc
-            }
-            store {
-              name
-              desc
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-

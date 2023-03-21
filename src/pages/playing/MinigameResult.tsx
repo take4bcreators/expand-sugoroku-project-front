@@ -1,18 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-
-import '../../sass/style.scss';
-
 import StorageDAO from '../../ts/module/StorageDAO';
-
+import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-
-import { AppConst } from '../../ts/config/const';
-
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -27,7 +22,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  console.log('[SGPJ] [load] player : ' + player);
   
   // ランクに応じたポイントをセット
   const getPoint = AppConst.RANK_POINTS.get(minigameRank.toLowerCase()) ?? 0
@@ -48,7 +42,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     }
     return;
   }
-  
   
   return (
     <>
@@ -77,13 +70,3 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     </>
   )
 }
-
-// export function Head() {
-//   return (
-//     <>
-//       <title>スタンバイ画面</title>
-//     </>
-//   );
-// }
-
-

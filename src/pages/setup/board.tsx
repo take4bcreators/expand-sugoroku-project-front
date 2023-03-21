@@ -1,13 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
-
-import '../../sass/style.scss';
-
 import StorageDAO from '../../ts/module/StorageDAO';
-
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
+import '../../sass/style.scss';
 
 
 
@@ -26,7 +23,7 @@ export default ({ data }: ThisPageProps) => {
   }, []);
   if (!doEffect) return (<></>);
   if (typeof stdao === 'undefined') {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
   
@@ -93,4 +90,3 @@ export default ({ data }: ThisPageProps) => {
     </>
   )
 }
-

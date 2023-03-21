@@ -43,7 +43,7 @@ export default ({ data }: ThisPageProps) => {
 }
 
 
-export function Head() {
+export const Head = () => {
   // @remind ページタイトルは GraphQLから取るようにする
   const PAGE_TITLE: string = 'はじめから | すごろくツール';
   return (

@@ -1,16 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-
-import '../../sass/style.scss';
-
-import { PlayingStates } from '../../ts/config/PlayingStates';
-import { StorageKeys } from '../../ts/config/StorageKeys';
-
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
-
+import { PlayingStates } from '../../ts/config/PlayingStates';
+import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -26,11 +22,11 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   }, []);
   if (!doEffect) return (<></>);
   if (typeof stdao === 'undefined') {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
   if (typeof sgmgr === 'undefined') {
-    console.error('[SGPJ] SgpjSugorokuManager is undefined');
+    console.error('[SGPJ] sgmgr is undefined');
     return (<></>);
   }
   

@@ -1,15 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-
-import '../../sass/style.scss';
-
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -24,57 +21,29 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     setDoEffect(true);
   }, []);
   if (!doEffect) return (<></>);
-  if (stdao === undefined) {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+  if (typeof stdao === 'undefined') {
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
-  if (sgmgr === undefined) {
-    console.error('[SGPJ] SgpjGameManager is undefined');
+  if (typeof sgmgr === 'undefined') {
+    console.error('[SGPJ] sgmgr is undefined');
     return (<></>);
   }
   
-  
-  // // ボード情報取得
-  // type BoardNodeType = typeof props.data.allBoardsJson.edges[0]['node'];
-  // let playBoard: BoardNodeType | undefined = undefined;
-  // // 今回止まるのマスの情報格納用オブジェクトの初期化（拡張性を考慮してオブジェクトを使用）
-  // const curLocationData = {
-  //   number: 0,
-  //   name: '',
-  // };
-  // // 情報取得
-  // const player = stio.getCurrentPlayer();
-  // const playBoardNum = stio.getPlayingBoardID();
-  // if (playBoardNum !== undefined) {
-  //   playBoard = props.data.allBoardsJson.edges[playBoardNum].node;
-  //   const playerLocation = player?.location;
-  //   if (playerLocation !== undefined) {
-  //     curLocationData.name = playBoard.square[playerLocation].store.name;
-  //     curLocationData.number = playerLocation;
-  //   }
-  // }
-  
+  // 現在の場所情報を取得
   const curLocationData = {
     number: 0,
     name: '',
   };
-  // 情報取得
   const player = stdao.getCurrentPlayer();
   const board = stdao.getPlayingBoard();
   if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
-    if (playerLocation !== undefined) {
+    if (typeof playerLocation !== 'undefined') {
       curLocationData.name = board.square[playerLocation].store.name;
       curLocationData.number = playerLocation;
     }
   }
-  
-  
-  
-  
-  
-  
-  
   
   // 表示する要素の初期化
   let displayElem = (
@@ -100,12 +69,9 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       skip: 0,
     };
     // 次のマスの情報を取得する
-    // if (typeof playBoard !== 'undefined') {
     if (typeof board !== 'undefined') {
       const curLocation = player?.location ?? NaN;
       let nextLocation = curLocation + diceNumber;
-      // const goalIndex = playBoard.board.goal;
-      // const goalIndex = board.board.goal;
       const goalIndex = board.square.length - 1;
       // 移動先がゴールを超えていればゴールにする
       if (!isNaN(nextLocation) && nextLocation >= goalIndex) {
@@ -115,11 +81,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       // 移動先のマスの情報を取得
       if (!isNaN(nextLocation)) {
         nextLocationData.location = nextLocation;
-        // nextLocationData.eventflag = playBoard.square[nextLocation].event.flag;
         nextLocationData.eventflag = board.square[nextLocation].event.flag;
         if (nextLocationData.eventflag) {
-          // nextLocationData.point = playBoard.square[nextLocation].event.point;
-          // nextLocationData.skip = playBoard.square[nextLocation].event.skip;
           nextLocationData.point = board.square[nextLocation].event.point;
           nextLocationData.skip = board.square[nextLocation].event.skip;
           if (nextLocationData.skip < 0) {

@@ -30,7 +30,7 @@ export default () => {
 }
 
 
-export function Head() {
+export const Head = () => {
   return (
     <>
       <title>{PAGE_TITLE}</title>

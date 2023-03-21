@@ -22,14 +22,13 @@ export default () => {
   }, []);
   if (!doEffect) return (<></>);
   
-  
   let userCount: number = AppConst.DEFAULT_SETUP_PLAYER_COUNT;
   if (playerList.length > AppConst.DEFAULT_SETUP_PLAYER_COUNT) {
     userCount = playerList.length;
   }
   const seqNums = [...Array(userCount).keys()];
   
-  function userChange(e: { target: HTMLInputElement }): void {
+  const userChange = (e: { target: HTMLInputElement }): void => {
     const keyNum: number = parseInt(e.target.dataset.key ?? '');
     if (isNaN(keyNum)) {
       console.error('keyNum is NaN : ' + keyNum);
@@ -40,7 +39,7 @@ export default () => {
     localStorage.setItem(StorageKeys.SetupPlayer, JSON.stringify(playerList));
   };
   
-  function checkInput(): void {
+  const checkInput = (): void => {
     const cleanPlayerList = util.generateCleanArr(playerList);
     if (cleanPlayerList.length < 2) {
       window.alert('2人以上入力してください');

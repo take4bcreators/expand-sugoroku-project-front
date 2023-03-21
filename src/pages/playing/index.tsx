@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import '../../sass/style.scss';
-
 import Standby from './standby';
 import DecideOrder from './decideOrder';
 import Dice from './dice';
@@ -10,15 +8,13 @@ import SquareEvent from './squareEvent';
 import MinigameReady from './minigameReady';
 import MinigameResult from './minigameResult';
 import Ending from './ending';
-
 import PlayingLayout from '../../components/PlayingLayout';
 import SEO from '../../components/SEO';
-
 import StorageDAO from '../../ts/module/StorageDAO';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-
 import type { PlayingPageParentProps } from '../../ts/type/PlayingPageProps';
+import '../../sass/style.scss';
 
 
 
@@ -33,7 +29,7 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
   }, []);
   if (!doEffect) return (<></>);
   if (typeof stdao === 'undefined') {
-    console.error('[SGPJ] SgpjStorageIO is undefined');
+    console.error('[SGPJ] stdao is undefined');
     return (<></>);
   }
   console.log('[SGPJ] [load] ' + StorageKeys.PlayingState + ' : ' + playingState);

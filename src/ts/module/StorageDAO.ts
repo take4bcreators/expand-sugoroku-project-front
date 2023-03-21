@@ -55,21 +55,21 @@ export default class StorageDAO {
   getCurrentPlayer(): PlayerInfo | undefined {
     // ストレージからプレイヤー情報を配列で取得
     const playerInfoArr = this.getPlayerInfoObject();
-    if (playerInfoArr === undefined) {
+    if (typeof playerInfoArr === 'undefined') {
       console.warn('playerInfoArr is ' + playerInfoArr);
       return undefined;
     }
     
     // ストレージから現在の順番番号を取得
     const curOrder = this.getCurrentOrderNumber();
-    if (curOrder === undefined) {
+    if (typeof curOrder === 'undefined') {
       console.warn('curOrder is ' + curOrder);
       return undefined;
     }
     
     // プレイヤー情報と現在の順番番号から、現在のプレイヤーのオブジェクトを取得
     const curPlayerObject = playerInfoArr.find(e => e.order === curOrder);
-    if (curPlayerObject === undefined) {
+    if (typeof curPlayerObject === 'undefined') {
       console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined;
     }
@@ -79,7 +79,7 @@ export default class StorageDAO {
   /** 現在のプレイヤー名を取得 */
   getCurrentPlayerName(): string | undefined {
     const curPlayerObject = this.getCurrentPlayer();
-    if (curPlayerObject === undefined) {
+    if (typeof curPlayerObject === 'undefined') {
       console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined
     }
@@ -90,7 +90,7 @@ export default class StorageDAO {
   /** 現在のプレイヤーのポイントを取得 */
   getCurrentPlayerPoint(): number | undefined {
     const curPlayerObject = this.getCurrentPlayer();
-    if (curPlayerObject === undefined) {
+    if (typeof curPlayerObject === 'undefined') {
       console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined
     }
@@ -101,7 +101,7 @@ export default class StorageDAO {
   /** 現在のプレイヤーの場所番号を取得 */
   getCurrentPlayerLocation(): number | undefined {
     const curPlayerObject = this.getCurrentPlayer();
-    if (curPlayerObject === undefined) {
+    if (typeof curPlayerObject === 'undefined') {
       console.warn('curPlayerObject is ' + curPlayerObject);
       return undefined
     }
@@ -195,14 +195,14 @@ export default class StorageDAO {
   updateCurrentPlayer(playerObject: PlayerInfo): boolean {
     // ストレージからプレイヤー情報を配列で取得
     const playerInfoArr = this.getPlayerInfoObject();
-    if (playerInfoArr === undefined) {
+    if (typeof playerInfoArr === 'undefined') {
       console.warn('playerInfoArr is ' + playerInfoArr);
       return false;
     }
     
     // ストレージから現在の順番番号を取得
     const curOrder = this.getCurrentOrderNumber();
-    if (curOrder === undefined) {
+    if (typeof curOrder === 'undefined') {
       console.warn('curOrder is ' + curOrder);
       return false;
     }
@@ -225,14 +225,14 @@ export default class StorageDAO {
   /** 次の順番に更新 */
   updateNextOrderNum(): boolean {
     const curOrderNum = this.getCurrentOrderNumber();
-    if (curOrderNum === undefined) {
+    if (typeof curOrderNum === 'undefined') {
       console.warn('curOrderNum is ' + curOrderNum);
       return false;
     }
     
     // 現在のプレイヤー数を取得
     const numPlayersInt = this.getNumPlayers();
-    if (numPlayersInt === undefined) {
+    if (typeof numPlayersInt === 'undefined') {
       console.warn('numPlayersInt is ' + numPlayersInt);
       return false;
     }
@@ -252,12 +252,12 @@ export default class StorageDAO {
   checkAllPlayersGoalReached(): boolean | undefined {
     // プレイヤー数を取得
     const numPlayers = this.getNumPlayers();
-    if (numPlayers === undefined) {
+    if (typeof numPlayers === 'undefined') {
       return undefined;
     }
     // プレイヤーオブジェクトを取得
     const playerObjects = this.getPlayerInfoObject();
-    if (playerObjects === undefined) {
+    if (typeof playerObjects === 'undefined') {
       return undefined;
     }
     // ゴール済みプレイヤーをカウント
@@ -278,7 +278,7 @@ export default class StorageDAO {
   /** 現在のプレイヤーのお休み数を1減らす */
   decrementCurPlayerSkipCnt(): boolean {
     const curPlayer = this.getCurrentPlayer();
-    if (curPlayer === undefined) {
+    if (typeof curPlayer === 'undefined') {
       return false;
     }
     curPlayer.skipcnt = curPlayer.skipcnt - 1;
