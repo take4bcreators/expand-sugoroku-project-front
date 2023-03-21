@@ -1,18 +1,13 @@
-import { StorageKeys, StorageKeysMembers } from '../config/StorageKeys';
+import { StorageKeys, StorageKeysMember } from '../config/StorageKeys';
 import type { PlayerInfo } from '../type/PlayerInfo';
 import type { BoardData } from '../type/BoardData';
 
 
+/** ストレージ操作クラス */
 export default class StorageDAO {
   
   /** オブジェクト内で使用するストレージ */
   strage: Storage;
-  /** ストレージに入出力する際のキーとなる文字列 */
-  playersKey: string = StorageKeys.PlayingPlayers;
-  curOrderNumKey: string = StorageKeys.PlayingCurrentOrderNum;
-  boardIdKey: string = StorageKeys.PlayingBoardID;
-  numPlayers: string = StorageKeys.PlayingNumPlayers;
-  boardData: string = StorageKeys.PlayingBoardData;
   
   
   constructor(strage: Storage = localStorage) {
@@ -21,21 +16,24 @@ export default class StorageDAO {
   
   
   /** 単純にストレージから取得 */
-  getItem(item: StorageKeysMembers): string | null {
+  getItem(item: StorageKeysMember): string | null {
     return this.strage.getItem(item);
   }
   
+  
   /** 単純にストレージへ保存 */
-  setItem(key: StorageKeysMembers, value: string): void {
+  setItem(key: StorageKeysMember, value: string): void {
     this.strage.setItem(key, value);
     return;
   }
   
+  
   /** 単純にストレージから削除 */
-  removeItem(key: StorageKeysMembers): void {
+  removeItem(key: StorageKeysMember): void {
     this.strage.removeItem(key);
     return;
   }
+  
   
   /** ストレージから定義されているすべてのデータを削除 */
   removeAllItem(): void {
@@ -45,11 +43,13 @@ export default class StorageDAO {
     return;
   }
   
+  
   /** ストレージからすべてのデータを削除（内部でclear使用） */
   removeAllItemPurge(): void {
     this.strage.clear();
     return;
   }
+  
   
   /** 現在のプレイヤー情報オブジェクトを取得 */
   getCurrentPlayer(): PlayerInfo | undefined {
@@ -86,6 +86,7 @@ export default class StorageDAO {
     return curPlayerObject.name;
   }
   
+  
   /** 現在のプレイヤーのポイントを取得 */
   getCurrentPlayerPoint(): number | undefined {
     const curPlayerObject = this.getCurrentPlayer();
@@ -95,6 +96,7 @@ export default class StorageDAO {
     }
     return curPlayerObject.point;
   }
+  
   
   /** 現在のプレイヤーの場所番号を取得 */
   getCurrentPlayerLocation(): number | undefined {
@@ -107,12 +109,9 @@ export default class StorageDAO {
   }
   
   
-  
-  
-  
   /** ストレージからプレイヤー情報をオブジェクトで取得 */
   getPlayerInfoObject(): PlayerInfo[] | undefined {
-    const playerInfoJSON = this.strage.getItem(this.playersKey);
+    const playerInfoJSON = this.strage.getItem(StorageKeys.PlayingPlayers);
     if (playerInfoJSON === null) {
       console.warn('playerInfoJSON is ' + playerInfoJSON);
       return undefined;
@@ -130,7 +129,7 @@ export default class StorageDAO {
   
   /** ストレージから現在の順番番号を数値で取得 */
   getCurrentOrderNumber(): number | undefined {
-    const curOrderStr = this.strage.getItem(this.curOrderNumKey);
+    const curOrderStr = this.strage.getItem(StorageKeys.PlayingCurrentOrderNum);
     if (curOrderStr === null) {
       console.warn('curOrderStr is ' + curOrderStr);
       return undefined;
@@ -143,25 +142,10 @@ export default class StorageDAO {
     return curOrder;
   }
   
-  // /** 現在プレイ中のボードの番号を取得 */
-  // getPlayingBoardID(): number | undefined  {
-  //   const playingBoardIdStr = this.strage.getItem(this.boardIdKey);
-  //   if (playingBoardIdStr === null) {
-  //     console.warn('playingBoardIdStr is ' + playingBoardIdStr);
-  //     return undefined;
-  //   }
-  //   const playingBoardID = parseInt(playingBoardIdStr);
-  //   if (isNaN(playingBoardID)) {
-  //     console.warn('playingBoardID is NaN');
-  //     return undefined;
-  //   }
-  //   return playingBoardID;
-  // }
-  
   
   /** 現在プレイ中のボードを取得 */
   getPlayingBoard(): BoardData | undefined {
-    const playingBoardDataStr = this.strage.getItem(this.boardData);
+    const playingBoardDataStr = this.strage.getItem(StorageKeys.PlayingBoardData);
     if (playingBoardDataStr === null) {
       console.warn('playingBoardDataStr is ' + playingBoardDataStr);
       return undefined;
@@ -178,10 +162,9 @@ export default class StorageDAO {
   }
   
   
-  
   /** ストレージから現在のプレイヤー数を数値で取得 */
   getNumPlayers(): number | undefined {
-    const numPlayersStr = this.strage.getItem(this.numPlayers);
+    const numPlayersStr = this.strage.getItem(StorageKeys.PlayingNumPlayers);
     if (numPlayersStr === null) {
       console.warn('numPlayersStr is ' + numPlayersStr);
       return undefined;
@@ -234,7 +217,7 @@ export default class StorageDAO {
     // プレイヤーオブジェクトを更新後、文字列にしてストレージに保存
     playerInfoArr[curPlayerIndex] = playerObject;
     const nextPlayersJSON = JSON.stringify(playerInfoArr);
-    this.strage.setItem(this.playersKey, nextPlayersJSON);
+    this.strage.setItem(StorageKeys.PlayingPlayers, nextPlayersJSON);
     return true;
   }
   
@@ -259,11 +242,10 @@ export default class StorageDAO {
     if (nextOrder >= numPlayersInt) {
         nextOrder = 0;
     }
-    localStorage.setItem(this.curOrderNumKey, nextOrder.toString());
+    localStorage.setItem(StorageKeys.PlayingCurrentOrderNum, nextOrder.toString());
     
     return true;
   }
-  
   
   
   /** すべてのプレイヤーがゴールしたかを確認する */
@@ -292,6 +274,7 @@ export default class StorageDAO {
     return false;
   }
   
+  
   /** 現在のプレイヤーのお休み数を1減らす */
   decrementCurPlayerSkipCnt(): boolean {
     const curPlayer = this.getCurrentPlayer();
@@ -305,7 +288,5 @@ export default class StorageDAO {
     const updateResult = this.updateCurrentPlayer(curPlayer);
     return updateResult;
   }
-  
-  
   
 }

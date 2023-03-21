@@ -34,4 +34,4 @@ export const StorageKeys = {
 } as const;
 
 /** キーの情報一覧のみを許容する型 */
-export type StorageKeysMembers = typeof StorageKeys[keyof typeof StorageKeys];
+export type StorageKeysMember = typeof StorageKeys[keyof typeof StorageKeys];

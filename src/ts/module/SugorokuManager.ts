@@ -1,4 +1,5 @@
 import { StorageKeys } from '../config/StorageKeys';
+import { PlayingStatesMember } from '../config/PlayingStates';
 import { AppConst } from '../config/const';
 
 
@@ -12,7 +13,7 @@ export default class SugorokuManager {
   }
   
   /** 指定した画面へ移動する */
-  moveScreenTo(screen: string): void {
+  moveScreenTo(screen: PlayingStatesMember): void {
     this.storage.setItem(StorageKeys.PlayingState, screen);
     this.setPlayingStateFunc(screen);
     return;

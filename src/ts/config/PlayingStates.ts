@@ -20,4 +20,4 @@ export const PlayingStates = {
 } as const;
 
 /** プレイ画面の状態識別文字列のみを許容する型 */
-export type PlayingStatesMembers = typeof PlayingStates[keyof typeof PlayingStates];
+export type PlayingStatesMember = typeof PlayingStates[keyof typeof PlayingStates];
