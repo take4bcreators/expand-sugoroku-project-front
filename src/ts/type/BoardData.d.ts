@@ -12,13 +12,13 @@ export type BoardData = {
     /** マスID */
     id: number,
     /** ゴールフラグ（true：このマスはゴール） */
-    goalFlag: boolean,
+    goalflag: boolean,
     /** マスの店情報郡 */
     store: {
       /** 店舗名 */
       name: string,
       /** 店舗の詳細 */
-      desc: string,
+      detail: string,
     },
     /** マスのイベント情報郡 */
     event: {
@@ -27,7 +27,7 @@ export type BoardData = {
       /** イベント名 */
       name: string,
       /** イベント詳細 */
-      desc: string,
+      detail: string,
       /** イベントによる変化ポイント */
       point: number,
       /** イベントにより付与されるスキップターン数 */
@@ -44,7 +44,7 @@ export type BoardData = {
       /** ミニゲーム名 */
       name: string,
       /** ミニゲーム詳細 */
-      desc: string,
+      detail: string,
     },
   }[],
 };

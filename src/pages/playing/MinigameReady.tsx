@@ -50,7 +50,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   // 今回止まったマスの情報を取得
   const curLocationData = {
     minigameName: '',
-    minigameDesc: '',
+    minigameDetail: '',
     minigameId: '',
     minigamePath: '',
   };
@@ -61,7 +61,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     if (typeof playerLocation !== 'undefined') {
       const curLocation = board.square[playerLocation];
       curLocationData.minigameName = curLocation.minigame.name;
-      curLocationData.minigameDesc = curLocation.minigame.desc;
+      curLocationData.minigameDetail = curLocation.minigame.detail;
       curLocationData.minigameId = curLocation.minigame.id;
       curLocationData.minigamePath = AppConst.MINIGAME_DIR + '/' + curLocation.minigame.id + '/';
     }
@@ -72,7 +72,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       <main>
         <section>
           <h1>{curLocationData.minigameName}</h1>
-          <p>{curLocationData.minigameDesc}</p>
+          <p>{curLocationData.minigameDetail}</p>
           <p>
             <a onClick={() => {
               const keyStr = util.createRandomString(8);

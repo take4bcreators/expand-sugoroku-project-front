@@ -31,10 +31,10 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   // 今回止まったマスの情報を取得
   const curLocationData = {
     name: '',
-    desc: '',
+    detail: '',
     eventFlag: false,
     eventName: '',
-    eventDesc: '',
+    eventDetail: '',
     minigame: false,
     eventMove: 0,
   };
@@ -45,10 +45,10 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     if (typeof playerLocation !== 'undefined') {
       const curLocation = board.square[playerLocation];
       curLocationData.name = curLocation.store.name;
-      curLocationData.desc = curLocation.store.desc;
+      curLocationData.detail = curLocation.store.detail;
       curLocationData.eventFlag = curLocation.event.flag;
       curLocationData.eventName = curLocation.event.name;
-      curLocationData.eventDesc = curLocation.event.desc;
+      curLocationData.eventDetail = curLocation.event.detail;
       curLocationData.minigame = curLocation.event.minigame;
       curLocationData.eventMove = curLocation.event.move;
     }
@@ -58,7 +58,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   if (player?.isfinish) {
     const goalPlayerCount = stdao.getGoalPlayerCount();
     const goalPoint = sgmgr.getGoalPoint(goalPlayerCount);
-    curLocationData.desc = `ゴールボーナス： ${goalPoint} pt.`;
+    curLocationData.detail = `ゴールボーナス： ${goalPoint} pt.`;
   }
   
   // すべてのプレイヤーがゴール済みであるかを確認
@@ -96,7 +96,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     usePageElem = (
       <>
         <p>{curLocationData.eventName}</p>
-        <p>{curLocationData.eventDesc}</p>
+        <p>{curLocationData.eventDetail}</p>
         <Link to='/playing/' onClick={() => {
           sgmgr.moveScreenTo(PlayingStates.MinigameReady);
         }}>
@@ -109,7 +109,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     usePageElem = (
       <>
         <p>{curLocationData.eventName}</p>
-        <p>{curLocationData.eventDesc}</p>
+        <p>{curLocationData.eventDetail}</p>
         <Link to='/playing/' onClick={() => {
           // 移動した後のプレイヤーの状態をストレージに保存
           const nextPlayer = Object.assign({}, player);
@@ -127,7 +127,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     usePageElem = (
       <>
         <p>{curLocationData.eventName}</p>
-        <p>{curLocationData.eventDesc}</p>
+        <p>{curLocationData.eventDetail}</p>
         <Link to='/playing/' onClick={() => {
           stdao.updateNextOrderNum();
           sgmgr.moveScreenTo(PlayingStates.Standby);
@@ -144,7 +144,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <section>
           <p>{player?.name ?? ''} さん</p>
           <h1>{curLocationData.name}</h1>
-          <p>{curLocationData.desc}</p>
+          <p>{curLocationData.detail}</p>
           {usePageElem}
         </section>
       </main>

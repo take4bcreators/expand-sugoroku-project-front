@@ -66,7 +66,7 @@ export const query = graphql`
           }
           square {
             id
-            goalFlag
+            goalflag
             event {
               skip
               point
@@ -74,16 +74,16 @@ export const query = graphql`
               move
               minigame
               flag
-              desc
+              detail
             }
             minigame {
               name
               id
-              desc
+              detail
             }
             store {
               name
-              desc
+              detail
             }
           }
         }
