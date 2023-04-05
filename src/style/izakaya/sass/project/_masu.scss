@@ -1,0 +1,141 @@
+@use "../global" as g;
+@use "sass:map";
+
+.p-masu {
+    @mixin set-size($std-size) {
+        border: ($std-size * 0.08) solid g.$color-masu-border;
+        width: $std-size;
+        height: $std-size * 1.4;
+        margin: $std-size * 0.2;
+    }
+    @include set-size(map.get(g.$masu-std-size, sm));
+    @include g.mq(sm) {
+        @include set-size(map.get(g.$masu-std-size, sm));
+        max-width: map.get(g.$masu-max-size, sm);
+        max-height: map.get(g.$masu-max-size, sm) * 1.4;
+    }
+    @include g.mq(md) {
+        @include set-size(map.get(g.$masu-std-size, tb));
+    }
+    @include g.mq(lg) {
+        @include set-size(map.get(g.$masu-std-size, pc));
+    }
+    @include g.mq(xl) {
+        @include set-size(map.get(g.$masu-std-size, xl));
+    }
+    @media print {
+        @include set-size(map.get(g.$masu-std-size, print));
+    }
+    position: relative;
+    z-index: g.$zindex-masu;
+    background-color: g.$color-masu-bg;
+    $max-length: 60;
+    $random-x-max: 1;
+    $random-x-min: -1;
+    $random-y-max: 5;
+    $random-y-min: -5;
+    // @for $index from 1 through $max-length {
+    //     &:nth-child(#{$index}) {
+    //         // $x-position:  random($random-x-max - $random-x-min) + $random-x-min + px;
+    //         // $y-position:  random($random-y-max - $random-y-min) + $random-y-min + px;
+    //         $x-position:  random($random-x-max - $random-x-min) + $random-x-min + vmin;
+    //         $y-position:  random($random-y-max - $random-y-min) + $random-y-min + vmin;
+    //         translate: $x-position $y-position;
+    //     }
+    // }
+}
+
+.p-masu__number {
+    background-color: g.$color-masu-num-bg;
+    color: g.$color-masu-num-text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include g.font-YujiSyuku-normal;
+    position: absolute;
+    transform: translate();
+    @mixin set-size($std-size, $num-std-size) {
+        width: $num-std-size;
+        height: $num-std-size;
+        border-radius: $num-std-size * 0.5;
+        translate: ($num-std-size * 0.5 * -1) ($num-std-size * 0.5 * -1);
+        font-size: $std-size * 0.25;
+    }
+    @include set-size(map.get(g.$masu-std-size, sm), map.get(g.$masu-num-std-size, sm));
+    @include g.mq(sm) {
+        @include set-size(map.get(g.$masu-std-size, sm), map.get(g.$masu-num-std-size, sm));
+    }
+    @include g.mq(md) {
+        @include set-size(map.get(g.$masu-std-size, tb), map.get(g.$masu-num-std-size, tb));
+    }
+    @include g.mq(lg) {
+        @include set-size(map.get(g.$masu-std-size, pc), map.get(g.$masu-num-std-size, pc));
+    }
+    @include g.mq(xl) {
+        @include set-size(map.get(g.$masu-std-size, xl), map.get(g.$masu-num-std-size, xl));
+    }
+    @media print {
+        @include set-size(map.get(g.$masu-std-size, print), map.get(g.$masu-num-std-size, print));
+    }
+}
+
+.p-masu__number__inner {
+    white-space: nowrap;
+}
+
+.p-masu__number__inner--2moji {
+    scale: 0.8;
+}
+
+.p-masu__number__inner--3moji {
+    scale: 0.5;
+}
+
+.p-masu__number__inner--4moji {
+    scale: 0.3;
+}
+
+.p-masu__text {
+    color: g.$color-masu-text;
+    display: flex;
+    justify-content: center;
+    scale: 1.0;
+    @include g.font-YujiSyuku-normal;
+    @mixin set-size($std-size, $num-std-size) {
+        font-size: $std-size * 0.15;
+        margin-top: $num-std-size * 0.5;
+    }
+    @include set-size(map.get(g.$masu-std-size, sm), map.get(g.$masu-num-std-size, sm));
+    @include g.mq(sm) {
+        @include set-size(map.get(g.$masu-std-size, sm), map.get(g.$masu-num-std-size, sm));
+        scale: 0.7;
+        margin-top: map.get(g.$masu-num-std-size, sm) * 0.1;
+    }
+    @include g.mq(md) {
+        @include set-size(map.get(g.$masu-std-size, tb), map.get(g.$masu-num-std-size, tb));
+        scale: 0.8;
+    }
+    @include g.mq(lg) {
+        @include set-size(map.get(g.$masu-std-size, pc), map.get(g.$masu-num-std-size, pc));
+        scale: 1.0;
+    }
+    @include g.mq(xl) {
+        @include set-size(map.get(g.$masu-std-size, xl), map.get(g.$masu-num-std-size, xl));
+        scale: 1.0;
+    }
+    @media print {
+        @include set-size(map.get(g.$masu-std-size, print), map.get(g.$masu-num-std-size, print));
+    }
+}
+
+.p-masu__text--start {
+    margin: 0;
+    background: no-repeat center/100% url("../images/hajime.svg");
+    height: 100%;
+}
+
+.p-masu__text--goal {
+    margin: 0;
+    background: no-repeat center/100% url("../images/owari.svg");
+    height: 100%;
+}

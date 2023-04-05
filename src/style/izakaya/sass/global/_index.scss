@@ -1,0 +1,16 @@
+// global 管理用
+// global 内に新しくフォルダを作成した場合はここに追記する
+@forward "./setting";
+@forward "./mixin";
+
+
+// -------------------------------------------------
+// 【使用例】  参考… https://yumegori.com/dart-sass-method
+// 
+// @use "../global" as g;
+// 
+// body {
+//   @include g.font-normal; //font-normalというmixin
+//   background-color: g.$color-base; //＄color-baseという変数
+// }
+// -------------------------------------------------

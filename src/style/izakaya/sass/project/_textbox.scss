@@ -1,0 +1,70 @@
+@use "../global" as g;
+@use "sass:map";
+
+.p-textbox {
+    @include g.font-normal;
+    font-size: 1rem;
+}
+
+.p-textbox--ttl {
+    @include g.font-bold;
+    font-size: 5vmin;
+    @media print {
+        font-size: map.get(g.$size-bases, print) * 0.02;
+    }
+}
+
+.p-textbox--credit {
+    @include g.font-bold;
+    color: g.$color-footer-credit-text;
+    position: absolute;
+    right: 5vmin;
+    top: -10vmin;
+    font-size: 1.2vmin;
+    @media print {
+        right: map.get(g.$size-bases, print) * 0.02;
+        top: map.get(g.$size-bases, print) * 0.02 * -2;
+        font-size: map.get(g.$size-bases, print) * 0.005;
+    }
+}
+
+.p-textbox--alcohol,
+.p-textbox--sozai {
+    color: g.$color-footer-text;
+    font-size: 1.2vmin;
+    scale: 0.3;
+    translate: 0 -10vmin;
+    @include g.mq(sm) {
+        font-size: 1.2vmin;
+        scale: 0.5;
+        translate: 0 -4vmin;
+    }
+    @include g.mq(md) {
+        font-size: 1.2vmin;
+        scale: 0.6;
+        translate: 0 -3vmin;
+    }
+    @include g.mq(lg) {
+        font-size: 1.2vmin;
+        scale: 0.6;
+        translate: 0 -3vmin;
+    }
+    @include g.mq(xl) {
+        font-size: 1.2vmin;
+        scale: 0.5;
+        translate: 0 -3vmin;
+    }
+    @media print {
+        font-size: map.get(g.$size-bases, print) * 0.005;
+        scale: 1.0;
+        translate: 0;
+    }
+}
+
+.p-textbox--alcohol {
+    transform-origin: center left;
+}
+
+.p-textbox--sozai {
+    transform-origin: center right;
+}

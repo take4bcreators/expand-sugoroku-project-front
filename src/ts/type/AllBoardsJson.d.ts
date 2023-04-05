@@ -9,6 +9,8 @@ export type AllBoardsJson = {
           id: string,
           /** ボード名 */
           name: string,
+          /** ベースとなるボード */
+          base: string,
         },
         /** マス情報郡 */
         square: {

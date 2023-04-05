@@ -1,0 +1,9 @@
+@use "../global" as g;
+
+.l-wrapper {
+    background-color: g.$color-wrapper-bg;
+    margin: 2vmin;
+    width: auto;
+    border-radius: 1vw;
+    @include g.size-wrapper;
+}
