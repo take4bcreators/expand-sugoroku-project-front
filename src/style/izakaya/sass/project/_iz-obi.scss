@@ -1,7 +1,7 @@
 @use "../global" as g;
 @use "sass:map";
 
-.p-obi {
+.p-iz-obi {
     z-index: g.$zindex-obi;
     width: 100%;
     @mixin set-size($std-size) {
@@ -25,22 +25,22 @@
     }
 }
 
-.p-obi--orange, .js-obi--orange {
+.p-obi--orange, .js-iz-obi--orange {
     background: no-repeat center/100% url("../images/obi_orange.svg");
     background-size: cover;
 }
 
-.p-obi--yellow, .js-obi--yellow {
+.p-obi--yellow, .js-iz-obi--yellow {
     background: no-repeat center/100% url("../images/obi_yellow.svg");
     background-size: cover;
 }
 
-.p-obi--green, .js-obi--green {
+.p-obi--green, .js-iz-obi--green {
     background: no-repeat center/100% url("../images/obi_green.svg");
     background-size: cover;
 }
 
-.p-obi--blue, .js-obi--blue {
+.p-obi--blue, .js-iz-obi--blue {
     background: no-repeat center/100% url("../images/obi_blue.svg");
     background-size: cover;
 }

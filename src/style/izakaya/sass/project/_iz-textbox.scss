@@ -1,12 +1,12 @@
 @use "../global" as g;
 @use "sass:map";
 
-.p-textbox {
+.p-iz-textbox {
     @include g.font-normal;
     font-size: 1rem;
 }
 
-.p-textbox--ttl {
+.p-iz-textbox--ttl {
     @include g.font-bold;
     font-size: 5vmin;
     @media print {
@@ -14,7 +14,7 @@
     }
 }
 
-.p-textbox--credit {
+.p-iz-textbox--credit {
     @include g.font-bold;
     color: g.$color-footer-credit-text;
     position: absolute;
@@ -28,8 +28,8 @@
     }
 }
 
-.p-textbox--alcohol,
-.p-textbox--sozai {
+.p-iz-textbox--alcohol,
+.p-iz-textbox--sozai {
     color: g.$color-footer-text;
     font-size: 1.2vmin;
     scale: 0.3;
@@ -61,10 +61,10 @@
     }
 }
 
-.p-textbox--alcohol {
+.p-iz-textbox--alcohol {
     transform-origin: center left;
 }
 
-.p-textbox--sozai {
+.p-iz-textbox--sozai {
     transform-origin: center right;
 }

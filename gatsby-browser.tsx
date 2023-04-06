@@ -2,7 +2,6 @@
 // import { PageTitleProvider } from './src/contexts/PageTitleProvider';
 import { IzakayaPageScript } from "./static/script/ts/izakaya";
 import { ProjectUtility as util} from './src/ts/module/ProjectUtility';
-import './src/sass/style.scss';
 
 
 type OnRouteUpdateType = {

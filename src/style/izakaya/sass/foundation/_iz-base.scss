@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+.f-iz-base {
+    @include g.font-normal;
+    color: g.$color-text;
+    font-size: 1.6rem;
+    
+    a {
+        color: g.$color-link;
+    }
+}

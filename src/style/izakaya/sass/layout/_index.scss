@@ -1,6 +1,6 @@
 // layout 管理用
 // layout 内に新しくパーシャルを作った場合は追記する
-@use "./wrapper";
-@use "./header";
-@use "./main";
-@use "./footer";
+@use "./iz-wrapper";
+@use "./iz-header";
+@use "./iz-main";
+@use "./iz-footer";

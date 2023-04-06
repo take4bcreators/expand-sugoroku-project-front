@@ -1,7 +1,7 @@
 @use "../global" as g;
 @use "sass:map";
 
-.p-masu {
+.p-iz-masu {
     @mixin set-size($std-size) {
         border: ($std-size * 0.08) solid g.$color-masu-border;
         width: $std-size;
@@ -45,7 +45,7 @@
     // }
 }
 
-.p-masu__number {
+.p-iz-masu__number {
     background-color: g.$color-masu-num-bg;
     color: g.$color-masu-num-text;
     display: flex;
@@ -79,23 +79,23 @@
     }
 }
 
-.p-masu__number__inner {
+.p-iz-masu__number__inner {
     white-space: nowrap;
 }
 
-.p-masu__number__inner--2moji {
+.p-iz-masu__number__inner--2moji {
     scale: 0.8;
 }
 
-.p-masu__number__inner--3moji {
+.p-iz-masu__number__inner--3moji {
     scale: 0.5;
 }
 
-.p-masu__number__inner--4moji {
+.p-iz-masu__number__inner--4moji {
     scale: 0.3;
 }
 
-.p-masu__text {
+.p-iz-masu__text {
     color: g.$color-masu-text;
     display: flex;
     justify-content: center;
@@ -128,13 +128,13 @@
     }
 }
 
-.p-masu__text--start {
+.p-iz-masu__text--start {
     margin: 0;
     background: no-repeat center/100% url("../images/hajime.svg");
     height: 100%;
 }
 
-.p-masu__text--goal {
+.p-iz-masu__text--goal {
     margin: 0;
     background: no-repeat center/100% url("../images/owari.svg");
     height: 100%;

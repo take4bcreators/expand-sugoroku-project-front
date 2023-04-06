@@ -1,4 +1,4 @@
-@use "../global" as g;
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
 
 @media print {
     @page {
@@ -24,9 +24,17 @@ html {
 }
 
 body {
-    @include g.font-normal;
-    color: g.$color-text;
+    color: #333333;
     font-size: 1.6rem;
+    font-family:
+        "M PLUS Rounded 1c",
+        "Helvetica Neue",
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif
+    ;
     min-width: 350px;
     width: 100%;
     overflow-x: hidden;
@@ -42,7 +50,7 @@ object {
 }
 
 a {
-    color: g.$color-link;
+    color: #0066c0;
     text-decoration: underline;
     transition: 0.4s;
     &:hover {
