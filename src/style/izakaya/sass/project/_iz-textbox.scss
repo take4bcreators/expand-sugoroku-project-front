@@ -21,6 +21,7 @@
     right: 5vmin;
     top: -10vmin;
     font-size: 1.2vmin;
+    text-align: right;
     @media print {
         right: map.get(g.$size-bases, print) * 0.02;
         top: map.get(g.$size-bases, print) * 0.02 * -2;

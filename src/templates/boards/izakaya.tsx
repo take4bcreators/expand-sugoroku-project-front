@@ -66,8 +66,8 @@ export default ({ data, location }: ThisPageProps) => {
           <p className="p-iz-textbox--ttl">{data.allBoardsJson.edges[0].node.board.name}</p>
         </header>
         <main className="l-iz-main">
-          <div className="p-iz-main-wrapper">
-            <section className="p-iz-art">
+          <article className="p-iz-main-wrapper">
+            <div className="p-iz-art">
               <div className="p-iz-take-wrapper">
                 <div className="p-iz-take p-iz-take--left" />
                 <div className="p-iz-take p-iz-take--right" />
@@ -78,7 +78,7 @@ export default ({ data, location }: ThisPageProps) => {
               <div className="p-iz-obi-wrapper js-iz-obi-wrapper">
                 <div className="p-iz-obi js-iz-obi" />
               </div>
-            </section>
+            </div>
             <section className="p-iz-board">
               {
                 squares.map((square, index) => {
@@ -116,30 +116,30 @@ export default ({ data, location }: ThisPageProps) => {
                   const masuInnerClass = masuInnerClassList.join(' ');
                   
                   return (
-                    <div className="p-iz-masu js-iz-masu" key={index}>
-                      <div className="p-iz-masu__number">
-                        <div className={masuInnerClass}>
+                    <article className="p-iz-masu js-iz-masu" key={index}>
+                      <h1 className="p-iz-masu__number">
+                        <span className={masuInnerClass}>
                           {kansuji}
-                        </div>
-                      </div>
-                      <div className={masuTextClass}>
+                        </span>
+                      </h1>
+                      <p className={masuTextClass}>
                         {masuText}
-                      </div>
-                    </div>
+                      </p>
+                    </article>
                   )
                 })
               }
             </section>
-          </div>
+          </article>
         </main>
         <footer className="l-iz-footer">
           <div className="p-iz-footer-wrapper">
-            <section className="p-iz-textbox--credit">
+            <div className="p-iz-textbox--credit">
               <ul>
-                <li>制作　extensionLAB</li>
-                <li>Powered by ホットペッパー Webサービス</li>
+                <li><small>&copy; extensionLAB. 2023.</small></li>
+                <li>Powered by <a href="http://webservice.recruit.co.jp/">ホットペッパー Webサービス</a></li>
               </ul>
-            </section>
+            </div>
             <div className="p-iz-footer-flex-wrapper">
               <section className="p-iz-textbox--alcohol">
                 <p>未成年の飲酒は法律で禁止されています。</p>
