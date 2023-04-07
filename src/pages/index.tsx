@@ -15,17 +15,17 @@ export default () => {
   }, []);
   
   return (
-    <>
+    <section>
       <h1>{PAGE_TITLE}</h1>
-      <div>
-        {playingState === '' ? <p>つづきから</p> : <Link to="playing/">つづきから</Link>}
-      </div>
-      <div>
-        <Link to='setup/?state=board'>
-          はじめから
-        </Link>
-      </div>
-    </>
+      <ul>
+        <li>
+          {playingState === '' ? <>つづきから</> : <Link to="playing/">つづきから</Link>}
+        </li>
+        <li><Link to='setup/?state=board'>はじめから</Link></li>
+        <li><Link to='boards'>ボード一覧</Link></li>
+        <li><Link to='minigames'>ミニゲーム一覧</Link></li>
+      </ul>
+    </section>
   );
 }
 
