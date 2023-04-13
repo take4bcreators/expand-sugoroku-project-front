@@ -1,4 +1,5 @@
 
+// @note 【JSON取得項目定義箇所】 取得項目に変更がある場合は、ここの指定を変更する
 export type AllBoardsJson = {
   allBoardsJson: {
     edges: {

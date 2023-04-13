@@ -9,6 +9,7 @@ import type { AllBoardsJson } from '../ts/type/AllBoardsJson';
 
 export default () => {
   // ボード情報の取得
+  // @note 【JSON取得項目定義箇所】 取得項目に変更がある場合は、ここの指定を変更する
   const boardData = useStaticQuery<AllBoardsJson>(
     graphql`
       query {

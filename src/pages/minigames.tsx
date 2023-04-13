@@ -9,6 +9,7 @@ import type { AllMinigamesJson } from '../ts/type/AllMinigamesJson';
 
 export default () => {
   // ミニゲーム情報の取得
+  // @note 【JSON取得項目定義箇所】 取得項目に変更がある場合は、ここの指定を変更する
   const minigameData = useStaticQuery<AllMinigamesJson>(
     graphql`
       query {

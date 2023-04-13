@@ -55,6 +55,7 @@ export const Head = () => {
 
 
 // ボード情報取得用クエリ（取得したデータは、ページの { data } に渡される）
+// @note 【JSON取得項目定義箇所】 取得項目に変更がある場合は、ここの指定を変更する
 export const query = graphql`
   query {
     allBoardsJson {
