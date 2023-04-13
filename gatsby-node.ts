@@ -5,6 +5,7 @@ import type { AllBoardsJson } from './src/ts/type/AllBoardsJson';
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions: { createPage } }) => {
   // graphql による情報の取得
+  // @note 【JSON取得項目定義箇所】 取得項目に変更がある場合は、ここの指定を変更する
   const result = await graphql<AllBoardsJson>(`
     query {
       allBoardsJson {

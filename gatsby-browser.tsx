@@ -14,8 +14,13 @@ export const onRouteUpdate = ({ location, prevLocation }: OnRouteUpdateType) => 
   console.log('[SGPJ] [onRouteUpdate] location.pathname : ' + location.pathname);
   
   const splitPathArr = util.generateCleanArr(location.pathname.split('/'));
-  if (splitPathArr[1] === 'izakaya') {
-    new IzakayaPageScript().execScript();
+  switch (splitPathArr[1]) {
+    case 'izakaya':
+    case 'cafe':
+      new IzakayaPageScript().execScript();
+      break;
+    default:
+      break;
   }
 }
 

@@ -23,8 +23,22 @@ export type AllBoardsJson = {
           store: {
             /** 店舗名 */
             name: string,
-            /** 店舗の詳細 */
-            detail: string,
+            /** 店舗名（かな） */
+            name_kana: string,
+            /** 店舗のID */
+            id: string,
+            /** 店舗のキャッチコピー */
+            catch: string,
+            /** 店舗のジャンル用キャッチコピー */
+            genre_catch: string,
+            /** 店舗のオープン時間 */
+            open: string,
+            /** 店舗の住所 */
+            address: string,
+            /** 店舗へのアクセス */
+            access: string,
+            /** 店舗の写真URL */
+            photo: string,
           },
           /** マスのイベント情報郡 */
           event: {

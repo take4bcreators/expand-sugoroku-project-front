@@ -31,7 +31,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   // 今回止まったマスの情報を取得
   const curLocationData = {
     name: '',
-    detail: '',
+    name_kana: '',
+    catch: '',
+    genre_catch: '',
+    open: '',
+    access: '',
+    address: '',
+    photo: '',
     eventFlag: false,
     eventName: '',
     eventDetail: '',
@@ -45,7 +51,13 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     if (typeof playerLocation !== 'undefined') {
       const curLocation = board.square[playerLocation];
       curLocationData.name = curLocation.store.name;
-      curLocationData.detail = curLocation.store.detail;
+      curLocationData.name_kana = curLocation.store.name_kana;
+      curLocationData.catch = curLocation.store.catch;
+      curLocationData.genre_catch = curLocation.store.genre_catch;
+      curLocationData.open = curLocation.store.open;
+      curLocationData.access = curLocation.store.access;
+      curLocationData.address = curLocation.store.address;
+      curLocationData.photo = curLocation.store.photo;
       curLocationData.eventFlag = curLocation.event.flag;
       curLocationData.eventName = curLocation.event.name;
       curLocationData.eventDetail = curLocation.event.detail;
@@ -58,7 +70,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   if (player?.isfinish) {
     const goalPlayerCount = stdao.getGoalPlayerCount();
     const goalPoint = sgmgr.getGoalPoint(goalPlayerCount);
-    curLocationData.detail = `ゴールボーナス： ${goalPoint} pt.`;
+    curLocationData.catch = `ゴールボーナス： ${goalPoint} pt.`;
   }
   
   // すべてのプレイヤーがゴール済みであるかを確認
@@ -144,7 +156,15 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         <section>
           <p>{player?.name ?? ''} さん</p>
           <h1>{curLocationData.name}</h1>
-          <p>{curLocationData.detail}</p>
+          <img src={curLocationData.photo} alt="店舗の画像" />
+          <ul>
+            <li>{curLocationData.name_kana}</li>
+            <li>{curLocationData.catch}</li>
+            <li>{curLocationData.genre_catch}</li>
+            <li>{curLocationData.open}</li>
+            <li>{curLocationData.access}</li>
+            <li>{curLocationData.address}</li>
+          </ul>
           {usePageElem}
         </section>
       </main>

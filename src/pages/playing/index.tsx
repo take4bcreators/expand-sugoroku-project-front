@@ -188,6 +188,7 @@ export const query = graphql`
           board {
             id
             name
+            base
           }
           square {
             id
@@ -208,7 +209,14 @@ export const query = graphql`
             }
             store {
               name
-              detail
+              name_kana
+              id
+              catch
+              genre_catch
+              open
+              address
+              access
+              photo
             }
           }
         }
