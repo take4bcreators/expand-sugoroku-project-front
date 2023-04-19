@@ -1,0 +1,243 @@
+[
+  {
+    "board": {
+      "id": "000",
+      "base": "izakaya",
+      "name": "ミニゲームテスト用ボード"
+    },
+    "square": [
+      {
+        "id": 0,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "スタート",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 1,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": true
+        },
+        "store": {
+          "id": "",
+          "name": "お店その1",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 2,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": true
+        },
+        "store": {
+          "id": "",
+          "name": "お店その2",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 3,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": true
+        },
+        "store": {
+          "id": "",
+          "name": "お店その3",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 4,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": true
+        },
+        "store": {
+          "id": "",
+          "name": "お店その4",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 5,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": true
+        },
+        "store": {
+          "id": "",
+          "name": "お店その5",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 6,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": true
+        },
+        "store": {
+          "id": "",
+          "name": "お店その6",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 7,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "ゴール",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": true,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      }
+    ]
+  }
+]
