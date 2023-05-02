@@ -1,0 +1,290 @@
+@charset "UTF-8";
+body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background-color: #fbf8f3;
+  font-family: "Kaisei Opti", serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  /* 横並びセット */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50vw;
+  height: 100vh;
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    width: 100vw;
+  }
+}
+@media screen and (min-width: 520px) and (max-width: 959px) {
+  .container {
+    width: 55vw;
+  }
+}
+@media screen and (min-width: 960px) {
+  .container {
+    width: 50vw;
+  }
+}
+.numbers {
+  /*全て丸の幅*/
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+}
+
+.touched, .number {
+  margin: 1px auto;
+  width: 70px;
+  height: 70px;
+  border: solid 1px #4D455D;
+  border-radius: 70px;
+  transition: background-color 0.5s;
+}
+
+.number {
+  color: #4D455D;
+  background-color: #F0EEED;
+  text-align: center;
+  line-height: 70px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.touched {
+  color: transparent;
+  text-align: center;
+  line-height: 60px;
+}
+
+/* mainの点滅アニメーション 配色 */
+.comment {
+  animation: main-flsAni 1s linear infinite;
+  width: 7rem;
+  height: 1rem;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+@keyframes main-flsAni {
+  0%, 35%, 60%, 100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    color: #4D455D;
+  }
+  50% {
+    opacity: 1;
+    color: #4D455D;
+  }
+  75% {
+    opacity: 1;
+    color: #4D455D;
+  }
+}
+
+/* Sランクの点滅アニメーション 配色 */
+.s-rank {
+  animation: s-rank-flsAni 1s linear infinite;
+  width: 7rem;
+  height: 1rem;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+@keyframes s-rank-flsAni {
+  0%, 35%, 60%, 100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    color: #7DB9B6;
+  }
+  50% {
+    opacity: 1;
+    color: #95BDFF;
+  }
+  75% {
+    opacity: 1;
+    color: #E96479;
+  }
+}
+
+/* Aランクの点滅アニメーション 配色 */
+.a-rank {
+  animation: a-rank-flsAni 1s linear infinite;
+  width: 7rem;
+  height: 1rem;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+@keyframes a-rank-flsAni {
+  0%, 35%, 60%, 100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    color: #C0C0C0;
+  }
+  50% {
+    opacity: 1;
+    color: #C0C0C0;
+  }
+  75% {
+    opacity: 1;
+    color: #C0C0C0;
+  }
+}
+
+/* Bランクの点滅アニメーション 配色 */
+.b-rank {
+  animation: b-rank-flsAni 1s linear infinite;
+  width: 7rem;
+  height: 1rem;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+@keyframes b-rank-flsAni {
+  0%, 35%, 60%, 100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    color: #CD7F32;
+  }
+  50% {
+    opacity: 1;
+    color: #CD7F32;
+  }
+  75% {
+    opacity: 1;
+    color: #CD7F32;
+  }
+}
+
+.display1 {
+  vertical-align: middle;
+  /* 横並びセット */
+  display: flex;
+  justify-content: space-around; /* 横位置 */
+  align-items: center; /* 縦位置 */
+  width: 100%;
+  height: 100px;
+  margin: 30px 0 30px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.time {
+  font-size: 23px;
+  letter-spacing: 3px;
+  color: white;
+  background: #86C8BC;
+  border-radius: 50px;
+}
+
+.display2 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.time, .startBtn, .next {
+  width: 155px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.startBtn {
+  font-size: 20px;
+  color: white;
+  background: #86C8BC;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.message {
+  font-size: 45px;
+  color: #86C8BC;
+}
+
+.popbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 1em auto;
+  background: #fbf8f3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  width: 50%;
+  font-family: "Kaisei Opti", serif;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 320px) {
+  .popbox {
+    width: 80vw;
+    height: 50vh;
+  }
+}
+@media screen and (min-width: 520px) and (max-width: 959px) {
+  .popbox {
+    width: 70vw;
+    height: 30vh;
+  }
+}
+@media screen and (min-width: 960px) {
+  .popbox {
+    width: 50vw;
+    height: 50vh;
+  }
+}
+.popbox li {
+  margin: 0;
+  padding: 0.5ex;
+}
+
+.popbox-title {
+  font-size: 20px;
+  background: #FFD4B2;
+  padding: 2px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.22);
+}
+
+/* popbox用リスト表示 */
+.list5 {
+  counter-reset: list;
+  list-style-type: none;
+  padding: 5px 15px 2px 15px;
+}/*# sourceMappingURL=style.css.map */
