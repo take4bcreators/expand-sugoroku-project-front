@@ -1,0 +1,4513 @@
+[
+  {
+    "board": {
+      "id": "001",
+      "base": "cafe",
+      "name": "自由が丘カフェ"
+    },
+    "square": [
+      {
+        "id": 0,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "スタート",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 1,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "食べ放題で食べ過ぎて1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003323978",
+          "name": "Bebe本舗 自由が丘店",
+          "open": "月～木、祝前日: 10:00～翌0:30 （料理L.O. 翌0:00 ドリンクL.O. 翌0:00）金～日、祝日: 10:00～翌3:00 （料理L.O. 翌2:30 ドリンクL.O. 翌2:30）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/09/97/P039760997/P039760997_238.jpg",
+          "access": "自由が丘",
+          "address": "東京都目黒区自由が丘１‐29‐7",
+          "name_kana": "ベビーホンポ　ジユウガオカテン",
+          "genre_catch": "ベビーカステラ/スイーツ/バー/無添加/有機"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 2,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "自販機で当たりが出てもう1本もらう",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003411293",
+          "name": "yaoyano ヤオヤノ",
+          "open": "月～日、祝日、祝前日: 11:00～20:00 （料理L.O. 19:00 ドリンクL.O. 19:30）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/00/11/P040570011/P040570011_238.jpg",
+          "access": "東急東横線/大井町線　自由が丘駅徒歩1分",
+          "address": "東京都世田谷区奥沢５丁目４２-３",
+          "name_kana": "やおやの",
+          "genre_catch": "デリカテッセン・創作料理"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 3,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "ミニゲーム",
+          "skip": 0,
+          "point": 0,
+          "detail": "ミニゲーム",
+          "minigame": true
+        },
+        "store": {
+          "id": "J001259610",
+          "name": "フレッシュネスバーガー 自由が丘店",
+          "open": "月～日、祝日、祝前日: 08:00～22:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/03/34/P036620334/P036620334_238.jpg",
+          "access": "東急自由が丘(東京)駅正面口より徒歩約4分",
+          "address": "東京都目黒区自由が丘２－１４－１タケキビル１－２Ｆ",
+          "name_kana": "フレッシュネスバーガー　ジユウガオカテン",
+          "genre_catch": "大人がくつろげるバーガーカフェ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "連打ゲーム",
+          "detail": "とにかく連打しよう！！"
+        }
+      },
+      {
+        "id": 4,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "部屋の掃除をして綺麗になった",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001275351",
+          "name": "ロイヤルクリスタルカフェ 自由が丘店",
+          "open": "月～金: 11:00～20:00 （料理L.O. 19:00 ドリンクL.O. 19:30）土、日、祝日、祝前日: 11:00～19:00 （料理L.O. 18:00 ドリンクL.O. 18:30）",
+          "catch": "Newopen！自由が丘店♪ 珈琲豆も販売いたします",
+          "photo": "https://imgfp.hotp.jp/IMGH/60/48/P038226048/P038226048_238.jpg",
+          "access": "東急自由が丘(東京)駅正面口より徒歩約4分/東急目黒線奥沢駅出口より徒歩約14分",
+          "address": "東京都目黒区自由が丘２-16-3",
+          "name_kana": "ろいやるくりすたるかふぇじゆうがおかてん",
+          "genre_catch": "特別な場所で、優雅なひとときを"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 5,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-10ポイント",
+          "skip": 0,
+          "point": -10,
+          "detail": "長雨で洗濯物が乾かない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000963004",
+          "name": "田園調布 あけぼの",
+          "open": "月～土、祝日、祝前日: 10:00～16:50",
+          "catch": "美味しい抹茶やあんみつ♪ 自家製の餡を使用♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/21/33/P013302133/P013302133_238.jpg",
+          "access": "田園調布駅東口から徒歩1分。駅前交差点を真っ直ぐ進むと、マクドナルドの向かい側にあります。",
+          "address": "東京都大田区田園調布２‐５１‐８",
+          "name_kana": "でんえんちょうふ　あけぼの",
+          "genre_catch": "昭和7年創業の老舗和菓子・甘味処"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 6,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "釣りに行ってニジマスをゲット",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000815711",
+          "name": "プラスガーデン +GARDEN DINING&CAFE",
+          "open": "火、木、金: 12:30～22:00土、日、祝日、祝前日: 12:00～22:00",
+          "catch": "リラックスできる空間 こだわりのインテリア",
+          "photo": "https://imgfp.hotp.jp/IMGH/36/95/P024823695/P024823695_238.jpg",
+          "access": "自由が丘駅徒歩6分 YAMADA電機を通り越した右側",
+          "address": "東京都目黒区緑が丘２‐１５‐１４　1F",
+          "name_kana": "プラスガーデンダイニングアンドカフェ",
+          "genre_catch": "DINING&CAFE ダイニング&カフェ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 7,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み！",
+          "skip": 1,
+          "point": 0,
+          "detail": "1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001210370",
+          "name": "こなな 自由が丘店",
+          "open": "月～日、祝日、祝前日: 11:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "特製おだしの和パスタ おひとり様でもお気軽に♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/18/47/P031611847/P031611847_238.jpg",
+          "access": "東急東横線、東急大井町線　自由が丘駅北口より徒歩約5分",
+          "address": "東京都目黒区自由が丘１-３-２１",
+          "name_kana": "こななじゆうがおかてん",
+          "genre_catch": "和パスタで有名な「こなな」の自由が丘店"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 8,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "食べたかったドーナツを並ばずに買えた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001293676",
+          "name": "JIYUGAOKA CAFE ジユウガオカ カフェ",
+          "open": "月～日、祝日、祝前日: 10:00～21:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/02/24/P039160224/P039160224_238.jpg",
+          "access": "自由が丘駅より徒歩1分（自由が丘東急フードショースライス内）",
+          "address": "東京都目黒区自由が丘１-10-4 自由が丘東急フードショースライス内",
+          "name_kana": "じゆうがおか　かふぇ",
+          "genre_catch": "自由が丘/カフェ/バー/酒/スイーツ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 9,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001217320",
+          "name": "cafe&books bibliotheque 東京 自由が丘店",
+          "open": "月～金、祝前日: 11:00～20:00 （料理L.O. 19:00）土、日、祝日: 09:00～20:00 （料理L.O. 19:00）",
+          "catch": "美味しさ贅沢デリプレート 進化した生モンブラン",
+          "photo": "https://imgfp.hotp.jp/IMGH/94/03/P037949403/P037949403_238.jpg",
+          "access": "東急東横線　自由が丘駅　北口正面／自由が丘駅から65m",
+          "address": "東京都目黒区自由が丘１-11-7 etomo 1F",
+          "name_kana": "かふぇ　あんど　ぶっくす　びぶりおてーく　とうきょう・じゆうがおかてん",
+          "genre_catch": "☆☆★フレンチビストロカフェ★☆☆"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 10,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001276485",
+          "name": "茶房牡丹 自由が丘",
+          "open": "火～金、祝前日: 12:00～17:00 （料理L.O. 16:30 ドリンクL.O. 16:45）土、日、祝日: 10:00～17:00 （料理L.O. 16:30 ドリンクL.O. 16:45）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/00/61/P038200061/P038200061_238.jpg",
+          "access": "東急自由が丘(東京)駅南口より徒歩約7分、東急目黒線奥沢駅出口より徒歩約7分",
+          "address": "東京都世田谷区奥沢５－３３－１３  サロン・ド・テ　自由が丘",
+          "name_kana": "サボウボタン",
+          "genre_catch": "和の庭のあるカフェで日本茶と和スイーツ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 11,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001139317",
+          "name": "ネットカフェ&カラオケ DiCE 自由が丘店",
+          "open": "月～日、祝日、祝前日: 00:00～23:59",
+          "catch": "完全個室あり★ ドリンク&ソフトクリーム",
+          "photo": "https://imgfp.hotp.jp/IMGH/27/73/P038412773/P038412773_238.jpg",
+          "access": "自由が丘駅より徒歩２分",
+          "address": "東京都目黒区自由が丘２-12-17 自由が丘スポーツプラザビルB1F",
+          "name_kana": "インターネットカフェダイスジユウガオカテン",
+          "genre_catch": "日本最大級のインターネットカフェ！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 12,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得！",
+          "skip": 0,
+          "point": 20,
+          "detail": "プラス20ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000862855",
+          "name": "JUNO 自由が丘本店",
+          "open": "火～日、祝日、祝前日: 11:00～17:00 （料理L.O. 16:30 ドリンクL.O. 16:30）",
+          "catch": "こだわりのベーグル ゆったりできる大型カフェ",
+          "photo": "https://imgfp.hotp.jp/IMGH/39/35/P033013935/P033013935_238.jpg",
+          "access": "東急東横線自由が丘駅より徒歩5分",
+          "address": "東京都世田谷区奥沢７丁目2-9",
+          "name_kana": "じゅのじゆうがおかほんてん",
+          "genre_catch": "ベーグル"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 13,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "朝ヨガでリフレッシュ",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003341138",
+          "name": "インターネットカフェ Leaf",
+          "open": "月～日、祝日、祝前日: 00:00～翌0:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/08/01/P039960801/P039960801_238.jpg",
+          "access": "東急自由が丘駅正面口徒歩２分",
+          "address": "東京都目黒区自由が丘２-13-2",
+          "name_kana": "インターネットカフェリーフ",
+          "genre_catch": "インターネットカフェ/個室/漫画/自由が丘"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 14,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-20ポイント",
+          "skip": 0,
+          "point": -20,
+          "detail": "自転車がパンクする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001245456",
+          "name": "Cafe & Bar Fonte カフェアンドバーフォンチ",
+          "open": "月、火: 11:00～翌2:00水～日、祝日、祝前日: 09:30～翌2:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/91/15/P040249115/P040249115_238.jpg",
+          "access": "奥沢駅徒歩1分",
+          "address": "東京都世田谷区奥沢３-31-4 W.okusawa 1F",
+          "name_kana": "カフェアンドバーフォンチ",
+          "genre_catch": "CBD・COFFEE・VEGAN"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 15,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001279433",
+          "name": "&BLOOM",
+          "open": "火～日: 10:00～18:00 （料理L.O. 17:00 ドリンクL.O. 17:30）",
+          "catch": "ペットのご同伴OK★ オリジナルラテアート！",
+          "photo": "https://imgfp.hotp.jp/IMGH/50/56/P041075056/P041075056_238.jpg",
+          "access": "東急自由が丘駅正面口より徒歩約3分/東急目黒線奥沢駅出口より徒歩約16分",
+          "address": "東京都目黒区自由が丘２丁目16－11",
+          "name_kana": "あんどぶるーむ",
+          "genre_catch": "自由が丘初！カフェ併設トリミングサロン"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 16,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001222451",
+          "name": "ミルクロード 自由が丘店",
+          "open": "月、火、木～日、祝日、祝前日: 11:00～19:00",
+          "catch": "自由が丘駅徒歩5分 濃厚ソフトクリーム。",
+          "photo": "https://imgfp.hotp.jp/IMGH/86/77/P033078677/P033078677_238.jpg",
+          "access": "東急東横線自由が丘駅から徒歩5分　自由通り沿いのお店です。",
+          "address": "東京都目黒区自由が丘１-24-3 玉川ビル102",
+          "name_kana": "みるくろーど　じゆうがおかてん",
+          "genre_catch": "新鮮な乳製品と濃厚ソフト。ギフト予約可。"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 17,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001265730",
+          "name": "usubane",
+          "open": "月～水、金～日、祝日、祝前日: 11:30～20:00 （料理L.O. 17:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/31/63/P037483163/P037483163_238.jpg",
+          "access": "東急自由が丘(東京)駅正面口より徒歩約3分/東急目黒線奥沢駅出口より徒歩約13分",
+          "address": "東京都目黒区自由が丘２-12-19 B1",
+          "name_kana": "うすばね",
+          "genre_catch": "こだわりのカレーも楽しめるカフェ♪"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 18,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003341440",
+          "name": "栗歩と芋こ 自由が丘店",
+          "open": "月、水～日: 11:00～18:00 （料理L.O. 17:00 ドリンクL.O. 17:00）",
+          "catch": "無糖で驚きの甘さを実現！ 松尾農園の最高級和栗使用",
+          "photo": "https://imgfp.hotp.jp/IMGH/25/13/P040082513/P040082513_238.jpg",
+          "access": "東急自由が丘(東京)駅正面口より徒歩約1分",
+          "address": "東京都目黒区自由が丘２-11-16 DM自由が丘B棟",
+          "name_kana": "くりほといもこ　じゆうがおかてん",
+          "genre_catch": "栗とさつまいもスイーツ専門店"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 19,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001263603",
+          "name": "ピーターラビットガーデンカフェ",
+          "open": "月～金、祝前日: 11:00～19:00 （料理L.O. 18:00 ドリンクL.O. 18:00）土、日、祝日: 11:00～20:00 （料理L.O. 19:00 ドリンクL.O. 19:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/33/37/P037233337/P037233337_238.jpg",
+          "access": "東急自由が丘(東京)駅北口より徒歩約4分",
+          "address": "東京都目黒区自由が丘１－２５－２０自由が丘МＹＵ１F",
+          "name_kana": "ピーターラビットガーデンカフェ　ジユウガオカ",
+          "genre_catch": "絵本の世界観やメニューが楽しめるお店 "
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 20,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003298426",
+          "name": "京都花鳥堂樹庵",
+          "open": "月、木～日、祝日、祝前日: 12:00～19:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/92/11/P039629211/P039629211_238.jpg",
+          "access": "自由が丘駅より徒歩5分",
+          "address": "東京都目黒区自由が丘１丁目23番地の4",
+          "name_kana": "きょうとかちょうどうじゅあん",
+          "genre_catch": "■カフェ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 21,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000133949",
+          "name": "珈琲茶館 集 Gateaux naturels SHU 自由ヶ丘店",
+          "open": "月～日、祝日、祝前日: 10:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "●厳選された珈琲豆 ●職人による手作りケーキ",
+          "photo": "https://imgfp.hotp.jp/IMGH/17/83/P037231783/P037231783_238.jpg",
+          "access": "東横線自由が丘駅正面口徒歩1分 ※2Fは珈琲茶館(喫茶店)、1FはGateux naturels SHU(イートイン可能なパティスリー)です",
+          "address": "東京都目黒区自由が丘２-10-4 ",
+          "name_kana": "こーひーさかん　がとーなちゅれーる　しゅう　じゆうがおかてん",
+          "genre_catch": "喫茶店(高級ラウンジ)"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 22,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003411296",
+          "name": "THREE TEA CAFE トレインチ自由が丘店",
+          "open": "月～日、祝日、祝前日: 10:00～19:00 （料理L.O. 18:00 ドリンクL.O. 18:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/01/45/P040570145/P040570145_238.jpg",
+          "access": "東急東横線/大井町線　自由が丘駅徒歩1分",
+          "address": "東京都世田谷区奥沢５丁目４２-３ トレインチ自由が丘　C101",
+          "name_kana": "すりーてぃーかふぇ　とれいんちじゆうがおかてん",
+          "genre_catch": "35種類以上の茶葉を厳選したティーカフェ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 23,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001259101",
+          "name": "FLIPPER'S 自由が丘店",
+          "open": "月～金: 11:00～20:00 （料理L.O. 19:00 ドリンクL.O. 19:00）土、日: 10:30～20:00 （料理L.O. 19:00 ドリンクL.O. 19:00）",
+          "catch": "テイクアウトもOK 厳選素材を使用♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/22/33/P036642233/P036642233_238.jpg",
+          "access": "東急自由が丘(東京)駅南口より徒歩約2分/東急目黒線奥沢駅出口より徒歩約9分",
+          "address": "東京都目黒区自由が丘１-8-7 3F",
+          "name_kana": "ふりっぱーず　じゆうがおかてん",
+          "genre_catch": "ポイント利用可能！クーポンもご用意"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 24,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000103722",
+          "name": "レピドール Lepi Dor",
+          "open": "月、火、木～日、祝日、祝前日: 09:30～18:30 （料理L.O. 18:00 ドリンクL.O. 18:00）",
+          "catch": "当店人気のアップルパイ 広い吹き抜けで開放的",
+          "photo": "https://imgfp.hotp.jp/IMGH/20/52/P023622052/P023622052_238.jpg",
+          "access": "自由が丘駅から2分 東急東横線/東急目黒線 田園調布駅 徒歩1分",
+          "address": "東京都大田区田園調布３-24-14",
+          "name_kana": "れぴどーる　でんえんちょうふ",
+          "genre_catch": "”素材”と”作りたて”がこだわりのケーキ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 25,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "ゴール",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": true,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      }
+    ]
+  },
+  {
+    "board": {
+      "id": "002",
+      "base": "izakaya",
+      "name": "新橋居酒屋"
+    },
+    "square": [
+      {
+        "id": 0,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "スタート",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 1,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "自販機で当たりが出てもう1本もらう",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001178731",
+          "name": "清水 HONTEN",
+          "open": "月、土、日、祝日: 17:00～23:30火～金、祝前日: 17:00～翌4:00",
+          "catch": "プリプリ食感♪国産牛小腸 匠の技×こだわりの上州豚",
+          "photo": "https://imgfp.hotp.jp/IMGH/39/32/P027903932/P027903932_238.jpg",
+          "access": "新橋駅 汐留口より徒歩2分",
+          "address": "東京都港区新橋３-２６-４",
+          "name_kana": "しみず　ほんてん",
+          "genre_catch": " 清水名物やきとん・もつ鍋！日本酒も多数"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 2,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "食べたかったドーナツを並ばずに買えた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001111042",
+          "name": "地鶏と鮮魚よかたい 汐留シティセンター店",
+          "open": "月～金: 11:30～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）土: 11:30～21:00祝前日: 11:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）",
+          "catch": "九州名物！水炊きやもつ鍋 ランチは唐揚げ食べ放題",
+          "photo": "https://imgfp.hotp.jp/IMGH/50/39/P034675039/P034675039_238.jpg",
+          "access": "ＪR山手線 「新橋駅」汐留口より徒歩3分　東京メトロ銀座線 「新橋駅」2番出口より徒歩3分　汐留シティーセンター2F",
+          "address": "東京都港区東新橋１-5-2　汐留シティセンター",
+          "name_kana": "じどりとせんぎょよかたい　しおどめしてぃせんたー",
+          "genre_catch": "汐留シティセンター2Fの海鮮と地鶏の居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 3,
+        "event": {
+          "flag": true,
+          "move": -1,
+          "name": "1マス戻る",
+          "skip": 0,
+          "point": 0,
+          "detail": "財布をなくして1マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003297486",
+          "name": "贅沢伊勢海老と完全個室　雅邸-みやびてい-　新橋店",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "伊勢海老+飲み放題がお得 扉付完全個室でのご案内◎",
+          "photo": "https://imgfp.hotp.jp/IMGH/17/14/P039751714/P039751714_238.jpg",
+          "access": "JR新橋駅 徒歩1分 / 地下鉄銀座線 新橋駅 徒歩2分",
+          "address": "東京都港区新橋３-２３-１　６F",
+          "name_kana": "ぜいたくいせえびとかんぜんこしつ　みやびてい　しんばしてん",
+          "genre_catch": "新橋 個室 居酒屋 飲み放題 宴会 伊勢海老"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 4,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-10ポイント",
+          "skip": 0,
+          "point": -10,
+          "detail": "長雨で洗濯物が乾かない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000005611",
+          "name": "新橋 雑魚",
+          "open": "月～金: 17:00～翌0:00土、祝日、祝前日: 16:30～22:00",
+          "catch": "気楽にお立ち寄りを♪ 新鮮な食材",
+          "photo": "https://imgfp.hotp.jp/IMGH/95/42/P012039542/P012039542_238.jpg",
+          "access": "JR山手線新橋駅烏森口出口　徒歩4分　",
+          "address": "東京都港区新橋４－１９－６　第二粕谷ビル１Ｆ",
+          "name_kana": "ざこ",
+          "genre_catch": "やきとりと創作料理と焼酎"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 5,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "食べ放題で食べ過ぎて1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000248453",
+          "name": "桃吉",
+          "open": "月～金、祝前日: 11:30～20:00土、祝日: 15:00～20:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/30/34/P035693034/P035693034_238.jpg",
+          "access": "新橋駅烏森口徒歩３分",
+          "address": "東京都港区新橋３－２２－６　桃吉ビル",
+          "name_kana": "すみやき　ももきち",
+          "genre_catch": "炭火専門"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 6,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "福引でハワイの旅行券が当たる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001128001",
+          "name": "立呑みとんかつ まるや 汐留店",
+          "open": "月～水、金、祝前日: 11:00～15:00 （料理L.O. 14:45）17:00～23:00 （料理L.O. 22:30）木: 11:00～15:00 （料理L.O. 14:45）17:00～23:00 （料理L.O. 22:50）",
+          "catch": "残業の合間にサクッと！ 少人数用のテーブル有り",
+          "photo": "https://imgfp.hotp.jp/IMGH/73/21/P022667321/P022667321_238.jpg",
+          "access": "JR新橋駅徒歩3分東京メトロ銀座線新橋駅2番出口徒歩3分都営大江戸線汐留駅徒歩1分",
+          "address": "東京都港区東新橋１-5-2　汐留シティセンタービル2F",
+          "name_kana": "たちのみとんかつまるやしおどめてん",
+          "genre_catch": "かつとハイボールの相性◎立ち飲み居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 7,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "部屋の掃除をして綺麗になった",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001210945",
+          "name": "鉄板焼き 波打",
+          "open": "月～土、祝前日: 17:00～23:30 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "JR新橋駅地下街徒歩1分 お酒によく合う逸品充実!!",
+          "photo": "https://imgfp.hotp.jp/IMGH/40/65/P031824065/P031824065_238.jpg",
+          "access": "JR新橋駅汐留口から汐留方面に50m程進むと左側に新橋駅ビル1号館に入ります。その真ん中あたりにあるお店",
+          "address": "東京都港区新橋２-20-15 新橋駅前ビル一号館B1F　114",
+          "name_kana": "てっぱんやきなみだ",
+          "genre_catch": "新橋地下街の鉄板焼き・立ち飲みバー"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 8,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント減点！",
+          "skip": 0,
+          "point": -10,
+          "detail": "マイナス10ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003297579",
+          "name": "新橋ジンギスカン羊一頭買い　燃える羊",
+          "open": "月～木: 17:00～23:30 （料理L.O. 22:30 ドリンクL.O. 23:00）金: 17:00～23:30 （料理L.O. 22:00 ドリンクL.O. 23:00）土: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）祝前日: 17:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "北海道帯広産羊肉一頭買い 当店自慢の火鍋をご提供！",
+          "photo": "https://imgfp.hotp.jp/IMGH/87/97/P041058797/P041058797_238.jpg",
+          "access": "ＪＲ新橋駅烏森口より徒歩約3分/都営大江戸線汐留駅２出口より徒歩約5分",
+          "address": "東京都港区新橋４-19-9",
+          "name_kana": "シンバシジンギスカンヒツジイットウガイ　モエルヒツジ",
+          "genre_catch": "ラムジンギスカン　火鍋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 9,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "釣りに行ってニジマスをゲット",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003297487",
+          "name": "まぐろブツ盛り放題100円×伊勢海老　個室居酒屋　まぐろ奉行　新橋店",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "少人数様～団体様までOK！ ブツ盛り放題110円税込！",
+          "photo": "https://imgfp.hotp.jp/IMGH/31/46/P040733146/P040733146_238.jpg",
+          "access": "JR 新橋駅徒歩1分(烏森口) 汐留駅徒歩3分 大勝軒さんのビル3階 完全個室完備！",
+          "address": "東京都港区新橋３-23-1-3F",
+          "name_kana": "まぐろぶつもりひゃくえん　いせえび　こしついざかや　まぐろぶぎょう　しんばしてん",
+          "genre_catch": "新橋 個室 居酒屋 飲み放題  接待 二次会"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 10,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "ミニゲーム",
+          "skip": 0,
+          "point": 0,
+          "detail": "ミニゲーム",
+          "minigame": true
+        },
+        "store": {
+          "id": "J000813608",
+          "name": "立呑処 へそ 新橋駅前店",
+          "open": "月～金: 11:30～14:0014:01～翌0:00 （料理L.O. 23:30）土、祝日: 12:00～翌0:00 （料理L.O. 23:30）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/86/06/P036668606/P036668606_238.jpg",
+          "access": "JR新橋駅・都営浅草線新橋駅より徒歩30秒。",
+          "address": "東京都港区新橋２丁目20番15号  新橋駅前ビル1号館地下1階Ｂ102",
+          "name_kana": "ヘソシンバシエキマエテン",
+          "genre_catch": "新橋せんべろスタートの店！アニメ酒多数♪"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "連打ゲーム",
+          "detail": "とにかく連打しよう！！"
+        }
+      },
+      {
+        "id": 11,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000017703",
+          "name": "郷どり 燦鶏 サンケイ Pedi汐留店",
+          "open": "月～金: 11:30～18:00 （料理L.O. 17:30）",
+          "catch": "名物鶏料理を汐留で味わう ゆったり広いお席でお食事",
+          "photo": "https://imgfp.hotp.jp/IMGH/37/55/P035843755/P035843755_238.jpg",
+          "access": "大江戸線汐留駅直通！雨の日でもお待ち合わせに困らない、アクセス抜群の人気居酒屋です。",
+          "address": "東京都港区東新橋１－９－１　東京汐留ビルディング内　Ｐｅｄｉ汐留２Ｆ",
+          "name_kana": "さとどりさんけい　ぺでぃしおどめてん",
+          "genre_catch": "汐留 居酒屋 焼鳥 飲み放題 宴会 大人数"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 12,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得！",
+          "skip": 0,
+          "point": 20,
+          "detail": "プラス20ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001227267",
+          "name": "まるかつ水産 汐留シティセンター店",
+          "open": "月～金、祝前日: 11:00～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～21:00 （料理L.O. 20:00 ドリンクL.O. 20:30）",
+          "catch": "こだわりのお寿司 函館の地",
+          "photo": "https://imgfp.hotp.jp/IMGH/58/47/P033915847/P033915847_238.jpg",
+          "access": "都営大江戸線汐留駅１出口より徒歩約3分/ＪＲ新橋駅汐留口より徒歩約4分",
+          "address": "東京都港区東新橋１-5-2 汐留シティセンターB1F",
+          "name_kana": "まるかつすいさん　しおどめしてぃせんたーてん",
+          "genre_catch": "寿司 汐留　新鮮　海鮮　海鮮丼　函館　"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 13,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003474751",
+          "name": "熟成和牛×海鮮×本格和食　完全個室居酒屋　SUISEI　-すいせい-　粋正　新橋店",
+          "open": "月～日、祝日、祝前日: 16:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "鮮度抜群！海の幸 大小中の個室席を完備",
+          "photo": "https://imgfp.hotp.jp/IMGH/84/58/P041258458/P041258458_238.jpg",
+          "access": "新橋徒歩3分/都営浅草線新橋駅Ａ１出口より徒歩約3分",
+          "address": "東京都港区新橋３-23-1-7F",
+          "name_kana": "じゅくせいわぎゅうかいせんほんかくわしょく　かんぜんこしついざかや　すいせいしんばしてん",
+          "genre_catch": "新橋 烏森口 海鮮 居酒屋 完全個室 お刺身"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 14,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001185185",
+          "name": "新時代 新橋店",
+          "open": "月～日、祝日、祝前日: 08:00～翌5:00",
+          "catch": "新時代の到来！人気急増中 投稿多数★伝串ピラミッド",
+          "photo": "https://imgfp.hotp.jp/IMGH/61/08/P040736108/P040736108_238.jpg",
+          "access": "新橋駅烏森口　徒歩2分/汐留駅　徒歩７分　並びに「はなれ」もございます☆",
+          "address": "東京都港区新橋３丁目２５－１９",
+          "name_kana": "しんじだい　しんばしてん",
+          "genre_catch": "累計販売本数9,000万本！名物【伝串】"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 15,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001040351",
+          "name": "築地食堂 源ちゃん 汐留店",
+          "open": "月～土: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）",
+          "catch": "自慢のマグロは一頭買い 3時間全7品2980円(税込)～",
+          "photo": "https://imgfp.hotp.jp/IMGH/61/05/P032796105/P032796105_238.jpg",
+          "access": "JR山手線「新橋駅」汐留口より徒歩3分/東京メトロ銀座線「新橋駅」2番出口より徒歩3分",
+          "address": "東京都港区東新橋１-5-2 汐留シティセンターB1F",
+          "name_kana": "つきじしょくどう　げんちゃん　しおどめてん",
+          "genre_catch": "新橋と汐留の両駅から徒歩3分の海鮮居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 16,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-20ポイント",
+          "skip": 0,
+          "point": -20,
+          "detail": "自転車がパンクする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000963919",
+          "name": "鍛冶屋文蔵 カレッタ汐留店",
+          "open": "月～金、祝前日: 11:30～14:30 （料理L.O. 14:00 ドリンクL.O. 14:00）17:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）土: 11:30～14:30 （料理L.O. 14:00 ドリンクL.O. 14:00）17:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "行列ができる焼鳥の人気店",
+          "photo": "https://imgfp.hotp.jp/IMGH/41/35/P035144135/P035144135_238.jpg",
+          "access": "ＪＲ新橋駅より徒歩4分。地下鉄大江戸線汐留駅より徒歩1分。ゆりかもめ汐留駅より徒歩2分。浅草線新橋駅より徒歩3分。",
+          "address": "東京都港区東新橋１-8-2 カレッタ汐留B２F",
+          "name_kana": "かじやぶんぞう　かれったしおどめてん",
+          "genre_catch": "居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 17,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "朝ヨガでリフレッシュ",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000981187",
+          "name": "北海道 カレッタ汐留店",
+          "open": "月～日、祝日、祝前日: 11:00～14:30 （料理L.O. 14:00 ドリンクL.O. 14:00）16:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:45）",
+          "catch": "鮮度抜群海鮮居酒屋 北海道を愉しむ",
+          "photo": "https://imgfp.hotp.jp/IMGH/57/99/P040995799/P040995799_238.jpg",
+          "access": "JR各線新橋駅 徒歩5分/東京メトロ銀座線新橋駅 徒歩7分/都営大江戸線汐留駅 徒歩1分／ゆりかもめ汐留駅 徒歩1分",
+          "address": "東京都港区東新橋１－８－1　カレッタ汐留４６Ｆ",
+          "name_kana": "ほっかいどう　かれったしおどめてん",
+          "genre_catch": "旬の食材・蟹・海鮮＆日本酒を愉しむ居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 18,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001283195",
+          "name": "もつ焼き大膳 新橋店",
+          "open": "月～土、祝前日: 16:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）日、祝日: 15:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "芝浦市場から直送！ お店の看板『もつ焼き』",
+          "photo": "https://imgfp.hotp.jp/IMGH/17/28/P038931728/P038931728_238.jpg",
+          "access": "ＪＲ新橋駅烏森口より徒歩約2分/ゆりかもめ新橋駅２Ｂ出口より徒歩約3分/都営大江戸線汐留駅２出口より徒歩約5分",
+          "address": "東京都港区新橋３-22-7 UB２ビル",
+          "name_kana": "モツヤキダイゼン　シンバシテン",
+          "genre_catch": "自家製タレが自慢のもつ焼き屋！！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 19,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得！",
+          "skip": 0,
+          "point": 20,
+          "detail": "プラス20ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001134661",
+          "name": "かっぽうぎ 日テレプラザ店",
+          "open": "月～金、祝前日: 11:30～14:0017:30～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）",
+          "catch": "お食事も飲み会もOK！ お母さんの手作り料理を！",
+          "photo": "https://imgfp.hotp.jp/IMGH/48/68/P033374868/P033374868_238.jpg",
+          "access": "ゆりかもめ新橋駅２Ｄ出口より徒歩約3分/都営大江戸線汐留駅７出口より徒歩約3分",
+          "address": "東京都港区東新橋１-6-1　日本テレビタワー B204区画",
+          "name_kana": "かっぽうぎ　にってれぷらざてん",
+          "genre_catch": "手作り居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 20,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001235743",
+          "name": "串カツ田中 新橋駅前店",
+          "open": "月～日、祝日、祝前日: 15:00～23:00",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/56/36/P036475636/P036475636_238.jpg",
+          "access": "新橋駅 徒歩2分",
+          "address": "東京都港区新橋３-26-3",
+          "name_kana": "クシカツタナカシンバシエキマエテン",
+          "genre_catch": "大阪伝統の味！二度づけ禁止の名物串カツ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 21,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003474752",
+          "name": "伊勢海老×厳選和牛  完全個室居酒屋　MIYABI TEI 雅邸新橋",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "名物！三重直送・伊勢海老 A5ランクを使用【肉寿司】",
+          "photo": "https://imgfp.hotp.jp/IMGH/84/37/P041258437/P041258437_238.jpg",
+          "access": "JR新橋駅 徒歩1分 / 地下鉄銀座線 新橋駅 徒歩2分",
+          "address": "東京都港区新橋３-23-1-7F",
+          "name_kana": "いせえびげんせんわぎゅう　かんぜんこしついざかや　みやびてい　しんばし",
+          "genre_catch": "新橋個室居酒屋  宴会 飲み放題　伊勢海老"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 22,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000003733",
+          "name": "琉球家 なんくるないさ 新橋",
+          "open": "火～金、祝前日: 11:00～翌0:00 （料理L.O. 22:30 ドリンクL.O. 23:45）土、日、祝日: 14:00～翌0:00 （料理L.O. 22:30 ドリンクL.O. 23:45）",
+          "catch": "琉球宴会コース3800円！ 最大15名までの宴会もOK！",
+          "photo": "https://imgfp.hotp.jp/IMGH/75/55/P027927555/P027927555_238.jpg",
+          "access": "JR新橋駅鳥森口　徒歩3分／都営浅草線新橋駅鳥森口　徒歩3分／銀座線新橋駅鳥森口　徒歩3分／JR高架下にあります",
+          "address": "東京都港区新橋３－２５－１５",
+          "name_kana": "りゅうきゅうや　なんくるないさ",
+          "genre_catch": "本場の沖縄料理★琉球居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 23,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000120974",
+          "name": "やきとん酒場　新橋　とら八",
+          "open": "月～日、祝日、祝前日: 16:00～23:30 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "熟練焼き師・柏原さんの技 プロ職人の創作メニュー",
+          "photo": "https://imgfp.hotp.jp/IMGH/58/19/P038565819/P038565819_238.jpg",
+          "access": "ＪＲ新橋駅 徒歩1分 地下鉄銀座線新橋駅 徒歩1分 都営浅草線新橋駅 徒歩1分 新橋駅から124m",
+          "address": "東京都港区新橋３-25-6",
+          "name_kana": "やきとんさかば　しんばし　とらはち",
+          "genre_catch": "朝挽きやきとんと手作り料理 老舗居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 24,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003474750",
+          "name": "産地直送新鮮魚介と厳選日本酒  個室居酒屋　まぐろBUGYO＆かにDAIKAN　新橋店",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "手のひらサイズアワビ姿造 飲み放題付コース3000円～",
+          "photo": "https://imgfp.hotp.jp/IMGH/84/48/P041258448/P041258448_238.jpg",
+          "access": "JR 新橋駅徒歩1分(烏森口) 汐留駅徒歩3分 大勝軒さんのビル3階 完全個室完備！",
+          "address": "東京都港区新橋３-23-1-7F",
+          "name_kana": "しんせんぎょかいとげんせんにほんしゅ　こしついざかや　まぐろぶぎょうとかにだいかんしんばしてん",
+          "genre_catch": "新橋 個室 居酒屋 飲み放題  接待 二次会"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 25,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003498774",
+          "name": "和ノ夢 新橋本店",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "市場直送新鮮な伊勢海老 新橋駅徒歩1分♪完全個室",
+          "photo": "https://imgfp.hotp.jp/IMGH/94/61/P041559461/P041559461_238.jpg",
+          "access": "JR 新橋駅徒歩1分(烏森口) 汐留駅徒歩3分 大勝軒さんのビル地下1階 完全個室完備！",
+          "address": "東京都港区新橋３-23-1 Box’R Shinbashi B1F",
+          "name_kana": "ほんかくわしょくかいせん　いせえび　かき　わのゆめ　しんばしほんてん",
+          "genre_catch": "新橋 個室 居酒屋 飲み放題  接待 二次会"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 26,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001294930",
+          "name": "個室居酒屋 和黒屋 新橋3号店",
+          "open": "月～日、祝日、祝前日: 16:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "季節宴会コース多数ご用意 熊本県産天草大王！",
+          "photo": "https://imgfp.hotp.jp/IMGH/97/41/P040029741/P040029741_238.jpg",
+          "access": "JR 新橋駅徒歩1分(烏森口) 汐留駅徒歩3分",
+          "address": "東京都港区新橋３-23-1 TRN新橋ビル4F",
+          "name_kana": "すみびやきやきとり　じゅくせいぎゅう　こしついざかや　わぐろや　しんばしさんごうてん",
+          "genre_catch": "博多串焼きなどが堪能できる隠れ家居酒屋◎"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 27,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001178733",
+          "name": "清水 HANARE",
+          "open": "月、土、日、祝日: 17:00～23:30火～金、祝前日: 17:00～翌4:00",
+          "catch": "プリプリ食感♪国産牛小腸 匠の技×こだわりの上州豚",
+          "photo": "https://imgfp.hotp.jp/IMGH/39/32/P027903932/P027903932_238.jpg",
+          "access": "新橋駅 汐留口より徒歩約2分！",
+          "address": "東京都港区新橋３-２６-４ 相互ビル １０１",
+          "name_kana": "しみず　はなれ",
+          "genre_catch": " 清水名物やきとん・もつ鍋！日本酒も多数"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 28,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003366711",
+          "name": "完全個室居酒屋 魚馬る 新橋本店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "朝どれ鮮魚の仕入れに自信 極上の馬刺食べ比べも可能",
+          "photo": "https://imgfp.hotp.jp/IMGH/27/65/P037582765/P037582765_238.jpg",
+          "access": "新橋駅徒歩1分　【魚】【馬】【鍋】を楽しむ個室【バル】 ●飲み放題付きコースは3500円～ご用意！",
+          "address": "東京都港区新橋３-22-3 新橋SPビル3F",
+          "name_kana": "あさどれかいせんとくまもとけんさんばさしなべかんぜんこしついざかやうおばるしんばしほんてん",
+          "genre_catch": "【魚】と【馬】と【鍋】を楽しむ個室バル"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 29,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001285715",
+          "name": "麺屋武一 汐留シティセンター店",
+          "open": "月～金、祝前日: 11:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "おつまみメニュー多数有◎ 種類豊富な『ラーメン』",
+          "photo": "https://imgfp.hotp.jp/IMGH/49/39/P038864939/P038864939_238.jpg",
+          "access": "山手線 「新橋駅」汐留口より徒歩3分東京メトロ銀座線 「新橋駅」2番出口より徒歩3分",
+          "address": "東京都港区東新橋１-5-2 汐留シティセンター 2F",
+          "name_kana": "めんやたけいちしおどめしてぃせんたーてん",
+          "genre_catch": "居酒屋/ラーメン/飲み/カウンター/宴会"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 30,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001189013",
+          "name": "鍛冶屋文蔵 新橋烏森口店",
+          "open": "月～土、祝前日: 16:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）日、祝日: 16:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "にぎやかなテーブル席",
+          "photo": "https://imgfp.hotp.jp/IMGH/60/99/P041506099/P041506099_238.jpg",
+          "access": "ＪＲ新橋駅烏森口徒歩汐留口徒歩１分/浅草線新橋駅3分/ゆりかもめ新橋駅3分",
+          "address": "東京都港区新橋３-２５-１７",
+          "name_kana": "かじやぶんぞうしんばしからすもりぐちてん",
+          "genre_catch": "居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 31,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "ゴール",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": true,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      }
+    ]
+  },
+  {
+    "board": {
+      "id": "003",
+      "base": "izakaya",
+      "name": "新宿居酒屋"
+    },
+    "square": [
+      {
+        "id": 0,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "スタート",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 1,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "自販機で当たりが出てもう1本もらう",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000025583",
+          "name": "ぱいかじ 新宿新南口店",
+          "open": "月～金: 11:30～15:30 （料理L.O. 15:00 ドリンクL.O. 15:00）17:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:00）土、日: 11:30～15:30 （料理L.O. 15:00 ドリンクL.O. 15:00）16:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:00）",
+          "catch": "新宿で深夜も営業！ 都会で沖縄気分を堪能♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/58/37/P041545837/P041545837_238.jpg",
+          "access": "ＪＲ中央本線新宿駅 南口 徒歩1分 京王線新宿駅 徒歩2分 地下鉄丸ノ内線新宿駅 徒歩5分 都営新宿線新宿駅 徒歩2分 ",
+          "address": "東京都新宿区新宿４－１－９　新宿ユースビル３F",
+          "name_kana": "ぱいかじ　しんじゅくしんみなみぐちてん",
+          "genre_catch": "本格沖縄料理と全47酒造所の泡盛を堪能"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 2,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "ミニゲーム",
+          "skip": 0,
+          "point": 0,
+          "detail": "ミニゲーム",
+          "minigame": true
+        },
+        "store": {
+          "id": "J000963855",
+          "name": "炭火焼鳥 塚田農場 新宿東南口店",
+          "open": "月～日、祝日、祝前日: 16:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "炭火の”焼鳥”に特化 モダンで洗練された店内",
+          "photo": "https://imgfp.hotp.jp/IMGH/15/39/P040161539/P040161539_238.jpg",
+          "access": "JR新宿駅東南口 徒歩1分",
+          "address": "東京都新宿区新宿３-36-15　新宿内野ビル2Ｆ",
+          "name_kana": "すみびやきとり　つかだのうじょう　しんじゅくとうなんぐちてん",
+          "genre_catch": "名物炭火焼と本格焼鳥"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "連打ゲーム",
+          "detail": "とにかく連打しよう！！"
+        }
+      },
+      {
+        "id": 3,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "食べたかったドーナツを並ばずに買えた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001147525",
+          "name": "個室肉バル アモーレ 新宿店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "濃厚チーズフェア開催中！ 誕生日に◎デザプレ☆",
+          "photo": "https://imgfp.hotp.jp/IMGH/85/99/P040448599/P040448599_238.jpg",
+          "access": "東京都新宿区新宿3-34-3 第31東京ビルB2 新宿駅徒歩3分！",
+          "address": "東京都新宿区新宿３-34-3 第31東京ビル B2F",
+          "name_kana": "しんじゅく　わぎゅう　にくづし　ちーず　こしつ　にくばる　あもーれ　たべほうだい　のみほうだい",
+          "genre_catch": "個室完備！人気No.1の3H食べ飲み放題3500円"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 4,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-10ポイント",
+          "skip": 0,
+          "point": -10,
+          "detail": "長雨で洗濯物が乾かない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001127454",
+          "name": "三五八",
+          "open": "火～日、祝日、祝前日: 17:30～翌0:00 （料理L.O. 23:00）",
+          "catch": "こだわり契約農家のお野菜 博多串焼き！",
+          "photo": "https://imgfp.hotp.jp/IMGH/67/23/P033106723/P033106723_238.jpg",
+          "access": "JR新宿駅　新南口　から明治通りをHIS側に渡り右折30m程進み左折　10m程歩いた路地を左折　赤い屋根の一軒家。",
+          "address": "東京都渋谷区千駄ヶ谷５-33-3",
+          "name_kana": "さごはち",
+          "genre_catch": "博多 串焼き 居酒屋 "
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 5,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "釣りに行ってニジマスをゲット",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001137270",
+          "name": "麹丸屋 新宿南口店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "レモン牛タンしゃぶしゃぶ 誕生日に◎デザプレ♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/41/30/P041564130/P041564130_238.jpg",
+          "access": "新宿駅徒歩1分！【TVでも紹介!!】炙り和牛寿司など鹿児島黒牛を使用した逸品肉料理ともつ鍋が自慢の個室居酒屋♪",
+          "address": "東京都新宿区新宿３-34-3 第31東京ビルB2",
+          "name_kana": "わぎゅう　ぎゅうたん　こしつ　いざかや　きくまるや　しんじゅく　のみほうだい　おすすめや",
+          "genre_catch": "【個室あり】3H食べ飲み放題コース3500円~"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 6,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "部屋の掃除をして綺麗になった",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001001683",
+          "name": "伊勢志摩の惠み 伊勢角屋 いせかどや 新宿店",
+          "open": "月～日、祝日、祝前日: 11:00～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:30）",
+          "catch": "希少な伊勢角屋麦酒を堪能 三重を含む日本中の地酒",
+          "photo": "https://imgfp.hotp.jp/IMGH/36/88/P041333688/P041333688_238.jpg",
+          "access": "JR新宿駅：新南口1分。その他：新宿駅5分。 東京メトロ副都心線：新宿三丁目駅3分（地下1階地下鉄口直結）",
+          "address": "東京都渋谷区千駄ヶ谷５－２４－２　　タカシマヤタイムズスクエア１４階",
+          "name_kana": "いせしまのめぐみ　いせかどや　しんじゅくてん",
+          "genre_catch": "創作和食/クラフトビール/日本酒"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 7,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み！",
+          "skip": 1,
+          "point": 0,
+          "detail": "1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001284602",
+          "name": "和食居酒屋 酔ってき屋 新宿駅前店",
+          "open": "月～木: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）金、祝前日: 11:00～翌2:00 （料理L.O. 翌1:00 ドリンクL.O. 翌1:30）土: 13:00～翌2:00 （料理L.O. 翌1:00 ドリンクL.O. 翌1:30）日、祝日: 13:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "-飲み放題最大約170種類- -お祝い事のプレート無料-",
+          "photo": "https://imgfp.hotp.jp/IMGH/48/67/P041204867/P041204867_238.jpg",
+          "access": "新宿駅から徒歩1分・ドンキーホーテの裏にあります。",
+          "address": "東京都新宿区新宿３-35-9 永和商事ビル １F",
+          "name_kana": "おおがたかんぜんこしつわしょくいざかやよってきやしんじゅくえきまえてん",
+          "genre_catch": "日本の伝統の味を若い世代に伝えていくお店"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 8,
+        "event": {
+          "flag": true,
+          "move": -1,
+          "name": "1マス戻る",
+          "skip": 0,
+          "point": 0,
+          "detail": "財布をなくして1マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000999801",
+          "name": "信州炉端 串の蔵 新宿東口店",
+          "open": "月～日、祝日、祝前日: 11:30～23:30 （料理L.O. 22:00 ドリンクL.O. 23:00）",
+          "catch": "アルコール消毒の徹底！！ ■コース料理は2500円～",
+          "photo": "https://imgfp.hotp.jp/IMGH/17/71/P032051771/P032051771_238.jpg",
+          "access": "JR新宿駅[中央東口]徒歩1分/新宿駅[東口]徒歩1分/新宿三丁目駅丸ノ内線[A5]番出口徒歩1分副都心線[E9］番出口徒歩1分",
+          "address": "東京都新宿区新宿３-３４-１６池田プラザビルB1F",
+          "name_kana": "しんしゅうろばた　くしのくら　しんじゅくひがしぐちてん",
+          "genre_catch": "ランチ営業中。昼飲み大歓迎。通常営業中！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 9,
+        "event": {
+          "flag": true,
+          "move": 3,
+          "name": "3マス進む",
+          "skip": 0,
+          "point": 0,
+          "detail": "3マス進む",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000010265",
+          "name": "御酒印船 新宿店",
+          "open": "月～金、祝前日: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:00）土: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）15:01～23:00 （料理L.O. 22:00 ドリンクL.O. 22:00）日、祝日: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）15:01～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）",
+          "catch": "落ち着いた雰囲気の店内 「地酒」常備20種以上！",
+          "photo": "https://imgfp.hotp.jp/IMGH/66/20/P023346620/P023346620_238.jpg",
+          "access": "JR新宿駅東南口徒歩3分／地下鉄新宿三丁目駅徒歩3分 ※新宿駅東南口から甲州街道を直進⇒3本目左手、大塚家具手前を左折",
+          "address": "東京都新宿区新宿３－３５－１６　JURAKU ＴＷＩＮ Ａビル　Ｂ１Ｆ",
+          "name_kana": "あみもと　かいせんいざかや　ごしゅいんせん　しんじゅくてん",
+          "genre_catch": "ポイント利用可能！上乗せクーポンもご用意"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 10,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "福引でハワイの旅行券が当たる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000711743",
+          "name": "もつきむ 新宿南口",
+          "open": "月～日、祝日、祝前日: 11:30～14:3017:00～23:00",
+          "catch": "2時間飲み放題980円！ 昼飲み大歓迎！",
+          "photo": "https://imgfp.hotp.jp/IMGH/35/79/P035613579/P035613579_238.jpg",
+          "access": "新宿東南口から徒歩1分、新宿三丁目駅徒歩3分、バスタ新宿徒歩3分",
+          "address": "東京都新宿区新宿３-35-12　新東ビル1Ｆ",
+          "name_kana": "やきにくさむぎょぷさるもつなべ　たべほうだい　きつきむ　しんじゅくみなみぐち",
+          "genre_catch": "新宿 個室 もつ鍋　食べ放題 餃子 九州  　"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 11,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000635962",
+          "name": "なきざかな 新宿店",
+          "open": "月～金: 17:00～23:00 （料理L.O. 22:00）土、日、祝日: 16:00～23:00 （料理L.O. 22:00）",
+          "catch": "［漁師×酒蔵］のコラボ酒 驚きの鮮度の旬魚を味わう",
+          "photo": "https://imgfp.hotp.jp/IMGH/38/75/P030153875/P030153875_238.jpg",
+          "access": "JR「新宿駅」中央東口・東南口徒歩1分",
+          "address": "東京都新宿区新宿３-35-10　ローヤルプリンスビルＢ1Ｆ",
+          "name_kana": "なきざかな　しんじゅくてん",
+          "genre_catch": "抜群の品質と価格◎新鮮魚介・和風居酒屋 "
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 12,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001171414",
+          "name": "シュラスコレストラン ALEGRIA Shinjuku アレグリア 新宿",
+          "open": "月～金: 17:00～22:00 （料理L.O. 22:00 ドリンクL.O. 22:00）土、日: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）16:00～22:00 （料理L.O. 22:00 ドリンクL.O. 22:00）祝日: 11:30～15:00 （料理L.O. 14:00 ドリンクL.O. 14:00）16:00～22:00 （料理L.O. 22:00 ドリンクL.O. 22:00）",
+          "catch": "シュラスコ食べ放題4620円 ★サーロインフェア開催",
+          "photo": "https://imgfp.hotp.jp/IMGH/99/98/P040619998/P040619998_238.jpg",
+          "access": "★美味しいお肉食べ放題★　代々木駅東口 徒歩3分　新宿新南口徒歩6分　新宿三丁目駅徒歩7分 （シュラスコレストラン）",
+          "address": "東京都渋谷区千駄ヶ谷５-30-10　2F",
+          "name_kana": "しゅらすこれすとらん　あれぐりあ　しんじゅく",
+          "genre_catch": "新宿 シュラスコ お肉 食べ放題 誕生日 "
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 13,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001044220",
+          "name": "鳥貴族 新宿南口店",
+          "open": "月～木: 16:00～翌2:00 （料理L.O. 翌1:30 ドリンクL.O. 翌1:30）金、祝前日: 16:00～翌5:00 （料理L.O. 翌4:30 ドリンクL.O. 翌4:30）土: 15:00～翌5:00 （料理L.O. 翌4:30 ドリンクL.O. 翌4:30）日、祝日: 15:00～翌2:00 （料理L.O. 翌1:30 ドリンクL.O. 翌1:30）",
+          "catch": "319円均一(税抜)の焼鳥屋 全席プライベートな空間",
+          "photo": "https://imgfp.hotp.jp/IMGH/29/83/P036032983/P036032983_238.jpg",
+          "access": "JR各線　新宿駅　新南口より　東へ徒歩1分",
+          "address": "東京都新宿区新宿４－１－１３　９Ｆ",
+          "name_kana": "やきとりや　とりきぞく　しんじゅくみなみぐちてん",
+          "genre_catch": "319円均一(税抜)の国産焼鳥の居酒屋！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 14,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得！",
+          "skip": 0,
+          "point": 20,
+          "detail": "プラス20ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001127157",
+          "name": "トルコレストラン ウスキュダル 新宿",
+          "open": "月～日、祝日、祝前日: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）",
+          "catch": "東南口徒歩2分！雰囲気◎ 世界三大料理",
+          "photo": "https://imgfp.hotp.jp/IMGH/47/60/P032354760/P032354760_238.jpg",
+          "access": "新宿駅東口・南口　徒歩2分/地下鉄新宿三丁目駅　徒歩2分　【駅近】　トルコ料理の名店です。",
+          "address": "東京都新宿区新宿３-35-1　小宮ビル2Ｆ",
+          "name_kana": "とるこれすとらん　うすきゅだる",
+          "genre_catch": "世界三大料理の一つ、トルコ料理を新宿で！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 15,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001208095",
+          "name": "新宿 牡蠣入レ時",
+          "open": "月～日、祝日、祝前日: 16:00～23:30",
+          "catch": "≪産地直送！新鮮な牡蠣≫ ◆好立地の隠れ家居酒屋！",
+          "photo": "https://imgfp.hotp.jp/IMGH/23/86/P031052386/P031052386_238.jpg",
+          "access": "JR 新宿駅 徒歩2分/地下鉄 新宿駅 徒歩2分/都営大江戸線 新宿駅 徒歩2分",
+          "address": "東京都新宿区新宿４－２－８",
+          "name_kana": "しんじゅく　たいしゅうさかば　かきいれどき",
+          "genre_catch": "牡蠣料理がおすすめの海鮮居酒屋・牡蠣小屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 16,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "朝ヨガでリフレッシュ",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000005165",
+          "name": "ハレツバメ 新宿新南口店",
+          "open": "月～土、祝前日: 11:30～14:00 （料理L.O. 13:30）17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "炙り鴨串 掘りごたつ半個室2名様～",
+          "photo": "https://imgfp.hotp.jp/IMGH/30/81/P041243081/P041243081_238.jpg",
+          "access": "【JR新宿駅 新南口 徒歩1分】【京王線・小田急線 新宿駅 南口 徒歩2分】【新宿三丁目駅 E6出口30秒】",
+          "address": "東京都新宿区新宿4-1-20",
+          "name_kana": "はれつばめ　しんじゅくしんみなみぐちてん",
+          "genre_catch": "新宿 居酒屋 焼鳥 蕎麦 鍋 個室 飲み放題"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 17,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-20ポイント",
+          "skip": 0,
+          "point": -20,
+          "detail": "自転車がパンクする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001265431",
+          "name": "和牛と牛タンの店 あそばれ 新宿東口",
+          "open": "月～日、祝日、祝前日: 16:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "◆徹底した感染症対策◎ ◆大人気の記念日プレート",
+          "photo": "https://imgfp.hotp.jp/IMGH/67/40/P039246740/P039246740_238.jpg",
+          "access": "新宿駅から駅近の好立地！ＪＲ 新宿駅 徒歩2分地下鉄副都心線 新宿三丁目駅 徒歩2分",
+          "address": "東京都新宿区新宿３-35-10 ローヤルプリンスビル 5F",
+          "name_kana": "わぎゅうとぎゅうたんのみせ　あそばれ　しんじゅくひがしぐち",
+          "genre_catch": "和牛と牛タンの肉割烹"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 18,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001169029",
+          "name": "かまくら個室ビストロ KAMAKURA 新宿店",
+          "open": "月～日、祝日、祝前日: 16:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "◆アニバーサリーBOX♪ ◆お洒落『かまくら個室』",
+          "photo": "https://imgfp.hotp.jp/IMGH/40/81/P040084081/P040084081_238.jpg",
+          "access": "新宿駅から駅近の好立地！ＪＲ 新宿駅 徒歩2分地下鉄副都心線 新宿三丁目駅 徒歩2分　和牛×チーズ×かまくら個室",
+          "address": "東京都新宿区新宿４-1-13 田園新宿ビル7階",
+          "name_kana": "かまくらこしつびすとろ　かまくら　しんじゅくてん",
+          "genre_catch": "ホテルシェフが織りなす創作ビストロ◎"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 19,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000002076",
+          "name": "串タロー 本店",
+          "open": "月～金: 17:00～23:30土、日: 16:00～23:30",
+          "catch": "33年目の老舗新宿まき串 秘伝の味【唐みそ】",
+          "photo": "https://imgfp.hotp.jp/IMGH/10/39/P032711039/P032711039_238.jpg",
+          "access": "JR新宿駅東南口を降りたら目の前の通りの1本奥の通りに入って３０ｍ歩く。また東口・ルミネ口1分",
+          "address": "東京都新宿区新宿３－３５－１０　朝賀ビル２Ｆ",
+          "name_kana": "くしたろー　ほんてん",
+          "genre_catch": "名物まき串 新鮮食材 こだわりの店 "
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 20,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001281839",
+          "name": "北丸 きたまる 新宿本店",
+          "open": "月～金: 15:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）土、日、祝日: 12:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "2～40名様までの完全個室 誕生日・記念日にはココ♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/42/79/P039944279/P039944279_238.jpg",
+          "access": "JR新宿駅南口・東南口徒歩2分/地下鉄新宿駅徒歩1分/地下鉄副都心線新宿三丁目駅徒歩1分/西武新宿線西武新宿駅徒歩7分",
+          "address": "東京都新宿区新宿４－１－１３　田園新宿ビル１０F",
+          "name_kana": "せんぎょとわぎゅうこしついざかやきたまるしんじゅくほんてん",
+          "genre_catch": "23:30まで通常営業しています！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 21,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001215767",
+          "name": "上海酒場 千駄ヶ谷店",
+          "open": "月～金、祝日、祝前日: 11:00～15:00 （料理L.O. 15:00 ドリンクL.O. 15:00）17:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）",
+          "catch": "2～8名様までOKの個室 飲み放題付コースで宴会",
+          "photo": "https://imgfp.hotp.jp/IMGH/49/50/P035414950/P035414950_238.jpg",
+          "access": "JR代々木駅東口から徒歩2分／JR新宿駅南口より徒歩7分／新宿高島屋より3分",
+          "address": "東京都渋谷区千駄ヶ谷５－２９－７",
+          "name_kana": "よよぎ　ちゅうか　いざかや　たべのみほうだい　しゃんはいさかば　しんじゅくみなみぐち　せんだがや",
+          "genre_catch": "【本格中華】2時間食べ飲み放題 2,980円～"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 22,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000662377",
+          "name": "とさか 新宿",
+          "open": "月～日、祝日、祝前日: 17:00～23:00 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "鶏刺し・レバ刺し 毎朝直送の鶏料理専門店",
+          "photo": "https://imgfp.hotp.jp/IMGH/54/48/P016865448/P016865448_238.jpg",
+          "access": "ＪＲ新宿駅東南口徒歩2分 地下鉄丸ノ内線新宿駅徒歩2分 地下鉄丸ノ内線・副都心線新宿三丁目駅 A5番出口 徒歩1分  ",
+          "address": "東京都新宿区新宿３‐３５‐１３　裕永ビル２Ｆ",
+          "name_kana": "とさか",
+          "genre_catch": "厳選素材の地鶏とワインに合う地鶏料理 "
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 23,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000123825",
+          "name": "浪曼房",
+          "open": "火～金、祝前日: 17:30～翌2:00 （料理L.O. 翌1:00 ドリンクL.O. 翌1:00）土、日、祝日: 16:30～翌2:00 （料理L.O. 翌1:00 ドリンクL.O. 翌1:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/17/86/P010611786/P010611786_238.jpg",
+          "access": "ＪＲ新宿駅南口・東南口徒歩3分　地下鉄丸ノ内線新宿三丁目駅徒歩5分　",
+          "address": "東京都新宿区新宿３-35-3 君嶋ビルB1",
+          "name_kana": "ロウマンボウ",
+          "genre_catch": "居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 24,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001275196",
+          "name": "個室焼肉韓国料理 焼肉 万和苑 新宿店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "【食放題】焼肉＆お食事 【個室】2名様から個室OK",
+          "photo": "https://imgfp.hotp.jp/IMGH/71/15/P038957115/P038957115_238.jpg",
+          "access": "JR新宿駅 南口 徒歩1分 / 丸ノ内線 新宿三丁目駅 徒歩2分",
+          "address": "東京都新宿区新宿４丁目１ー１３　田園新宿ビル６F",
+          "name_kana": "こしつやきにくかんこくりょうり　やきにく　ばんわえん　しんじゅくてん",
+          "genre_catch": "焼肉＆韓国料理が食べ放題で3480円！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 25,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001040304",
+          "name": "塚田農場 新宿南口店 宮崎県日南市",
+          "open": "月～木、祝前日: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）金: 17:00～翌0:00 （料理L.O. 22:00 ドリンクL.O. 22:30）土、日、祝日: 16:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "みやざき地頭鶏 炭火焼 のんあるでもおいしい！",
+          "photo": "https://imgfp.hotp.jp/IMGH/52/03/P041615203/P041615203_238.jpg",
+          "access": "JR新宿駅 新南口徒歩1分/地下鉄丸ノ内線 新宿三丁目駅 徒歩2分/地下鉄副都心線 新宿三丁目駅 徒歩2分",
+          "address": "東京都新宿区新宿４－１－１３　田園ビル【８階】",
+          "name_kana": "みやざきけんにちなんし　つかだのうじょう　しんじゅくみなみぐちてん",
+          "genre_catch": "地鶏と九州料理を楽しむ居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 26,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001292950",
+          "name": "海鮮和食居酒屋 政良 新宿店",
+          "open": "月～木: 15:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）金、祝前日: 15:00～翌1:00 （料理L.O. 翌0:00 ドリンクL.O. 翌0:30）土: 12:00～翌1:00 （料理L.O. 翌0:00 ドリンクL.O. 翌0:30）日、祝日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "2～20名様までの完全個室 季節のご宴会コース！！",
+          "photo": "https://imgfp.hotp.jp/IMGH/60/24/P039386024/P039386024_238.jpg",
+          "access": "2名様～20名様まで様々な完全個室を完備★新宿駅東南口徒歩3分の好立地！",
+          "address": "東京都新宿区新宿４－１－１３　田園新宿ビル　地下1階",
+          "name_kana": "ぜんせきこしつかいせんわしょくいざかやまさよししんじゅくてん",
+          "genre_catch": "新宿駅の完全個室居酒屋☆大小宴会承ります"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 27,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001227182",
+          "name": "縁雫",
+          "open": "月～金、祝前日: 11:00～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）土: 11:00～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:30）",
+          "catch": "カラッと揚げた絶品天ぷら 広々空間でゆったりお食事",
+          "photo": "https://imgfp.hotp.jp/IMGH/20/98/P033912098/P033912098_238.jpg",
+          "access": "ＪＲ【代々木駅】東口より徒歩約3分/東京メトロ，都営新宿線【新宿三丁目駅】E8出口より徒歩約3分  ",
+          "address": "東京都渋谷区千駄ヶ谷５-27-5　リンクスクエア新宿",
+          "name_kana": "えにしずく",
+          "genre_catch": "島根の特産品と島根の地酒が味わえるお店"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 28,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001286088",
+          "name": "陳麻婆豆腐 新宿サザンテラス店",
+          "open": "月～金: 11:00～15:30 （料理L.O. 15:00 ドリンクL.O. 15:00）17:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）土、日、祝日: 11:00～22:00 （料理L.O. 21:30 ドリンクL.O. 21:30）",
+          "catch": "元祖！麻婆豆腐発祥の店 本格四川料理を堪能",
+          "photo": "https://imgfp.hotp.jp/IMGH/44/54/P041604454/P041604454_238.jpg",
+          "access": "JR新宿駅より徒歩約2分/ＪＲ代々木駅北口より徒歩約6分　サザンテラス内　小田急サザンタワー3F",
+          "address": "東京都渋谷区代々木２-2-1 小田急サザンタワー3F",
+          "name_kana": "ちんまーぼーどうふ　しんじゅくさざんてらすてん",
+          "genre_catch": "150年受け継がれている元祖の味、四川料理"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 29,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000003204",
+          "name": "香家 こうや kouya 新宿東南口店",
+          "open": "月～金、祝前日: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）土、日、祝日: 17:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:30）",
+          "catch": "ご接待・誕生日・記念日に 創作和食と日替りお勧め",
+          "photo": "https://imgfp.hotp.jp/IMGH/11/86/P026111186/P026111186_238.jpg",
+          "access": "JR新宿駅東口・東南口2分/新宿三丁目駅2分  ",
+          "address": "東京都新宿区新宿３－３５－１３　ＳＨＯＷＡＫＡＮ－ＢＬＤ　Ｂ１Ｆ",
+          "name_kana": "こうやしんじゅくとうなんぐちてん",
+          "genre_catch": "新宿 東口 南口 三丁目 個室 和食　日本酒"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 30,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J002647151",
+          "name": "FOOD HALL BLAST! TOKYO",
+          "open": "月～土: 11:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）日: 11:00～21:00 （料理L.O. 20:00 ドリンクL.O. 20:00）祝日: 11:00～21:00 （料理L.O. 20:30 ドリンクL.O. 20:00）",
+          "catch": "誕生日・デート・女子会◎ ビアガーデン（冬季休業）",
+          "photo": "https://imgfp.hotp.jp/IMGH/53/58/P039555358/P039555358_238.jpg",
+          "access": "JR・小田急線・京王線新宿駅「南口」徒歩3分/都営地下鉄新宿駅 「A1」出口徒歩1分/バスタ新宿徒歩3分",
+          "address": "東京都渋谷区代々木２-7-2",
+          "name_kana": "フードホールブラスト　トウキョウ",
+          "genre_catch": "新宿/プラントベース/飲み放題/女子会/ピザ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 31,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "ゴール",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": true,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      }
+    ]
+  },
+  {
+    "board": {
+      "id": "004",
+      "base": "izakaya",
+      "name": "赤羽居酒屋"
+    },
+    "square": [
+      {
+        "id": 0,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "スタート",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 1,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-10ポイント",
+          "skip": 0,
+          "point": -10,
+          "detail": "長雨で洗濯物が乾かない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001285809",
+          "name": "個室&肉バル ajito アジト 赤羽店",
+          "open": "月、火、木～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）水: 12:00～翌0:00 （料理L.O. 19:00 ドリンクL.O. 23:30）",
+          "catch": "【コロナ対策実施中】 サプライズもお任せ！",
+          "photo": "https://imgfp.hotp.jp/IMGH/86/76/P038928676/P038928676_238.jpg",
+          "access": "JR赤羽駅徒歩1分",
+          "address": "東京都北区赤羽１-3-10 CDSビル 6FーB",
+          "name_kana": "こしつにくばる　あじと　あかばねてん",
+          "genre_catch": "【全席個室】お肉とチーズの研究所♪"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 2,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "福引でハワイの旅行券が当たる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001146336",
+          "name": "中華居酒屋 俺の酒場",
+          "open": "月～日、祝日、祝前日: 10:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "旨い・安い！自慢の中華★ 少人数にはソファ席を◎",
+          "photo": "https://imgfp.hotp.jp/IMGH/59/66/P034415966/P034415966_238.jpg",
+          "access": "JR赤羽駅東口より徒歩2分の好アクセス！",
+          "address": "東京都北区赤羽南１丁目９の８ 丸澤ビル２階",
+          "name_kana": "チュウカイザカヤ　オレノサカバ",
+          "genre_catch": "おいしい中華を安く、沢山食べて頂きたい★"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 3,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "自販機で当たりが出てもう1本もらう",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001051228",
+          "name": "大人のドリンクバー 赤羽スタンド",
+          "open": "月～金: 16:00～翌2:00 （料理L.O. 翌1:00 ドリンクL.O. 翌1:30）土: 14:00～翌2:00 （料理L.O. 翌1:00 ドリンクL.O. 翌1:30）日、祝日: 14:00～23:30 （料理L.O. 22:30 ドリンクL.O. 23:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/54/81/P040975481/P040975481_238.jpg",
+          "access": "ＪＲ 赤羽駅 東口 徒歩1分 ",
+          "address": "東京都北区赤羽１-２-６ 赤羽駅前丸澤ビル",
+          "name_kana": "おとなのどりんくばー　あかばねすたんど",
+          "genre_catch": "赤羽　居酒屋　国産牡蠣　海鮮　酒場料理"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 4,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "食べたかったドーナツを並ばずに買えた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000245240",
+          "name": "三代目鳥メロ 赤羽東口駅前店",
+          "open": "月～木: 16:00～翌1:00金: 16:00～翌3:00土: 12:00～16:5917:00～翌3:00日、祝日: 12:00～16:5917:00～翌1:00祝前日: 17:00～翌3:00",
+          "catch": "名物清流若どりの焼鳥！ 宴会コース3000円から♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/78/53/P041427853/P041427853_238.jpg",
+          "access": "JR埼京線/京浜東北線　赤羽駅すぐ徒歩30秒　☆赤羽　居酒屋",
+          "address": "東京都北区赤羽１‐８‐４　赤羽商事ビル７Ｆ",
+          "name_kana": "やきとり　いざかや　さんだいめ　とりめろ　あかばねひがしぐちえきまえてん",
+          "genre_catch": "赤羽 居酒屋 飲み放題 焼き鳥 宴会"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 5,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "釣りに行ってニジマスをゲット",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003340155",
+          "name": "酒処 ゆき",
+          "open": "月～土、祝日、祝前日: 11:30～13:30",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/47/78/P039904778/P039904778_238.jpg",
+          "access": "赤羽駅(南口) 徒歩5分（400m）",
+          "address": "東京都北区赤羽西２-18-15",
+          "name_kana": "さけどころゆき",
+          "genre_catch": "ランチ時間のみの営業！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 6,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "ミニゲーム",
+          "skip": 0,
+          "point": 0,
+          "detail": "ミニゲーム",
+          "minigame": true
+        },
+        "store": {
+          "id": "J001194322",
+          "name": "カドナシヤ 赤羽南口店",
+          "open": "月～土: 11:30～14:30 （料理L.O. 14:00 ドリンクL.O. 14:00）17:00～23:30 （料理L.O. 22:30 ドリンクL.O. 23:00）",
+          "catch": "こだわりの日本酒、焼酎 さまざまな種類のお席",
+          "photo": "https://imgfp.hotp.jp/IMGH/03/41/P030070341/P030070341_238.jpg",
+          "access": "赤羽駅南改札口徒歩１分",
+          "address": "東京都北区赤羽南１-6-4 102",
+          "name_kana": "かどなしやあかばねみなみぐちてん",
+          "genre_catch": "カドナシヤ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "連打ゲーム",
+          "detail": "とにかく連打しよう！！"
+        }
+      },
+      {
+        "id": 7,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "食べ放題で食べ過ぎて1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001192694",
+          "name": "とろけ酒場 赤羽店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "◆看板！名物とろけ寿司 ◆3h飲み放題付きコース！",
+          "photo": "https://imgfp.hotp.jp/IMGH/99/44/P039179944/P039179944_238.jpg",
+          "access": "赤羽駅 徒歩1分　●期間限定のもつ鍋スタートしました！",
+          "address": "東京都北区赤羽南１-8-5 TSビル3F",
+          "name_kana": "にくずしとぎゅうたんとこくさんわぎゅうもつなべ　ぜんせきこしついざかや　とろけさかば　あかばねてん",
+          "genre_catch": "個室で味わう和牛肉寿司ともつ鍋と牛タン"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 8,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "部屋の掃除をして綺麗になった",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001238640",
+          "name": "トロケ酒場 赤羽店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "●3h飲み放題付きコース！ ◆絶品の肉寿司",
+          "photo": "https://imgfp.hotp.jp/IMGH/78/97/P038367897/P038367897_238.jpg",
+          "access": "赤羽駅 徒歩1分　●焼き鳥と博多和牛もつ鍋 ドリンク299円",
+          "address": "東京都北区赤羽南１-8-5 TSビル A",
+          "name_kana": "にくあぶりずしととやきとりともつなべがうまいこしついざかや　とろけさかば　あかばねてん",
+          "genre_catch": "完全個室で焼き鳥と博多和牛もつ鍋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 9,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み！",
+          "skip": 1,
+          "point": 0,
+          "detail": "1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003323555",
+          "name": "海鮮居酒屋 SAKANAYA うっちゃん",
+          "open": "月、火、日、祝日: 18:00～23:00木～土、祝前日: 18:00～翌3:00",
+          "catch": "- -",
+          "photo": "https://imgfp.hotp.jp/IMGH/99/39/P039749939/P039749939_238.jpg",
+          "access": "ＪＲ赤羽駅東口より徒歩約5分",
+          "address": "東京都北区赤羽２-15-4",
+          "name_kana": "カイセンイザカヤサカナヤウッチャン",
+          "genre_catch": "赤羽/居酒屋/海鮮/和風"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 10,
+        "event": {
+          "flag": true,
+          "move": 3,
+          "name": "3マス進む",
+          "skip": 0,
+          "point": 0,
+          "detail": "3マス進む",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000724926",
+          "name": "赤羽籠太 赤羽南口店",
+          "open": "月～金、祝前日: 17:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）土、日、祝日: 15:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "新型コロナ対策を徹底 気軽に単品飲み放題プラン",
+          "photo": "https://imgfp.hotp.jp/IMGH/60/65/P037776065/P037776065_238.jpg",
+          "access": "赤羽駅南口徒歩30秒",
+          "address": "東京都北区赤羽南１-６-５",
+          "name_kana": "わらやきいっけんやこしつあかばねかごた",
+          "genre_catch": "赤羽/個室/宴会/飲み放題/女子会/居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 11,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-20ポイント",
+          "skip": 0,
+          "point": -20,
+          "detail": "自転車がパンクする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000054812",
+          "name": "お好み焼き もんじゃ焼き まつ里亭 赤羽店",
+          "open": "月、水～金、祝前日: 17:00～23:30土、日、祝日: 11:30～23:30",
+          "catch": "歓送迎会にオススメ☆  食べ飲み＊まつ里コース",
+          "photo": "https://imgfp.hotp.jp/IMGH/38/49/P013073849/P013073849_238.jpg",
+          "access": "JR赤羽駅　東口　徒歩4分　　",
+          "address": "東京都北区赤羽２-13-2　かのやビル6F",
+          "name_kana": "おこのみやき　もんじゃやき　まつりてい",
+          "genre_catch": "お好み焼き・もんじゃ焼きが自慢の居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 12,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001193883",
+          "name": "屋台屋 博多劇場 赤羽店",
+          "open": "月～日、祝日: 16:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "Go To Eat★食事券利用可 【挑戦者】鉄鍋餃子０円！",
+          "photo": "https://imgfp.hotp.jp/IMGH/12/56/P030061256/P030061256_238.jpg",
+          "access": "赤羽駅徒歩5分",
+          "address": "東京都北区赤羽１-2-3　溝端ビル1階",
+          "name_kana": "やたいや　はかたげきじょう　あかばねてん",
+          "genre_catch": "通常通り24時まで営業中！！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 13,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001116602",
+          "name": "いいとこ鶏 赤羽店",
+          "open": "月～金、祝前日: 16:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）土、日、祝日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "飲み放題付コース3500円～ プレミアム飲み放題あり◎",
+          "photo": "https://imgfp.hotp.jp/IMGH/62/26/P025016226/P025016226_238.jpg",
+          "access": "赤羽駅東口（北口）　徒歩1分。",
+          "address": "東京都北区赤羽１‐８‐６",
+          "name_kana": "いいとこどり　あかばねてん",
+          "genre_catch": "赤羽ヤキトリ！大山鶏主体の創作居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 14,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得！",
+          "skip": 0,
+          "point": 20,
+          "detail": "プラス20ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001260402",
+          "name": "ローストビーフと肉寿司食べ放題 肉ラボ 赤羽店",
+          "open": "月、火、木～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）水: 12:00～翌0:00 （料理L.O. 19:00 ドリンクL.O. 23:30）",
+          "catch": "【コロナ対策実施中】 サプライズもお任せ！",
+          "photo": "https://imgfp.hotp.jp/IMGH/24/19/P039412419/P039412419_238.jpg",
+          "access": "JR赤羽駅徒歩1分",
+          "address": "東京都北区赤羽１-3-10　CDSビル　502",
+          "name_kana": "ぜんせきこしつ　くろげわぎゅうとにくずしたべほうだい　にくらぼ　あかばねてん",
+          "genre_catch": "【全席個室】お肉とチーズの研究所♪"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 15,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000718186",
+          "name": "喜多屋 赤羽",
+          "open": "月～土: 15:00～21:00 （料理L.O. 20:45）日: 15:00～20:00 （料理L.O. 19:45）",
+          "catch": "千円でべろべろ<せんべろ> 料理130円から",
+          "photo": "https://imgfp.hotp.jp/IMGH/20/19/P013122019/P013122019_238.jpg",
+          "access": "各線赤羽駅徒歩1分",
+          "address": "東京都北区赤羽南１－８－１",
+          "name_kana": "きたや",
+          "genre_catch": "立ち飲み、"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 16,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "朝ヨガでリフレッシュ",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001147012",
+          "name": "格安ビールと鉄鍋餃子 3 6 5酒場 赤羽東口店",
+          "open": "月～日、祝日、祝前日: 15:00～23:00 （料理L.O. 22:30 ドリンクL.O. 21:45）",
+          "catch": "生ビール190円(税込209円) 最初のドリンク1杯55円♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/85/35/P041538535/P041538535_238.jpg",
+          "access": "赤羽駅東口徒歩1分！",
+          "address": "東京都北区赤羽１-2-6丸澤ビル３Ｆ",
+          "name_kana": "かくやすびーるとてつなべぎょうざ　さんろくごさかば　あかばねひがしぐちまえてん",
+          "genre_catch": "大衆料理と190円(税込209円)生ビール"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 17,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001147595",
+          "name": "九州に惚れちょるばい 赤羽店",
+          "open": "月～金: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）土、日、祝日、祝前日: 15:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "赤羽駅1分!赤羽一番街３分 【記念日や誕生日会にも】",
+          "photo": "https://imgfp.hotp.jp/IMGH/70/88/P040907088/P040907088_238.jpg",
+          "access": "赤羽駅より徒歩1分　赤羽駅から58m 個室居酒屋で日本酒飲み放題、馬肉、もつ鍋を楽しめる！宴会、女子会、記念日にも♪",
+          "address": "東京都北区赤羽１-2-1赤羽南大野ビル7F",
+          "name_kana": "はかたもつなべとばさし　きゅうしゅうにほれちょるばい　あかばねてん",
+          "genre_catch": "赤羽　九州本格郷土料理居酒屋　個室　鍋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 18,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-20ポイント",
+          "skip": 0,
+          "point": -20,
+          "detail": "自転車がパンクする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001293367",
+          "name": "BeerPongBarGROVE Squad 赤羽店",
+          "open": "月～日: 18:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:30）",
+          "catch": "大人の遊び場♪ 貸切も大歓迎♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/99/48/P033709948/P033709948_238.jpg",
+          "access": "ＪＲ赤羽駅東口より徒歩1分 東京メトロ南北線，埼玉高速鉄道赤羽岩淵駅１出口より徒歩10分",
+          "address": "東京都北区赤羽１-1-6 赤羽駅前第2ビル B1F",
+          "name_kana": "びあぽんばーぐろーぶすくわっどあかばねてん",
+          "genre_catch": "赤羽 ダーツ ビアポン カラオケ シーシャ"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 19,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001201271",
+          "name": "肉とホル。",
+          "open": "火～日、祝日: 15:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "黒毛和牛をリーズナブルに お洒落な店内、デートにも",
+          "photo": "https://imgfp.hotp.jp/IMGH/07/57/P037750757/P037750757_238.jpg",
+          "access": "赤羽駅南口／南改札側から出て5分赤羽駅から275m",
+          "address": "東京都北区赤羽南１-19-7 1F",
+          "name_kana": "にくとほるまる",
+          "genre_catch": "3月4月赤羽で歓送迎会をするならココ！！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 20,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001238715",
+          "name": "とりいちず 赤羽東口駅前店",
+          "open": "月～日、祝日、祝前日: 11:45～翌5:00",
+          "catch": "お席で飲み放題499円～！ 鶏料理専門店の焼き鳥",
+          "photo": "https://imgfp.hotp.jp/IMGH/28/57/P039992857/P039992857_238.jpg",
+          "access": "赤羽駅徒歩3分！！豊富な宴会コースをご用意してお待ちしております！",
+          "address": "東京都北区赤羽１-８-３　赤羽商事ビル　５Ｆ",
+          "name_kana": "みずたき・やきとり・とりぎょうざ　とりいちず　あかばねひがしぐちえきまえてん",
+          "genre_catch": "秘伝！かわ串・でか鶏唐揚げ・鶏ガラ水炊き"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 21,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001260242",
+          "name": "大衆寿司酒場 黒澤商店 赤羽",
+          "open": "月～金: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）土: 16:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:30）",
+          "catch": "見た目も楽しむ鮨あて巻き コスパ抜群★鮮度抜群の魚",
+          "photo": "https://imgfp.hotp.jp/IMGH/26/95/P040352695/P040352695_238.jpg",
+          "access": "ＪＲ赤羽駅南口徒歩1分　駅出て右手　駅前モスバーガーの裏路地にございます。",
+          "address": "東京都北区赤羽南１－６－１１　ルチェンテ赤羽１F",
+          "name_kana": "たいしゅうすしさかば　くろさわしょうてん　あかばね",
+          "genre_catch": "赤羽駅徒歩3分 本格的な寿司と大衆海鮮料理"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 22,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003298820",
+          "name": "新時代 赤羽駅東口店",
+          "open": "月～日、祝日、祝前日: 12:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:30）",
+          "catch": "新時代の到来！人気急増中 投稿多数★伝串ピラミッド",
+          "photo": "https://imgfp.hotp.jp/IMGH/61/08/P040736108/P040736108_238.jpg",
+          "access": "赤羽駅東口から徒歩30秒",
+          "address": "東京都北区赤羽１－３－７　大澤ビル１Ｆ",
+          "name_kana": "しんじだい　あかばねえきひがしぐちてん",
+          "genre_catch": "累計販売本数9,000万本！名物【伝串】"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 23,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003298483",
+          "name": "赤羽 友星",
+          "open": "月～日、祝日、祝前日: 17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:00）",
+          "catch": "厳選されたお肉が自慢 生の肉刺しにも自信アリ",
+          "photo": "https://imgfp.hotp.jp/IMGH/10/67/P041201067/P041201067_238.jpg",
+          "access": "ＪＲ赤羽駅南口より徒歩約1分/東京メトロ南北線，埼玉高速鉄道赤羽岩淵駅１出口より徒歩約13分",
+          "address": "東京都北区赤羽南１-6-3TC第35赤羽南口ビル2F",
+          "name_kana": "あかばねゆうせい",
+          "genre_catch": "最高ランクの和牛を楽しめる高級焼肉屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 24,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001145797",
+          "name": "九州地鶏 吉蔵 赤羽本店",
+          "open": "月～日、祝日、祝前日: 12:00～15:0015:01～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:00）",
+          "catch": "◆扉付個室◆2名～団体迄 料理全品20%OFFクーポン有",
+          "photo": "https://imgfp.hotp.jp/IMGH/21/19/P034782119/P034782119_238.jpg",
+          "access": "赤羽駅徒歩1分★赤羽駅東口を出て、右へ直進で当店へ着きます♪",
+          "address": "東京都北区赤羽１-2-1赤羽南大野ビル５F",
+          "name_kana": "きゅうしゅうじどり　こしついざかや　よしくら　あかばねほんてん",
+          "genre_catch": "当日OK★全70種以上♪2時間飲み放題1500円"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 25,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000759395",
+          "name": "炭火焼鳥 塚田農場 赤羽店",
+          "open": "月～木: 16:00～23:30 （料理L.O. 22:30 ドリンクL.O. 23:00）金、土、祝前日: 15:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）日: 15:00～23:30 （料理L.O. 22:30 ドリンクL.O. 23:00）祝日: 15:00～23:30",
+          "catch": "炭火の”焼鳥”に特化 モダンで洗練された店内",
+          "photo": "https://imgfp.hotp.jp/IMGH/15/39/P040161539/P040161539_238.jpg",
+          "access": "ＪＲ 赤羽駅 東口 徒歩1分",
+          "address": "東京都北区赤羽１-8-4 赤羽商事ビル　B1F",
+          "name_kana": "すみびやきとり　つかだのうじょう　あかばねてん",
+          "genre_catch": "名物炭火焼と本格焼鳥"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 26,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001149238",
+          "name": "鳥貴族 赤羽東口駅前店",
+          "open": "月～金、祝前日: 16:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）土、日、祝日: 15:00～23:00 （料理L.O. 22:30 ドリンクL.O. 22:30）",
+          "catch": "298円均一(税抜)の焼鳥屋 全席プライベートな空間",
+          "photo": "https://imgfp.hotp.jp/IMGH/29/83/P036032983/P036032983_238.jpg",
+          "access": "JR各線  赤羽駅  北改札東口より  東へ徒歩1分JR各線  赤羽駅  南改札東口より  北東へ徒歩2分",
+          "address": "東京都北区赤羽１－８－４　赤羽商事ビル　６Ｆ",
+          "name_kana": "やきとりや　とりきぞく　あかばねひがしぐちえきまえてん",
+          "genre_catch": "319円（税込350円）均一の国産焼鳥の居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 27,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000031841",
+          "name": "満天酒場 赤羽店",
+          "open": "月～日、祝日、祝前日: 11:30～23:30 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "新鮮海鮮に自信あります！ 刺身の鮮度が違います",
+          "photo": "https://imgfp.hotp.jp/IMGH/36/06/P039103606/P039103606_238.jpg",
+          "access": "JR赤羽駅南口徒歩1分 ★赤羽の居酒屋で飲み放題、宴会、飲み会！おすすめの刺身と飲み放題でご宴会！",
+          "address": "東京都北区赤羽１－２－１　赤羽南大野ビル１Ｆ",
+          "name_kana": "まんてんさかば　あかばねてん",
+          "genre_catch": "元祖★低価格！気軽に飲める酒場"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 28,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001238255",
+          "name": "赤羽漁場 赤羽店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "◆赤羽エリアNO.1の肉寿司 ◆破格のサワー290円!!",
+          "photo": "https://imgfp.hotp.jp/IMGH/77/50/P038097750/P038097750_238.jpg",
+          "access": "赤羽駅 徒歩1分　●今だけ!!各種サワーが290円♪",
+          "address": "東京都北区赤羽南１-8-5　TSビル",
+          "name_kana": "こしついざかや　にくずしとかいせん　あかばねぎょじょうあかばねてん",
+          "genre_catch": "個室で味わう国産和牛肉寿司と新鮮鮮魚"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 29,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001284073",
+          "name": "旨い串焼きと野菜巻き 個室居酒屋 串ジロー 赤羽店",
+          "open": "月～日、祝日、祝前日: 16:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "新型コロナ対策徹底実施中 宴会コースは3000円から！",
+          "photo": "https://imgfp.hotp.jp/IMGH/73/94/P039477394/P039477394_238.jpg",
+          "access": "JP赤羽駅徒歩1分",
+          "address": "東京都北区赤羽１－３－１０－B1F",
+          "name_kana": "うまいくしやきとやさいまき　こしついざかや　くしじろーあかばねてん",
+          "genre_catch": "串ジローは24時まで営業中！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 30,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001249266",
+          "name": "卓上レモンサワー フライドチキン酒場 赤羽駅前店",
+          "open": "月～日、祝日、祝前日: 17:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "1時間500円★飲み放題 大人気の韓国チキンも♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/15/21/P039721521/P039721521_238.jpg",
+          "access": "赤羽駅東口徒歩1分",
+          "address": "東京都北区赤羽１-1-7  新日本パレスビル1階",
+          "name_kana": "たくじょうれもんさわー　ふらいどちきんさかば　あかばねえきまえてん",
+          "genre_catch": "赤羽駅東口徒歩1分！飲み放題1時間500円♪"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 31,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "ゴール",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": true,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      }
+    ]
+  },
+  {
+    "board": {
+      "id": "005",
+      "base": "izakaya",
+      "name": "池袋居酒屋"
+    },
+    "square": [
+      {
+        "id": 0,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "スタート",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 1,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み！",
+          "skip": 1,
+          "point": 0,
+          "detail": "1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001285813",
+          "name": "板前 池袋本店",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "嬉しい誕生日特典あり!! 肉寿司食べ放題コース◎",
+          "photo": "https://imgfp.hotp.jp/IMGH/89/34/P038108934/P038108934_238.jpg",
+          "access": "池袋東口1分 / 豊島区南池袋1-20-11池袋第5ビル 7階",
+          "address": "東京都豊島区南池袋１-20-11 森下池袋第五ビル 7階ーB",
+          "name_kana": "あぶりにくずし　さしみたべほうだい　かんぜんこしついざかや　いたまえ　いけぶくろ",
+          "genre_catch": "池袋東口徒歩1分！肉寿司21種が食べ放題"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 2,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "釣りに行ってニジマスをゲット",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001267279",
+          "name": "牛山道 GYUSANDO 池袋東口本店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "期間限定企画実施中！ GoToEat★ポイント利用可",
+          "photo": "https://imgfp.hotp.jp/IMGH/12/01/P041371201/P041371201_238.jpg",
+          "access": "【食べ放題2000円（税込）～】池袋駅３９出口より徒歩約1分、東口から徒歩3分【Go To Eatポイント利用可】",
+          "address": "東京都豊島区南池袋２-26-9 1F・2F",
+          "name_kana": "くろげわぎゅうすみびやきにく　たべほうだい　ぎゅうさんどう　いけぶくろひがしぐちほんてん",
+          "genre_catch": "コスパの限界に挑む/本格炭火焼肉食べ放題"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 3,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "食べ放題で食べ過ぎて1回休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000145821",
+          "name": "もつ鍋帝王 本店",
+          "open": "火～日、祝日、祝前日: 17:00～23:30",
+          "catch": "秘伝のもつ鍋 おつまみも美味い！",
+          "photo": "https://imgfp.hotp.jp/IMGH/60/77/P012486077/P012486077_238.jpg",
+          "access": "池袋駅東口徒歩3分",
+          "address": "東京都豊島区南池袋２-２７-１　",
+          "name_kana": "もつなべていおう　ほんてん",
+          "genre_catch": "元祖！もつ鍋★"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 4,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "部屋の掃除をして綺麗になった",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001267390",
+          "name": "個室居酒屋 池袋商店 池袋店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "破格の肉寿司食べ放題！ お得な単品飲み放題▲",
+          "photo": "https://imgfp.hotp.jp/IMGH/65/33/P039336533/P039336533_238.jpg",
+          "access": "JR池袋駅東口徒歩1分/個室居酒屋《人気の炙り肉寿司&国産和牛もつ鍋が食べ放題！》",
+          "address": "東京都豊島区南池袋１-20-11 池袋第5ビル　５F-A",
+          "name_kana": "にくずしやきとりわぎゅうもつなべ　たべほうだい　こしついざかや　いけぶくろしょうてん　いけぶくろてん",
+          "genre_catch": "焼き鳥や博多和牛もつ鍋食べ放題！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 5,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-10ポイント",
+          "skip": 0,
+          "point": -10,
+          "detail": "長雨で洗濯物が乾かない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001234492",
+          "name": "月の蔵 池袋東口店",
+          "open": "月～金、祝前日: 15:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:00）土、日、祝日: 13:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:00）",
+          "catch": "２名様から個室でご案内！ ちょい飲み放題1H600円！",
+          "photo": "https://imgfp.hotp.jp/IMGH/82/36/P035158236/P035158236_238.jpg",
+          "access": "池袋東口徒歩1分！少人数様から扉付きの完全個室でご案内いたします！",
+          "address": "東京都豊島区南池袋１-20-11 池袋第5ビル4F",
+          "name_kana": "にくやのにくもりたべほうだい　にくばる　つきのくら　いけぶくろひがしぐちてん",
+          "genre_catch": "コロナ対策も徹底対応！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 6,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "自販機で当たりが出てもう1本もらう",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001277330",
+          "name": "なまいき 池袋店",
+          "open": "月～日、祝日、祝前日: 12:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "24時まで！酒類の提供も◎ 全席扉付き完全個室完備◎",
+          "photo": "https://imgfp.hotp.jp/IMGH/28/40/P037582840/P037582840_238.jpg",
+          "access": "池袋 徒歩1分【池袋第5ビル 4F】●本場博多の味、焼き鳥・野菜巻き・九州料理が自慢の完全個室居酒屋",
+          "address": "東京都豊島区南池袋１-20-11 池袋第五ビル4F",
+          "name_kana": "はかたくしやきやさいまきたべほうだい　かんぜんこしついざかや　なまいき　いけぶくろてん",
+          "genre_catch": "博多串焼き・野菜巻き・九州料理を個室で"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 7,
+        "event": {
+          "flag": true,
+          "move": -1,
+          "name": "1マス戻る",
+          "skip": 0,
+          "point": 0,
+          "detail": "財布をなくして1マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001177412",
+          "name": "鳥貴族 南池袋公園前店",
+          "open": "月～日、祝日、祝前日: 17:00～翌1:00 （料理L.O. 翌0:30）",
+          "catch": "319円均一(税抜)の焼鳥屋 全席プライベートな空間",
+          "photo": "https://imgfp.hotp.jp/IMGH/29/83/P036032983/P036032983_238.jpg",
+          "access": "西部池袋線 池袋駅 西武口より 南東へ徒歩3分・JR各線 池袋駅 東口より 南東へ徒歩4分/池袋駅",
+          "address": "東京都豊島区南池袋２－２６－１０　アクティオーレ南池袋５階",
+          "name_kana": "やきとりや　とりきぞく　みなみいけぶくろこうえんまえてん",
+          "genre_catch": "319円（税込350円）均一の国産焼鳥の居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 8,
+        "event": {
+          "flag": true,
+          "move": 3,
+          "name": "3マス進む",
+          "skip": 0,
+          "point": 0,
+          "detail": "3マス進む",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001265463",
+          "name": "肉の食べ処 池袋東口店",
+          "open": "月～日: 11:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "話題の料理が多数！ ★幹事様必見です!!",
+          "photo": "https://imgfp.hotp.jp/IMGH/59/62/P039825962/P039825962_238.jpg",
+          "access": "JR池袋駅 東口1分 ■名物の肉料理を堪能 ■2019年11月 新規OPEN！",
+          "address": "東京都豊島区南池袋１-20-11池袋第５ビル6階",
+          "name_kana": "ひゃくしゅたべのみほうだいとてんくうこしつ　にくのたべどころ　いけぶくろひがしぐちてん",
+          "genre_catch": "個室で味わう 人気の肉料理食べ飲み放題！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 9,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "ミニゲーム",
+          "skip": 0,
+          "point": 0,
+          "detail": "ミニゲーム",
+          "minigame": true
+        },
+        "store": {
+          "id": "J000051197",
+          "name": "個室居酒屋×魚と煮込み料理 連家 池袋東口店",
+          "open": "月～金、祝前日: 11:30～15:00 （料理L.O. 14:15 ドリンクL.O. 14:15）16:00～23:30 （料理L.O. 22:55 ドリンクL.O. 22:55）土、日、祝日: 11:30～15:30 （料理L.O. 14:50 ドリンクL.O. 14:50）15:31～23:30 （料理L.O. 22:55 ドリンクL.O. 22:55）",
+          "catch": "【毎日ビールがお得！】 串焼きなどメニューも豊富",
+          "photo": "https://imgfp.hotp.jp/IMGH/81/15/P041288115/P041288115_238.jpg",
+          "access": "池袋東口徒歩３分の個室居酒屋。明治通り沿いをジュンク堂方面に歩き「あずま通り商店街」すぐ。大きな提灯が目印です！",
+          "address": "東京都豊島区南池袋３-13-15　東伸ビルＢ１（東通り）",
+          "name_kana": "こしついざかや　さかなとにこみりょうり　れんか　いけぶくろひがしぐちてん",
+          "genre_catch": "池袋 東口 個室 居酒屋◆3H飲放付3500円～"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "renda",
+          "name": "連打ゲーム",
+          "detail": "とにかく連打しよう！！"
+        }
+      },
+      {
+        "id": 10,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "福引でハワイの旅行券が当たる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001161057",
+          "name": "酒バルguigui",
+          "open": "月～土、祝日、祝前日: 17:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "日本酒なら酒バルguigui！ カウンター＆テーブル席",
+          "photo": "https://imgfp.hotp.jp/IMGH/80/44/P026758044/P026758044_238.jpg",
+          "access": "西武池袋線 池袋駅 西武南口 徒歩3分 地下鉄有楽町線池袋駅39番出口 徒歩4分 明治通り沿いからあづま通りに入ってすぐ",
+          "address": "東京都豊島区南池袋２-14-3 池袋東宝ビル 2F",
+          "name_kana": "さけばるぐいぐい",
+          "genre_catch": "池袋駅南口あづま通り　日本酒海鮮居酒屋　"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 11,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000145823",
+          "name": "ニュー加賀屋 南池袋店",
+          "open": "月～日、祝日、祝前日: 16:00～23:30 （料理L.O. 22:45 ドリンクL.O. 23:00）",
+          "catch": "お会計より１０％ＯＦＦ でかっ！メガ大串焼き鳥！",
+          "photo": "https://imgfp.hotp.jp/IMGH/56/20/P015855620/P015855620_238.jpg",
+          "access": "池袋東口・西武口から徒歩3分",
+          "address": "東京都豊島区南池袋２－２３－４　富沢ビル２Ｆ",
+          "name_kana": "にゅーかがや　みなみいけぶくろてん",
+          "genre_catch": "大串焼き鳥・スタミナ焼き！昔ながらの酒処"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 12,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001266741",
+          "name": "Meat & Wine 肉酒場サルーテ!",
+          "open": "月: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）火～木: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）金、祝前日: 11:30～15:00 （料理L.O. 14:30 ドリンクL.O. 14:30）17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:00）土: 12:00～15:30 （料理L.O. 15:00 ドリンクL.O. 15:00）17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:00）日、祝日: 12:00～15:30 （料理L.O. 15:00 ドリンクL.O. 15:00）17:00～22:00 （料理L.O. 21:00 ドリンクL.O. 21:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/77/37/P040007737/P040007737_238.jpg",
+          "access": "JR池袋駅39番出口より徒歩4分",
+          "address": "東京都豊島区南池袋２-15-11 1F",
+          "name_kana": "みーとあんどわいん　にくさかばさるーて",
+          "genre_catch": "池袋 肉 洋食 バル 定食 テイクアウト"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 13,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000658076",
+          "name": "魚然 池袋店",
+          "open": "月～土、祝前日: 11:30～14:00 （料理L.O. 14:00 ドリンクL.O. 14:00）17:00～23:00 （料理L.O. 22:00 ドリンクL.O. 22:15）",
+          "catch": "個室★4名～24名様まで 超豪快！ろばた焼き！",
+          "photo": "https://imgfp.hotp.jp/IMGH/82/39/P020098239/P020098239_238.jpg",
+          "access": "JR池袋駅東口徒歩3分",
+          "address": "東京都豊島区南池袋２‐２９‐１２ メトロシティー南池袋Ｂ１Ｆ",
+          "name_kana": "うおぜん　いけぶくろてん",
+          "genre_catch": "新鮮魚介類のうまい店"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 14,
+        "event": {
+          "flag": true,
+          "move": 1,
+          "name": "じゃんけんで勝つと30ポイントゲット",
+          "skip": 0,
+          "point": 30,
+          "detail": "次の順番の人とじゃんけんをして勝ったら１マス進む、勝つまで進めない",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000981446",
+          "name": "COLORSOL RESORT 池袋東口",
+          "open": "月、火、金、土: 17:00～翌3:00 （料理L.O. 翌2:00 ドリンクL.O. 翌2:30）水、木: 17:30～翌3:00 （料理L.O. 翌2:00 ドリンクL.O. 翌2:30）日: 17:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "27時まで営業中です！ こだわりの炭焼き料理",
+          "photo": "https://imgfp.hotp.jp/IMGH/41/27/P041164127/P041164127_238.jpg",
+          "access": "ＪＲ 池袋駅 39番出口 徒歩1分/地下鉄有楽町線 東池袋駅 3番出口 徒歩5分",
+          "address": "東京都豊島区南池袋２-27-16　近藤ビル2F ",
+          "name_kana": "からそる　りぞーと　カラソル　リゾート",
+          "genre_catch": "世界チャンピオンのカクテルショー毎日開催"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 15,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得！",
+          "skip": 0,
+          "point": 20,
+          "detail": "プラス20ポイント",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003389501",
+          "name": "七転八起だるま 池袋東口店",
+          "open": "月～日、祝日、祝前日: 15:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:30）",
+          "catch": "主役に嬉しい特典ご用意♪ 季節限定◆春の味覚コース",
+          "photo": "https://imgfp.hotp.jp/IMGH/24/29/P041542429/P041542429_238.jpg",
+          "access": "JR池袋駅東口　徒歩2分！",
+          "address": "東京都豊島区南池袋１-20-11 3F",
+          "name_kana": "くしやきわぎゅうにくずし　だべほうだいこしついざかや　ななころびやおきだるまいけぶくろひがしぐちてん",
+          "genre_catch": "池袋で食べ飲み放題なら♪肉寿司 個室 宴会"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 16,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "朝ヨガでリフレッシュ",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001277333",
+          "name": "奥羽本荘 池袋店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "24時まで！酒◎喫煙席も◎ 扉付き完全個室あります！",
+          "photo": "https://imgfp.hotp.jp/IMGH/78/24/P038187824/P038187824_238.jpg",
+          "access": "JR池袋駅東口徒歩1分　3時間飲み放題あり♪完全個室あり！",
+          "address": "東京都豊島区南池袋１-20-11 池袋第五ビル4F",
+          "name_kana": "ぎゅうたんとあぶりにくずし　とうほくうまいもんこしついざかや　おううほんじょう　いけぶくろてん",
+          "genre_catch": "牛タンと炙り肉寿司が旨い個室居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 17,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "-20ポイント",
+          "skip": 0,
+          "point": -20,
+          "detail": "自転車がパンクする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001168678",
+          "name": "居酒屋 たんじろう 池袋東口店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "牛タン料理がとにかく多彩 ★誕生日・記念日特典あり",
+          "photo": "https://imgfp.hotp.jp/IMGH/28/92/P040172892/P040172892_238.jpg",
+          "access": "JR池袋駅 東口1分 ■国産牛タン料理や肉寿司を食べ飲み放題で堪能 ■2019年11月 新規OPEN！",
+          "address": "東京都豊島区南池袋１-20-11　池袋第５ビル6階",
+          "name_kana": "ぎゅうたんりょうりとわのこしつ　いざかや　たんじろう　いけぶくろひがしぐちてん",
+          "genre_catch": "個室で牛タンの食べ飲み放題や肉寿司を堪能"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 18,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "20ポイント獲得",
+          "skip": 0,
+          "point": 20,
+          "detail": "行きたかったライブのチケットを購入できた",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001234491",
+          "name": "居酒屋 ぼんちゃん 池袋東口店",
+          "open": "月～金、祝前日: 15:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）土、日、祝日: 13:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "ちょい飲み放題1H600円！ ２名様から個室でご案内！",
+          "photo": "https://imgfp.hotp.jp/IMGH/41/42/P035914142/P035914142_238.jpg",
+          "access": "池袋東口徒歩1分！少人数様から扉付きの完全個室でご案内いたします！",
+          "address": "東京都豊島区南池袋１-20-11 池袋第5ビル4F",
+          "name_kana": "わふういざかや　たべほうだい　ぼんちゃん　いけぶくろひがしぐちてん",
+          "genre_catch": "営業再開！コロナ対策も徹底対応！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 19,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "1回休み",
+          "skip": 1,
+          "point": 0,
+          "detail": "久しぶりにランニングをして筋肉痛になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000805436",
+          "name": "カラオケ 747 池袋東口南口",
+          "open": "月: 18:00～翌5:00 （料理L.O. 翌3:45 ドリンクL.O. 翌3:45）火～日、祝日、祝前日: 18:00～翌5:00",
+          "catch": "ウイルス対策も徹底中☆ 【最大20名】貸切もOK☆",
+          "photo": "https://imgfp.hotp.jp/IMGH/22/71/P041532271/P041532271_238.jpg",
+          "access": "西武池袋線池袋駅より徒歩2分!!JR池袋駅【東口】より徒歩3分!!カラオケするなら747をご利用くださいませ☆",
+          "address": "東京都豊島区南池袋１－２０－１１　植原ビル１F",
+          "name_kana": "からおけせぶんふぉーせぶん　いけぶくろひがしぐち　みなみぐち",
+          "genre_catch": "コロナ対策中。安心楽しめるをモットーに"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 20,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "10ポイント獲得",
+          "skip": 0,
+          "point": 10,
+          "detail": "毎日通勤時に会う猫と友達になる",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001281954",
+          "name": "あやめ庵 池袋東口店",
+          "open": "月～日、祝日、祝前日: 15:00～翌5:00 （料理L.O. 翌4:00 ドリンクL.O. 翌4:30）",
+          "catch": "肉寿司食べ放題コース◎ お得！980円で2H飲み放題",
+          "photo": "https://imgfp.hotp.jp/IMGH/59/11/P033585911/P033585911_238.jpg",
+          "access": "ＪＲ　池袋駅　徒歩2分！！",
+          "address": "東京都豊島区南池袋１-20-11 3F",
+          "name_kana": "こしついざかや　あやめあん　いけぶろひがしぐちてん",
+          "genre_catch": "肉寿司食べ放題！池袋で食べ飲み放題なら♪"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 21,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001010627",
+          "name": "肉の王道 Meat de ikebukuro 池袋駅前店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "2名からOKの個室完備！ 絶品！肉寿司★食べ放題",
+          "photo": "https://imgfp.hotp.jp/IMGH/49/54/P039804954/P039804954_238.jpg",
+          "access": "JR池袋駅東口1分■肉寿司の食べ飲み放題でご宴会♪エリア最安値の食べ飲み放題は1900円～！",
+          "address": "東京都豊島区南池袋１-２０-１１　池袋第５ビル6階",
+          "name_kana": "にじゅうよじまでえいぎょう　にくとにくずしせんもんてん　にくいっしん　いけぶくろひがしぐちてん",
+          "genre_catch": "個室×肉寿司×食べ放題　レモンサワー"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 22,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001265891",
+          "name": "ひ暮らし",
+          "open": "月～土、祝日、祝前日: 11:30～14:00 （料理L.O. 13:30）17:00～23:00 （料理L.O. 22:00）",
+          "catch": "",
+          "photo": "https://imgfp.hotp.jp/IMGH/94/75/P037479475/P037479475_238.jpg",
+          "access": "東京メトロ有楽町線東池袋駅１出口より徒歩約6分",
+          "address": "東京都豊島区南池袋２-8-9",
+          "name_kana": "ヒグラシ",
+          "genre_catch": "産直鮮魚と炭火焼が自慢！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 23,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001179668",
+          "name": "食べ放題飲み放題 居酒屋 おすすめ屋 池袋店",
+          "open": "月～金: 17:00～23:30 （料理L.O. 23:00 ドリンクL.O. 23:00）土、日、祝日: 16:00～23:30 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "豊富な品揃えが自慢！ もつ鍋食べ放題フェア",
+          "photo": "https://imgfp.hotp.jp/IMGH/53/91/P037645391/P037645391_238.jpg",
+          "access": "池袋駅 北改札 徒歩3分／39番出口 徒歩1分",
+          "address": "東京都豊島区南池袋２-26-10　アクティオーレ南池袋8階",
+          "name_kana": "にせんえんたべほうだいのみほうだいいざかやおすすめやいけぶくろてん",
+          "genre_catch": "2000円×食べ放題×飲み放題×居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 24,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001265452",
+          "name": "鶏蔵 TORIZO 池袋店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:30）",
+          "catch": "最安飲み放題2H980円♪ 食べ飲み放題2500円~",
+          "photo": "https://imgfp.hotp.jp/IMGH/27/54/P039852754/P039852754_238.jpg",
+          "access": "JR池袋駅 西武口・東口 徒歩1分　個室完備●食べ飲み放題2500円～◎",
+          "address": "東京都豊島区南池袋１-20-11 池第五ビル　５F",
+          "name_kana": "こしついざかや　げきやす　たべほうだい　やきとり　じどり　もつなべ　とりぞう　いけぶくろてん",
+          "genre_catch": "TVで話題!焼き鳥・肉料理食べ飲み放題！"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 25,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001125104",
+          "name": "残心 池袋東口店",
+          "open": "月～木: 11:30～14:00 （料理L.O. 14:00 ドリンクL.O. 14:00）17:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:00）金: 11:30～14:00 （料理L.O. 14:00 ドリンクL.O. 14:00）17:00～翌1:00 （料理L.O. 翌0:00 ドリンクL.O. 翌0:00）土: 16:00～翌1:00 （料理L.O. 翌0:00 ドリンクL.O. 翌0:00）祝前日: 17:00～翌1:00 （料理L.O. 翌1:00 ドリンクL.O. 翌0:00）",
+          "catch": "豊富なメニューをご用意 日本酒焼酎各10種類以上",
+          "photo": "https://imgfp.hotp.jp/IMGH/42/96/P041454296/P041454296_238.jpg",
+          "access": "JR池袋駅東口より徒歩3分！地下鉄有楽町線池袋駅39番出口を出て、右折。３軒目の建物の3階です。",
+          "address": "東京都豊島区南池袋２－２６－１０　アクティオーレ南池袋３F",
+          "name_kana": "わしょくとこしつ　ざんしん　いけぶくろひがしぐてん",
+          "genre_catch": "一度は行くべき和の心がこもる居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 26,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000980493",
+          "name": "芝浦食肉 池袋東口店",
+          "open": "月～金: 16:00～23:00 （料理L.O. 22:30）土: 12:00～23:00 （料理L.O. 22:30）日、祝日: 12:00～22:00 （料理L.O. 21:30）",
+          "catch": "アットホームな雰囲気◎ ＼お得に楽しく肉宴／",
+          "photo": "https://imgfp.hotp.jp/IMGH/90/55/P039289055/P039289055_238.jpg",
+          "access": "ＪＲ 池袋駅 東口 徒歩3分／地下鉄 池袋駅東口徒歩3分／東武東上線 池袋駅東口徒歩3分／西武池袋線 池袋駅東口徒歩3分",
+          "address": "東京都豊島区南池袋２-16-8 鈴和ビル1F",
+          "name_kana": "しばうらしょくにく　いけぶくろひがしぐちてん",
+          "genre_catch": "大とろホルモン・もつ鍋・ホルモン焼き"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 27,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000980494",
+          "name": "塚田農場 池袋東口本店 宮崎県日南市",
+          "open": "月～木: 17:00～23:00 （料理L.O. 22:00）金: 17:00～23:30 （料理L.O. 22:30）土、祝前日: 16:00～23:30 （料理L.O. 22:30）日、祝日: 16:00～23:00 （料理L.O. 22:00）",
+          "catch": "みやざき地頭鶏 炭火焼 のんあるでもおいしい！",
+          "photo": "https://imgfp.hotp.jp/IMGH/52/03/P041615203/P041615203_238.jpg",
+          "access": "JR池袋駅東口 徒歩3分/地下鉄 池袋駅東口 徒歩3分/東武東上線 池袋駅東口 徒歩3分/西武池袋線 池袋駅東口 徒歩3分",
+          "address": "東京都豊島区南池袋２－１６－８　鈴和ビル１Ｆ",
+          "name_kana": "みやざきけんにちなんし　つかだのうじょう　いけぶくろひがしぐちほんてん",
+          "genre_catch": "地鶏と九州料理を楽しむ居酒屋"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 28,
+        "event": {
+          "flag": true,
+          "move": -2,
+          "name": "2マス戻る！",
+          "skip": 0,
+          "point": 0,
+          "detail": "2マス戻る",
+          "minigame": false
+        },
+        "store": {
+          "id": "J001234644",
+          "name": "串焼きと博多逸品料理 個室居酒屋 鳥将 池袋東口店",
+          "open": "月～日: 11:00～翌0:00 （料理L.O. 23:30 ドリンクL.O. 23:30）",
+          "catch": "★当店自慢の逸品★ 和牛肉寿司など肉料理も♪",
+          "photo": "https://imgfp.hotp.jp/IMGH/60/62/P038736062/P038736062_238.jpg",
+          "access": "JR池袋駅 東口1分 ■焼き鳥と博多鍋の食べ放題♪ ■2021年6月 新規OPEN！",
+          "address": "東京都豊島区南池袋１-20-11池袋第5ビル6階",
+          "name_kana": "くしやきとはかたいっぴんりょうり　こしついざかや　とりしょう　いけぶくろひがしぐちてん",
+          "genre_catch": "名物！焼き鳥　博多鍋の食べ放題"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 29,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "30ポイント獲得",
+          "skip": 0,
+          "point": 30,
+          "detail": "ボランティアで人助けをする",
+          "minigame": false
+        },
+        "store": {
+          "id": "J003474500",
+          "name": "【食べ放題×飲み放題】炭火焼肉 食べ放題 牛山道 池袋本店",
+          "open": "月～日、祝日、祝前日: 11:00～翌0:00 （料理L.O. 23:00 ドリンクL.O. 23:00）",
+          "catch": "期間限定企画実施中！ GoToEat★ポイント利用可",
+          "photo": "https://imgfp.hotp.jp/IMGH/12/01/P041371201/P041371201_238.jpg",
+          "access": "【食べ放題2000円（税込）～】池袋駅３９出口より徒歩約1分、東口から徒歩3分【Go To Eatポイント利用可】",
+          "address": "東京都豊島区南池袋２-26-9　1F・2F",
+          "name_kana": "すみびやきにくたべほうだい　ぎゅうさんどういけぶくろほんてん",
+          "genre_catch": "コスパの限界に挑む/本格炭火焼肉食べ放題"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 30,
+        "event": {
+          "flag": true,
+          "move": 0,
+          "name": "3回休み",
+          "skip": 3,
+          "point": 0,
+          "detail": "コロナにかかって休み",
+          "minigame": false
+        },
+        "store": {
+          "id": "J000990038",
+          "name": "四十八漁場 池袋東口店",
+          "open": "月～金: 17:00～23:00 （料理L.O. 22:30）土: 16:00～23:00 （料理L.O. 22:30）日、祝日: 16:00～23:00 （料理L.O. 22:00）",
+          "catch": "［漁師×酒蔵］のコラボ酒 驚きの鮮度の旬魚を味わう",
+          "photo": "https://imgfp.hotp.jp/IMGH/99/61/P033929961/P033929961_238.jpg",
+          "access": "ＪＲ「池袋駅」東口徒歩3分/メトロ「池袋駅」東口徒歩3分/東武東上線・西武池袋線「池袋駅」東口徒歩3分",
+          "address": "東京都豊島区南池袋２-16-8 鈴和ビル1F",
+          "name_kana": "よんぱちぎょじょう　いけぶくろひがしぐちてん",
+          "genre_catch": "魚貝専門 漁師直結"
+        },
+        "goalflag": false,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      },
+      {
+        "id": 31,
+        "event": {
+          "flag": false,
+          "move": 0,
+          "name": "",
+          "skip": 0,
+          "point": 0,
+          "detail": "",
+          "minigame": false
+        },
+        "store": {
+          "id": "",
+          "name": "ゴール",
+          "open": "",
+          "catch": "",
+          "photo": "",
+          "access": "",
+          "address": "",
+          "name_kana": "",
+          "genre_catch": ""
+        },
+        "goalflag": true,
+        "minigame": {
+          "id": "",
+          "name": "",
+          "detail": ""
+        }
+      }
+    ]
+  }
+]

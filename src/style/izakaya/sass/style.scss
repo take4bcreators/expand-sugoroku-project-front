@@ -1,0 +1,9 @@
+// 全体読み込み
+// フォルダ構成が変わったり、
+// フォルダの追加などがない限りは変更不要
+@use "./foundation";
+@use "./layout";
+@use "./component";
+@use "./javascript";
+@use "./project";
+@use "./utility";

@@ -1,0 +1,102 @@
+@use "../setting" as s;
+@use "./breakpoint" as b;
+@use "sass:map";
+
+// ヘッダーとフッターのサイズ
+// メインのサイズの自動計算に使用する
+$HEADER-RATIO: 0.1;
+$FOOTER-RATIO: 0.08;
+$main-ratio: 1.0 - $HEADER-RATIO - $FOOTER-RATIO;
+
+@mixin size-wrapper {
+    height: map.get(s.$size-bases, sm);
+    @include b.mq(sm) {
+        height: map.get(s.$size-bases, sm);
+    }
+    @include b.mq(md) {
+        height: map.get(s.$size-bases, tb);
+    }
+    @include b.mq(lg) {
+        height: map.get(s.$size-bases, pc);
+    }
+    @include b.mq(xl) {
+        height: map.get(s.$size-bases, xl);
+    }
+    @media print {
+        height: map.get(s.$size-bases, print);
+    }
+}
+
+@mixin size-header {
+    height: map.get(s.$size-bases, sm) * $HEADER-RATIO;
+    @include b.mq(sm) {
+        height: map.get(s.$size-bases, sm) * $HEADER-RATIO;
+    }
+    @include b.mq(md) {
+        height: map.get(s.$size-bases, tb) * $HEADER-RATIO;
+    }
+    @include b.mq(lg) {
+        height: map.get(s.$size-bases, pc) * $HEADER-RATIO;
+    }
+    @include b.mq(xl) {
+        height: map.get(s.$size-bases, xl) * $HEADER-RATIO;
+    }
+    @media print {
+        height: map.get(s.$size-bases, print) * $HEADER-RATIO;
+    }
+}
+
+
+@mixin size-main {
+    height: map.get(s.$size-bases, sm) * $main-ratio;
+    @include b.mq(sm) {
+        height: map.get(s.$size-bases, sm) * $main-ratio;
+    }
+    @include b.mq(md) {
+        height: map.get(s.$size-bases, tb) * $main-ratio;
+    }
+    @include b.mq(lg) {
+        height: map.get(s.$size-bases, pc) * $main-ratio;
+    }
+    @include b.mq(xl) {
+        height: map.get(s.$size-bases, xl) * $main-ratio;
+    }
+    @media print {
+        height: map.get(s.$size-bases, print) * $main-ratio;
+    }
+}
+
+@mixin margin-main {
+    margin: 2vmin;
+    @media print {
+        margin: map.get(s.$size-bases, print) * 0.01;
+    }
+}
+
+@mixin padding-main {
+    padding: 10vmin 0;
+    @media print {
+        padding: (map.get(s.$size-bases, print) * 0.05) 0;
+    }
+}
+
+
+@mixin size-footer {
+    height: map.get(s.$size-bases, sm) * $FOOTER-RATIO;
+    @include b.mq(sm) {
+        height: map.get(s.$size-bases, sm) * $FOOTER-RATIO;
+    }
+    @include b.mq(md) {
+        height: map.get(s.$size-bases, tb) * $FOOTER-RATIO;
+    }
+    @include b.mq(lg) {
+        height: map.get(s.$size-bases, pc) * $FOOTER-RATIO;
+    }
+    @include b.mq(xl) {
+        height: map.get(s.$size-bases, xl) * $FOOTER-RATIO;
+    }
+    @media print {
+        height: map.get(s.$size-bases, print) * $FOOTER-RATIO;
+    }
+}
+

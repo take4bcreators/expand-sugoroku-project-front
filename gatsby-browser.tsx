@@ -1,3 +1,8 @@
+// import React from 'react';
+// import { PageTitleProvider } from './src/contexts/PageTitleProvider';
+import { IzakayaPageScript } from "./static/script/ts/izakaya";
+import { ProjectUtility as util} from './src/ts/module/ProjectUtility';
+
 
 type OnRouteUpdateType = {
   location: Location,
@@ -6,5 +11,23 @@ type OnRouteUpdateType = {
 
 // ブラウザスクリプト実行用
 export const onRouteUpdate = ({ location, prevLocation }: OnRouteUpdateType) => {
-  console.log('onRouteUpdate location.pathname : ' + location.pathname);
+  console.log('[SGPJ] [onRouteUpdate] location.pathname : ' + location.pathname);
+  
+  const splitPathArr = util.generateCleanArr(location.pathname.split('/'));
+  switch (splitPathArr[1]) {
+    case 'izakaya':
+    case 'cafe':
+      new IzakayaPageScript().execScript();
+      break;
+    default:
+      break;
+  }
 }
+
+
+// // context使用用
+// export const wrapRootElement = ({ element }) => (
+//   <PageTitleProvider>
+//     {element}
+//   </PageTitleProvider>
+// )

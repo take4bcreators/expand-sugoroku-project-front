@@ -39,7 +39,7 @@
       },
       {
         "label": "gatsby serve",
-        "detail": "build後の本番用ファイルをプレビューします",
+        "detail": "ビルド後の本番用ファイルをプレビューします",
         "icon": {
           "color": "terminal.ansiMagenta",
           "id": "window"
@@ -47,6 +47,24 @@
         "type": "shell",
         "command": "gatsby",
         "args": ["serve", "--open"],
+        "group": "none",
+        "presentation": {
+          "reveal": "always",
+          "clear": true,
+          "echo": true
+        },
+        "problemMatcher": [],
+      },
+      {
+        "label": "gatsby clean",
+        "detail": "キャッシュを削除します",
+        "icon": {
+          "color": "terminal.ansiGreen",
+          "id": "wand"
+        },
+        "type": "shell",
+        "command": "gatsby",
+        "args": ["clean"],
         "group": "none",
         "presentation": {
           "reveal": "always",

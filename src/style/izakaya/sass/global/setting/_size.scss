@@ -1,0 +1,39 @@
+@use "sass:map";
+
+// ベースサイズ
+$size-bases: (
+    xl: 95vh,
+    pc: 95vh,
+    tb: 95vh,
+    sm: 180vh,
+    print: 5787px * 0.25,
+);
+
+$masu-std-size: (
+    xl: 9vmin,
+    pc: 8vmin,
+    tb: 7.5vmin,
+    sm: 15vmin,
+    print: 70px,
+);
+
+$masu-max-size: (
+    sm: 66px,
+);
+
+$masu-num-std-size: (
+    xl: map.get($masu-std-size, xl) * 0.45,
+    pc: map.get($masu-std-size, pc) * 0.45,
+    tb: map.get($masu-std-size, tb) * 0.45,
+    sm: map.get($masu-std-size, sm) * 0.45,
+    print: map.get($masu-std-size, print) * 0.45,
+);
+
+$obi-std-size: (
+    xl: 8vmin,
+    pc: 7vmin,
+    tb: 7vmin,
+    sm: 9vmin,
+    print: 70px,
+);
+

@@ -1,0 +1,30 @@
+
+// palette
+$_palette-fff: #fff;
+$_palette-333: #333;
+$_palette-000: #000;
+$_palette-0066c0: #0066c0;
+
+$_palette-A03131: #A03131;
+$_palette-F1880A: #F1880A;
+$_palette-FCC800: #FCC800;
+$_palette-005243: #005243;
+$_palette-007BBB: #007BBB;
+$_palette-193053: #193053;
+
+
+// 実際の色指定
+$color-text: $_palette-fff;
+$color-link: $_palette-0066c0;
+$color-wrapper-bg: $_palette-193053;
+$color-main-bg: $_palette-fff;
+
+$color-masu-bg: $_palette-fff;
+$color-masu-border: $_palette-193053;
+$color-masu-text: $_palette-193053;
+$color-masu-num-bg: $_palette-193053;
+$color-masu-num-text: $_palette-fff;
+
+$color-footer-text: $_palette-fff;
+$color-footer-credit-text: $_palette-193053;
+

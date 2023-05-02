@@ -1,0 +1,46 @@
+@use "../global" as g;
+@use "sass:map";
+
+.p-iz-obi {
+    z-index: g.$zindex-obi;
+    width: 100%;
+    @mixin set-size($std-size) {
+        height: $std-size * 1.4 + $std-size * 0.6;
+    }
+    @include set-size(map.get(g.$obi-std-size, sm));
+    @include g.mq(sm) {
+        @include set-size(map.get(g.$obi-std-size, sm));
+    }
+    @include g.mq(md) {
+        @include set-size(map.get(g.$obi-std-size, tb));
+    }
+    @include g.mq(lg) {
+        @include set-size(map.get(g.$obi-std-size, pc));
+    }
+    @include g.mq(xl) {
+        @include set-size(map.get(g.$obi-std-size, xl));
+    }
+    @media print {
+        @include set-size(map.get(g.$obi-std-size, print));
+    }
+}
+
+.p-obi--orange, .js-iz-obi--orange {
+    background: no-repeat center/100% url("../images/obi_orange.svg");
+    background-size: cover;
+}
+
+.p-obi--yellow, .js-iz-obi--yellow {
+    background: no-repeat center/100% url("../images/obi_yellow.svg");
+    background-size: cover;
+}
+
+.p-obi--green, .js-iz-obi--green {
+    background: no-repeat center/100% url("../images/obi_green.svg");
+    background-size: cover;
+}
+
+.p-obi--blue, .js-iz-obi--blue {
+    background: no-repeat center/100% url("../images/obi_blue.svg");
+    background-size: cover;
+}
