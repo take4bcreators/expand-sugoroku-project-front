@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+.p-iz-koi {
+    background: no-repeat center/100% url("../images/koi.svg");
+    position: absolute;
+    height: 20vmin;
+    width: 20vmin;
+    left: 5vmin;
+    bottom: -5vmin;
+    z-index: g.$zindex-koi;
+}

@@ -1,0 +1,35 @@
+@use "../global" as g;
+@use "sass:map";
+
+.p-iz-take {
+    background: no-repeat center/100% url("../images/take.svg");
+    background-size: contain;
+    position: absolute;
+    z-index: g.$zindex-koi;
+}
+
+.p-iz-take--left {
+    height: 30vmin;
+    width: 10vmin;
+    left: -1vmin;
+    top: -40vmin;
+    @media print {
+        height: map.get(g.$size-bases, print) * 0.15;
+        width: map.get(g.$size-bases, print) * 0.15;
+        left: map.get(g.$size-bases, print) * -0.04;
+        top: map.get(g.$size-bases, print) * -0.2;
+    }
+}
+
+.p-iz-take--right {
+    height: 30vmin;
+    width: 10vmin;
+    right: -1vmin;
+    top: -40vmin;
+    @media print {
+        height: map.get(g.$size-bases, print) * 0.15;
+        width: map.get(g.$size-bases, print) * 0.15;
+        right: map.get(g.$size-bases, print) * -0.04;
+        top: map.get(g.$size-bases, print) * -0.2;
+    }
+}

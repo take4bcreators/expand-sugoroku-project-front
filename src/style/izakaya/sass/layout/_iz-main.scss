@@ -1,0 +1,10 @@
+@use "../global" as g;
+
+.l-iz-main {
+    background-color: g.$color-main-bg;
+    width: auto;
+    border-radius: 1vw;
+    @include g.size-main;
+    @include g.margin-main;
+    @include g.padding-main;
+}

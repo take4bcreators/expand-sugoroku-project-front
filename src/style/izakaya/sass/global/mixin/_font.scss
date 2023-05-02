@@ -1,0 +1,16 @@
+@use "../setting" as s;
+
+@mixin font-normal {
+  font-family: s.$font-family;
+  font-weight: 400;
+}
+
+@mixin font-bold {
+  font-family: s.$font-family;
+  font-weight: 700;
+}
+
+@mixin font-YujiSyuku-normal {
+  font-family: s.$font-family-YujiSyuku;
+  font-weight: 400;
+}

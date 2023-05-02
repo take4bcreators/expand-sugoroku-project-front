@@ -1,0 +1,328 @@
+[
+    {
+        "board": {
+            "id": "000",
+            "name": "テスト用浜松町ボード",
+            "base": "izakaya"
+        },
+        "square": [
+            {
+                "id": 0,
+                "goalflag": false,
+                "store": {
+                    "name": "スタート地点",
+                    "detail": "スタート地点"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "detail": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 1,
+                "goalflag": false,
+                "store": {
+                    "name": "カフェ・ド・クリエ浜松町店",
+                    "detail": "明るい洋テイストな店内で、ソフトドリンクと共にパスタやトーストサンドなどのフードを提供。ドリンクセットもあり。"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "detail": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 2,
+                "goalflag": false,
+                "store": {
+                    "name": "カフェ ラ・ボエム浜松町／Cafe La Boheme Hamamatsu-cho",
+                    "detail": "JR浜松町駅南口（金杉橋方面）すぐ・都営大江戸線・浅草線 大門駅徒歩2分 【カフェ ラ・ボエム浜松町】浅草開化楼・不死鳥カラス氏開発の「低加水パスタフレスカ」(生麺) を使用したパスタメニューが人気のカジュアルレストラン。もちっとした麺がソースによく絡み、パスタ好きの方からはもちろん、ラーメンや つけ麺ファンからも人気のお店です。 "
+                },
+                "event": {
+                    "flag": true,
+                    "name": "プラス20ポイント",
+                    "detail": "20ポイント獲得！",
+                    "point": 20,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 3,
+                "goalflag": false,
+                "store": {
+                    "name": "プロント 浜松町店",
+                    "detail": "無料Wi-Fi完備、カウンター席もある気さくなカフェバーチェーン。モーニング、パスタのランチ、夜は酒類とイタリアンタパスを提供。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "detail": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "detail": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 4,
+                "goalflag": false,
+                "store": {
+                    "name": "EIGHT COFFEE 浜松町店",
+                    "detail": "EIGHT COFFEE 浜松町/エイト コーヒー (浜松町/カフェ)"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "マイナス10ポイント",
+                    "detail": "10ポイント減点！",
+                    "point": -10,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 5,
+                "goalflag": false,
+                "store": {
+                    "name": "バイロンベイコーヒー 大門店",
+                    "detail": "数々の有機ブレンド賞受賞歴に裏付けられた、バイロンベイコーヒーの素晴らしいブレンドで生み出される最高の味を是非お楽しみください。"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "1回休み",
+                    "detail": "1回休み！",
+                    "point": 0,
+                    "skip": 1,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 6,
+                "goalflag": false,
+                "store": {
+                    "name": "乙女珈琲店",
+                    "detail": ""
+                },
+                "event": {
+                    "flag": false,
+                    "name": "2マス戻る",
+                    "detail": "2マス戻る！",
+                    "point": 0,
+                    "skip": 0,
+                    "move": -2,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 7,
+                "goalflag": true,
+                "store": {
+                    "name": "ゴール！",
+                    "detail": "ゴール！！"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "detail": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            }
+        ]
+    },
+    {
+        "board": {
+            "id": "001",
+            "name": "ミニゲームテスト用ボード",
+            "base": "izakaya"
+        },
+        "square": [
+            {
+                "id": 0,
+                "goalflag": false,
+                "store": {
+                    "name": "スタート地点",
+                    "detail": "スタート地点"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "detail": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            },
+            {
+                "id": 1,
+                "goalflag": false,
+                "store": {
+                    "name": "お店その1",
+                    "detail": "コーヒーショップです。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "detail": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "detail": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 2,
+                "goalflag": false,
+                "store": {
+                    "name": "お店その2",
+                    "detail": "居酒屋です。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "detail": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "detail": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 3,
+                "goalflag": false,
+                "store": {
+                    "name": "お店その3",
+                    "detail": "レストランです。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "detail": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "detail": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 4,
+                "goalflag": false,
+                "store": {
+                    "name": "お店その4",
+                    "detail": "高級焼肉店です。"
+                },
+                "event": {
+                    "flag": true,
+                    "name": "ミニゲーム",
+                    "detail": "ミニゲーム",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": true
+                },
+                "minigame": {
+                    "id": "renda",
+                    "name": "連打ゲーム",
+                    "detail": "とことん連打しよう！！"
+                }
+            },
+            {
+                "id": 5,
+                "goalflag": true,
+                "store": {
+                    "name": "ゴール！",
+                    "detail": "ゴール！！"
+                },
+                "event": {
+                    "flag": false,
+                    "name": "",
+                    "detail": "",
+                    "point": 0,
+                    "skip": 0,
+                    "move": 0,
+                    "minigame": false
+                },
+                "minigame": {
+                    "id": "",
+                    "name": "",
+                    "detail": ""
+                }
+            }
+        ]
+    }
+]

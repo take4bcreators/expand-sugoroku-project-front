@@ -1,0 +1,20 @@
+@use "../global" as g;
+@use "sass:map";
+
+.l-iz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include g.size-header;
+    padding: 4vmin 10vmin 2vmin;
+}
+
+.l-iz-header__logo {
+    &>svg {
+        height: 10vmin;
+        width: auto;
+        @media print {
+            height: map.get(g.$size-bases, print) * 0.05;
+        }
+    }
+}
