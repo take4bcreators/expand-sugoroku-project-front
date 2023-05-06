@@ -3,6 +3,7 @@ import { useLocation } from '@reach/router';
 import { graphql } from 'gatsby'
 import SetupBoard from './board';
 import SetupPlayer from './player';
+import SetupPlayerIcon from './playericon';
 import SetupConfirmation from './confirmation';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss';
@@ -21,6 +22,17 @@ export default ({ data }: ThisPageProps) => {
   switch (state) {
     case 'board':
       usePageElem = (<SetupBoard data={data} />);
+      break;
+    case 'playericon':
+      const playerNum = params.get('playernum') ?? '';
+      if (playerNum !== '') {
+        const playerNumInt = parseInt(playerNum);
+        if (!Number.isNaN(playerNumInt)) {
+          usePageElem = (<SetupPlayerIcon playerNum={playerNumInt} />);
+          break;
+        }
+      }
+      usePageElem = (<SetupPlayer />);
       break;
     case 'player':
       usePageElem = (<SetupPlayer />);

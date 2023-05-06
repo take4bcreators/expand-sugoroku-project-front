@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
+import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
@@ -36,6 +37,10 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     name: '',
   };
   const player = stdao.getCurrentPlayer();
+  if (typeof player === 'undefined') {
+    console.error('[SGPJ] player is undefined');
+    return (<></>);
+  }
   const board = stdao.getPlayingBoard();
   if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
@@ -140,11 +145,25 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
+  // プレイヤーアイコン情報の組み立て
+  let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + player.icon;
+  if (player.icon === '' || typeof player.icon === 'undefined') {
+    playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
+  }
+  
   return (
     <>
       <main>
         <section>
-          <h1>{player?.name ?? ''} さんのターン</h1>
+          <h1>{player.name ?? ''} さんのターン</h1>
+          <div>
+            <img
+              src={playerIconSrc}
+              alt="プレイヤーアイコン"
+              width="50"
+              height="50"
+            />
+          </div>
           <p>現在地：[{curLocationData.number}] {curLocationData.name}</p>
           {displayElem}
         </section>

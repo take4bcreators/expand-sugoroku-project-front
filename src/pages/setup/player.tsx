@@ -10,6 +10,7 @@ import '../../sass/style.scss'
 
 export default () => {
   const [playerList, setPlayerList] = useState(['']);
+  const [playerIconList, setPlayerIconList] = useState(['']);
   const [doEffect, setDoEffect] = useState(false);
   useEffect((): void => {
     const playerListJSON = localStorage.getItem(StorageKeys.SetupPlayer) ?? '[""]';
@@ -17,6 +18,12 @@ export default () => {
       setPlayerList(JSON.parse(playerListJSON) ?? ['']);
     } catch (error) {
       setPlayerList(['']);
+    }
+    const playerIconListJSON = localStorage.getItem(StorageKeys.SetupPlayerIcon) ?? '[""]';
+    try {
+      setPlayerIconList(JSON.parse(playerIconListJSON) ?? ['']);
+    } catch (error) {
+      setPlayerIconList(['']);
     }
     setDoEffect(true);
   }, []);
@@ -28,6 +35,7 @@ export default () => {
   }
   const seqNums = [...Array(userCount).keys()];
   
+  // 他のプレイヤーが選択された時は都度状態を保存する
   const userChange = (e: { target: HTMLInputElement }): void => {
     const keyNum: number = parseInt(e.target.dataset.key ?? '');
     if (isNaN(keyNum)) {
@@ -39,6 +47,7 @@ export default () => {
     localStorage.setItem(StorageKeys.SetupPlayer, JSON.stringify(playerList));
   };
   
+  // 次のステップに進む際に整合性チェックを行う
   const checkInput = (): void => {
     const cleanPlayerList = util.generateCleanArr(playerList);
     if (cleanPlayerList.length < 2) {
@@ -66,20 +75,39 @@ export default () => {
             <form name="userForm">
               {
                 seqNums.map(seq => {
+                  // アイコンパスの組み立て
+                  let iconImageName = playerIconList[seq];
+                  if (iconImageName === '' || iconImageName === null || typeof iconImageName === 'undefined') {
+                    iconImageName = AppConst.UNSELECTED_PLAYER_ICON_FILE;
+                  }
+                  const iconImagePath = AppConst.PLAYER_ICON_DIR + '/' + iconImageName;
+                  
                   return (
-                    <label key={seq} className="c-label">
-                        {seq + 1}.
-                      <input
-                        type="text"
-                        name="playername"
-                        className="c-textbox"
-                        placeholder="プレイヤー名を入力"
-                        onChange={userChange}
-                        key={seq}
-                        defaultValue={playerList[seq] ?? ''}
-                        data-key={seq}
-                      />
-                    </label>
+                    <div key={seq}>
+                      <div>
+                        <Link to={'./?state=playericon&playernum=' + seq}>
+                          <img
+                            src={iconImagePath}
+                            alt="プレイヤーアイコン"
+                            width="50"
+                            height="50"
+                          />
+                        </Link>
+                      </div>
+                      <label key={seq} className="c-label">
+                          {seq + 1}.
+                        <input
+                          type="text"
+                          name="playername"
+                          className="c-textbox"
+                          placeholder="名前を入力"
+                          onChange={userChange}
+                          key={seq}
+                          defaultValue={playerList[seq] ?? ''}
+                          data-key={seq}
+                        />
+                      </label>
+                    </div>
                   )
                 })
               }
