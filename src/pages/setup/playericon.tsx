@@ -1,12 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-// import { Link, navigate } from 'gatsby';
-// import { useLocation } from '@reach/router';
-// import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
 import { AppConst } from '../../ts/config/const';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import '../../sass/style.scss'
+
 
 
 type ThisPageProps = {

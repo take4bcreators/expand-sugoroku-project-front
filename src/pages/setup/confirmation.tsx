@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from "gatsby"
 import StorageDAO from '../../ts/module/StorageDAO';
-// import { ProjectUtility as util} from '../../ts/module/ProjectUtility';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
