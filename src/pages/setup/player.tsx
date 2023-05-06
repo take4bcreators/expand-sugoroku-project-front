@@ -14,12 +14,12 @@ export default () => {
   const [doEffect, setDoEffect] = useState(false);
   useEffect((): void => {
     const playerListJSON = localStorage.getItem(StorageKeys.SetupPlayer) ?? '[""]';
-    const playerIconListJSON = localStorage.getItem(StorageKeys.SetupPlayerIcon) ?? '[""]';
     try {
       setPlayerList(JSON.parse(playerListJSON) ?? ['']);
     } catch (error) {
       setPlayerList(['']);
     }
+    const playerIconListJSON = localStorage.getItem(StorageKeys.SetupPlayerIcon) ?? '[""]';
     try {
       setPlayerIconList(JSON.parse(playerIconListJSON) ?? ['']);
     } catch (error) {
@@ -77,7 +77,7 @@ export default () => {
                 seqNums.map(seq => {
                   // アイコンパスの組み立て
                   let iconImageName = playerIconList[seq];
-                  if (typeof iconImageName === 'undefined' || iconImageName === '') {
+                  if (iconImageName === '' || iconImageName === null || typeof iconImageName === 'undefined') {
                     iconImageName = AppConst.UNSELECTED_PLAYER_ICON_FILE;
                   }
                   const iconImagePath = AppConst.PLAYER_ICON_DIR + '/' + iconImageName;

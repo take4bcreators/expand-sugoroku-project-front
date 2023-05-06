@@ -2,12 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from "gatsby"
 import StorageDAO from '../../ts/module/StorageDAO';
-import { ProjectUtility as util} from '../../ts/module/ProjectUtility';
+// import { ProjectUtility as util} from '../../ts/module/ProjectUtility';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss'
+import { AppConst } from '../../ts/config/const';
 
 
 
@@ -18,12 +19,23 @@ type ThisPageProps = {
 export default ({ data }: ThisPageProps) => {
   const [boardID, setBoardID] = useState('');
   const [playerList, setPlayerList] = useState(['']);
+  const [playerIconList, setPlayerIconList] = useState(['']);
   const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setBoardID(localStorage.getItem(StorageKeys.SetupBoard) ?? '');
     const playerListJSON = localStorage.getItem(StorageKeys.SetupPlayer) ?? '[""]';
-    setPlayerList(JSON.parse(playerListJSON) ?? ['']);
+    try {
+      setPlayerList(JSON.parse(playerListJSON) ?? ['']);
+    } catch (error) {
+      setPlayerList(['']);
+    }
+    const playerIconListJSON = localStorage.getItem(StorageKeys.SetupPlayerIcon) ?? '[""]';
+    try {
+      setPlayerIconList(JSON.parse(playerIconListJSON) ?? ['']);
+    } catch (error) {
+      setPlayerIconList(['']);
+    }
     setStdao(new StorageDAO(localStorage));
     setDoEffect(true);
   }, []);
@@ -39,31 +51,46 @@ export default ({ data }: ThisPageProps) => {
   const selectedBoardID = selectedBoard.node.board.id;
   const selectedBoardName = selectedBoard.node.board.name;
   
-  // ゲームスタート時にストレージに必要なデータを保存する処理
-  const saveNewGameData = (): void => {
-    // プレイヤー配列から空要素を除去
-    const cleanPlayerList = util.generateCleanArr(playerList);
-    // プレイヤー数は 1000 人以下に限定する
-    if (cleanPlayerList.length > 1000) {
-      // @remind エラー表示処理を追加したい（画面上部にエラー表示→トップに自動遷移）
-      console.error('cleanPlayerList.length is ' + cleanPlayerList.length);
-      return;
+  // プレイヤー名とアイコンをまとめたプレイヤー情報オブジェクトの作成
+  const playerIconListCopy = playerIconList.slice(0, playerList.length);
+  type SetupPlayerInfo = {
+    playerName: string,
+    iconFile: string,
+  }
+  const playerInfoList: SetupPlayerInfo[] = [];
+  for (let index = 0; index < playerList.length; index++) {
+    // プレイヤー名がない場合、プレイヤー情報としては無視する
+    if (playerList[index] === '' || playerList[index] === null || typeof playerList[index] === 'undefined') {
+      continue;
     }
+    // プレイヤーアイコンがない場合はデフォルトにする
+    let iconFile = playerIconListCopy[index];
+    if (iconFile === '' || iconFile === null || typeof iconFile === 'undefined') {
+      iconFile = AppConst.DEFAULT_PLAYER_ICON_FILE;
+    }
+    const playerInfo: SetupPlayerInfo = {
+      playerName: playerList[index],
+      iconFile: iconFile,
+    };
+    playerInfoList.push(playerInfo);
+  }
+  
+  // ゲームスタート時にストレージに必要なデータを保存する
+  const saveNewGameData = (): void => {
     // プレイヤー情報配列の生成
     const playersInfoArr = [];
-    for (const index in cleanPlayerList) {
-        const playerID = index.padStart(3, '0');
-        const onePlayerObj: PlayerInfo = {
-            id: playerID,
-            name: cleanPlayerList[index],
-            icon: '0',
-            order: -1,
-            point: 0,
-            location: 0,
-            skipcnt: 0,
-            isfinish: false,
-        };
-        playersInfoArr.push(onePlayerObj);
+    for (let index = 0; index < playerInfoList.length; index++) {
+      const onePlayerObj: PlayerInfo = {
+          id: index.toString().padStart(3, '0'),
+          name: playerInfoList[index].playerName,
+          icon: playerInfoList[index].iconFile,
+          order: -1,
+          point: 0,
+          location: 0,
+          skipcnt: 0,
+          isfinish: false,
+      };
+      playersInfoArr.push(onePlayerObj);
     }
     const playersInfoJSON = JSON.stringify(playersInfoArr);
     
@@ -71,7 +98,7 @@ export default ({ data }: ThisPageProps) => {
     const boardDataJSON = JSON.stringify(selectedBoard.node);
     
     // ゲーム実施用ストレージをセット
-    stdao.setItem(StorageKeys.PlayingNumPlayers, cleanPlayerList.length.toString()); // プレイヤー人数
+    stdao.setItem(StorageKeys.PlayingNumPlayers, playerInfoList.length.toString()); // プレイヤー人数
     stdao.setItem(StorageKeys.PlayingBoard, selectedBoardName); // ボード名
     stdao.setItem(StorageKeys.PlayingBoardID, selectedBoardID); // ボードID
     stdao.setItem(StorageKeys.PlayingPlayers, playersInfoJSON); // プレイヤー情報のオブジェクト配列
@@ -84,10 +111,11 @@ export default ({ data }: ThisPageProps) => {
     stdao.setItem(StorageKeys.PlayingLastMinigameKey, ''); // ミニゲームの結果を保存するためのキー
   }
   
-  // ゲームスタート時にストレージからセットアップ用情報を削除する処理
+  // ゲームスタート時にストレージからセットアップ用情報を削除する
   const removeSetupData = (): void => {
     stdao.removeItem(StorageKeys.SetupBoard);
     stdao.removeItem(StorageKeys.SetupPlayer);
+    stdao.removeItem(StorageKeys.SetupPlayerIcon);
   }
   
   return (
@@ -104,11 +132,19 @@ export default ({ data }: ThisPageProps) => {
           <p>{selectedBoardName}</p>
           <h2>プレイヤー</h2>
           {
-            playerList.map((playerName, index) => {
+            playerInfoList.map((playerInfo, index) => {
               return (
-                <p className='player' key={index}>
-                  {playerName}
-                </p>
+                <div key={index}>
+                  <img
+                    src={AppConst.PLAYER_ICON_DIR + '/' + playerInfo.iconFile}
+                    alt="プレイヤーアイコン"
+                    width="50"
+                    height="50"
+                  />
+                  <p className='player'>
+                    {playerInfo.playerName}
+                  </p>
+                </div>
               )
             })
           }
