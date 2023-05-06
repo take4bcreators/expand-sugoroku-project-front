@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
+import { AppConst } from '../../ts/config/const';
 import SEO from '../../components/SEO';
 import StorageDAO from '../../ts/module/StorageDAO';
 import '../../sass/style.scss';
@@ -59,10 +60,24 @@ export default (): JSX.Element => {
           const playerLocation = player.location;
           const playerLocationName = board.square[playerLocation].store.name;
           
+          // プレイヤーアイコン情報の組み立て
+          let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + player.icon;
+          if (player.icon === '' || typeof player.icon === 'undefined') {
+            playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
+          }
+          
           return (
             <section key={index}>
               <p>---------------------------------</p>
               <h1>{curOrderMark}{player.name} さん</h1>
+              <div>
+                <img
+                  src={playerIconSrc}
+                  alt="プレイヤーアイコン"
+                  width="50"
+                  height="50"
+                />
+              </div>
               <ul>
                 <li>順番：{player.order + 1} 番目</li>
                 <li>ポイント：{player.point} pt.</li>

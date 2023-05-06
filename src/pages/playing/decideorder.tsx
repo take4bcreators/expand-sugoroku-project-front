@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
+import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
@@ -49,22 +50,45 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       // @remind ここにエラー時にトップへ戻る処理を追加する
       return;
     }
-    // ランダム配列を用いて各プレイヤーの順番を決定して連想配列で保持
-    const resultMap = new Map();
-    numberArr.forEach((value, index) => {
-        playerInfoArr[index]['order'] = value;
-        resultMap.set(value, playerInfoArr[index]['name']);
+    
+    // ランダム配列を用いて各プレイヤーの順番を決定してオブジェクト配列で保持
+    type SetupPlayerInfo = {
+      playerName: string,
+      iconFile: string,
+    }
+    const displayResultArr: SetupPlayerInfo[] = [];
+    numberArr.forEach((randomNumber, index) => {
+        playerInfoArr[index].order = randomNumber;
+        const playerInfo: SetupPlayerInfo = {
+          playerName: playerInfoArr[index].name,
+          iconFile: playerInfoArr[index].icon,
+        }
+        displayResultArr[randomNumber] = playerInfo;
     });
     
     // 順番決め結果画面の要素の組み立て
     let playerNameElem: JSX.Element[] = [];
-    for (let index = 0; index < resultMap.size; index++) {
+    for (let index = 0; index < displayResultArr.length; index++) {
         const orderNumber = index + 1;
-        const playerName = resultMap.get(index);
+        const playerName = displayResultArr[index].playerName;
+        const iconFile = displayResultArr[index].iconFile;
+        let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + iconFile;
+        if (iconFile === '' || typeof iconFile === 'undefined') {
+          playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
+        }
+        
         playerNameElem.push((
-          <p key={orderNumber}>
-            {orderNumber} : {playerName} さん
-          </p>
+          <div key={index}>
+            <img
+              src={playerIconSrc}
+              alt="プレイヤーアイコン"
+              width="50"
+              height="50"
+            />
+            <p key={orderNumber}>
+              {orderNumber} : {playerName} さん
+            </p>
+          </div>
         ))
     }
     const displayRetultElem = (
