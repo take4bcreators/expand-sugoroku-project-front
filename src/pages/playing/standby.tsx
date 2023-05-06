@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
+import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
 import '../../sass/style.scss';
@@ -86,14 +87,36 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     curLocationData.photo = board.square[playerLocation].store.photo;
   }
   
+  // プレイヤーアイコン情報の組み立て
+  let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + player.icon;
+  if (player.icon === '' || typeof player.icon === 'undefined') {
+    playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
+  }
+  
+  // 店画像表示のための要素の組み立て
+  let storeImage = (<img src={curLocationData.photo} alt="店舗の画像" />);
+  if (curLocationData.photo === '') {
+    storeImage = (<></>);
+  }
+  
   return (
     <>
       <main>
         <section>
-          <h1>{player?.name ?? ''} さんのターン</h1>
+          <h1>{player.name ?? ''} さんのターン</h1>
+          <div>
+            <img
+              src={playerIconSrc}
+              alt="プレイヤーアイコン"
+              width="50"
+              height="50"
+            />
+          </div>
           <p>現在地：[{playerLocation}] {curLocationData.name}</p>
-          <img src={curLocationData.photo} alt="店舗の画像" />
-          <p>現在のポイント： {player?.point ?? ''}</p>
+          <div>
+            {storeImage}
+          </div>
+          <p>現在のポイント： {player.point ?? ''}</p>
           {innerElem}
         </section>
       </main>
