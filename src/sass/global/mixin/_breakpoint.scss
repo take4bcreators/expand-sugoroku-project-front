@@ -1,13 +1,19 @@
 
-@mixin breakpoint($point) {
-    @if $point == tablet {
-        @media (min-width: 640px) {
-            @content;
-        }
-    }
-    @if $point == pc {
-        @media (min-width: 750px) {
-            @content;
-        }
+$breakpoints: (
+    "S": "screen and (min-width: 400px)",
+    "M": "screen and (min-width: 768px)",
+    "L": "screen and (min-width: 1000px)",
+    "XL": "screen and (min-width: 1200px)",
+) !default;
+
+
+// メディアクエリ指定用mixin
+// [使用例]
+// @include mq(S) {
+//     color: yellow;
+// }
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
     }
 }

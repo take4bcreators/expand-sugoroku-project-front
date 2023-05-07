@@ -1,0 +1,48 @@
+@use "../global" as g;
+
+$_hills-width: 150vw;
+$_hills-left: -25vw;
+
+.p-hills {
+    width: $_hills-width;
+    height: auto;
+    position: fixed;
+    left: $_hills-left;
+    z-index: g.$zindex-hills;
+    top: 91vh;
+    top: 91svh;
+    svg {
+        width: $_hills-width;
+        height: auto;
+    }
+}
+
+@include g.mq(L) {
+    .p-hills {
+        top: 82vh;
+    }
+}
+
+
+.p-hills__hill {
+    &--left {
+        fill: g.$color-hills-left;
+        animation: hill-scale-01 20s ease-in-out infinite;
+    }
+    &--right {
+        fill: g.$color-hills-right;
+        animation: hill-scale-02 16s ease-in-out infinite;
+    }
+}
+
+@keyframes hill-scale-01 {
+      0% {scale: 0.85;}
+     50% {scale: 1.0;}
+    100% {scale: 0.85;}
+}
+
+@keyframes hill-scale-02 {
+      0% {scale: 0.93;}
+     50% {scale: 1.0;}
+    100% {scale: 0.93;}
+}

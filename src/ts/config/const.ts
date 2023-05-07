@@ -22,8 +22,11 @@ export namespace AppConst {
     /** セットアップ時に表示するプレイヤー入力欄の数 */
     export const DEFAULT_SETUP_PLAYER_COUNT: number = 5;
     
+    /** 画像ファイルのあるディレクトリ（末尾の / は不要） */
+    export const STATIC_IMAGE_DIR: string = '/images';
+    
     /** プレイヤーアイコン用画像ファイルのあるディレクトリ（末尾の / は不要） */
-    export const PLAYER_ICON_DIR: string = '/images/playericon';
+    export const PLAYER_ICON_DIR: string = STATIC_IMAGE_DIR + '/playericon';
     
     /** プレイヤーアイコンに使用する画像ファイル名のリスト（拡張子を含む） */
     // note:

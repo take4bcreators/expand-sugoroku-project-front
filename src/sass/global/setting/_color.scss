@@ -1,10 +1,87 @@
 
-$color-base: #fff;
-$color-main: #1b7c26;
-$color-main-100: #f6fff7;
-$color-main-200: #a0daa8;
-$color-main-300: #6ebe79;
-$color-accent: #f99f48;
+// -------------------------
+// palette
+// -------------------------
+$_palette-FFF: #FFF;
+$_palette-000: #000;
+$_palette-F9F9F9: #F9F9F9;
+$_palette-989898: #989898;
 
-$color-gray: #efefef;
-$color-black: #333;
+$_palette-FF4081: #FF4081;
+$_palette-536DFE: #536DFE;
+$_palette-C0CA33: #C0CA33;
+$_palette-FFC107: #FFC107;
+$_palette-40C4FF: #40C4FF;
+$_palette-69F0AE: #69F0AE;
+$_palette-66E9A9: #66E9A9;
+
+$_palette-F44336: #F44336;
+$_palette-FF8F00: #FF8F00;
+$_palette-1E88E5: #1E88E5;
+$_palette-388E3C: #388E3C;
+
+$_palette-795548: #795548;
+$_palette-EFEBE9: #EFEBE9;
+
+$_palette-9C27B0: #9C27B0;
+
+$_palette-AB47BC: #AB47BC;
+
+$_palette-FBC02D: #FBC02D;
+
+
+// -------------------------
+// 実際の色指定
+// -------------------------
+// $color-text: $_palette-FFF;
+// $color-link: $_palette-0066c0;
+$color-wrapper-bg: $_palette-40C4FF;
+// $color-main-bg: $_palette-FFF;
+
+
+
+$color-menu-border: $_palette-FFF;
+$color-menu-icon-fill: $_palette-FFF;
+$color-menu-text: $_palette-FFF;
+
+
+$color-menu-bg01: $_palette-FF4081;
+$color-menu-bg02: $_palette-536DFE;
+$color-menu-bg03: $_palette-C0CA33;
+$color-menu-bg04: $_palette-FFC107;
+
+
+
+$color-footer-copyright: $_palette-FFF;
+
+$color-hills-left: $_palette-69F0AE;
+$color-hills-right: $_palette-66E9A9;
+
+$color-building-left: $_palette-FFF;
+$color-building-center: $_palette-FFF;
+$color-building-right: $_palette-FFF;
+
+
+
+
+
+// $color-masu-bg: $_palette-FFF;
+// $color-masu-border: $_palette-193053;
+// $color-masu-text: $_palette-193053;
+// $color-masu-num-bg: $_palette-193053;
+// $color-masu-num-text: $_palette-FFF;
+
+// $color-footer-text: $_palette-FFF;
+// $color-footer-credit-text: $_palette-193053;
+
+
+
+// $color-base: $_palette-40C4FF;
+// $color-main: #1b7c26;
+// $color-main-100: #f6fff7;
+// $color-main-200: #a0daa8;
+// $color-main-300: #6ebe79;
+// $color-accent: #f99f48;
+
+// $color-gray: #efefef;
+// $color-black: #333;

@@ -1,0 +1,18 @@
+@use "../setting" as s;
+
+// ----------------------
+// 使用時
+//   @include 名前
+// ----------------------
+
+
+@mixin font-menu {
+  font-family: s.$font-family-KosugiMaru;
+  font-weight: 400;
+}
+
+@mixin font-copyright {
+  font-family: s.$font-family-Roboto;
+  font-weight: 700;
+}
+

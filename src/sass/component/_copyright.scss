@@ -1,0 +1,10 @@
+@use "../global" as g;
+
+.c-copyright {
+    color: g.$color-footer-copyright;
+    @include g.font-copyright;
+    
+    // z-index適用のために指定
+    position: relative;
+    z-index: g.$zindex-copyright;
+}

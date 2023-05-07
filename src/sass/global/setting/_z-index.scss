@@ -1,0 +1,17 @@
+
+// ----------------
+// z-index 指定
+//  z-index が反映される position の値の一覧表
+//      position
+//          未指定    … 効かない
+//          static    … 効かない
+//          relative  … 効く
+//          absolute  … 効く
+//          fixed     … 効く
+//          sticky    … 効く
+// ----------------
+
+$zindex-buildings: 300;
+$zindex-hills: 400;
+$zindex-copyright: 500;
+$zindex-menu: 600;

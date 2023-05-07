@@ -1,7 +1,6 @@
 import React from 'react';
 
-
 export default () => (
-    <header className='l-header'>
-    </header>
+    <footer className='l-footer'>
+    </footer>
 )
