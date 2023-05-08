@@ -1,0 +1,49 @@
+@use "../global" as g;
+
+$_menu_item_height: unquote('min(50px, 20vw)');
+$_menu_item_width: calc($_menu_item_height * 5);
+$_menu_item_margin: calc($_menu_item_height * 0.2);
+$_boader-size: calc($_menu_item_height * 0.1);
+$_icon-size: $_menu_item_height;
+$_icon-svg-size: calc($_menu_item_height * 0.5);
+$_item-text-size: calc($_menu_item_height * 0.3);
+
+.p-setup-board-menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $_menu_item_width;
+    height: $_menu_item_height;
+    border: $_boader-size solid g.$color-menu-border;
+    border-radius: calc($_menu_item_height * 0.5);
+    box-sizing: border-box;
+    margin: $_menu_item_margin;
+    color: g.$color-board-menu-text;
+    font-size: $_item-text-size;
+    @include g.font-setup-board;
+    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    background-color: g.$color-board-menu-bg;
+    cursor: pointer;
+    transition: scale .3s, box-shadow .3s, background-color .3s;
+    &:hover {
+        scale: 1.06;
+        box-shadow: 15px 25px 25px rgba($color: #000, $alpha: 0.3);
+    }
+}
+
+// 選択時
+.p-setup-board-menu-item:has(.p-setup-radio:checked) {
+    background-color: g.$color-board-menu-select-bg;
+    scale: 0.98;
+}
+
+// 確認画面
+.p-setup-board-menu-item--confirmation {
+    background-color: g.$color-board-menu-select-bg;
+    box-shadow: none;
+    cursor: initial;
+    &:hover {
+        scale: 1;
+        box-shadow: none;
+    }
+}

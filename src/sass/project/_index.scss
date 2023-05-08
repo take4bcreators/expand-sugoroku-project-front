@@ -5,3 +5,23 @@
 @use "./menu-item";
 @use "./buildings";
 @use "./hills";
+
+@use "./setup";
+@use "./setup-logo";
+@use "./setup-progress-tracker";
+@use "./setup-radio";
+@use "./setup-board-menu";
+@use "./setup-board-menu-item";
+@use "./setup-player-container";
+@use "./setup-player-panel";
+@use "./setup-player-icon";
+@use "./setup-player-input";
+@use "./setup-playericon-container";
+@use "./setup-playericon-panel";
+
+@use "./setup-confirmation-container";
+
+
+@use "./control-buttons-wrapper";
+@use "./control-buttons";
+@use "./button";

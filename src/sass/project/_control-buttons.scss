@@ -1,0 +1,19 @@
+@use "../global" as g;
+
+.p-control-buttons {
+    display: flex;
+    // justify-content: center;
+    // justify-content: space-around;
+    // justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 90vw;
+    // height: 90vh;
+    
+    // position: fixed;
+    // bottom: 5vh;
+    // left: 0;
+    
+    // z-index: g.$zindex-menu;
+}

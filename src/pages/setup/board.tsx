@@ -6,6 +6,9 @@ import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss';
 
+import SetupProgressTracker from '../../components/SetupProgressTracker';
+import SvgButtonExit from '../../icon/svg/SvgButtonExit';
+import SvgButtonNext from '../../icon/svg/SvgButtonNext';
 
 
 type ThisPageProps = {
@@ -50,43 +53,44 @@ export default ({ data }: ThisPageProps) => {
   
   return (
     <>
-      <main>
-        <div>
-          <div><em>1.ボード選択</em></div>
-          <div>2.プレイヤー情報入力</div>
-          <div>3.確認</div>
+      <SetupProgressTracker length={3} current={0} />
+      <section>
+        <form name="userForm" className="p-setup-board-menu">
+          {
+            boardIDs.map((boardID, index) => {
+              return (
+                <label key={index} className="p-setup-board-menu-item">
+                  <input
+                    type="radio"
+                    name="boardradio"
+                    className="p-setup-radio"
+                    defaultValue={boardNames[index]}
+                    onChange={changeStateAndStorage}
+                    checked={boardID === selectedBoard}
+                    data-boardid={boardID}
+                    key={index}
+                  />
+                  {boardNames[index]}
+                </label>
+              )
+            })
+          }
+        </form>
+        <div className="p-control-buttons-wrapper">
+          <div className="p-control-buttons">
+              <div className="p-button">
+                <Link to='/'>
+                  <SvgButtonExit />
+                </Link>
+              </div>
+              <div className="p-button">
+                <span onClick={checkInput}>
+                  <SvgButtonNext />
+                </span>
+              </div>
+          </div>
         </div>
-        <section>
-          <h1>ボード選択</h1>
-          <form name="userForm">
-            {
-              boardIDs.map((boardID, index) => {
-                return (
-                  <label key={index} className="c-label">
-                    <input
-                      type="radio"
-                      name="boardradio"
-                      className="c-radio"
-                      defaultValue={boardNames[index]}
-                      onChange={changeStateAndStorage}
-                      checked={boardID === selectedBoard}
-                      data-boardid={boardID}
-                      key={index}
-                    />
-                    {boardNames[index]}
-                  </label>
-                )
-              })
-            }
-            <button type="button" name="prevbtn" className="c-button">
-              <Link to='/'>戻る</Link>
-            </button>
-            <button type="button" name="nextbtn" className="c-button">
-              <span onClick={checkInput}>次のSTEPに進む</span>
-            </button>
-          </form>
-        </section>
-      </main>
+      </section>
     </>
   )
 }

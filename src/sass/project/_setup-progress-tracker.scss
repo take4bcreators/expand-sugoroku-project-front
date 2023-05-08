@@ -1,0 +1,89 @@
+@use "../global" as g;
+
+
+
+// $_ps-width: 240px;
+$_ps-width: unquote('min(240px, 20vw)');
+
+$_ps-circle-size: calc($_ps-width * 0.17);
+$_ps-bar-width: calc($_ps-width - $_ps-circle-size);
+$_ps-bar-height: calc($_ps-width * 0.07);
+
+
+$_ps-current-circle-size: calc($_ps-circle-size * 1.5);
+
+
+.p-setup-progress-tracker {
+    display: flex;
+    justify-content: center;
+    // justify-content: space-around;
+    // justify-content: space-between;
+    align-items: center;
+    
+    // width: 240px;
+    // width: $_ps-width;
+    // width: $_ps-width;
+    // width: unquote('min(100px, 20vw)');
+    // width: 300px;
+    width: 100%;
+    
+    // margin: 20px;
+    margin: 20px 0;
+}
+
+
+.p-setup-progress-tracker__circlewrapper {
+    display: flex;
+    // justify-content: center;
+    // justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    
+    // width: 300px;
+    width: $_ps-width;
+    
+    
+}
+
+
+.p-setup-progress-tracker__circle {
+    border-radius: 50%;
+    border: 5px solid #fff;
+    width: $_ps-circle-size;
+    height: $_ps-circle-size;
+    // width: 50px;
+    // height: 50px;
+    background-color: #EF5350;
+    
+    position: relative;
+    z-index: 900;
+    
+    // outline: 8px solid #EF5350;
+}
+
+.p-setup-progress-tracker__circle.is-current {
+    outline: 8px solid #EF5350;
+}
+
+
+
+.p-setup-progress-tracker__bar {
+    position: absolute;
+    z-index: 700;
+    // z-index: 1000;
+    
+    background-color: #fff;
+    // width: 100px;
+    // width: 100%;
+    
+    // width: inherit;
+    // height: 20px;
+    
+    width: $_ps-bar-width;
+    height: $_ps-bar-height;
+    
+    inset: auto 0;
+    margin: 0 auto;
+}
+
+

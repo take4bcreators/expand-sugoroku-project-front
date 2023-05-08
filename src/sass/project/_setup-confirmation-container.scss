@@ -1,0 +1,37 @@
+@use "../global" as g;
+
+
+// $_height: unquote('min(80px, 20vw)');
+// $_width: $_height;
+// $_boader-size: calc($_height * 0.1);
+
+
+
+.p-setup-confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    flex-direction: column;
+    
+    flex-wrap: wrap;
+    
+    width: 40vw;
+    height: auto;
+    
+    // width: $_width;
+    // height: $_height;
+    
+    // // border: $_boader-size solid g.$color-menu-border;
+    // border: $_boader-size solid #F9F9F9;
+    
+    // border-radius: 50%;
+    
+    // background-color: #FFF;
+    
+    
+    position: relative;
+    z-index: 900;
+    
+
+}

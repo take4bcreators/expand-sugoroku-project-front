@@ -5,6 +5,7 @@ import { AppConst } from '../../ts/config/const';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import '../../sass/style.scss'
 
+import SvgButtonBack from '../../icon/svg/SvgButtonBack';
 
 
 type ThisPageProps = {
@@ -27,9 +28,6 @@ export default ({ playerNum }: ThisPageProps) => {
   
   // 現在のプレイヤーアイコンを取得
   let playerIconName = playerIconList[playerNum] ?? '';
-  if (playerIconName === '') {
-    playerIconName = AppConst.DEFAULT_PLAYER_ICON_FILE;
-  }
   
   // 他のアイコンが選択された時は都度状態を保存する
   const changeStateAndStorage = (e: { target: HTMLInputElement }): void => {
@@ -42,40 +40,45 @@ export default ({ playerNum }: ThisPageProps) => {
   
   return (
     <>
-      <main>
-        <section>
-          <div>
-            <h1>アイコン選択</h1>
-            <form name="userForm">
-              {
-                AppConst.PLAYER_ICON_FILES.map((playerIconFile, index) => {
-                  return (
-                    <label key={index} className="c-label">
-                      <input
-                        type="radio"
-                        name="playericonradio"
-                        className="c-radio"
-                        onChange={changeStateAndStorage}
-                        checked={playerIconFile === playerIconName}
-                        data-playericon={playerIconFile}
-                      />
+      <section>
+        <div>
+          <form name="userForm" className="p-setup-playericon-container">
+            {
+              AppConst.PLAYER_ICON_FILES.map((playerIconFile, index) => {
+                return (
+                  <label key={index} className="p-setup-playericon-panel">
+                    <input
+                      type="radio"
+                      name="playericonradio"
+                      className="p-setup-playericon-radio"
+                      onChange={changeStateAndStorage}
+                      checked={playerIconFile === playerIconName}
+                      data-playericon={playerIconFile}
+                    />
+                    <div>
                       <img
                         src={AppConst.PLAYER_ICON_DIR + '/' + playerIconFile}
                         alt="プレイヤーアイコン"
                         width="50"
                         height="50"
                       />
-                    </label>
-                  )
-                })
-              }
-              <button type="button" name="prevbtn" className="c-button">
-                <Link to='./?state=player'>OK</Link>
-              </button>
-            </form>
+                    </div>
+                  </label>
+                )
+              })
+            }
+          </form>
+        </div>
+        <div className="p-control-buttons-wrapper">
+          <div className="p-control-buttons">
+              <div className="p-button">
+                <Link to='./?state=player'>
+                  <SvgButtonBack />
+                </Link>
+              </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </>
   )
 }

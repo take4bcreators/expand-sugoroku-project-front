@@ -4,10 +4,11 @@ import PlayingFooterTypeA from './PlayingFooterTypeA';
 import PlayingFooterTypeB from './PlayingFooterTypeB';
 import PlayingFooterTypeNone from './PlayingFooterTypeNone';
 import PlayingFooterTypeTop from './PlayingFooterTypeTop';
+import PlayingFooterTypeNormal from './PlayingFooterTypeNormal';
 
 type PropsType = {
     children?: ReactNode,
-    footerType: ('A' | 'B' | 'None' | 'Top'),
+    footerType: ('A' | 'B' | 'None' | 'Top' | 'Normal'),
 }
 
 export default ({ children, footerType }: PropsType) => {
@@ -24,6 +25,9 @@ export default ({ children, footerType }: PropsType) => {
       break;
     case 'Top':
       footerNode = (<PlayingFooterTypeTop />);
+      break;
+    case 'Normal':
+      footerNode = (<PlayingFooterTypeNormal />);
       break;
     default:
       break;

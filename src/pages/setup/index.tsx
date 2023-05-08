@@ -8,6 +8,8 @@ import SetupConfirmation from './confirmation';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss';
 
+import PlayingLayout from '../../components/PlayingLayout';
+import TemporallyLogoText from '../../icon/svg/TemporallyLogoText';
 
 
 type ThisPageProps = {
@@ -46,18 +48,25 @@ export default ({ data }: ThisPageProps) => {
   }
   
   return (
-    <>
-      <div>
-          {usePageElem}
-      </div>
-    </>
+    <PlayingLayout footerType="Normal">
+      <main>
+        <section className="p-setup">
+          <h1 className="p-setup-logo">
+            <TemporallyLogoText />
+          </h1>
+          <div>
+              {usePageElem}
+          </div>
+        </section>
+      </main>
+    </PlayingLayout>
   );
 }
 
 
 export const Head = () => {
   // @remind ページタイトルは GraphQLから取るようにする
-  const PAGE_TITLE: string = 'はじめから | すごろくツール';
+  const PAGE_TITLE: string = 'はじめから | TEMPORALLY';
   return (
     <>
       <title>{PAGE_TITLE}</title>

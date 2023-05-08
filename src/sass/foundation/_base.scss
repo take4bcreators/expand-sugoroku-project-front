@@ -1,3 +1,4 @@
+@use "../global" as g;
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
 
 *,
@@ -33,6 +34,11 @@ body {
     width: 100%;
     overflow-x: hidden;
 }
+
+.f-sg-body {
+    background-color: g.$color-body-bg;
+}
+
 
 img,
 video,

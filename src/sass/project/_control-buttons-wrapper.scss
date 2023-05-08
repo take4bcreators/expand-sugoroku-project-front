@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+.p-control-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: fixed;
+    bottom: 5vh;
+    left: 0;
+}

@@ -16,3 +16,8 @@
   font-weight: 700;
 }
 
+@mixin font-setup-board {
+  font-family: s.$font-family-KosugiMaru;
+  font-weight: 400;
+}
+
