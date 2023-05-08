@@ -1,0 +1,128 @@
+
+
+/* 要素を隠すためのスタイル指定 */
+.hide {
+    /* visibility: hidden; */
+    display: none;
+}
+
+body {
+/* 背景を指定する */
+    background-image: url("./img/image2.svg"), url("./img/manga1.jpg");
+    background-size: 100vw 100vh, 100vw 100vh;
+    
+    font-family: 'Sawarabi Gothic', sans-serif;
+    
+    height: 100vh;
+    width: 100vw;
+}
+
+
+/* 目標タイム兼タイトル（大）のスタイル指定 */
+.title{
+    text-align: center;
+    height:70px;
+    line-height:70px;
+    color: #FDCD01;
+    font-size: 100px;
+    text-shadow: 3px 3px 0 #1F1E1E,-3px -3px 0 #1F1E1E,
+                 -3px 3px 0 #1F1E1E,3px -3px 0 #1F1E1E,
+                 0px 3px 0 #1F1E1E,0px -3px 0 #1F1E1E,
+                 -3px 0 0 #1F1E1E,3px 0 0 #1F1E1E;
+}
+
+
+/* 目標タイム兼タイトルをど真ん中に持ってくる */
+.container {
+    /* 要素の大きさを画面いっぱいに広げる */
+    /* vh・vw の参考：https://jajaaan.co.jp/web-production/frontend/css-vw-vh-vmin-vmax/ */
+    height: 100vh;
+    width: 100vw;
+    
+    /* Flexboxの指定 */
+    display: flex;              /* Flexboxを使用する */
+    justify-content: center;    /* 横位置を中央にする （『flex-direction: column』の時は『縦』位置の指定になる） */
+    align-items: center;        /* 縦位置を中央にする （『flex-direction: column』の時は『横』位置の指定になる） */
+    flex-direction: column;     /* 『row』…横並びにする／『column』…縦並びにする */
+}
+
+/* 目標タイム兼タイトル（小） */
+.target{
+    text-align: center;
+    color: #FDCD01;
+    font-size: 50px;
+    text-shadow: 2px 2px 0 #1F1E1E,-2px -2px 0 #1F1E1E,
+                 -2px 2px 0 #1F1E1E,2px -2px 0 #1F1E1E,
+                 0px 2px 0 #1F1E1E,0px -2px 0 #1F1E1E,
+                 -2px 0 0 #1F1E1E,2px 0 0 #1F1E1E;
+    /* 目標タイム兼タイトル（小）の配置 */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    /* 時間を表示する要素のスタイル指定 */
+.time{
+    text-align: center;
+    color: #F10A70;
+    font-size: 150px;
+    text-shadow: 3px 3px 0 #1F1E1E,-3px -3px 0 #1F1E1E,
+                 -3px 3px 0 #1F1E1E,3px -3px 0 #1F1E1E,
+                 0px 3px 0 #1F1E1E,0px -3px 0 #1F1E1E,
+                 -3px 0 0 #1F1E1E,3px 0 0 #1F1E1E;
+    /* 配置 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 結果表示のスタイル指定 */
+.result{
+    text-align: center;
+    color: #F10A70;
+    font-size: 100px;
+    text-shadow: 3px 3px 0 #1F1E1E,-3px -3px 0 #1F1E1E,
+                 -3px 3px 0 #1F1E1E,3px -3px 0 #1F1E1E,
+                 0px 3px 0 #1F1E1E,0px -3px 0 #1F1E1E,
+                 -3px 0 0 #1F1E1E,3px 0 0 #1F1E1E;
+    /* 配置 */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ランク表示のスタイル指定 */
+.rank{
+    text-align: center;
+    color: #F10A70;
+    font-size: 200px;
+    text-shadow: 3px 3px 0 #1F1E1E,-3px -3px 0 #1F1E1E,
+                 -3px 3px 0 #1F1E1E,3px -3px 0 #1F1E1E,
+                 0px 3px 0 #1F1E1E,0px -3px 0 #1F1E1E,
+                 -3px 0 0 #1F1E1E,3px 0 0 #1F1E1E;
+    /* 配置 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ボタン群のスタイル指定 */
+.buttons{
+    text-align: center;
+    color: #FDCD01;
+    font-size: 40px;
+    text-shadow: 2px 2px 0 #1F1E1E,-2px -2px 0 #1F1E1E,
+                 -2px 2px 0 #1F1E1E,2px -2px 0 #1F1E1E,
+                 0px 2px 0 #1F1E1E,0px -2px 0 #1F1E1E,
+                 -2px 0 0 #1F1E1E,2px 0 0 #1F1E1E;
+/* ボタン群の配置 */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
