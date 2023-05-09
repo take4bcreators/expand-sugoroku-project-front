@@ -5,10 +5,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    // width: auto;
-    // height: 90vh;
-    
-    // z-index 設定のために付与
     position: relative;
-    z-index: g.$zindex-menu;
+    z-index: g.$zindex-setup-board-menu;
 }

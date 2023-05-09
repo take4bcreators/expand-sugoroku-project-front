@@ -7,8 +7,7 @@
     flex-direction: column;
     width: auto;
     height: 90vh;
-    
-    // z-index 設定のために付与
+    top: 50px;
     position: relative;
     z-index: g.$zindex-menu;
 }

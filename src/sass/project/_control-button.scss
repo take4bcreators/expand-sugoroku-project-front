@@ -1,7 +1,11 @@
 @use "../global" as g;
 
-.p-button svg {
-    // box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+.p-control-button {
+    position: relative;
+    z-index: g.$zindex-control-button;
+}
+
+.p-control-button svg {
     filter: drop-shadow(10px 20px 50px rgba($color: #000, $alpha: 0.3));
     cursor: pointer;
     transition: scale .3s;

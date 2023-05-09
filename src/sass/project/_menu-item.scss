@@ -1,38 +1,12 @@
 @use "../global" as g;
 
-
-// $_menu_item_width: 421px;
-// $_menu_item_height: 101px;
-// $_menu_item_margin: 34px;
-
-// $_boader-size: 10px;
-// $_icon-size: 100px;
-// $_icon-svg-size: 50px;
-
-// $_item-text-size: 3rem;
-
-
-
-// $_menu_item_width: unquote('min(420px, 50vw)');
-// $_menu_item_width: 420px;
-// $_menu_item_height: 100px;
-// $_menu_item_width: 210px;
-// $_menu_item_height: 50px;
-
-
-// $_menu_item_height: 90px;
-// $_menu_item_height: unquote('min(90px, 20vw)');
 $_menu_item_height: unquote('min(90px, 20vw)');
 $_menu_item_width: calc($_menu_item_height * 4.2);
-
 $_menu_item_margin: calc($_menu_item_height * 0.35);
 $_boader-size: calc($_menu_item_height * 0.1);
 $_icon-size: $_menu_item_height;
 $_icon-svg-size: calc($_menu_item_height * 0.5);
-
 $_item-text-size: calc($_menu_item_height * 0.3);
-
-
 
 .p-menu-item {
     display: flex;
@@ -40,18 +14,11 @@ $_item-text-size: calc($_menu_item_height * 0.3);
     align-items: center;
     width: $_menu_item_width;
     height: $_menu_item_height;
-    
     border: $_boader-size solid g.$color-menu-border;
-    // border-radius: 50.5px;
     border-radius: calc($_menu_item_height * 0.5);
     box-sizing: border-box;
-    
     margin: $_menu_item_margin;
-    // margin: calc($_menu_item_height * 0.35);
-    
     box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
-    
-    
     &--bg01 {
         background-color: g.$color-menu-bg01;
     }
@@ -64,17 +31,12 @@ $_item-text-size: calc($_menu_item_height * 0.3);
     &--bg04 {
         background-color: g.$color-menu-bg04;
     }
-    
     transition: scale .3s, box-shadow .3s;
     &:hover {
-        // scale: 0.98;
         scale: 1.06;
-        // box-shadow: 5px 10px 25px rgba($color: #000, $alpha: 0.3);
         box-shadow: 15px 25px 25px rgba($color: #000, $alpha: 0.3);
     }
-    
 }
-
 
 .p-menu-item__icon {
     width: $_icon-size;
@@ -100,10 +62,6 @@ $_item-text-size: calc($_menu_item_height * 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-    // font-size: 3rem;
     font-size: $_item-text-size;
     @include g.font-menu;
 }
-
-
-

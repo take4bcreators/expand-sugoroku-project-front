@@ -69,9 +69,9 @@ export default ({ playerNum }: ThisPageProps) => {
             }
           </form>
         </div>
-        <div className="p-control-buttons-wrapper">
+        <div className="p-control-buttons-container">
           <div className="p-control-buttons">
-              <div className="p-button">
+              <div className="p-control-button">
                 <Link to='./?state=player'>
                   <SvgButtonBack />
                 </Link>

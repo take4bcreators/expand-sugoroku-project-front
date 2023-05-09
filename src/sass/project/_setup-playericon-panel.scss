@@ -1,10 +1,8 @@
 @use "../global" as g;
 
-
-$_height: unquote('min(80px, 20vw)');
+$_height: unquote('min(90px, 20vw)');
 $_width: $_height;
 $_boader-size: calc($_height * 0.1);
-
 
 .p-setup-playericon-panel {
     display: flex;
@@ -12,31 +10,20 @@ $_boader-size: calc($_height * 0.1);
     align-items: center;
     width: $_width;
     height: $_height;
-    
-    // border: $_boader-size solid g.$color-menu-border;
-    border: $_boader-size solid #F9F9F9;
-    
+    border: $_boader-size solid g.$color-setup-playericon-panel-border;
     border-radius: 50%;
-    
-    background-color: #FFF;
-    
+    background-color: g.$color-setup-playericon-panel-bg;
     margin: 20px;
     box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
-    
-    
     cursor: pointer;
-    transition: scale .3s;
+    transition: scale .3s, border-color .3s, background-color .3s;
     &:hover {
-        // scale: 1.06;
         scale: 1.1;
     }
-    
-    
 }
 
 .p-setup-playericon-panel:has(.p-setup-playericon-radio:checked) {
-    // background-color: g.$color-board-menu-select-bg;
-    border-color: g.$color-board-menu-select-bg;
+    border-color: g.$color-setup-playericon-panel-border-checked;
+    background-color: g.$color-setup-playericon-panel-bg-checked;
     scale: 0.98;
 }
-

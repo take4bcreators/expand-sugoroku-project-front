@@ -76,14 +76,14 @@ export default ({ data }: ThisPageProps) => {
             })
           }
         </form>
-        <div className="p-control-buttons-wrapper">
+        <div className="p-control-buttons-container">
           <div className="p-control-buttons">
-              <div className="p-button">
+              <div className="p-control-button">
                 <Link to='/'>
                   <SvgButtonExit />
                 </Link>
               </div>
-              <div className="p-button">
+              <div className="p-control-button">
                 <span onClick={checkInput}>
                   <SvgButtonNext />
                 </span>

@@ -2,18 +2,8 @@
 
 .p-control-buttons {
     display: flex;
-    // justify-content: center;
-    // justify-content: space-around;
-    // justify-content: space-evenly;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: flex-end;
     width: 90vw;
-    // height: 90vh;
-    
-    // position: fixed;
-    // bottom: 5vh;
-    // left: 0;
-    
-    // z-index: g.$zindex-menu;
+    height: 0;
 }

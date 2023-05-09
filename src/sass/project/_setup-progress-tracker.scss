@@ -1,89 +1,60 @@
 @use "../global" as g;
 
-
-
-// $_ps-width: 240px;
-$_ps-width: unquote('min(240px, 20vw)');
-
-$_ps-circle-size: calc($_ps-width * 0.17);
-$_ps-bar-width: calc($_ps-width - $_ps-circle-size);
-$_ps-bar-height: calc($_ps-width * 0.07);
-
-
-$_ps-current-circle-size: calc($_ps-circle-size * 1.5);
+$_pt-width: unquote('min(240px, 20vw)');
+$_pt-circle-size: calc($_pt-width * 0.17);
+$_pt-bar-width: calc($_pt-width - $_pt-circle-size);
+$_pt-bar-height: calc($_pt-width * 0.07);
+$_pt-current-circle-size: calc($_pt-circle-size * 1.5);
 
 
 .p-setup-progress-tracker {
     display: flex;
     justify-content: center;
-    // justify-content: space-around;
-    // justify-content: space-between;
     align-items: center;
-    
-    // width: 240px;
-    // width: $_ps-width;
-    // width: $_ps-width;
-    // width: unquote('min(100px, 20vw)');
-    // width: 300px;
     width: 100%;
-    
-    // margin: 20px;
     margin: 20px 0;
 }
 
-
 .p-setup-progress-tracker__circlewrapper {
     display: flex;
-    // justify-content: center;
-    // justify-content: space-around;
     justify-content: space-between;
     align-items: center;
-    
-    // width: 300px;
-    width: $_ps-width;
-    
-    
+    width: $_pt-width;
 }
-
 
 .p-setup-progress-tracker__circle {
     border-radius: 50%;
-    border: 5px solid #fff;
-    width: $_ps-circle-size;
-    height: $_ps-circle-size;
-    // width: 50px;
-    // height: 50px;
-    background-color: #EF5350;
-    
-    position: relative;
-    z-index: 900;
-    
-    // outline: 8px solid #EF5350;
+    border: 5px solid g.$color-setup-progress-tracker-border;
+    width: $_pt-circle-size;
+    height: $_pt-circle-size;
+    background-color: g.$color-setup-progress-tracker-inner;
+    position: relative; // z-index適用のために付与
+    z-index: g.$zindex-setup-progress-tracker__circle;
 }
 
 .p-setup-progress-tracker__circle.is-current {
-    outline: 8px solid #EF5350;
+    outline: 8px solid g.$color-setup-progress-tracker-outer;
+    animation: scale-change 5s ease-in-out infinite;
 }
 
-
+@keyframes scale-change {
+    0% {
+        scale: 0.85;
+    }
+    50% {
+        scale: 1.0;
+    }
+    100% {
+        scale: 0.85;
+    }
+}
 
 .p-setup-progress-tracker__bar {
     position: absolute;
-    z-index: 700;
-    // z-index: 1000;
-    
-    background-color: #fff;
-    // width: 100px;
-    // width: 100%;
-    
-    // width: inherit;
-    // height: 20px;
-    
-    width: $_ps-bar-width;
-    height: $_ps-bar-height;
-    
+    z-index: g.$zindex-setup-progress-tracker__bar;
+    background-color: g.$color-setup-progress-tracker-border;
+    width: $_pt-bar-width;
+    height: $_pt-bar-height;
     inset: auto 0;
     margin: 0 auto;
 }
-
-

@@ -1,38 +1,26 @@
 @use "../global" as g;
 
 $_panel_height: unquote('min(60px, 20vw)');
-
 $_border-radius: calc($_panel_height * 0.2);
-
 $_text_margin: calc($_panel_height * 0.1);
 $_text-size: calc($_panel_height * 0.3);
 
-
 .p-setup-player-input {
-    // background-color: #E6E6E6;
-    background-color: #f4f3f3;
+    background-color: g.$color-setup-player-input-bg;
     width: 70%;
     margin-left: $_text_margin;
     border-radius: $_border-radius;
-    
-    color: #474747;
+    color: g.$color-setup-player-input-text;
     font-size: $_text-size;
-    
 }
 
 .p-setup-player-input__inner {
     width: calc(100% - ($_text_margin * 2));
-    // margin: 5px;
     margin: $_text_margin;
-    // font-size: 12px;
-    // font-size: $_text-size;
-    // color: #474747;
-    
     &::placeholder {
         opacity: 0.3;
     }
 }
-
 
 .p-setup-player-input--confirmation {
     background-color: inherit;

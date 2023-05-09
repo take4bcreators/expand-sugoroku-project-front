@@ -91,12 +91,10 @@ export default () => {
                       />
                     </Link>
                   </div>
-                  {/* <label key={seq} className="c-label"> */}
                   <label key={seq} className="p-setup-player-input">
                     <input
                       type="text"
                       name="playername"
-                      // className="c-textbox"
                       className="p-setup-player-input__inner"
                       placeholder="名前を入力"
                       onChange={userChange}
@@ -109,21 +107,15 @@ export default () => {
               )
             })
           }
-          {/* <button type="button" name="prevbtn" className="c-button">
-            <Link to='./?state=board'>戻る</Link>
-          </button>
-          <button type="button" name="nextbtn" className="c-button">
-            <span onClick={checkInput}>次のSTEPに進む</span>
-          </button> */}
         </form>
-        <div className="p-control-buttons-wrapper">
+        <div className="p-control-buttons-container">
           <div className="p-control-buttons">
-              <div className="p-button">
+              <div className="p-control-button">
                 <Link to='./?state=board'>
                   <SvgButtonPrev />
                 </Link>
               </div>
-              <div className="p-button">
+              <div className="p-control-button">
                 <span onClick={checkInput}>
                   <SvgButtonNext />
                 </span>

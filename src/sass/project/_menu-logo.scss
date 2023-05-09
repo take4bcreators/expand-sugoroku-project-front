@@ -1,22 +1,10 @@
 @use "../global" as g;
 
-// .p-menu-logo {
-    
-// }
-
-// $_menu-logo-height: 80px;
-// $_menu-logo-margin: 10px;
-
-// $_menu-logo-height: 80px;
 $_menu-logo-height: unquote('min(80px, 15vw)');
 $_menu-logo-margin: calc($_menu-logo-height * 0.15);
 
 .p-menu-logo svg {
-    // height: 50px;
-    // height: 80px;
     height: $_menu-logo-height;
     width: auto;
-    // margin: 10px 0;
     margin: $_menu-logo-margin 0;
 }
-

@@ -1,33 +1,18 @@
 @use "../global" as g;
 
-
-// $_height: unquote('min(80px, 20vw)');
-// $_width: $_height;
-// $_boader-size: calc($_height * 0.1);
-
-
-
 .p-setup-playericon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    
     flex-wrap: wrap;
-    
-    width: 50vw;
-    
-    // width: $_width;
-    // height: $_height;
-    
-    // // border: $_boader-size solid g.$color-menu-border;
-    // border: $_boader-size solid #F9F9F9;
-    
-    // border-radius: 50%;
-    
-    // background-color: #FFF;
-    
-    
     position: relative;
-    z-index: 900;
-    
+    margin-top: 20px;
+    z-index: g.$zindex-setup-playericon-container;
+    width: 85vw;
+    @include g.mq(tab) {
+        width: 70vw;
+    }
+    @include g.mq(pc) {
+        width: 50vw;
+    }
 }

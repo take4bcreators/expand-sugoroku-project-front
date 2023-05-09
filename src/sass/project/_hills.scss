@@ -17,12 +17,11 @@ $_hills-left: -25vw;
     }
 }
 
-@include g.mq(L) {
+@include g.mq(pc) {
     .p-hills {
         top: 82vh;
     }
 }
-
 
 .p-hills__hill {
     &--left {

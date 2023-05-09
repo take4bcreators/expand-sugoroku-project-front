@@ -16,7 +16,7 @@ $_buildings-width: 150px;
     }
 }
 
-@include g.mq(L) {
+@include g.mq(pc) {
     .p-buildings {
         top: 65vh;
     }

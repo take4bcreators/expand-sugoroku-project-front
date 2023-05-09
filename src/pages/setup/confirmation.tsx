@@ -151,14 +151,14 @@ export default ({ data }: ThisPageProps) => {
           }
         </ul>
       </section>
-      <div className="p-control-buttons-wrapper">
+      <div className="p-control-buttons-container">
         <div className="p-control-buttons">
-          <div className="p-button">
+          <div className="p-control-button">
             <Link to='./?state=player'>
               <SvgButtonPrev />
             </Link>
           </div>
-          <div className="p-button">
+          <div className="p-control-button">
             <Link to='/playing/' onClick={() => {
               saveNewGameData();
               removeSetupData();

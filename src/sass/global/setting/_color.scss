@@ -6,6 +6,8 @@ $_palette-FFF: #FFF;
 $_palette-000: #000;
 $_palette-F9F9F9: #F9F9F9;
 $_palette-989898: #989898;
+$_palette-474747: #474747;
+$_palette-F4F3F3: #F4F3F3;
 
 $_palette-FF4081: #FF4081;
 $_palette-536DFE: #536DFE;
@@ -30,6 +32,9 @@ $_palette-AB47BC: #AB47BC;
 $_palette-FBC02D: #FBC02D;
 
 $_palette-E91E63: #E91E63;
+$_palette-EF5350: #EF5350;
+$_palette-EC407A: #EC407A;
+
 
 
 // -------------------------
@@ -38,10 +43,7 @@ $_palette-E91E63: #E91E63;
 
 // global
 $color-body-bg: $_palette-40C4FF;
-// $color-text: $_palette-FFF;
-// $color-link: $_palette-0066c0;
 $color-wrapper-bg: $_palette-40C4FF;
-// $color-main-bg: $_palette-FFF;
 
 // top
 $color-menu-border: $_palette-FFF;
@@ -60,11 +62,28 @@ $color-building-left: $_palette-FFF;
 $color-building-center: $_palette-FFF;
 $color-building-right: $_palette-FFF;
 
-// setup
-$color-board-menu-text: $_palette-FFF;
-$color-board-menu-bg: $_palette-989898;
-$color-board-menu-select-bg: $_palette-E91E63;
+// setup board
+$color-setup-board-menu-text: $_palette-FFF;
+$color-setup-board-menu-bg: $_palette-989898;
+$color-setup-board-menu-select-bg: $_palette-E91E63;
 
+// setup progress-tracker
+$color-setup-progress-tracker-inner: $_palette-EF5350;
+$color-setup-progress-tracker-outer: $_palette-EF5350;
+$color-setup-progress-tracker-border: $_palette-FFF;
 
+// setup player
+$color-setup-player-input-text: $_palette-474747;
+$color-setup-player-input-bg: $_palette-F4F3F3;
+$color-setup-player-icon-border: $_palette-F9F9F9;
+$color-setup-player-icon-bg: $_palette-FFF;
+$color-setup-player-panel-border: $_palette-F9F9F9;
+$color-setup-player-panel-bg: $_palette-F9F9F9;
+
+// setup playericon
+$color-setup-playericon-panel-border: $_palette-F9F9F9;
+$color-setup-playericon-panel-bg: $_palette-FFF;
+$color-setup-playericon-panel-border-checked: $_palette-EC407A;
+$color-setup-playericon-panel-bg-checked: $_palette-FFF;
 
 
