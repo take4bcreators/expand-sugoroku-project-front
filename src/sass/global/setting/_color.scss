@@ -34,6 +34,7 @@ $_palette-FBC02D: #FBC02D;
 $_palette-E91E63: #E91E63;
 $_palette-EF5350: #EF5350;
 $_palette-EC407A: #EC407A;
+$_palette-2979FF: #2979FF;
 
 
 
@@ -85,5 +86,18 @@ $color-setup-playericon-panel-border: $_palette-F9F9F9;
 $color-setup-playericon-panel-bg: $_palette-FFF;
 $color-setup-playericon-panel-border-checked: $_palette-EC407A;
 $color-setup-playericon-panel-bg-checked: $_palette-FFF;
+
+// svg icon base
+$color-svg-button-next-base: $_palette-F44336;
+$color-svg-button-prev-base: $_palette-2979FF;
+$color-svg-button-back-base: $_palette-388E3C;
+$color-svg-button-exit-base: $_palette-1E88E5;
+
+// svg icon accent
+$color-svg-button-next-accent: $_palette-FFF;
+$color-svg-button-prev-accent: $_palette-FFF;
+$color-svg-button-back-accent: $_palette-FFF;
+$color-svg-button-exit-accent: $_palette-FFF;
+
 
 

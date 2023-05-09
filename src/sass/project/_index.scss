@@ -21,7 +21,12 @@
 
 @use "./setup-confirmation-container";
 
-
 @use "./control-buttons-container";
 @use "./control-buttons";
 @use "./control-button";
+
+@use "./svg-button-next";
+@use "./svg-button-prev";
+@use "./svg-button-back";
+@use "./svg-button-exit";
+
