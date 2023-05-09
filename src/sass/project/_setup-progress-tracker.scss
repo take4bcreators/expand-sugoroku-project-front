@@ -1,11 +1,12 @@
 @use "../global" as g;
 
-$_pt-width: unquote('min(240px, 20vw)');
+$_pt-width: unquote('min(240px, 30vw)');
 $_pt-circle-size: calc($_pt-width * 0.17);
+$_pt-circle-border-size: calc($_pt-circle-size * 0.14);
+$_pt-circle-shadow-size: calc($_pt-circle-size * 0.2);
 $_pt-bar-width: calc($_pt-width - $_pt-circle-size);
 $_pt-bar-height: calc($_pt-width * 0.07);
 $_pt-current-circle-size: calc($_pt-circle-size * 1.5);
-
 
 .p-setup-progress-tracker {
     display: flex;
@@ -24,7 +25,7 @@ $_pt-current-circle-size: calc($_pt-circle-size * 1.5);
 
 .p-setup-progress-tracker__circle {
     border-radius: 50%;
-    border: 5px solid g.$color-setup-progress-tracker-border;
+    border: $_pt-circle-border-size solid g.$color-setup-progress-tracker-border;
     width: $_pt-circle-size;
     height: $_pt-circle-size;
     background-color: g.$color-setup-progress-tracker-inner;
@@ -33,7 +34,7 @@ $_pt-current-circle-size: calc($_pt-circle-size * 1.5);
 }
 
 .p-setup-progress-tracker__circle.is-current {
-    outline: 8px solid g.$color-setup-progress-tracker-outer;
+    box-shadow: 0 0 0 $_pt-circle-shadow-size g.$color-setup-progress-tracker-outer;
     animation: scale-change 5s ease-in-out infinite;
 }
 
