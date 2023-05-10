@@ -12,13 +12,6 @@ $s-rank2: #95BDFF;
 $s-rank3: #E96479;
 $a-rank: #C0C0C0;
 $b-rank: #CD7F32;
-// $scl1: 320px;
-// $scl2: 520px;
-// $scl2-max: 959px;
-// $scl3: 960px;
-// $scl1_wid: 100vw;
-// $scl2_wid: 55vw;
-// $scl3_wid: 50vw;
 
 body {
     user-select: none;
@@ -54,14 +47,6 @@ body {
         width: 100vw;
     }
 }
-// 横画面
-// @media screen and (orientation: landscape) and (min-width:320px) { 
-//     .container {
-//         width: 100vw;
-//         height: 70vh;
-//     }
-// }
-
 
 @media screen and (min-width:520px) and (max-width:959px) {
     .container {
@@ -259,7 +244,6 @@ font-weight: bold;
         height: 50vh;
     }
 }
-
 
 .popbox li {
     margin: 0;

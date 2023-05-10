@@ -4,7 +4,7 @@
 import { SugorokuConnection } from './SugorokuConnection.js';
 
 // 設定
-const FINISH_NUMBER = 3; // 終わる回数
+const FINISH_NUMBER = 15; // 終わる回数
 const S_RANK = '011.999'; // Sランクの秒数
 const A_RANK = '014.499'; // Aランクの秒数
 const B_RANK = '019.999'; // Bランクの秒数
