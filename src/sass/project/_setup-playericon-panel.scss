@@ -37,6 +37,11 @@ $_shadow-blur-radius: calc($_height * 0.83);
     display: none; // iPhoneでは内部の input が消えないので親要素で消す
 }
 
+.p-setup-playericon-panel__image img {
+    width: 57px;
+    height: 57px;
+}
+
 // @remind has 未対応ブラウザ 対応を行う
 // 選択時（:has 未対応ブラウザ用 … 背景色を変える）
 // .p-setup-playericon-radio:checked + .p-setup-playericon-panel__image {

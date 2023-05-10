@@ -34,10 +34,11 @@ export namespace AppConst {
     //   GraphQLでの実装による自動更新も可能だが、表示順を制御したいためここで定義する形にする
     export const PLAYER_ICON_FILES: string[] = [
         'iconbu_sinpuru_na_inu_san.png',
-        'iconbu_sinpuru_na_kuma_san.png',
-        'iconbu_sinpuru_na_mikeneko_san_3.png',
         'iconbu_sinpuru_na_usagi_san.png',
+        'iconbu_sinpuru_na_mikeneko_san_3.png',
+        'iconbu_sinpuru_na_kuma_san.png',
         'iconbu_kitune_san.png',
+        'iconbu_yurui_pengin_san.png',
         'iconbu_ahiru_san.png',
         'iconbu_kaeru_san.png',
         'iconbu_osakana_san.png',
