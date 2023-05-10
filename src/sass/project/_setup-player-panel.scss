@@ -1,33 +1,37 @@
 @use "../global" as g;
 
-$_menu_item_height: unquote('min(60px, 20vw)');
-$_menu_item_width: calc($_menu_item_height * 5);
-$_menu_item_margin: calc($_menu_item_height * 0.4);
-$_menu_item_padding: calc($_menu_item_height * 0.3);
-$_boader-size: calc($_menu_item_height * 0.1);
-$_icon-size: $_menu_item_height;
-$_icon-svg-size: calc($_menu_item_height * 0.5);
-$_item-text-size: calc($_menu_item_height * 0.3);
+$_height: unquote('min(60px, 14vw)');
+$_width: calc($_height * 5);
+$_margin-tb: calc($_height * 0.4);
+$_padding-lr: calc($_height * 0.3);
+$_boader-size: calc($_height * 0.1);
+$_icon-size: $_height;
+$_icon-svg-size: calc($_height * 0.5);
+$_item-text-size: calc($_height * 0.3);
+$_shadow-offset-x: calc($_height * 0.16);
+$_shadow-offset-y: calc($_height * 0.33);
+$_shadow-blur-radius: calc($_height * 0.83);
 
 .p-setup-player-panel {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: $_menu_item_width;
-    height: $_menu_item_height;
+    width: $_width;
+    height: $_height;
     border: $_boader-size solid g.$color-setup-player-panel-border;
-    border-radius: calc($_menu_item_height * 0.4);
+    border-radius: calc($_height * 0.4);
     box-sizing: border-box;
-    margin: $_menu_item_margin 0;
-    padding: 0 $_menu_item_padding;
+    margin: $_margin-tb 0;
+    padding: 0 $_padding-lr;
     color: g.$color-setup-board-menu-text;
     font-size: $_item-text-size;
     @include g.font-setup-board;
-    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    box-shadow: $_shadow-offset-x $_shadow-offset-y $_shadow-blur-radius rgba($color: #000, $alpha: 0.3);
     background-color: g.$color-setup-player-panel-bg;
     z-index: g.$zindex-setup-player-panel;
 }
 
 .p-setup-player-panel--confirmation {
     box-shadow: none;
+    margin: calc($_margin-tb * 1.5) 0;
 }

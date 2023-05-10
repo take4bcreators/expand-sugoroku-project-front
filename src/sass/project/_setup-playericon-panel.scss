@@ -3,6 +3,10 @@
 $_height: unquote('min(90px, 20vw)');
 $_width: $_height;
 $_boader-size: calc($_height * 0.1);
+$_margin: calc($_width * 0.25);
+$_shadow-offset-x: calc($_height * 0.16);
+$_shadow-offset-y: calc($_height * 0.33);
+$_shadow-blur-radius: calc($_height * 0.83);
 
 .p-setup-playericon-panel {
     display: flex;
@@ -13,13 +17,14 @@ $_boader-size: calc($_height * 0.1);
     border: $_boader-size solid g.$color-setup-playericon-panel-border;
     border-radius: 50%;
     background-color: g.$color-setup-playericon-panel-bg;
-    margin: 20px;
-    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    margin: $_margin;
+    box-shadow: $_shadow-offset-x $_shadow-offset-y $_shadow-blur-radius rgba($color: #000, $alpha: 0.3);
     cursor: pointer;
     transition: scale .3s, border-color .3s, background-color .3s;
     &:hover {
         scale: 1.1;
     }
+    z-index: g.$zindex-setup-playericon-panel;
 }
 
 .p-setup-playericon-panel:has(.p-setup-playericon-radio:checked) {
@@ -27,3 +32,23 @@ $_boader-size: calc($_height * 0.1);
     background-color: g.$color-setup-playericon-panel-bg-checked;
     scale: 0.98;
 }
+
+.p-setup-playericon-panel__radio {
+    display: none; // iPhoneでは内部の input が消えないので親要素で消す
+}
+
+// @remind has 未対応ブラウザ 対応を行う
+// 選択時（:has 未対応ブラウザ用 … 背景色を変える）
+// .p-setup-playericon-radio:checked + .p-setup-playericon-panel__image {
+    
+// }
+
+// .p-setup-playericon-panel__bg {
+//     width: $_width;
+//     height: $_height;
+//     // border: $_boader-size solid g.$color-setup-playericon-panel-border;
+//     border-radius: 50%;
+//     background-color: g.$color-setup-playericon-panel-bg;
+//     position: absolute;
+// }
+

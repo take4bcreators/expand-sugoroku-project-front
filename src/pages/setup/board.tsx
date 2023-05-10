@@ -60,17 +60,21 @@ export default ({ data }: ThisPageProps) => {
             boardIDs.map((boardID, index) => {
               return (
                 <label key={index} className="p-setup-board-menu-item">
-                  <input
-                    type="radio"
-                    name="boardradio"
-                    className="p-setup-radio"
-                    defaultValue={boardNames[index]}
-                    onChange={changeStateAndStorage}
-                    checked={boardID === selectedBoard}
-                    data-boardid={boardID}
-                    key={index}
-                  />
-                  {boardNames[index]}
+                  <span className="p-setup-board-menu-item__radio">
+                    <input
+                      type="radio"
+                      name="boardradio"
+                      className="p-setup-board-menu-radio"
+                      defaultValue={boardNames[index]}
+                      onChange={changeStateAndStorage}
+                      checked={boardID === selectedBoard}
+                      data-boardid={boardID}
+                      key={index}
+                    />
+                  </span>
+                  <span className="p-setup-board-menu-item__text">
+                    {boardNames[index]}
+                  </span>
                 </label>
               )
             })

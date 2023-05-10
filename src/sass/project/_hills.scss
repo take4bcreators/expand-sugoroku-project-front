@@ -35,13 +35,15 @@ $_hills-left: -25vw;
 }
 
 @keyframes hill-scale-01 {
-      0% {scale: 0.85;}
-     50% {scale: 1.0;}
-    100% {scale: 0.85;}
+// Safari 対応のため、個々のプロパティではなく transform で指定する (SVGのみ)
+      0% {transform: scale(0.85);}
+     50% {transform: scale(1.0);}
+    100% {transform: scale(0.85);}
 }
 
 @keyframes hill-scale-02 {
-      0% {scale: 0.93;}
-     50% {scale: 1.0;}
-    100% {scale: 0.93;}
+// Safari 対応のため、個々のプロパティではなく transform で指定する (SVGのみ)
+      0% {transform: scale(0.93);}
+     50% {transform: scale(1.0);}
+    100% {transform: scale(0.93);}
 }

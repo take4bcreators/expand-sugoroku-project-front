@@ -9,7 +9,7 @@ import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss';
 
 import PlayingLayout from '../../components/PlayingLayout';
-import TemporallyLogoText from '../../icon/svg/TemporallyLogoText';
+import SvgTemporallyLogoText from '../../icon/svg/SvgTemporallyLogoText';
 
 
 type ThisPageProps = {
@@ -52,7 +52,7 @@ export default ({ data }: ThisPageProps) => {
       <main>
         <section className="p-setup">
           <h1 className="p-setup-logo">
-            <TemporallyLogoText />
+            <SvgTemporallyLogoText />
           </h1>
           <div>
               {usePageElem}
@@ -69,6 +69,7 @@ export const Head = () => {
   const PAGE_TITLE: string = 'はじめから | TEMPORALLY';
   return (
     <>
+      <body className="f-sg-body" />
       <title>{PAGE_TITLE}</title>
     </>
   );

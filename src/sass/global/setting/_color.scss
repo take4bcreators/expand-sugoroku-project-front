@@ -47,13 +47,13 @@ $color-body-bg: $_palette-40C4FF;
 $color-wrapper-bg: $_palette-40C4FF;
 
 // top
-$color-menu-border: $_palette-FFF;
-$color-menu-icon-fill: $_palette-FFF;
-$color-menu-text: $_palette-FFF;
-$color-menu-bg01: $_palette-FF4081;
-$color-menu-bg02: $_palette-536DFE;
-$color-menu-bg03: $_palette-C0CA33;
-$color-menu-bg04: $_palette-FFC107;
+$color-top-menu-border: $_palette-FFF;
+$color-top-menu-icon-fill: $_palette-FFF;
+$color-top-menu-text: $_palette-FFF;
+$color-top-menu-bg01: $_palette-FF4081;
+$color-top-menu-bg02: $_palette-536DFE;
+$color-top-menu-bg03: $_palette-C0CA33;
+$color-top-menu-bg04: $_palette-FFC107;
 
 // footer
 $color-footer-copyright: $_palette-FFF;
@@ -67,6 +67,8 @@ $color-building-right: $_palette-FFF;
 $color-setup-board-menu-text: $_palette-FFF;
 $color-setup-board-menu-bg: $_palette-989898;
 $color-setup-board-menu-select-bg: $_palette-E91E63;
+$color-setup-board-menu-select-text-nohas: $_palette-EF5350;
+$color-setup-board-menu-border: $_palette-FFF;
 
 // setup progress-tracker
 $color-setup-progress-tracker-inner: $_palette-EF5350;

@@ -47,22 +47,24 @@ export default ({ playerNum }: ThisPageProps) => {
               AppConst.PLAYER_ICON_FILES.map((playerIconFile, index) => {
                 return (
                   <label key={index} className="p-setup-playericon-panel">
-                    <input
-                      type="radio"
-                      name="playericonradio"
-                      className="p-setup-playericon-radio"
-                      onChange={changeStateAndStorage}
-                      checked={playerIconFile === playerIconName}
-                      data-playericon={playerIconFile}
-                    />
-                    <div>
+                    <span className="p-setup-playericon-panel__radio">
+                      <input
+                        type="radio"
+                        name="playericonradio"
+                        className="p-setup-playericon-radio"
+                        onChange={changeStateAndStorage}
+                        checked={playerIconFile === playerIconName}
+                        data-playericon={playerIconFile}
+                      />
+                    </span>
+                    <span className="p-setup-playericon-panel__image">
                       <img
                         src={AppConst.PLAYER_ICON_DIR + '/' + playerIconFile}
                         alt="プレイヤーアイコン"
                         width="50"
                         height="50"
                       />
-                    </div>
+                    </span>
                   </label>
                 )
               })

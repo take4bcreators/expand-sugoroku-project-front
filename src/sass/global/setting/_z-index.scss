@@ -19,16 +19,19 @@ $zindex-setup: 600;
 
 $zindex-setup-progress-tracker__bar: 700;
 $zindex-setup-progress-tracker__circle: 800;
-$zindex-setup-confirmation-container: 800;
 
-$zindex-setup-playericon-container: 800;
 
-$zindex-setup-player-container: auto;
-$zindex-setup-player-panel: 100;
 
 $zindex-setup-board-menu: auto;
-$zindex-setup-board-menu-item: 200;
+$zindex-setup-board-menu-item: auto;
 
-$zindex-control-buttons-container: 300;
+$zindex-setup-player-container: auto;
+$zindex-setup-player-panel: auto;
+
+$zindex-setup-playericon-container: auto;
+$zindex-setup-playericon-panel: auto;
+
+$zindex-setup-confirmation-container: auto;
+
+$zindex-control-buttons-container: 100;
 $zindex-control-button: auto;
-

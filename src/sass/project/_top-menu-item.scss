@@ -1,0 +1,71 @@
+@use "../global" as g;
+
+// $_item_height: unquote('min(90px, 20vw)');
+// $_item_height: unquote('min(85px, 18vw)');
+$_item_height: unquote('min(85px, 18vmin)');
+$_item_width: calc($_item_height * 4.2);
+// $_item_margin: calc($_item_height * 0.35);
+$_item_margin-tb: calc($_item_height * 0.2);
+$_boader-size: calc($_item_height * 0.1);
+$_icon-size: $_item_height;
+$_icon-svg-size: calc($_item_height * 0.5);
+$_item-text-size: calc($_item_height * 0.3);
+
+.p-top-menu-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: $_item_width;
+    height: $_item_height;
+    border: $_boader-size solid g.$color-top-menu-border;
+    border-radius: calc($_item_height * 0.5);
+    box-sizing: border-box;
+    // margin: $_item_margin;
+    margin: $_item_margin-tb 0;
+    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    &--bg01 {
+        background-color: g.$color-top-menu-bg01;
+    }
+    &--bg02 {
+        background-color: g.$color-top-menu-bg02;
+    }
+    &--bg03 {
+        background-color: g.$color-top-menu-bg03;
+    }
+    &--bg04 {
+        background-color: g.$color-top-menu-bg04;
+    }
+    transition: scale .3s, box-shadow .3s;
+    &:hover {
+        scale: 1.06;
+        box-shadow: 15px 25px 25px rgba($color: #000, $alpha: 0.3);
+    }
+}
+
+.p-top-menu-item__icon {
+    width: $_icon-size;
+    height: $_icon-size;
+    border-radius: 50%;
+    border: $_boader-size solid g.$color-top-menu-border;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    translate: calc($_boader-size * -1) 0;
+}
+
+.p-top-menu-item__icon svg {
+    width: $_icon-svg-size;
+    height: $_icon-svg-size;
+    fill: g.$color-top-menu-icon-fill;
+}
+
+.p-top-menu-item__text {
+    color: g.$color-top-menu-text;
+    height: 100%;
+    width: calc(100% - ($_icon-size + $_boader-size * 2) * 1.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $_item-text-size;
+    @include g.font-top-menu;
+}

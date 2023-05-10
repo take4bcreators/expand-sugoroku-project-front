@@ -1,15 +1,16 @@
 // project 管理用
 // project 内に新しくパーシャルを作った場合は追記する
-@use "./menu";
-@use "./menu-logo";
-@use "./menu-item";
 @use "./buildings";
 @use "./hills";
+
+@use "./top";
+@use "./top-logo";
+@use "./top-menu-container";
+@use "./top-menu-item";
 
 @use "./setup";
 @use "./setup-logo";
 @use "./setup-progress-tracker";
-@use "./setup-radio";
 @use "./setup-board-menu";
 @use "./setup-board-menu-item";
 @use "./setup-player-container";

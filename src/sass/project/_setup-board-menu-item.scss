@@ -1,27 +1,30 @@
 @use "../global" as g;
 
-$_menu_item_height: unquote('min(50px, 20vw)');
-$_menu_item_width: calc($_menu_item_height * 5);
-$_menu_item_margin: calc($_menu_item_height * 0.2);
-$_boader-size: calc($_menu_item_height * 0.1);
-$_icon-size: $_menu_item_height;
-$_icon-svg-size: calc($_menu_item_height * 0.5);
-$_item-text-size: calc($_menu_item_height * 0.3);
+$_height: unquote('min(50px, 20vw)');
+$_width: calc($_height * 5);
+$_margin: calc($_height * 0.2);
+$_boader-size: calc($_height * 0.1);
+$_icon-size: $_height;
+$_icon-svg-size: calc($_height * 0.5);
+$_item-text-size: calc($_height * 0.3);
+$_shadow-offset-x: calc($_height * 0.16);
+$_shadow-offset-y: calc($_height * 0.33);
+$_shadow-blur-radius: calc($_height * 0.83);
 
 .p-setup-board-menu-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: $_menu_item_width;
-    height: $_menu_item_height;
-    border: $_boader-size solid g.$color-menu-border;
-    border-radius: calc($_menu_item_height * 0.5);
+    width: $_width;
+    height: $_height;
+    border: $_boader-size solid g.$color-setup-board-menu-border;
+    border-radius: calc($_height * 0.5);
     box-sizing: border-box;
-    margin: $_menu_item_margin;
+    margin: $_margin;
     color: g.$color-setup-board-menu-text;
     font-size: $_item-text-size;
     @include g.font-setup-board;
-    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    box-shadow: $_shadow-offset-x $_shadow-offset-y $_shadow-blur-radius rgba($color: #000, $alpha: 0.3);
     background-color: g.$color-setup-board-menu-bg;
     cursor: pointer;
     transition: scale .3s, box-shadow .3s, background-color .3s;
@@ -32,11 +35,25 @@ $_item-text-size: calc($_menu_item_height * 0.3);
     z-index: g.$zindex-setup-board-menu-item;
 }
 
-// 選択時
-.p-setup-board-menu-item:has(.p-setup-radio:checked) {
+.p-setup-board-menu-item__radio {
+    display: none; // iPhoneでは内部の input が消えないので親要素で消す
+}
+
+// @remind has 未対応ブラウザ 対応を行う
+// // 選択時（:has 未対応ブラウザ用 … 文字色を変える）
+// .p-setup-board-menu-radio:checked + .p-setup-board-menu-item__text {
+//     color: g.$color-setup-board-menu-select-text-nohas;
+// }
+
+// 選択時（:has 対応用 … 親要素のスタイルを変える）
+.p-setup-board-menu-item:has(.p-setup-board-menu-radio:checked) {
     background-color: g.$color-setup-board-menu-select-bg;
     box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
     scale: 0.98;
+    // // :has 未対応ブラウザ用スタイル戻し
+    // .p-setup-board-menu-item__text {
+    //     color: g.$color-setup-board-menu-text;
+    // }
 }
 
 // 確認画面

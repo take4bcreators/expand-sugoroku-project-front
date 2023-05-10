@@ -1,0 +1,25 @@
+@use "../global" as g;
+
+// $_height_1: unquote('min(80px, 70vh)');
+// $_height_2: unquote('min(80px, 70svh)');
+
+
+.p-top-menu-container {
+    display: flex;
+    // justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    // height: 80vh;
+    // height: 80svh;
+    height: 70vh;
+    height: 70svh;
+    // min-height: 70vh;
+    // min-height: 70svh;
+    // max-height: 70vh;
+    // max-height: 70svh;
+    top: 60px;
+    position: relative;
+    z-index: g.$zindex-menu;
+}
