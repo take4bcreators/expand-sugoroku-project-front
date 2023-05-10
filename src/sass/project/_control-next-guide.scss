@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+.p-control-next-guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: scale .3s;
+    &:hover {
+        scale: 1.06;
+    }
+}

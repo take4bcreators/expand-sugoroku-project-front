@@ -1,0 +1,56 @@
+@use "../global" as g;
+
+$_panel-height: unquote('min(80px, 10vw)');
+$_panel-width-list: (
+    'sp': calc($_panel-height * 3.8),
+    'tab': calc($_panel-height * 4),
+    'pc': calc($_panel-height * 4.1),
+);
+$_panel-padding-tb-list: (
+    'sp': calc($_panel-height * 0.6),
+    'tab': calc($_panel-height * 0.4),
+    'pc': calc($_panel-height * 0.4),
+);
+$_boader-size: calc($_panel-height * 0.1);
+$_svg_image_size: unquote('min(150px, 25vw)');
+$_panel_translate_x: calc($_svg_image_size * 0.5);
+$_text-size: calc($_panel-height * 0.25);
+$_text-margin-lr: calc($_svg_image_size * 0.2);
+$_text-width: calc(100% - calc(($_svg_image_size * 0.5) + $_text-margin-lr));
+
+.p-control-next-panel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: $_panel-height;
+    border: $_boader-size solid g.$color-top-menu-border;
+    border-radius: 9999px;  // 長方円
+    box-sizing: border-box;
+    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    background-color: g.$color-control-next-panel-bg;
+    translate: $_panel_translate_x 0;
+    z-index: g.$zindex-control-next-panel;
+    width: map-get($_panel-width-list, 'sp');
+    padding: map-get($_panel-padding-tb-list, 'sp') 0;
+    @include g.mq(tab) {
+        width: map-get($_panel-width-list, 'tab');
+        padding: map-get($_panel-padding-tb-list, 'tab') 0;
+    }
+    @include g.mq(pc) {
+        width: map-get($_panel-width-list, 'pc');
+        padding: map-get($_panel-padding-tb-list, 'pc') 0;
+    }
+}
+
+.p-control-next-panel__text {
+    color: g.$color-top-menu-text;
+    width: $_text-width;
+    margin: 0 $_text-margin-lr;
+    word-break: keep-all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: $_text-size;
+    @include g.font-control-next-panel-text;
+}

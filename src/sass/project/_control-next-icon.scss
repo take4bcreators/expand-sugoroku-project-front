@@ -1,0 +1,10 @@
+@use "../global" as g;
+
+.p-control-next-icon {
+    z-index: g.$zindex-control-next-icon;
+}
+
+.p-control-next-icon svg {
+    filter: drop-shadow(10px 20px 50px rgba($color: #000, $alpha: 0.3));
+    cursor: pointer;
+}

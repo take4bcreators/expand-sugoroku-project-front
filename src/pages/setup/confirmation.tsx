@@ -158,14 +158,21 @@ export default ({ data }: ThisPageProps) => {
               <SvgButtonPrev />
             </Link>
           </div>
-          <div className="p-control-button">
-            <Link to='/playing/' onClick={() => {
-              saveNewGameData();
-              removeSetupData();
-            }}>
-              <SvgButtonNext />
-            </Link>
-          </div>
+          <Link to='/playing/' onClick={() => {
+            saveNewGameData();
+            removeSetupData();
+          }}>
+            <div className="p-control-next-guide">
+              <div className="p-control-next-panel">
+                <div className="p-control-next-panel__text">
+                  ゲーム<wbr />スタート！
+                </div>
+              </div>
+              <div className="p-control-next-icon">
+                <SvgButtonNext />
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </>
