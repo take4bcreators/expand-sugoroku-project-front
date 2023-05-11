@@ -94,13 +94,22 @@ $color-svg-button-next-base: $_palette-F44336;
 $color-svg-button-prev-base: $_palette-2979FF;
 $color-svg-button-back-base: $_palette-388E3C;
 $color-svg-button-exit-base: $_palette-1E88E5;
+$color-svg-button-dice-base: $_palette-E91E63;
+$color-svg-button-map-base: $_palette-FF4081;
+$color-svg-button-player-base: $_palette-FF8F00;
 
 // svg icon accent
 $color-svg-button-next-accent: $_palette-FFF;
 $color-svg-button-prev-accent: $_palette-FFF;
 $color-svg-button-back-accent: $_palette-FFF;
 $color-svg-button-exit-accent: $_palette-FFF;
+$color-svg-button-dice-accent: $_palette-FFF;
+$color-svg-button-map-accent: $_palette-FFF;
+$color-svg-button-player-accent: $_palette-FFF;
 
 // control next panel
 $color-control-next-panel-bg: $_palette-F44336;
 
+// playing decideorder
+$color-playing-decideorder-dices-text: $_palette-FFF;
+$color-playing-decideorder-player-panel-ordernumber: $_palette-474747;

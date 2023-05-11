@@ -25,3 +25,8 @@
   font-family: s.$font-family-KosugiMaru;
   font-weight: 400;
 }
+
+@mixin font-playing-decideorder-dices-text {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}

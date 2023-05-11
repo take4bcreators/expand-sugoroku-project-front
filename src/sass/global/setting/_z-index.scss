@@ -11,8 +11,8 @@
 //          sticky    … 効く
 // ----------------
 
-$zindex-buildings: 300;
-$zindex-hills: 400;
+$zindex-buildings: 100;
+$zindex-hills: 200;
 $zindex-copyright: 500;
 $zindex-menu: 600;
 $zindex-setup: 600;
@@ -33,7 +33,7 @@ $zindex-setup-playericon-panel: auto;
 
 $zindex-setup-confirmation-container: auto;
 
-$zindex-control-buttons-container: 100;
+$zindex-control-buttons-container: 600;
 $zindex-control-button: auto;
 
 $zindex-control-next-icon: 100;

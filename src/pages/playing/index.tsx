@@ -120,8 +120,13 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       break;
   }
   
+  // return (
+  //   <PlayingLayout footerType={footerType}>
+  //     {usePageElem}
+  //   </PlayingLayout>
+  // );
   return (
-    <PlayingLayout footerType={footerType}>
+    <PlayingLayout footerType="Normal">
       {usePageElem}
     </PlayingLayout>
   );
