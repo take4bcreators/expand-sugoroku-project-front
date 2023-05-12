@@ -7,6 +7,7 @@ $_palette-000: #000;
 $_palette-F9F9F9: #F9F9F9;
 $_palette-989898: #989898;
 $_palette-474747: #474747;
+$_palette-333333: #333333;
 $_palette-F4F3F3: #F4F3F3;
 
 $_palette-FF4081: #FF4081;
@@ -36,6 +37,10 @@ $_palette-EF5350: #EF5350;
 $_palette-EC407A: #EC407A;
 $_palette-2979FF: #2979FF;
 
+$_palette-F9D923: #F9D923;
+$_palette-F9B823: #F9B823;
+$_palette-F06292: #F06292;
+$_palette-43A047: #43A047;
 
 
 // -------------------------
@@ -89,7 +94,7 @@ $color-setup-playericon-panel-bg: $_palette-FFF;
 $color-setup-playericon-panel-border-checked: $_palette-EC407A;
 $color-setup-playericon-panel-bg-checked: $_palette-FFF;
 
-// svg icon base
+// svg button base
 $color-svg-button-next-base: $_palette-F44336;
 $color-svg-button-prev-base: $_palette-2979FF;
 $color-svg-button-back-base: $_palette-388E3C;
@@ -98,7 +103,7 @@ $color-svg-button-dice-base: $_palette-E91E63;
 $color-svg-button-map-base: $_palette-FF4081;
 $color-svg-button-player-base: $_palette-FF8F00;
 
-// svg icon accent
+// svg button accent
 $color-svg-button-next-accent: $_palette-FFF;
 $color-svg-button-prev-accent: $_palette-FFF;
 $color-svg-button-back-accent: $_palette-FFF;
@@ -107,9 +112,29 @@ $color-svg-button-dice-accent: $_palette-FFF;
 $color-svg-button-map-accent: $_palette-FFF;
 $color-svg-button-player-accent: $_palette-FFF;
 
+// svg icon
+$color-svg-icon-point-base: $_palette-F9D923;
+$color-svg-icon-point-accent: $_palette-F9B823;
+$color-svg-icon-point-text: $_palette-FFF;
+$color-svg-icon-location: $_palette-F06292;
+$color-svg-icon-lock: $_palette-F44336;
+
+// svg object locationbar
+$color-svg-object-locationbar-bar: $_palette-43A047;
+$color-svg-object-locationbar-bg: $_palette-333333;
+$color-svg-object-locationbar-text: $_palette-333333;
+$color-svg-object-locationbar-text-bg: $_palette-FFF;
+
 // control next panel
 $color-control-next-panel-bg: $_palette-F44336;
+$color-control-next-icon-panel-svg: $_palette-F44336;
 
 // playing decideorder
 $color-playing-decideorder-dices-text: $_palette-FFF;
 $color-playing-decideorder-player-panel-ordernumber: $_palette-474747;
+
+// playing stanby
+$color-playing-stanby-playercard-bg: $_palette-F4F3F3;
+$color-playing-stanby-playercard-info-containeres-bg: $_palette-F9F9F9;
+$color-playing-stanby-playercard-text: $_palette-474747;
+$color-playing-stanby-playercard-mask-bg: $_palette-000;

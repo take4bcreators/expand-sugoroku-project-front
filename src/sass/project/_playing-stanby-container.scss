@@ -1,0 +1,12 @@
+@use "../global" as g;
+
+.p-playing-stanby-container {
+    display: flex;
+    // justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 95vh;
+    height: 95svh;
+    width: 100vw;
+}

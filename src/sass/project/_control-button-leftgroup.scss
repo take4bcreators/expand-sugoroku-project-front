@@ -1,0 +1,17 @@
+@use "../global" as g;
+
+.p-control-button-leftgroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 35vw;
+    height: 0;
+}
+
+.p-control-button-leftgroup__button {
+    svg {
+        width: 10vw;
+        height: 10vw;
+    }
+}
+

@@ -1,0 +1,139 @@
+@use "../global" as g;
+
+$_height: 50vh;
+$_shadow-offset-x: calc($_height * 0.16);
+$_shadow-offset-y: calc($_height * 0.33);
+$_shadow-blur-radius: calc($_height * 0.83);
+$_text-size: unquote('min(26px, 2.8vw)');
+$_radius: 30px;
+
+.p-playing-stanby-playercard {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 93vw;
+    height: $_height;
+    background-color: g.$color-playing-stanby-playercard-bg;
+    border-radius: $_radius;
+    @include g.font-playing-stanby-playercard;
+    color: g.$color-playing-stanby-playercard-text;
+    font-size: $_text-size;
+    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+}
+
+.p-playing-stanby-playercard__storeimage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 20vh;
+    position: relative;
+    z-index: 100;
+}
+
+.p-playing-stanby-playercard__storeimage img {
+    width: 99.9%;
+    height: 22vh;
+    object-fit: cover;
+    border-radius: $_radius $_radius 0 0;
+    filter: blur(1.5px);
+}
+
+.p-playing-stanby-playercard__info-containeres {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+    background-color: g.$color-playing-stanby-playercard-info-containeres-bg;
+    border-radius: 0 0 $_radius $_radius;
+    position: relative;
+    z-index: 900;
+}
+
+.p-playing-stanby-playercard__icon {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-playing-stanby-playercard__name {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-playing-stanby-playercard__point {
+    grid-column: 4 / 7;
+    grid-row: 1 / 2;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.p-playing-stanby-playercard__skip {
+    grid-column: 7 / 11;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.p-playing-stanby-playercard__location {
+    grid-column: 4 / 11;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.p-playing-stanby-playercard__locationbar {
+    grid-column: 1 / 11;
+    grid-row: 3 / 4;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-playing-stanby-playercard__point-icon {
+    margin: 0 5px;
+}
+
+// .p-playing-stanby-playercard__point-text {
+// }
+
+.p-playing-stanby-playercard__skip-icon {
+    margin: 0 5px;
+}
+
+// .p-playing-stanby-playercard__skip-text {
+// }
+
+.p-playing-stanby-playercard__location-icon {
+    margin: 0 5px;
+}
+
+// .p-playing-stanby-playercard__location-text {
+// }
+
+.p-playing-stanby-playercard__point-icon,
+.p-playing-stanby-playercard__skip-icon,
+.p-playing-stanby-playercard__location-icon {
+    svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.p-playing-stanby-playercard__locationbar svg {
+    width: 70vw;
+    height: 35px;
+}

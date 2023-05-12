@@ -8,4 +8,11 @@
     &:hover {
         scale: 1.06;
     }
+    animation: next-guide-scale 4s ease-in-out infinite;
+}
+
+@keyframes next-guide-scale {
+  90% {transform: scale(1.0);}
+  95% {transform: scale(1.05);}
+ 100% {transform: scale(1.0);}
 }

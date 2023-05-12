@@ -1,0 +1,26 @@
+@use "../global" as g;
+
+$_height: unquote('min(170px, 20vw)');
+$_width: $_height;
+$_boader-size: calc($_height * 0.1);
+$_translate-y: calc($_height * -0.5);
+
+.p-playing-stanby-playercard-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $_width;
+    height: $_height;
+    border: $_boader-size solid g.$color-setup-player-icon-border;
+    border-radius: 50%;
+    background-color: g.$color-setup-player-icon-bg;
+    position: absolute;
+    top: 0;
+    translate: 0 $_translate-y;
+}
+
+.p-playing-stanby-playercard-icon img {
+    width: $_width;
+    height: auto;
+}
+

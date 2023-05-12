@@ -23,6 +23,7 @@
 
 @use "./control-buttons-container";
 @use "./control-buttons";
+@use "./control-button-leftgroup";
 @use "./control-button";
 @use "./control-next-guide";
 @use "./control-next-panel";
@@ -35,8 +36,16 @@
 @use "./svg-button-dice";
 @use "./svg-button-map";
 @use "./svg-button-player";
+@use "./svg-icon-point";
+@use "./svg-icon-location";
+@use "./svg-icon-lock";
+@use "./svg-object-locationbar";
 
 @use "./playing-decideorder-container";
 @use "./playing-decideorder-dices";
 @use "./playing-decideorder-player-panel-ordernumber";
 
+@use "./playing-stanby-container";
+@use "./playing-stanby-playercard";
+@use "./playing-stanby-playercard-mask";
+@use "./playing-stanby-playercard-icon";

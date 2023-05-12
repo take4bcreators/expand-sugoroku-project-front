@@ -1,0 +1,16 @@
+@use "../global" as g;
+
+.p-svg-object-locationbar {
+    &__bar {
+        fill: g.$color-svg-object-locationbar-bar;
+    }
+    &__color-group-bg {
+        fill: g.$color-svg-object-locationbar-bg;
+    }
+    &__color-group-text {
+        fill: g.$color-svg-object-locationbar-text;
+    }
+    &__color-group-text-bg {
+        fill: g.$color-svg-object-locationbar-text-bg;
+    }
+}
