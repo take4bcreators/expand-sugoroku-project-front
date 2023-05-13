@@ -77,6 +77,9 @@
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
+    &.is-current-order {
+        background-color: g.$color-playing-stanby-playercard-info-containeres-bg-is-current-order;
+    }
 }
 
 .p-playing-stanby-playercard__icon {

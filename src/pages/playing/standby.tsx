@@ -139,9 +139,9 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     name: '',
     photo: '',
   };
+  let locationPercentage = 0;
   const board = stdao.getPlayingBoard();
   const playerLocation = player.location;
-  let locationPercentage = 0;
   if (typeof board !== 'undefined' && typeof playerLocation !== 'undefined') {
     curLocationData.name = board.square[playerLocation].store.name;
     curLocationData.photo = board.square[playerLocation].store.photo;

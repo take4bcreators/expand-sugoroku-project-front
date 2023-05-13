@@ -41,6 +41,7 @@ $_palette-F9D923: #F9D923;
 $_palette-F9B823: #F9B823;
 $_palette-F06292: #F06292;
 $_palette-43A047: #43A047;
+$_palette-FFB74D: #FFB74D;
 
 
 // -------------------------
@@ -136,5 +137,6 @@ $color-playing-decideorder-player-panel-ordernumber: $_palette-474747;
 // playing stanby
 $color-playing-stanby-playercard-bg: $_palette-F4F3F3;
 $color-playing-stanby-playercard-info-containeres-bg: $_palette-F9F9F9;
+$color-playing-stanby-playercard-info-containeres-bg-is-current-order: $_palette-FFB74D;
 $color-playing-stanby-playercard-text: $_palette-474747;
 $color-playing-stanby-playercard-mask-bg: $_palette-000;
