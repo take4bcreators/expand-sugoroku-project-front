@@ -33,7 +33,7 @@
     color: #F4F3F3;
     font-size: getvar(text-size, sp);
     position: absolute;
-    z-index: 1000;
+    z-index: g.$zindex-playing-stanby-playercard-mask;
     @include g.mq(tab) {
         height: getvar(height, tab);
     }

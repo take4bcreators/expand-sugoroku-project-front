@@ -48,7 +48,7 @@
     width: 100%;
     height: 20vh;
     position: relative;
-    z-index: 100;
+    z-index: g.$zindex-playing-stanby-playercard-storeimage;
 }
 
 .p-playing-stanby-playercard__storeimage img {
@@ -65,7 +65,7 @@
     background-color: g.$color-playing-stanby-playercard-info-containeres-bg;
     border-radius: 0 0 getvar(radius) getvar(radius);
     position: relative;
-    z-index: 900;
+    z-index: g.$zindex-playing-stanby-playercard-info-containeres;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(7, 1fr);

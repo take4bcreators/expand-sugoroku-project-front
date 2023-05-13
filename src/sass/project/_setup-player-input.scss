@@ -25,3 +25,9 @@ $_text-size: calc($_panel_height * 0.3);
 .p-setup-player-input--confirmation {
     background-color: inherit;
 }
+
+.p-setup-player-input--short {
+    background-color: inherit;
+    font-size: calc($_panel_height * 0.4);
+    margin: 0 0 0 .8em;
+}

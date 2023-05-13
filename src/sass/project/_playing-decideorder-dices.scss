@@ -20,7 +20,20 @@ $_text-size: calc($_svg-size * 0.15);
     &:hover {
         scale: 1.06;
     }
+    animation: fluffy1 3s ease infinite;
 }
+
+// https://commte.net/6312
+@keyframes fluffy1 {
+    0% { transform:translateY(0) }
+    5% { transform:translateY(0) }
+    10% { transform:translateY(0) }
+    20% { transform:translateY(-15px) }
+    25% { transform:translateY(0) }
+    30% { transform:translateY(-15px) }
+    50% { transform:translateY(0) }
+    100% { transform:translateY(0) }
+  }
 
 .p-playing-decideorder-dices__text {
     margin-top: $_text-margin-t;

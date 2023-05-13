@@ -55,3 +55,16 @@ $_shadow-blur-radius: calc($_height * 0.83);
         transform: translateY(0);
     }
 }
+
+.p-setup-player-panel--short {
+    box-shadow: none;
+    width: 80vw;
+    margin: calc($_margin-tb * 1.5) 0;
+    background: none;
+    border: none;
+    position: fixed;
+    // top: 1vmin;
+    top: 0;
+    left: 2vw;
+}
+

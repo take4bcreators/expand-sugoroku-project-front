@@ -1,0 +1,53 @@
+@use "../global" as g;
+
+$_size-outer: unquote('min(200px, 30vw)');
+$_size-semi-outer: calc($_size-outer * 0.9);
+$_size-inner: calc($_size-outer * 0.8);
+$_size-text: calc($_size-outer * 0.55);
+
+
+.p-playing-dice-numbercircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: $_size-text;
+    color: #FFF;
+    @include g.font-playing-dice-numbercircle;
+    &--outer {
+        height: $_size-outer;
+        width: $_size-outer;
+        background-color: #E91E63;
+        box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    }
+    &--semi-outer {
+        height: $_size-semi-outer;
+        width: $_size-semi-outer;
+        background-color: #FFF;
+    }
+    &--inner {
+        height: $_size-inner;
+        width: $_size-inner;
+        background-color: #E91E63;
+    }
+    animation: rotate-in .5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes rotate-in {
+    0% {
+        opacity: 0;
+        // rotate: 0deg;
+        // scale: 0.1;
+        transform: rotate(0deg) scale(0.1);
+    }
+    100% {
+        opacity: 1;
+        // rotate: 360deg;
+        // scale: 1.0;
+        transform: rotate(360deg) scale(1.0);
+    }
+}
+
+
+

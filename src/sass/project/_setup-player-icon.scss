@@ -14,3 +14,8 @@ $_boader-size: calc($_height * 0.1);
     border-radius: 50%;
     background-color: g.$color-setup-player-icon-bg;
 }
+
+.p-setup-player-icon--short {
+    width: calc($_width * 0.7);
+    height: calc($_height * 0.7);
+}
