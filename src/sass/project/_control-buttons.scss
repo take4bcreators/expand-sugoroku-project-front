@@ -6,4 +6,21 @@
     align-items: flex-end;
     width: 90vw;
     height: 0;
+    flex-wrap: nowrap;
+}
+
+.p-control-buttons--playing {
+    justify-content: flex-end;
+    height: auto;
+    flex-wrap: wrap;
+    @include g.mq(tab) {
+        justify-content: space-between;
+        height: 0;
+        flex-wrap: nowrap;
+    }
+    @include g.mq(pc) {
+        justify-content: space-between;
+        height: 0;
+        flex-wrap: nowrap;
+    }
 }

@@ -1,11 +1,22 @@
 @use "../global" as g;
+@use "sass:map";
 
-$_height: 50vh;
-$_shadow-offset-x: calc($_height * 0.16);
-$_shadow-offset-y: calc($_height * 0.33);
-$_shadow-blur-radius: calc($_height * 0.83);
-$_text-size: unquote('min(42px, 30vw)');
-$_radius: 30px;
+@function getvar($prop, $sp_tab_pc: sp) {
+    $media-query-vars: (
+        height: (
+            sp:  60vh,
+            tab: 50vh,
+            pc:  50vh,
+        ),
+    );
+    $height: map.get($media-query-vars, height, #{$sp_tab_pc});
+    $local-var-list: (
+        height: $height,
+        text-size: unquote('min(42px, 30vw)'),
+        radius: 30px,
+    );
+    @return map.get($local-var-list, $prop);
+}
 
 .p-playing-stanby-playercard-mask {
     display: flex;
@@ -14,15 +25,21 @@ $_radius: 30px;
     flex-direction: column;
     margin: 20px 0;
     width: 93vw;
-    height: $_height;
+    height: getvar(height, sp);
     background-color: g.$color-playing-stanby-playercard-mask-bg;
     opacity: 0.75;
-    border-radius: $_radius;
+    border-radius: getvar(radius, sp);
     @include g.font-playing-stanby-playercard;
     color: #F4F3F3;
-    font-size: $_text-size;
+    font-size: getvar(text-size, sp);
     position: absolute;
     z-index: 1000;
+    @include g.mq(tab) {
+        height: getvar(height, tab);
+    }
+    @include g.mq(pc) {
+        height: getvar(height, pc);
+    }
 }
 
 .p-playing-stanby-playercard-mask__icons {

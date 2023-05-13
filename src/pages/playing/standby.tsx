@@ -214,7 +214,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         </div>
       </section>
       <div className="p-control-buttons-container">
-        <div className="p-control-buttons">
+        <div className="p-control-buttons p-control-buttons--playing">
           <div className="p-control-button-leftgroup">
             <div className="p-control-button p-control-button-leftgroup__button">
               <Link to='/'>
