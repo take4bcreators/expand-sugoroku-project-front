@@ -3,10 +3,17 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
+import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import SvgButtonExit from '../../icon/svg/SvgButtonExit';
+import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
+import SvgButtonMap from '../../icon/svg/SvgButtonMap';
+import SvgButtonNext from '../../icon/svg/SvgButtonNext';
+import SvgButtonChess from '../../icon/svg/SvgButtonChess';
+import SvgIconNotice from '../../icon/svg/SvgIconNotice';
+import SvgButtonFlag from '../../icon/svg/SvgButtonFlag';
 import '../../sass/style.scss';
-
 
 
 export default (props : PlayingPageChildProps): JSX.Element => {
@@ -28,6 +35,31 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     return (<></>);
   }
   
+  // 下部ボタン制御用オブジェクト
+  type nextButtonInfoType = {
+    linkTo: string,
+    onClick: () => void,
+    panelText: JSX.Element,
+    buttonSvg: JSX.Element,
+  }
+  let nextButtonInfo: nextButtonInfoType = {
+    linkTo: '/playing/',
+    onClick: () => {
+      stdao.updateNextOrderNum();
+      sgmgr.moveScreenTo(PlayingStates.Standby);
+    },
+    panelText: (
+      <>
+        次の人へ<wbr />進む
+      </>
+    ),
+    buttonSvg: (
+      <>
+        <SvgButtonNext />
+      </>
+    )
+  };
+  
   // 今回止まったマスの情報を取得
   const curLocationData = {
     name: '',
@@ -45,6 +77,10 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     eventMove: 0,
   };
   const player = stdao.getCurrentPlayer();
+  if (typeof player === 'undefined') {
+    console.error('[SGPJ] player is undefined');
+    return (<></>);
+  }
   const board = stdao.getPlayingBoard();
   if (typeof board !== 'undefined') {
     const playerLocation = player?.location;
@@ -66,86 +102,172 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  // ゴール済みの場合はゴールボーナスを詳細として表示
+  // ゴール済みの場合は専用の表示を行うため情報を保持
+  let isGoal = false;
+  let goalPoint = 0;
   if (player?.isfinish) {
     const goalPlayerCount = stdao.getGoalPlayerCount();
-    const goalPoint = sgmgr.getGoalPoint(goalPlayerCount);
-    curLocationData.catch = `ゴールボーナス： ${goalPoint} pt.`;
+    const curGoalPoint = sgmgr.getGoalPoint(goalPlayerCount);
+    // curLocationData.catch = `ゴールボーナス： ${curGoalPoint} pt.`;
+    isGoal = true;
+    goalPoint = curGoalPoint;
   }
   
   // すべてのプレイヤーがゴール済みであるかを確認
   const isAllPlayersGoal = stdao.checkAllPlayersGoalReached() ?? false;
   
   // 現在のストレージの状態によりページ内容の表示を変える
-  let usePageElem: JSX.Element;
   if (isAllPlayersGoal) {
     // 全員ゴールした場合は、エンディング画面へのリンクを貼る
-    usePageElem = (
-      <>
-        <Link to='/playing/' onClick={() => {
-          stdao.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.Ending);
-        }}>
-          →→ 最終結果画面へ進む
-        </Link>
-      </>
-    );
+    nextButtonInfo = {
+      linkTo: '/playing/',
+      onClick: () => {
+        stdao.updateNextOrderNum();
+        sgmgr.moveScreenTo(PlayingStates.Ending);
+      },
+      panelText: (
+        <>
+          最終結果へ<wbr />すすむ
+        </>
+      ),
+      buttonSvg: (
+        <>
+          <SvgButtonNext />
+        </>
+      )
+    };
   } else if (!curLocationData.eventFlag) {
     // イベントがない場合はその旨を表示
-    usePageElem = (
-      <>
-        <p>イベントはありません</p>
-        <Link to='/playing/' onClick={() => {
-          stdao.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.Standby);
-        }}>
-          →→ 次の人の番へすすむ ←←
-        </Link>
-      </>
-    );
+    curLocationData.eventName = ''
+    curLocationData.eventDetail = 'イベントなし'
   } else if (curLocationData.minigame) {
     // ミニゲームがある場合はミニゲーム画面へのリンクをつける
-    usePageElem = (
-      <>
-        <p>{curLocationData.eventName}</p>
-        <p>{curLocationData.eventDetail}</p>
-        <Link to='/playing/' onClick={() => {
-          sgmgr.moveScreenTo(PlayingStates.MinigameReady);
-        }}>
-          →→ ミニゲームへ進む
-        </Link>
-      </>
-    );
+    nextButtonInfo = {
+      linkTo: '/playing/',
+      onClick: () => {
+        sgmgr.moveScreenTo(PlayingStates.MinigameReady);
+      },
+      panelText: (
+        <>
+          ミニゲームへ<wbr />すすむ
+        </>
+      ),
+      buttonSvg: (
+        <>
+          <SvgButtonChess />
+        </>
+      )
+    };
   } else if (curLocationData.eventMove !== 0) {
     // 移動イベントが発生している場合は、次へ進む時に移動実施
-    usePageElem = (
+    nextButtonInfo = {
+      linkTo: '/playing/',
+      onClick: () => {
+        // 移動した後のプレイヤーの状態をストレージに保存
+        const nextPlayer = Object.assign({}, player);
+        nextPlayer.location = nextPlayer.location + curLocationData.eventMove;
+        stdao.updateCurrentPlayer(nextPlayer);
+        stdao.updateNextOrderNum();
+        sgmgr.moveScreenTo(PlayingStates.Standby);
+      },
+      panelText: (
+        <>
+          次の人へ<wbr />進む
+        </>
+      ),
+      buttonSvg: (
+        <>
+          <SvgButtonNext />
+        </>
+      )
+    };
+  } else {
+    // 移動イベント以外のイベントは表示のみ
+  }
+  
+  // ゴール到達かどうかで表示を切り替える
+  let returnElem = (<></>);
+  if (isGoal) {
+    // プレイヤーアイコン情報の組み立て
+    let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + player.icon;
+    if (player.icon === '' || typeof player.icon === 'undefined') {
+      playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
+    }
+    returnElem = (
       <>
-        <p>{curLocationData.eventName}</p>
-        <p>{curLocationData.eventDetail}</p>
-        <Link to='/playing/' onClick={() => {
-          // 移動した後のプレイヤーの状態をストレージに保存
-          const nextPlayer = Object.assign({}, player);
-          nextPlayer.location = nextPlayer.location + curLocationData.eventMove;
-          stdao.updateCurrentPlayer(nextPlayer);
-          stdao.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.Standby);
-        }}>
-          →→ 次の人の番へすすむ
-        </Link>
+        <div className="p-setup-player-panel p-setup-player-panel--short">
+          <div className="p-setup-player-icon p-setup-player-icon--short">
+            <img
+              src={playerIconSrc}
+              alt="プレイヤーアイコン"
+              width="50"
+              height="50"
+            />
+          </div>
+          <p className="p-setup-player-input p-setup-player-input--short">
+            {player.name ?? ''}
+          </p>
+        </div>
+        <section className="p-playing-square-event-container--goal">
+          <div className="p-center-icon-text-set">
+            <div className="p-center-icon-text-set__icon p-center-icon-text-set__icon--goal">
+              <SvgButtonFlag />
+            </div>
+            <div className="p-center-icon-text-set__text">
+              ゴールボーナス： {goalPoint} pt.
+            </div>
+          </div>
+        </section>
       </>
     );
   } else {
-    // 移動イベント以外のイベントは表示のみ
-    usePageElem = (
+    returnElem = (
       <>
-        <p>{curLocationData.eventName}</p>
-        <p>{curLocationData.eventDetail}</p>
-        <Link to='/playing/' onClick={() => {
-          stdao.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.Standby);
-        }}>
-          →→ 次の人の番へすすむ
-        </Link>
+        <section className="p-playing-square-event-container">
+          <div className="p-square-event-card">
+            <h1 className="p-square-event-card__name">
+              {curLocationData.name}
+            </h1>
+            <div className="p-square-event-card__info-container">
+              <p className="p-square-event-card__name-kana">
+                {curLocationData.name_kana}
+              </p>
+              <div className="p-square-event-card__image">
+                <img src={curLocationData.photo} alt="店舗の画像" />
+              </div>
+              <div className="p-square-event-card__info p-store-info">
+                <p className="p-store-info__catch">
+                  {curLocationData.catch}
+                </p>
+                <p className="p-store-info__genre_catch">
+                  {curLocationData.genre_catch}
+                </p>
+                <p className="p-store-info__access">
+                  {curLocationData.access}
+                </p>
+                <p className="p-store-info__open">
+                  {curLocationData.open}
+                </p>
+                <p className="p-store-info__address">
+                  {curLocationData.address}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="p-square-event-card p-square-event-card--two-column">
+            <h2 className="p-square-event-card__name p-square-event-card__name--two-column">
+              <div>
+                <SvgIconNotice />
+              </div>
+              <div>
+                {curLocationData.eventName}
+              </div>
+            </h2>
+            <div className="p-square-event-card__info-container p-square-event-card__info-container--two-column">
+              {curLocationData.eventDetail}
+            </div>
+          </div>
+        </section>
       </>
     );
   }
@@ -153,21 +275,41 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   return (
     <>
       <main>
-        <section>
-          <p>{player?.name ?? ''} さん</p>
-          <h1>{curLocationData.name}</h1>
-          <img src={curLocationData.photo} alt="店舗の画像" />
-          <ul>
-            <li>{curLocationData.name_kana}</li>
-            <li>{curLocationData.catch}</li>
-            <li>{curLocationData.genre_catch}</li>
-            <li>{curLocationData.open}</li>
-            <li>{curLocationData.access}</li>
-            <li>{curLocationData.address}</li>
-          </ul>
-          {usePageElem}
-        </section>
+        {returnElem}
+        <div className="p-control-buttons-container">
+          <div className="p-control-buttons p-control-buttons--playing">
+            <div className="p-control-button-leftgroup">
+              <div className="p-control-button p-control-button-leftgroup__button">
+                <Link to='/'>
+                  <SvgButtonExit />
+                </Link>
+              </div>
+              <div className="p-control-button p-control-button-leftgroup__button">
+                <Link to='../playdata/players'>
+                  <SvgButtonPlayer />
+                </Link>
+              </div>
+              <div className="p-control-button p-control-button-leftgroup__button">
+                <Link to='../playdata/board'>
+                  <SvgButtonMap />
+                </Link>
+              </div>
+            </div>
+            <Link to={nextButtonInfo.linkTo} onClick={nextButtonInfo.onClick}>
+              <div className="p-control-next-guide">
+                <div className="p-control-next-panel">
+                  <div className="p-control-next-panel__text">
+                    {nextButtonInfo.panelText}
+                  </div>
+                </div>
+                <div className="p-control-next-icon p-control-next-icon--panel">
+                  {nextButtonInfo.buttonSvg}
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
       </main>
     </>
-  )
+  );
 }

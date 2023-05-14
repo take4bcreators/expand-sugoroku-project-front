@@ -31,6 +31,11 @@
   font-weight: 700;
 }
 
+@mixin font-center-icon-text-set-text {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}
+
 @mixin font-playing-stanby-playercard {
   font-family: s.$font-family-ZenMaruGothic;
   font-weight: 700;
@@ -39,4 +44,14 @@
 @mixin font-playing-dice-numbercircle {
   font-family: s.$font-family-MPLUSRounded1c;
   font-weight: 800;
+}
+
+@mixin font-square-event-card-title {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}
+
+@mixin font-square-event-card-text {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 500;
 }

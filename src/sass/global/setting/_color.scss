@@ -25,6 +25,7 @@ $_palette-388E3C: #388E3C;
 
 $_palette-795548: #795548;
 $_palette-EFEBE9: #EFEBE9;
+$_palette-6F6F6F: #6F6F6F;
 
 $_palette-9C27B0: #9C27B0;
 
@@ -103,6 +104,9 @@ $color-svg-button-exit-base: $_palette-1E88E5;
 $color-svg-button-dice-base: $_palette-E91E63;
 $color-svg-button-map-base: $_palette-FF4081;
 $color-svg-button-player-base: $_palette-FF8F00;
+$color-svg-button-chess-base: $_palette-F44336;
+$color-svg-button-flag-base: $_palette-F9D923;
+$color-svg-icon-notice-base: $_palette-FFF;
 
 // svg button accent
 $color-svg-button-next-accent: $_palette-FFF;
@@ -112,6 +116,9 @@ $color-svg-button-exit-accent: $_palette-FFF;
 $color-svg-button-dice-accent: $_palette-FFF;
 $color-svg-button-map-accent: $_palette-FFF;
 $color-svg-button-player-accent: $_palette-FFF;
+$color-svg-button-chess-accent: $_palette-FFF;
+$color-svg-button-flag-accent: $_palette-FFF;
+$color-svg-icon-notice-accent: $_palette-F44336;
 
 // svg icon
 $color-svg-icon-point-base: $_palette-F9D923;
@@ -140,3 +147,12 @@ $color-playing-stanby-playercard-info-containeres-bg: $_palette-F9F9F9;
 $color-playing-stanby-playercard-info-containeres-bg-is-current-order: $_palette-FFB74D;
 $color-playing-stanby-playercard-text: $_palette-474747;
 $color-playing-stanby-playercard-mask-bg: $_palette-000;
+
+// center-icon-text-set
+$color-center-icon-text-set-text: $_palette-FFF;
+
+// square-event-card
+$color-square-event-card-border: $_palette-795548;
+$color-square-event-card-bg: $_palette-EFEBE9;
+$color-square-event-card-title: $_palette-FFF;
+$color-square-event-card-text: $_palette-6F6F6F;

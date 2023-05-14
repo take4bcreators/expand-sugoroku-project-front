@@ -1,0 +1,20 @@
+@use "../global" as g;
+
+.p-playing-square-event-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0 0 30vh 0;
+}
+
+.p-playing-square-event-container--goal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95vh;
+    height: 95svh;
+    width: 100vw;
+}

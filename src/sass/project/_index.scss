@@ -40,6 +40,9 @@
 @use "./svg-icon-location";
 @use "./svg-icon-lock";
 @use "./svg-object-locationbar";
+@use "./svg-button-chess";
+@use "./svg-button-flag";
+@use "./svg-icon-notice";
 
 @use "./playing-decideorder-container";
 @use "./playing-decideorder-dices";
@@ -53,3 +56,14 @@
 @use "./playing-dice-numbercircle";
 
 @use "./playdata-players-container";
+
+@use "./playing-square-event-container";
+
+@use "./square-event-card";
+
+@use "./store-info";
+
+@use "./center-icon-text-set";
+
+
+

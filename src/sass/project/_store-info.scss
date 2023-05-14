@@ -1,0 +1,45 @@
+@use "../global" as g;
+@use "sass:map";
+
+.p-store-info__catch {
+    font-size: 20px;
+    line-height: 1.4em;
+    margin: 0;
+    @include g.mq(tab) {
+        font-size: 24px;
+        line-height: initial;
+    }
+    @include g.mq(pc) {
+        font-size: 24px;
+        line-height: initial;
+    }
+}
+
+.p-store-info__genre_catch {
+    font-size: 20px;
+    line-height: 1.4em;
+    margin: 0;
+    @include g.mq(tab) {
+        font-size: 24px;
+        line-height: initial;
+    }
+    @include g.mq(pc) {
+        font-size: 24px;
+        line-height: initial;
+    }
+}
+
+.p-store-info__access {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.p-store-info__open {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.p-store-info__address {
+    font-size: 8px;
+    margin: 5px;
+}

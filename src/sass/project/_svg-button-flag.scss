@@ -1,0 +1,14 @@
+@use "../global" as g;
+
+$_size: unquote('min(150px, 25vw)');
+
+.p-svg-button-flag {
+    width: $_size;
+    height: $_size;
+    &__color-group-base {
+        fill: g.$color-svg-button-flag-base;
+    }
+    &__color-group-accent {
+        fill: g.$color-svg-button-flag-accent;
+    }
+}
