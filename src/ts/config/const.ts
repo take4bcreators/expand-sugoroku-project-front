@@ -12,6 +12,14 @@ export namespace AppConst {
         ['c', 0]
     ]);
     
+    /** ミニゲームのランクに応じた背景色名の付与クラス */
+    export const RANK_COLOR_CLASS: Map<string, string> = new Map([
+        ['s', 'yellow'],
+        ['a', 'red'],
+        ['b', 'green'],
+        ['c', 'blue']
+    ]);
+    
     /** ゴールした時のポイント */
     export const GOAL_POINTS: Map<number, number> = new Map([
         [1, 100],

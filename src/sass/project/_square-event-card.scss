@@ -67,6 +67,33 @@
     }
 }
 
+.p-square-event-card--pink {
+    background-color: g.$color-square-event-card-border-pink;
+    border-color: g.$color-square-event-card-border-pink;
+}
+
+.p-square-event-card--red {
+    background-color: g.$color-square-event-card-border-red;
+    border-color: g.$color-square-event-card-border-red;
+}
+
+.p-square-event-card--yellow {
+    background-color: g.$color-square-event-card-border-yellow;
+    border-color: g.$color-square-event-card-border-yellow;
+}
+
+.p-square-event-card--green {
+    background-color: g.$color-square-event-card-border-green;
+    border-color: g.$color-square-event-card-border-green;
+}
+
+.p-square-event-card--blue {
+    background-color: g.$color-square-event-card-border-blue;
+    border-color: g.$color-square-event-card-border-blue;
+}
+
+
+
 .p-square-event-card__name {
     display: flex;
     justify-content: flex-start;
@@ -147,6 +174,11 @@
         padding: 1.2em 0;
         height: 100%;
     }
+}
+
+.p-square-event-card__info-container--minigame {
+    display: block;
+    padding: 20px;
 }
 
 .p-square-event-card__name-kana {
