@@ -1,0 +1,23 @@
+@use "../global" as g;
+
+.p-text-box {
+    @include g.font-text-box;
+    font-size: 18px;
+    color: g.$color-text-box;
+    margin: 1em 0 2em;
+}
+
+.p-text-box--detail {
+    @include g.font-text-box;
+    font-size: 18px;
+    color: g.$color-text-box;
+    margin: 1em 0 2.5em;
+    width: 70vw;
+    text-align: center;
+    @include g.mq(tab) {
+        width: 30vw;
+    }
+    @include g.mq(pc) {
+        width: 30vw;
+    }
+}

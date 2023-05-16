@@ -79,10 +79,25 @@ $_shadow-blur-radius: calc($_height * 0.83);
     margin: $_margin;
 }
 
+.p-setup-board-menu-item--mid {
+    $_height: unquote('min(65px, 18vw)');
+    $_width: calc($_height * 5);
+    $_item-text-size: calc($_height * 0.3);
+    $_margin: calc($_height * 0.2);
+    height: $_height;
+    width: $_width;
+    font-size: $_item-text-size;
+    margin: $_margin;
+}
+
 .p-setup-board-menu-item--red {
     background-color: g.$color-setup-board-menu-bg-red;
 }
 
 .p-setup-board-menu-item--purple {
     background-color: g.$color-setup-board-menu-bg-purple;
+}
+
+.p-setup-board-menu-item--pink {
+    background-color: g.$color-setup-board-menu-bg-pink;
 }

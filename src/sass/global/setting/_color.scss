@@ -6,6 +6,7 @@ $_palette-FFF: #FFF;
 $_palette-000: #000;
 $_palette-F9F9F9: #F9F9F9;
 $_palette-989898: #989898;
+$_palette-CACACA: #CACACA;
 $_palette-474747: #474747;
 $_palette-333333: #333333;
 $_palette-F4F3F3: #F4F3F3;
@@ -78,6 +79,7 @@ $color-setup-board-menu-select-text-nohas: $_palette-EF5350;
 $color-setup-board-menu-border: $_palette-FFF;
 $color-setup-board-menu-bg-red: $_palette-F44336;
 $color-setup-board-menu-bg-purple: $_palette-9C27B0;
+$color-setup-board-menu-bg-pink: $_palette-FF4081;
 
 // setup progress-tracker
 $color-setup-progress-tracker-inner: $_palette-EF5350;
@@ -145,6 +147,8 @@ $color-playing-decideorder-player-panel-ordernumber: $_palette-474747;
 
 // playing stanby
 $color-playing-stanby-playercard-bg: $_palette-F4F3F3;
+$color-playing-stanby-playercard-bg-gold: $_palette-F9D923;
+$color-playing-stanby-playercard-bg-silver: $_palette-CACACA;
 $color-playing-stanby-playercard-info-containeres-bg: $_palette-F9F9F9;
 $color-playing-stanby-playercard-info-containeres-bg-is-current-order: $_palette-FFB74D;
 $color-playing-stanby-playercard-text: $_palette-474747;
@@ -164,3 +168,8 @@ $color-square-event-card-border-red: $_palette-F44336;
 $color-square-event-card-border-yellow: $_palette-FFC107;
 $color-square-event-card-border-green: $_palette-388E3C;
 $color-square-event-card-border-blue: $_palette-2979FF;
+
+// Utility
+$color-u-font-page-title: $_palette-FFF;
+
+$color-text-box: $_palette-FFF;

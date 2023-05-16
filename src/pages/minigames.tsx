@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import '../sass/style.scss';
 import { graphql, useStaticQuery } from 'gatsby'
+import SEO from '../components/SEO';
 import type { AllMinigamesJson } from '../ts/type/AllMinigamesJson';
-
-
+import PlayingLayout from '../components/PlayingLayout';
+import SvgButtonExit from '../icon/svg/SvgButtonExit';
+import '../sass/style.scss';
 
 
 export default () => {
@@ -28,45 +29,49 @@ export default () => {
   const minigames = minigameData.allMinigamesJson.edges;
   
   return (
-    <section>
-      <h1>ミニゲーム一覧</h1>
-      <section>
+    <PlayingLayout footerType="Normal">
+      <section className="p-minigames-container">
+        <h1 className="u-font-page-title">ミニゲームリスト</h1>
+        <ul className="p-setup-board-menu p-setup-board-menu--full">
         {
           minigames.map((minigame, index) => {
             const minigameName = minigame.node.name;
             const minigameDetail = minigame.node.detail;
             const minigamePage = `/minigame/${minigame.node.jsonId}`;
             return (
-              <section key={index}>
-                <div>---------------------</div>
-                <h1>{minigameName}</h1>
-                <ul>
-                  <li>{minigameDetail}</li>
-                  <li>
-                    <a href={minigamePage} target='_blank'>
-                      → あそぶ
-                    </a>
+              <React.Fragment key={index}>
+                <a href={minigamePage} target='_blank'>
+                  <li className="p-setup-board-menu-item p-setup-board-menu-item--mid p-setup-board-menu-item--pink">
+                    {minigameName}
                   </li>
-                </ul>
-              </section>
+                </a>
+                <p className="p-text-box p-text-box--detail">
+                  {minigameDetail}
+                </p>
+              </React.Fragment>
             )
           })
         }
-      </section>
-      <section>
-        <ul>
-          <li><Link to='/'>トップへ戻る</Link></li>
         </ul>
+        <div className="p-control-buttons-container">
+          <div className="p-control-buttons">
+              <div className="p-control-button">
+                <Link to="/">
+                  <SvgButtonExit />
+                </Link>
+              </div>
+          </div>
+        </div>
       </section>
-    </section>
+    </PlayingLayout>
   );
 }
 
-
 export const Head = () => {
+  const pageTitle: string = 'ミニゲーム';
   return (
-    <>
-      <title>ボード</title>
-    </>
-  );
+      <SEO
+          pageTitle={pageTitle}
+      />
+  )
 }

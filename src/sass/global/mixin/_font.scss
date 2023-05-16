@@ -55,3 +55,13 @@
   font-family: s.$font-family-ZenMaruGothic;
   font-weight: 500;
 }
+
+@mixin font-u-page-title {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 900;
+}
+
+@mixin font-text-box {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 500;
+}
