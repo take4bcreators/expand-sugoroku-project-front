@@ -6,9 +6,9 @@ export namespace AppConst {
     
     /** ミニゲームのランクに応じたポイント */
     export const RANK_POINTS: Map<string, number> = new Map([
-        ['s', 50],
-        ['a', 30],
-        ['b', 10],
+        ['s', 80],
+        ['a', 50],
+        ['b', 30],
         ['c', 0]
     ]);
     
@@ -22,9 +22,9 @@ export namespace AppConst {
     
     /** ゴールした時のポイント */
     export const GOAL_POINTS: Map<number, number> = new Map([
-        [1, 100],
-        [2, 50],
-        [3, 30],
+        [1, 130],
+        [2, 80],
+        [3, 40],
     ]);
     
     /** セットアップ時に表示するプレイヤー入力欄の数 */
