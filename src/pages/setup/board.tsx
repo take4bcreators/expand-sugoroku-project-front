@@ -4,11 +4,10 @@ import { Link, navigate } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
-import '../../sass/style.scss';
-
 import SetupProgressTracker from '../../components/SetupProgressTracker';
 import SvgButtonExit from '../../icon/svg/SvgButtonExit';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
+import '../../sass/style.scss';
 
 
 type ThisPageProps = {
@@ -96,5 +95,5 @@ export default ({ data }: ThisPageProps) => {
         </div>
       </section>
     </>
-  )
+  );
 }

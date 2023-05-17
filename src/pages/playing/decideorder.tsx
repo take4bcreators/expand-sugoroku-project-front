@@ -7,12 +7,10 @@ import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
-import '../../sass/style.scss';
-
 import SvgButtonDice from '../../icon/svg/SvgButtonDice';
 import SvgButtonExit from '../../icon/svg/SvgButtonExit';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
-
+import '../../sass/style.scss';
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
@@ -40,8 +38,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     // 連番をランダムにした配列を生成
     const numPlayers = stdao.getNumPlayers();
     if (typeof numPlayers === 'undefined') {
-      console.error('numPlayers is ' + numPlayers);
-      // @remind ここにエラー時にトップへ戻る処理を追加する
+      console.error('[SGPJ] numPlayers is undefined');
       return;
     }
     const numberArr = [...Array(numPlayers).keys()];
@@ -50,8 +47,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     // ストレージからユーザー情報を取得
     const playerInfoArr = stdao.getPlayerInfoObject();
     if (typeof playerInfoArr === 'undefined') {
-      console.error('playerInfoArr is ' + playerInfoArr);
-      // @remind ここにエラー時にトップへ戻る処理を追加する
+      console.error('[SGPJ] playerInfoArr is undefined');
       return;
     }
     
@@ -115,7 +111,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   }
   
   // 順番決めのボタンを押す前後で表示を変える
-  let buttonElem = (
+  let CenterButton = () => (
     <div className="p-playing-decideorder-dices">
       <div onClick={decideOrder} className="p-playing-decideorder-dices__image">
         <SvgButtonDice />
@@ -125,10 +121,10 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       </div>
     </div>
   );
-  let nextButtonElem = (<></>);
+  let NextGuide = () => <></>;
   if (typeof resultElem !== 'undefined') {
-    buttonElem = resultElem;
-    nextButtonElem = (
+    CenterButton = () => resultElem;
+    NextGuide = () => (
       <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
         <div className="p-control-next-guide">
           <div className="p-control-next-panel">
@@ -148,7 +144,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     <>
       <main>
         <section className="p-playing-decideorder-container">
-          {buttonElem}
+          <CenterButton />
         </section>
         <div className="p-control-buttons-container">
           <div className="p-control-buttons">
@@ -157,7 +153,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
                   <SvgButtonExit />
                 </Link>
               </div>
-              {nextButtonElem}
+              <NextGuide />
           </div>
         </div>
       </main>

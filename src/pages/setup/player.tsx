@@ -4,12 +4,10 @@ import { Link, navigate } from 'gatsby';
 import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
 import { AppConst } from '../../ts/config/const';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-import '../../sass/style.scss'
-
 import SetupProgressTracker from '../../components/SetupProgressTracker';
 import SvgButtonPrev from '../../icon/svg/SvgButtonPrev';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
-
+import '../../sass/style.scss'
 
 
 export default () => {
@@ -124,5 +122,5 @@ export default () => {
         </div>
       </section>
     </>
-  )
+  );
 }

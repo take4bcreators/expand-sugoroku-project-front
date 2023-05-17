@@ -7,15 +7,10 @@ import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
-import '../../sass/style.scss';
-
 import SvgButtonDice from '../../icon/svg/SvgButtonDice';
-import SvgButtonExit from '../../icon/svg/SvgButtonExit';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
-import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
-import SvgButtonMap from '../../icon/svg/SvgButtonMap';
 import SvgButtonBack from '../../icon/svg/SvgButtonBack';
-
+import '../../sass/style.scss';
 
 
 export default (props : PlayingPageChildProps): JSX.Element => {
@@ -57,8 +52,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  // 表示する要素
-  let buttonElem = (
+  // 表示する要素を定義
+  let CenterCircles = () => (
     <div className="p-playing-decideorder-dices">
       <div onClick={() => {setDiceNumber(sgmgr.rollDice())}} className="p-playing-decideorder-dices__image">
         <SvgButtonDice />
@@ -68,14 +63,14 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       </div>
     </div>
   );
-  let backButtonElem = (
+  let BackButton = () => (
     <>
       <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
         <SvgButtonBack />
       </Link>
     </>
   );
-  let nextButtonElem = (<></>);
+  let NextGuide = () => <></>;
   
   // サイコロを振った後の表示と処理
   if (typeof diceNumber !== 'undefined') {
@@ -120,7 +115,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     
     // データの状態が問題なければマスに進むボタンを設置
     if (nextLocationData.dataReady && typeof player !== 'undefined') {
-      buttonElem = (
+      CenterCircles = () => (
         <>
           <div className="p-playing-dice-numbercircle p-playing-dice-numbercircle--outer">
             <div className="p-playing-dice-numbercircle p-playing-dice-numbercircle--semi-outer">
@@ -131,8 +126,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
           </div>
         </>
       );
-      backButtonElem = (<></>);
-      nextButtonElem = (
+      BackButton = () => <></>;
+      NextGuide = () => (
         <Link
           to='/playing/'
           onClick={() => {
@@ -166,15 +161,6 @@ export default (props : PlayingPageChildProps): JSX.Element => {
           </div>
         </Link>
       )
-    // } else {
-    //   displayElem = (
-    //     <>
-    //       <p>エラーが発生しました</p>
-    //       <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
-    //         ← 戻る
-    //       </Link>
-    //     </>
-    //   );
     }
   }
   
@@ -201,14 +187,14 @@ export default (props : PlayingPageChildProps): JSX.Element => {
           </p>
         </div>
         <section className="p-playing-decideorder-container">
-          {buttonElem}
+          <CenterCircles />
         </section>
         <div className="p-control-buttons-container">
           <div className="p-control-buttons">
               <div className="p-control-button">
-                {backButtonElem}
+                <BackButton />
               </div>
-              {nextButtonElem}
+              <NextGuide />
           </div>
         </div>
       </main>

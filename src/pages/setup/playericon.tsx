@@ -1,11 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { AppConst } from '../../ts/config/const';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-import '../../sass/style.scss'
-
 import SvgButtonBack from '../../icon/svg/SvgButtonBack';
+import '../../sass/style.scss'
 
 
 type ThisPageProps = {
@@ -29,13 +28,14 @@ export default ({ playerNum }: ThisPageProps) => {
   // 現在のプレイヤーアイコンを取得
   let playerIconName = playerIconList[playerNum] ?? '';
   
-  // 他のアイコンが選択された時は都度状態を保存する
+  // 他のアイコンが選択された時は都度状態を保存してプレイヤー情報入力画面へ戻る
   const changeStateAndStorage = (e: { target: HTMLInputElement }): void => {
     const playerIcon = e.target.dataset.playericon ?? ''
     const playerIconListCopy = playerIconList.concat();
     playerIconListCopy[playerNum] = playerIcon;
     localStorage.setItem(StorageKeys.SetupPlayerIcon, JSON.stringify(playerIconListCopy));
     setPlayerIconList(playerIconListCopy);
+    navigate('./?state=player');
   };
   
   return (
@@ -82,5 +82,5 @@ export default ({ playerNum }: ThisPageProps) => {
         </div>
       </section>
     </>
-  )
+  );
 }

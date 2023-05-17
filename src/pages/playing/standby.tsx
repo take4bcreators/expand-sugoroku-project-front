@@ -6,8 +6,6 @@ import SugorokuManager from '../../ts/module/SugorokuManager';
 import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
-import '../../sass/style.scss';
-
 import SvgButtonDice from '../../icon/svg/SvgButtonDice';
 import SvgButtonExit from '../../icon/svg/SvgButtonExit';
 import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
@@ -17,7 +15,7 @@ import SvgIconLocation from '../../icon/svg/SvgIconLocation';
 import SvgIconLock from '../../icon/svg/SvgIconLock';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
 import SvgObjectLocationbar from '../../icon/svg/SvgObjectLocationbar';
-
+import '../../sass/style.scss';
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
@@ -42,29 +40,20 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   type nextButtonInfoType = {
     linkTo: string,
     onClick: () => void,
-    panelText: JSX.Element,
-    buttonSvg: JSX.Element,
+    PanelText: () => JSX.Element,
+    ButtonSvg: () => JSX.Element,
   }
-  
   let nextButtonInfo: nextButtonInfoType = {
     linkTo: '/playing/',
     onClick: () => {
       sgmgr.moveScreenTo(PlayingStates.Dice)
     },
-    panelText: (
-      <>
-        さいころを<wbr />ふる
-      </>
-    ),
-    buttonSvg: (
-      <>
-        <SvgButtonDice />
-      </>
-    )
+    PanelText: () => (<>さいころを<wbr />ふる</>),
+    ButtonSvg: () => <SvgButtonDice />,
   };
   
   // 休み表示用マスク
-  let noticeMaskElem = (<></>);
+  let NoticeMask = () => <></>;
   
   // 現在のプレイヤーを取得
   const player = stdao.getCurrentPlayer();
@@ -81,16 +70,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         stdao.updateNextOrderNum();
         sgmgr.moveScreenTo(PlayingStates.Standby);
       },
-      panelText: (
-        <>
-          次の人へ<wbr />進む
-        </>
-      ),
-      buttonSvg: (
-        <>
-          <SvgButtonNext />
-        </>
-      )
+      PanelText: () => (<>次の人へ<wbr />進む</>),
+      ButtonSvg: () => <SvgButtonNext />,
     };
   }
   
@@ -103,19 +84,11 @@ export default (props: PlayingPageChildProps): JSX.Element => {
         stdao.updateNextOrderNum();
         sgmgr.moveScreenTo(PlayingStates.Standby);
       },
-      panelText: (
-        <>
-          次の人へ<wbr />進む
-        </>
-      ),
-      buttonSvg: (
-        <>
-          <SvgButtonNext />
-        </>
-      )
+      PanelText: () => (<>次の人へ<wbr />進む</>),
+      ButtonSvg: () => <SvgButtonNext />,
     };
     
-    noticeMaskElem = (
+    NoticeMask = () => (
       <>
         <div className="p-playing-stanby-playercard-mask">
           <div className="p-playing-stanby-playercard-mask__icons">
@@ -156,18 +129,18 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   }
   
   // 店画像表示のための要素の組み立て
-  let storeImage = (<img src={curLocationData.photo} alt="店舗の画像" />);
+  let StoreImage = () => (<img src={curLocationData.photo} alt="店舗の画像" />);
   if (curLocationData.photo === '') {
-    storeImage = (<></>);
+    StoreImage = () => <></>;
   }
   
   return (
     <main>
       <section className="p-playing-stanby-container">
-        {noticeMaskElem}
+        <NoticeMask />
         <div className="p-playing-stanby-playercard">
           <div className="p-playing-stanby-playercard__storeimage">
-            {storeImage}
+            <StoreImage />
           </div>
           <div className="p-playing-stanby-playercard__info-containeres">
             <div className="p-playing-stanby-playercard__icon">
@@ -236,11 +209,11 @@ export default (props: PlayingPageChildProps): JSX.Element => {
             <div className="p-control-next-guide">
               <div className="p-control-next-panel">
                 <div className="p-control-next-panel__text">
-                  {nextButtonInfo.panelText}
+                  <nextButtonInfo.PanelText />
                 </div>
               </div>
               <div className="p-control-next-icon p-control-next-icon--panel">
-                {nextButtonInfo.buttonSvg}
+                <nextButtonInfo.ButtonSvg />
               </div>
             </div>
           </Link>

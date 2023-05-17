@@ -17,7 +17,6 @@ import type { PlayingPageParentProps } from '../../ts/type/PlayingPageProps';
 import '../../sass/style.scss';
 
 
-
 export default ({data, location}: PlayingPageParentProps): JSX.Element => {
   const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [playingState, setPlayingState] = useState('');
@@ -120,11 +119,6 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
       break;
   }
   
-  // return (
-  //   <PlayingLayout footerType={footerType}>
-  //     {usePageElem}
-  //   </PlayingLayout>
-  // );
   return (
     <PlayingLayout footerType="Normal">
       {usePageElem}

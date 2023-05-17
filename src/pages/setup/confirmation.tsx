@@ -7,11 +7,10 @@ import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss'
-import { AppConst } from '../../ts/config/const';
-
 import SetupProgressTracker from '../../components/SetupProgressTracker';
 import SvgButtonPrev from '../../icon/svg/SvgButtonPrev';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
+import { AppConst } from '../../ts/config/const';
 
 
 type ThisPageProps = {
@@ -176,5 +175,5 @@ export default ({ data }: ThisPageProps) => {
         </div>
       </div>
     </>
-  )
+  );
 }

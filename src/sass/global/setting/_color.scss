@@ -6,6 +6,7 @@ $_palette-FFF: #FFF;
 $_palette-000: #000;
 $_palette-F9F9F9: #F9F9F9;
 $_palette-989898: #989898;
+$_palette-C2C2C2: #C2C2C2;
 $_palette-CACACA: #CACACA;
 $_palette-474747: #474747;
 $_palette-333333: #333333;
@@ -54,6 +55,9 @@ $_palette-FFB74D: #FFB74D;
 $color-body-bg: $_palette-40C4FF;
 $color-wrapper-bg: $_palette-40C4FF;
 
+// splash-screen-container
+$color-splash-screen-bg: $_palette-FFF;
+
 // top
 $color-top-menu-border: $_palette-FFF;
 $color-top-menu-icon-fill: $_palette-FFF;
@@ -62,6 +66,7 @@ $color-top-menu-bg01: $_palette-FF4081;
 $color-top-menu-bg02: $_palette-536DFE;
 $color-top-menu-bg03: $_palette-C0CA33;
 $color-top-menu-bg04: $_palette-FFC107;
+$color-top-menu-bg-inactive: $_palette-C2C2C2;
 
 // footer
 $color-footer-copyright: $_palette-FFF;
@@ -172,4 +177,5 @@ $color-square-event-card-border-blue: $_palette-2979FF;
 // Utility
 $color-u-font-page-title: $_palette-FFF;
 
+// text-box
 $color-text-box: $_palette-FFF;

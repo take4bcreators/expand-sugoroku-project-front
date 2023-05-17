@@ -3,7 +3,10 @@ import React from 'react';
 export default () => (
   <footer className="l-footer">
     <small className="c-copyright">
-      &copy; extensionLAB. 2023.
+      <ul>
+        <li>&copy; extensionLAB. 2023.</li>
+        <li className="u-font-small">Powered by <a href="http://webservice.recruit.co.jp/">ホットペッパー Webサービス</a></li>
+      </ul>
     </small>
     <div className="p-buildings">
       <svg width="197" height="411" viewBox="0 0 197 411" fill="none" xmlns="http://www.w3.org/2000/svg">

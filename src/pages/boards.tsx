@@ -30,71 +30,6 @@ export default () => {
   )
   const boards = boardData.allBoardsJson.edges;
   
-  // return (
-  //   <section>
-  //     <h1>ボード一覧</h1>
-  //     <section>
-  //       {
-  //         boards.map((board, index) => {
-  //           const boardName = board.node.board.name;
-  //           const boardPage = `/boards/${board.node.board.base}/${board.node.board.id}/`;
-  //           return (
-  //             <section key={index}>
-  //               <div>---------------------</div>
-  //               <h1>{boardName}</h1>
-  //               <ul>
-  //                 <li><a href={boardPage} target='_blank'>ボードのページへ</a></li>
-  //                 {/* @remind PDFページへのリンクに差し替える */}
-  //                 <li>PDF</li>
-  //               </ul>
-  //             </section>
-  //           )
-  //         })
-  //       }
-  //     </section>
-  //     <section>
-  //       <ul>
-  //         <li><Link to='/'>トップへ戻る</Link></li>
-  //       </ul>
-  //     </section>
-  //   </section>
-  // );
-  
-  
-  // return (
-  //   <PlayingLayout footerType="Normal">
-  //     <section className="p-boards-container">
-  //       {
-  //         boards.map((board, index) => {
-  //           const boardName = board.node.board.name;
-  //           const boardPage = `/boards/${board.node.board.base}/${board.node.board.id}/`;
-  //           return (
-  //             <section className="p-square-event-card p-square-event-card--two-column p-square-event-card--green" key={index}>
-  //               <h2 className="p-square-event-card__name p-square-event-card__name--two-column">
-  //                 {boardName}
-  //               </h2>
-  //               <a href={boardPage} target='_blank' className="p-square-event-card__info-container p-square-event-card__info-container--two-column">
-  //                 <p>
-  //                   ボードのページへ
-  //                 </p>
-  //               </a>
-  //             </section>
-  //           )
-  //         })
-  //       }
-  //       <div className="p-control-buttons-container">
-  //         <div className="p-control-buttons">
-  //             <div className="p-control-button">
-  //               <Link to="/">
-  //                 <SvgButtonExit />
-  //               </Link>
-  //             </div>
-  //         </div>
-  //       </div>
-  //     </section>
-  //   </PlayingLayout>
-  // );
-  
   return (
     <PlayingLayout footerType="Normal">
       <section className="p-boards-container">
@@ -126,12 +61,10 @@ export default () => {
       </section>
     </PlayingLayout>
   );
-  
-  
 }
 
 export const Head = () => {
-  const pageTitle: string = 'ボード';
+  const pageTitle: string = 'ボードリスト';
   return (
       <SEO
           pageTitle={pageTitle}

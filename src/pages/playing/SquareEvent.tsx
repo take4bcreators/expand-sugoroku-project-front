@@ -39,8 +39,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   type nextButtonInfoType = {
     linkTo: string,
     onClick: () => void,
-    panelText: JSX.Element,
-    buttonSvg: JSX.Element,
+    PanelText: () => JSX.Element,
+    ButtonSvg: () => JSX.Element,
   }
   let nextButtonInfo: nextButtonInfoType = {
     linkTo: '/playing/',
@@ -48,16 +48,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       stdao.updateNextOrderNum();
       sgmgr.moveScreenTo(PlayingStates.Standby);
     },
-    panelText: (
-      <>
-        次の人へ<wbr />進む
-      </>
-    ),
-    buttonSvg: (
-      <>
-        <SvgButtonNext />
-      </>
-    )
+    PanelText: () => (<>次の人へ<wbr />進む</>),
+    ButtonSvg: () => <SvgButtonNext />,
   };
   
   // 今回止まったマスの情報を取得
@@ -108,7 +100,6 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   if (player?.isfinish) {
     const goalPlayerCount = stdao.getGoalPlayerCount();
     const curGoalPoint = sgmgr.getGoalPoint(goalPlayerCount);
-    // curLocationData.catch = `ゴールボーナス： ${curGoalPoint} pt.`;
     isGoal = true;
     goalPoint = curGoalPoint;
   }
@@ -118,23 +109,14 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   
   // 現在のストレージの状態によりページ内容の表示を変える
   if (isAllPlayersGoal) {
-    // 全員ゴールした場合は、エンディング画面へのリンクを貼る
     nextButtonInfo = {
       linkTo: '/playing/',
       onClick: () => {
         stdao.updateNextOrderNum();
         sgmgr.moveScreenTo(PlayingStates.Ending);
       },
-      panelText: (
-        <>
-          最終結果へ<wbr />すすむ
-        </>
-      ),
-      buttonSvg: (
-        <>
-          <SvgButtonNext />
-        </>
-      )
+      PanelText: () => (<>最終結果へ<wbr />すすむ</>),
+      ButtonSvg: () => <SvgButtonNext />,
     };
   } else if (!curLocationData.eventFlag) {
     // イベントがない場合はその旨を表示
@@ -147,19 +129,10 @@ export default (props : PlayingPageChildProps): JSX.Element => {
       onClick: () => {
         sgmgr.moveScreenTo(PlayingStates.MinigameReady);
       },
-      panelText: (
-        <>
-          ミニゲームへ<wbr />すすむ
-        </>
-      ),
-      buttonSvg: (
-        <>
-          <SvgButtonChess />
-        </>
-      )
+      PanelText: () => (<>ミニゲームへ<wbr />すすむ</>),
+      ButtonSvg: () => <SvgButtonChess />,
     };
   } else if (curLocationData.eventMove !== 0) {
-    // 移動イベントが発生している場合は、次へ進む時に移動実施
     nextButtonInfo = {
       linkTo: '/playing/',
       onClick: () => {
@@ -170,16 +143,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
         stdao.updateNextOrderNum();
         sgmgr.moveScreenTo(PlayingStates.Standby);
       },
-      panelText: (
-        <>
-          次の人へ<wbr />進む
-        </>
-      ),
-      buttonSvg: (
-        <>
-          <SvgButtonNext />
-        </>
-      )
+      PanelText: () => (<>次の人へ<wbr />進む</>),
+      ButtonSvg: () => <SvgButtonNext />,
     };
   } else {
     // 移動イベント以外のイベントは表示のみ
@@ -299,11 +264,11 @@ export default (props : PlayingPageChildProps): JSX.Element => {
               <div className="p-control-next-guide">
                 <div className="p-control-next-panel">
                   <div className="p-control-next-panel__text">
-                    {nextButtonInfo.panelText}
+                    <nextButtonInfo.PanelText />
                   </div>
                 </div>
                 <div className="p-control-next-icon p-control-next-icon--panel">
-                  {nextButtonInfo.buttonSvg}
+                  <nextButtonInfo.ButtonSvg />
                 </div>
               </div>
             </Link>

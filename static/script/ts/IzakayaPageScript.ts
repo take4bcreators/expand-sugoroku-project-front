@@ -1,8 +1,6 @@
+import PageScript from "../interface/PageScript";
 
-
-export class IzakayaPageScript {
-    constructor() {}
-    
+export class IzakayaPageScript implements PageScript {
     execScript() {
         const obiClassList = [
             'js-iz-obi--orange',

@@ -8,17 +8,10 @@ import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
-import '../../sass/style.scss';
-
-
 import SvgButtonExit from '../../icon/svg/SvgButtonExit';
 import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
 import SvgButtonMap from '../../icon/svg/SvgButtonMap';
-import SvgButtonNext from '../../icon/svg/SvgButtonNext';
-import SvgButtonChess from '../../icon/svg/SvgButtonChess';
-import SvgIconNotice from '../../icon/svg/SvgIconNotice';
-import SvgButtonFlag from '../../icon/svg/SvgButtonFlag';
-
+import '../../sass/style.scss';
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
@@ -56,7 +49,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  // 今回止まったマスの情報を取得
+  // 止まったマスの情報を取得
   const curLocationData = {
     minigameName: '',
     minigameDetail: '',
@@ -75,33 +68,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       curLocationData.minigamePath = AppConst.MINIGAME_DIR + '/' + curLocation.minigame.id + '/';
     }
   }
-  
-  // return (
-  //   <>
-  //     <main>
-  //       <section>
-  //         <h1>{curLocationData.minigameName}</h1>
-  //         <p>{curLocationData.minigameDetail}</p>
-  //         <p>
-  //           <a onClick={() => {
-  //             const keyStr = util.createRandomString(8);
-  //             stdao.setItem(StorageKeys.PlayingLastMinigameKey, keyStr);
-  //             location.href = curLocationData.minigamePath + '?mode=sugoroku&key=' + keyStr;
-  //           }}>
-  //             →→ ミニゲームをはじめる ←←
-  //           </a>
-  //         </p>
-  //         <Link to='/playing/' onClick={() => {
-  //           stdao.setItem(StorageKeys.PlayingLastMinigameRank, 'c');
-  //           sgmgr.moveScreenTo(PlayingStates.MinigameResult);
-  //         }}>
-  //           ミニゲームをやらずに次へ進める
-  //         </Link>
-  //       </section>
-  //     </main>
-  //   </>
-  // )
-  
   
   return (
     <>

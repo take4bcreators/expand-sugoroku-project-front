@@ -1,113 +1,122 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-import { AppConst } from '../ts/config/const';
-import { StorageKeys } from '../ts/config/StorageKeys';
+import SEO from '../components/SEO';
+import StorageDAO from '../ts/module/StorageDAO';
+import PlayingLayout from '../components/PlayingLayout';
+import SvgTemporallyLogoText from '../icon/svg/SvgTemporallyLogoText';
+import SvgTemporallyLogo from '../icon/svg/SvgTemporallyLogo';
+import SvgTopIconBookmark from '../icon/svg/SvgTopIconBookmark';
+import SvgTopIconWalkHuman from '../icon/svg/SvgTopIconWalkHuman';
+import SvgTopIconMap from '../icon/svg/SvgTopIconMap';
+import SvgTopIconChess from '../icon/svg/SvgTopIconChess';
 import '../sass/style.scss';
 
-import PlayingLayout from '../components/PlayingLayout';
-
-import SvgTemporallyLogoText from '../icon/svg/SvgTemporallyLogoText';
-
-
-
-const PAGE_TITLE: string = 'TEMPORALLY | すごろく拡張ツール';
 
 export default () => {
-  const [playingState, setPlayingState] = useState('');
+  const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
+  const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
-    setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
+    setStdao(new StorageDAO(localStorage));
+    setDoEffect(true);
   }, []);
+  if (!doEffect) return (<></>);
+  if (typeof stdao === 'undefined') {
+    console.error('[SGPJ] stdao is undefined');
+    return (<></>);
+  }
+  
+  // 初回アクセス時はつづきからを非活性にする
+  let ContinueButton = () => (
+    <Link to="playing/">
+      <div className="p-top-menu-item p-top-menu-item--bg01">
+        <div className="p-top-menu-item__icon">
+          <SvgTopIconBookmark />
+        </div>
+        <div className="p-top-menu-item__text">
+          つづきから
+        </div>
+      </div>
+    </Link>
+  );
+  const playingState = stdao.getItem('sgpj_playing_state');
+  if (playingState === null || playingState === '' ) {
+    ContinueButton = () => (
+      <div className="p-top-menu-item p-top-menu-item--inactive">
+        <div className="p-top-menu-item__icon">
+          <SvgTopIconBookmark />
+        </div>
+        <div className="p-top-menu-item__text">
+          つづきから
+        </div>
+      </div>
+    );
+  }
   
   return (
-    <PlayingLayout footerType="Top">
-      <main className="p-top">
-        <h1 className="p-top-logo">
-          <SvgTemporallyLogoText />
-        </h1>
-        <ul className="p-top-menu-container">
-          <li>
-            <Link to="playing/">
-              <div className="p-top-menu-item p-top-menu-item--bg01">
-                <div className="p-top-menu-item__icon">
-                  <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" xmlSpace="preserve">
-                    <g>
-                      <path d="M141.18,56.938l30.484,33.531v157.594c0,2.563,1.422,4.938,3.688,6.141c2.281,1.203,5.031,1.063,7.156-0.391l36.406-24.656l36.391,24.656c2.141,1.453,4.891,1.594,7.172,0.391c2.25-1.203,3.688-3.578,3.688-6.141V90.469l-30.5-33.531H141.18z" />
-                      <path d="M436.008,93.344l-25.875-62.563c9.188-0.563,14.719-8.156,14.719-14.078C424.852,7.469,417.383,0,408.164,0H109.477C92.086,0,76.195,7.094,64.836,18.5C53.43,29.859,46.32,45.75,46.336,63.125V470.75c0,22.781,18.469,41.25,41.25,41.25h343.359c19.188,0,34.719-15.547,34.719-34.734V127.578C465.664,110.125,452.789,95.844,436.008,93.344z M290.664,92.844v155.219c0,11.672-6.406,22.328-16.719,27.797c-4.531,2.391-9.625,3.672-14.75,3.672c-6.313,0-12.422-1.875-17.641-5.438l-22.641-15.344l-22.656,15.344c-5.219,3.563-11.313,5.438-17.641,5.438c-5.109,0-10.219-1.281-14.75-3.688c-10.297-5.453-16.703-16.109-16.703-27.781V99.938l-6.469-7.094h-31.219c-8.266,0-15.594-3.313-21.016-8.703c-5.406-5.453-8.719-12.766-8.719-21.016s3.313-15.578,8.719-21c5.422-5.406,12.75-8.719,21.016-8.719H383.57l26.688,59.438H290.664z" />
-                    </g>
-                  </svg>
+    <>
+      <div className="p-splash-screen-container js-splash-screen-container">
+        <div className="p-splash-screen-container__logo">
+          <SvgTemporallyLogo />
+        </div>
+      </div>
+      <PlayingLayout footerType="Top">
+        <main className="p-top">
+          <h1 className="p-top-logo">
+            <SvgTemporallyLogoText />
+          </h1>
+          <ul className="p-top-menu-container">
+            <li>
+              <ContinueButton />
+            </li>
+            <li>
+              <Link to='setup/?state=board'>
+                <div className="p-top-menu-item p-top-menu-item--bg02">
+                  <div className="p-top-menu-item__icon">
+                    <SvgTopIconWalkHuman />
+                  </div>
+                  <div className="p-top-menu-item__text">
+                    はじめから
+                  </div>
                 </div>
-                <div className="p-top-menu-item__text">
-                  つづきから
+              </Link>
+            </li>
+            <li>
+              <Link to='boards'>
+                <div className="p-top-menu-item p-top-menu-item--bg03">
+                  <div className="p-top-menu-item__icon">
+                    <SvgTopIconMap />
+                  </div>
+                  <div className="p-top-menu-item__text">
+                    ボード
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to='setup/?state=board'>
-              <div className="p-top-menu-item p-top-menu-item--bg02">
-                <div className="p-top-menu-item__icon">
-                  <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">
-                    <g>
-                      <path d="M278.796,94.952c26.218,0,47.472-21.254,47.472-47.481C326.268,21.254,305.014,0,278.796,0c-26.227,0-47.481,21.254-47.481,47.472C231.315,73.698,252.569,94.952,278.796,94.952z" />
-                      <path d="M407.86,236.772l-54.377-28.589l-22.92-47.087c-11.556-23.754-33.698-40.612-59.679-45.439l-23.58-4.386c-11.859-2.197-24.111-0.614-35.027,4.542l-68.67,32.426c-7.628,3.599-13.654,9.863-16.969,17.601l-30.539,71.308c-1.941,4.533-1.978,9.652-0.11,14.202c1.868,4.561,5.494,8.187,10.046,10.055l0.686,0.275c9.102,3.726,19.532-0.384,23.654-9.314l28.03-60.704l44.368-14.34l-43.964,195.39l-42.82,106.765c-2.372,5.916-2.106,12.555,0.715,18.26c2.82,5.714,7.938,9.954,14.074,11.667l1.85,0.512c9.844,2.747,20.293-1.511,25.42-10.357l50.751-87.663l30.237-59.998l55.182,60.896l40.76,86.354c4.596,9.734,15.466,14.834,25.887,12.133l0.458-0.128c6.053-1.566,11.163-5.586,14.13-11.09c2.94-5.504,3.47-11.996,1.438-17.903l-29.99-86.93c-4.212-12.225-10.457-23.644-18.47-33.79l-48.699-64.394l17.866-92.92l23.058,29.294c2.848,3.626,6.538,6.52,10.741,8.426l60.658,27.388c4.387,1.979,9.387,2.098,13.864,0.33c4.479-1.768,8.05-5.274,9.9-9.716l0.192-0.467C419.562,250.874,416.019,241.067,407.86,236.772z" />
-                    </g>
-                  </svg>
+              </Link>
+            </li>
+            <li>
+              <Link to='minigames'>
+                <div className="p-top-menu-item p-top-menu-item--bg04">
+                  <div className="p-top-menu-item__icon">
+                    <SvgTopIconChess />
+                  </div>
+                  <div className="p-top-menu-item__text">
+                    ミニゲーム
+                  </div>
                 </div>
-                <div className="p-top-menu-item__text">
-                  はじめから
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to='boards'>
-              <div className="p-top-menu-item p-top-menu-item--bg03">
-                <div className="p-top-menu-item__icon">
-                  <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" xmlSpace="preserve">
-                    <g>
-                      <path d="M173.46,224.688c28.906,55.406,70,112.531,70.219,112.859l13.594,18.906l13.578-18.906c0.156-0.203,24.078-33.531,48.219-73.766c12.063-20.156,24.203-42.031,33.531-62.734c4.641-10.359,8.609-20.406,11.5-30.016c2.875-9.609,4.75-18.719,4.781-27.781c-0.016-61.656-49.953-111.625-111.609-111.641c-61.672,0.016-111.625,49.984-111.641,111.641c0.047,9.063,1.922,18.172,4.797,27.781C155.491,187.813,163.819,206.141,173.46,224.688z M201.976,87.953c14.203-14.172,33.641-22.891,55.297-22.906c21.641,0.016,41.078,8.734,55.281,22.906c14.172,14.219,22.891,33.641,22.891,55.297c0.031,4.047-1.047,10.531-3.359,18.156c-4.016,13.438-11.578,30.406-20.672,47.828c-13.625,26.172-30.641,53.531-44.172,74.203c-3.641,5.531-6.969,10.531-9.969,14.969c-9.453-13.969-22.578-34-35.422-55.672c-11.25-18.984-22.25-39.188-30.234-57.266c-4-9-7.25-17.484-9.391-24.813c-2.172-7.297-3.172-13.5-3.141-17.406C179.085,121.594,187.804,102.172,201.976,87.953z" />
-                      <path d="M257.272,179.547c20.031,0,36.297-16.234,36.297-36.297c0-20.047-16.266-36.313-36.297-36.313c-20.047,0-36.313,16.266-36.313,36.313C220.96,163.313,237.226,179.547,257.272,179.547z" />
-                      <path d="M511.851,457.813c-0.203-1.438-0.563-2.906-1.125-4.375c-0.547-1.5-1.266-3-2.188-4.484l-97.734-163.313c-0.203-0.359-0.469-0.734-0.766-1.078c-0.313-0.359-0.656-0.688-1.031-1.047c-0.391-0.328-0.797-0.672-1.25-1.016c-0.469-0.313-0.953-0.656-1.469-0.953c-0.781-0.484-1.609-0.922-2.5-1.328c-0.906-0.422-1.859-0.828-2.875-1.219c-1-0.344-2.031-0.719-3.141-1c-1.109-0.344-2.234-0.656-3.406-0.922s-2.375-0.5-3.625-0.719c-1.234-0.203-2.516-0.391-3.797-0.531c-1.281-0.125-2.578-0.25-3.906-0.313c-1.297-0.078-2.609-0.141-3.922-0.141h-47.75c-0.391,0.656-0.719,1.25-1.109,1.906c-2.406,4-4.797,7.906-7.156,11.734h54.344l13.141,28.641h-73.578l-2.859-14.438c-5.641,8.781-10.844,16.656-15.266,23.156h0.625l5.922,44.906h-38.281h-11.141h-11.156h-38.281l5.938-44.906h0.609c-4.422-6.5-9.625-14.375-15.266-23.156l-2.859,14.438h-73.578l13.156-28.641h54.344c-2.375-3.828-4.766-7.734-7.172-11.734c-0.391-0.656-0.719-1.25-1.109-1.906h-47.75c-1.313,0-2.609,0.063-3.922,0.141c-1.313,0.063-2.625,0.188-3.906,0.313c-1.281,0.141-2.563,0.328-3.797,0.531c-1.234,0.219-2.438,0.453-3.609,0.719s-2.313,0.578-3.406,0.922c-1.109,0.281-2.156,0.656-3.156,1c-1.016,0.391-1.969,0.797-2.875,1.219c-0.891,0.406-1.719,0.844-2.5,1.328c-0.516,0.297-1,0.641-1.453,0.953c-0.453,0.344-0.875,0.688-1.266,1.016c-0.375,0.359-0.719,0.688-1.016,1.047c-0.313,0.344-0.578,0.719-0.797,1.078L3.46,448.953c-0.906,1.484-1.625,2.984-2.188,4.484c-0.547,1.469-0.922,2.938-1.109,4.375c-0.203,1.438-0.219,2.875-0.063,4.219c0.156,1.359,0.484,2.672,1,3.938c0.484,1.266,1.172,2.469,2.016,3.594c0.828,1.172,1.828,2.234,3,3.219c1.172,1,2.484,1.922,3.969,2.734c1.469,0.844,3.094,1.578,4.875,2.234c1.203,0.391,2.453,0.781,3.781,1.109c1.297,0.328,2.672,0.609,4.109,0.828c1.438,0.234,2.922,0.391,4.453,0.531c1.516,0.094,3.094,0.172,4.719,0.172h223.984h223.984c1.609,0,3.188-0.078,4.719-0.172c1.531-0.141,3.016-0.297,4.453-0.531c1.422-0.219,2.797-0.5,4.109-0.828s2.578-0.719,3.781-1.109c1.766-0.656,3.391-1.391,4.875-2.234c1.469-0.813,2.797-1.734,3.969-2.734c1.156-0.984,2.141-2.047,3-3.219c0.828-1.125,1.516-2.328,2-3.594c0.5-1.266,0.844-2.578,1-3.938C512.054,460.688,512.038,459.25,511.851,457.813z M170.726,440.078h-105.5l25.891-56.422h90.797L170.726,440.078z M184.366,371.281H96.819l20.594-44.906h75.844L184.366,371.281z M256.007,440.078h-58.531l7.453-56.422h51.078h51.063l7.469,56.422H256.007z M318.741,326.375h75.844l20.609,44.906h-87.563L318.741,326.375z M341.272,440.078l-11.172-56.422h90.781l25.891,56.422H341.272z" />
-                    </g>
-                  </svg>
-                </div>
-                <div className="p-top-menu-item__text">
-                  ボード
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to='minigames'>
-              <div className="p-top-menu-item p-top-menu-item--bg04">
-                <div className="p-top-menu-item__icon">
-                  <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">
-                    <g>
-                      <path d="M115.177,431.387h281.647c0,0,19.259-3.795,19.259-22.736c0-28.422-26.138-38.79-38.519-54.953c-52.275-65.603-48.468-225.342-48.468-225.342H182.904c0,0,3.809,159.739-48.492,225.342c-12.358,16.164-38.495,26.532-38.495,54.953C95.917,427.592,115.177,431.387,115.177,431.387z" />
-                      <polygon points="329.096,108.397 374.714,79.863 374.714,0 320.178,0 320.178,43.359 281.659,43.359 281.659,0 230.317,0 230.317,43.359 191.822,43.359 191.822,0 137.261,0 137.261,79.863 182.904,108.397" />
-                      <polygon points="115.177,451.348 99.479,477.78 99.479,512 412.521,512 412.521,477.78 396.824,451.348" />
-                    </g>
-                  </svg>
-                </div>
-                <div className="p-top-menu-item__text">
-                  ミニゲーム
-                </div>
-              </div>
-            </Link>
-          </li>
-        </ul>
-      </main>
-    </PlayingLayout>
+              </Link>
+            </li>
+          </ul>
+        </main>
+      </PlayingLayout>
+    </>
   );
 }
 
-
 export const Head = () => {
+  const pageTitle: string = 'TEMPORALLY | すごろく拡張ツール';
   return (
-    <>
-      <body className="f-sg-body" />
-      <title>{PAGE_TITLE}</title>
-    </>
-  );
+      <SEO
+          pageTitle={pageTitle}
+      />
+  )
 }

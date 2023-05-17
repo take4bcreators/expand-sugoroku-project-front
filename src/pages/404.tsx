@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import SEO from '../components/SEO';
 import '../sass/style.scss';
-
 
 export default () => {
   return (
@@ -14,11 +14,11 @@ export default () => {
   );
 }
 
-
 export const Head = () => {
+  const pageTitle: string = '404 Not Found';
   return (
-    <>
-      <title>404 Not Found</title>
-    </>
+    <SEO
+        pageTitle={pageTitle}
+    />
   );
 }

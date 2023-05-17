@@ -3,36 +3,26 @@ import { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import SugorokuManager from '../../ts/module/SugorokuManager';
-import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
 import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
-import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
-import '../../sass/style.scss';
-
-
 import SvgButtonExit from '../../icon/svg/SvgButtonExit';
 import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
 import SvgButtonMap from '../../icon/svg/SvgButtonMap';
 import SvgButtonNext from '../../icon/svg/SvgButtonNext';
-import SvgButtonChess from '../../icon/svg/SvgButtonChess';
 import SvgIconNotice from '../../icon/svg/SvgIconNotice';
-import SvgButtonFlag from '../../icon/svg/SvgButtonFlag';
-
+import '../../sass/style.scss';
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
   const [stdao, setStdao] = useState<StorageDAO | undefined>(undefined);
   const [sgmgr, setSgmgr] = useState<SugorokuManager | undefined>(undefined);
-  // const [player, setPlayer] = useState<PlayerInfo | undefined>(undefined);
   const [minigameRank, setMinigameRank] = useState('');
   const [doEffect, setDoEffect] = useState(false);
   useEffect(() => {
     setStdao(new StorageDAO(localStorage));
     setSgmgr(new SugorokuManager(props.setPlayingState, localStorage));
-    // const stdao = new StorageDAO(localStorage);
-    // setPlayer(stdao.getCurrentPlayer());
     setMinigameRank(localStorage.getItem(StorageKeys.PlayingLastMinigameRank) ?? '');
     setDoEffect(true);
   }, []);
@@ -67,7 +57,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     return;
   }
   
-  // 今回止まったマスの情報を取得
+  // 止まったマスの情報を取得
   const curLocationData = {
     minigameName: '',
     minigameDetail: '',
@@ -91,8 +81,8 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   type nextButtonInfoType = {
     linkTo: string,
     onClick: () => void,
-    panelText: JSX.Element,
-    buttonSvg: JSX.Element,
+    PanelText: () => JSX.Element,
+    ButtonSvg: () => JSX.Element,
   }
   let nextButtonInfo: nextButtonInfoType = {
     linkTo: '/playing/',
@@ -101,53 +91,16 @@ export default (props: PlayingPageChildProps): JSX.Element => {
       nextPlayer.point = nextPlayer.point + getPoint;
       const stio = new StorageDAO(localStorage);
       const updateResult = stio.updateCurrentPlayer(nextPlayer);
-      // ユーザー情報UPDATEが問題合った場合は、エラーを出力
       if (!updateResult) {
+        // ユーザー情報UPDATEが問題合った場合は、エラーを出力
         console.error('[SGPJ] Failed to update user information.');
-        // @remind ユーザーへの情報表示をいれる（ゲームは続行でOK？）
       }
       setNextOrderNum();
       moveScreenTo(PlayingStates.Standby);
     },
-    panelText: (
-      <>
-        次の人へ<wbr />進む
-      </>
-    ),
-    buttonSvg: (
-      <>
-        <SvgButtonNext />
-      </>
-    )
+    PanelText: () => (<>次の人へ<wbr />進む</>),
+    ButtonSvg: () => <SvgButtonNext />,
   };
-  
-  
-  // return (
-  //   <>
-  //     <main>
-  //       <section>
-  //         <h1>ミニゲーム結果！</h1>
-  //         <p>ランク：{minigameRank.toUpperCase()}</p>
-  //         <p>付与ポイント：{getPoint}</p>
-  //         <Link to='/playing/' onClick={() => {
-  //           const nextPlayer = Object.assign({}, player);
-  //           nextPlayer.point = nextPlayer.point + getPoint;
-  //           const stio = new StorageDAO(localStorage);
-  //           const updateResult = stio.updateCurrentPlayer(nextPlayer);
-  //           // ユーザー情報UPDATEが問題合った場合は、エラーを出力
-  //           if (!updateResult) {
-  //             console.error('[SGPJ] Failed to update user information.');
-  //             // @remind ユーザーへの情報表示をいれる（ゲームは続行でOK？）
-  //           }
-  //           setNextOrderNum();
-  //           moveScreenTo(PlayingStates.Standby);
-  //         }}>
-  //           →→ 次の人の番へすすむ
-  //         </Link>
-  //       </section>
-  //     </main>
-  //   </>
-  // )
   
   return (
     <>
@@ -177,26 +130,6 @@ export default (props: PlayingPageChildProps): JSX.Element => {
             </div>
           </div>
         </section>
-        {/* <section>
-          <h1>ミニゲーム結果！</h1>
-          <p>ランク：{minigameRank.toUpperCase()}</p>
-          <p>付与ポイント：{getPoint}</p>
-          <Link to='/playing/' onClick={() => {
-            const nextPlayer = Object.assign({}, player);
-            nextPlayer.point = nextPlayer.point + getPoint;
-            const stio = new StorageDAO(localStorage);
-            const updateResult = stio.updateCurrentPlayer(nextPlayer);
-            // ユーザー情報UPDATEが問題合った場合は、エラーを出力
-            if (!updateResult) {
-              console.error('[SGPJ] Failed to update user information.');
-              // @remind ユーザーへの情報表示をいれる（ゲームは続行でOK？）
-            }
-            setNextOrderNum();
-            moveScreenTo(PlayingStates.Standby);
-          }}>
-            →→ 次の人の番へすすむ
-          </Link>
-        </section> */}
         <div className="p-control-buttons-container">
           <div className="p-control-buttons p-control-buttons--playing">
             <div className="p-control-button-leftgroup">
@@ -220,11 +153,11 @@ export default (props: PlayingPageChildProps): JSX.Element => {
               <div className="p-control-next-guide">
                 <div className="p-control-next-panel">
                   <div className="p-control-next-panel__text">
-                    {nextButtonInfo.panelText}
+                    <nextButtonInfo.PanelText />
                   </div>
                 </div>
                 <div className="p-control-next-icon p-control-next-icon--panel">
-                  {nextButtonInfo.buttonSvg}
+                  <nextButtonInfo.ButtonSvg />
                 </div>
               </div>
             </Link>

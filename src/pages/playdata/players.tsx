@@ -4,22 +4,13 @@ import { Link } from 'gatsby';
 import { AppConst } from '../../ts/config/const';
 import SEO from '../../components/SEO';
 import StorageDAO from '../../ts/module/StorageDAO';
-import '../../sass/style.scss';
-
 import PlayingLayout from '../../components/PlayingLayout';
-
-import SvgButtonDice from '../../icon/svg/SvgButtonDice';
-import SvgButtonExit from '../../icon/svg/SvgButtonExit';
-import SvgButtonNext from '../../icon/svg/SvgButtonNext';
-import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
-import SvgButtonMap from '../../icon/svg/SvgButtonMap';
 import SvgButtonBack from '../../icon/svg/SvgButtonBack';
 import SvgIconPoint from '../../icon/svg/SvgIconPoint';
 import SvgIconLocation from '../../icon/svg/SvgIconLocation';
 import SvgIconLock from '../../icon/svg/SvgIconLock';
 import SvgObjectLocationbar from '../../icon/svg/SvgObjectLocationbar';
-
-
+import '../../sass/style.scss';
 
 
 export default (): JSX.Element => {
@@ -54,29 +45,15 @@ export default (): JSX.Element => {
   }
   
   // 表示用に要素を組み立てる
-  const buildElem = (
+  const PlayerDataContainer = () => (
     <section className="p-playdata-players-container">
       {
         players.map((player, index) => {
           // 現在の順番のプレイヤーで合った場合の表示
-          // let curOrderMark = '';
-          // if (player.order === curOrderNum) {
-          //   curOrderMark = '★ ';
-          // }
           let curOrderMarkClass = '';
           if (player.order === curOrderNum) {
             curOrderMarkClass = ' is-current-order';
           }
-          
-          // // 休みがあった場合の表示
-          // let statusInformation = 'なし';
-          // if (player.skipcnt > 0) {
-          //   statusInformation = 'あと ' + player.skipcnt + ' 回休み';
-          // }
-          
-          // // 現在の場所を取得
-          // const playerLocation = player.location;
-          // const playerLocationName = board.square[playerLocation].store.name;
           
           // 現在の場所の情報を取得
           const curLocationData = {
@@ -94,9 +71,9 @@ export default (): JSX.Element => {
           }
           
           // 店画像表示のための要素の組み立て
-          let storeImage = (<img src={curLocationData.photo} alt="店舗の画像" />);
+          let StoreImage = () => (<img src={curLocationData.photo} alt="店舗の画像" />);
           if (curLocationData.photo === '') {
-            storeImage = (<></>);
+            StoreImage = () => <></>;
           }
           
           // プレイヤーアイコン情報の組み立て
@@ -105,50 +82,11 @@ export default (): JSX.Element => {
             playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
           }
           
-          // return (
-          //   <section key={index}>
-          //     <p>---------------------------------</p>
-          //     <h1>{curOrderMark}{player.name} さん</h1>
-          //     <div>
-          //       <img
-          //         src={playerIconSrc}
-          //         alt="プレイヤーアイコン"
-          //         width="50"
-          //         height="50"
-          //       />
-          //     </div>
-          //     <ul>
-          //       <li>順番：{player.order + 1} 番目</li>
-          //       <li>ポイント：{player.point} pt.</li>
-          //       <li>現在地：[{playerLocation}] {playerLocationName}</li>
-          //       <li>ステータス：{statusInformation}</li>
-          //     </ul>
-          //     <p>---------------------------------</p>
-          //   </section>
-          // );
           return (
-            // <section key={index}>
-            //   <p>---------------------------------</p>
-            //   <h1>{curOrderMark}{player.name} さん</h1>
-            //   <div>
-            //     <img
-            //       src={playerIconSrc}
-            //       alt="プレイヤーアイコン"
-            //       width="50"
-            //       height="50"
-            //     />
-            //   </div>
-            //   <ul>
-            //     <li>順番：{player.order + 1} 番目</li>
-            //     <li>ポイント：{player.point} pt.</li>
-            //     <li>現在地：[{playerLocation}] {playerLocationName}</li>
-            //     <li>ステータス：{statusInformation}</li>
-            //   </ul>
-            //   <p>---------------------------------</p>
-            // </section>
             <div className="p-playing-stanby-playercard" key={index}>
               <div className="p-playing-stanby-playercard__storeimage">
-                {storeImage}
+                {/* {StoreImage} */}
+                <StoreImage />
               </div>
               <div className={'p-playing-stanby-playercard__info-containeres' + curOrderMarkClass}>
                 <div className="p-playing-stanby-playercard__icon">
@@ -199,20 +137,12 @@ export default (): JSX.Element => {
     </section>
   );
   
-  // return (
-  //   <>
-  //     <h1>プレイヤー情報</h1>
-  //     {buildElem}
-  //     <Link to="../../playing/">
-  //       すごろくに戻る
-  //     </Link>
-  //   </>
-  // );
   return (
     <>
       <PlayingLayout footerType="Normal">
         <main>
-          {buildElem}
+          {/* {buildElem} */}
+          <PlayerDataContainer />
           <div className="p-control-buttons-container">
             <div className="p-control-buttons">
                 <div className="p-control-button">
@@ -227,7 +157,6 @@ export default (): JSX.Element => {
     </>
   );
 }
-
 
 export const Head = () => {
   const pageTitle: string = 'プレイヤー情報';

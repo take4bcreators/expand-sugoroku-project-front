@@ -42,6 +42,15 @@ $_item-text-size: calc($_item_height * 0.3);
     }
 }
 
+.p-top-menu-item--inactive {
+    background-color: g.$color-top-menu-bg-inactive;
+    transition: none;
+    &:hover {
+        scale: 1.0;
+        box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    }
+}
+
 .p-top-menu-item__icon {
     width: $_icon-size;
     height: $_icon-size;
