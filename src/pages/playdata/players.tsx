@@ -159,10 +159,9 @@ export default (): JSX.Element => {
 }
 
 export const Head = () => {
-  const pageTitle: string = 'プレイヤー情報';
   return (
       <SEO
-          pageTitle={pageTitle}
+          pageTitle="プレイヤー情報 | TEMPORALLY"
       />
   )
 }

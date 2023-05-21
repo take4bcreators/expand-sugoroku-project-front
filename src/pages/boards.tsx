@@ -64,10 +64,9 @@ export default () => {
 }
 
 export const Head = () => {
-  const pageTitle: string = 'ボードリスト';
   return (
       <SEO
-          pageTitle={pageTitle}
+          pageTitle="ボードリスト | TEMPORALLY"
       />
   )
 }

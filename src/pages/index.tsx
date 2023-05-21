@@ -113,10 +113,9 @@ export default () => {
 }
 
 export const Head = () => {
-  const pageTitle: string = 'TEMPORALLY | すごろく拡張ツール';
   return (
       <SEO
-          pageTitle={pageTitle}
+          pageTitle="TEMPORALLY | すごろく拡張ツール"
       />
   )
 }

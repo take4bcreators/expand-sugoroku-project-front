@@ -68,10 +68,9 @@ export default () => {
 }
 
 export const Head = () => {
-  const pageTitle: string = 'ミニゲームリスト';
   return (
       <SEO
-          pageTitle={pageTitle}
+          pageTitle="ミニゲームリスト | TEMPORALLY"
       />
   )
 }

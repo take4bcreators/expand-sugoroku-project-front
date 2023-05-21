@@ -15,10 +15,9 @@ export default () => {
 }
 
 export const Head = () => {
-  const pageTitle: string = '404 Not Found';
   return (
     <SEO
-        pageTitle={pageTitle}
+        pageTitle="404 Not Found"
     />
   );
 }

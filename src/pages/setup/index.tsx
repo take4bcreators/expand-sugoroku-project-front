@@ -64,10 +64,9 @@ export default ({ data }: ThisPageProps) => {
 }
 
 export const Head = () => {
-  const pageTitle: string = 'はじめから | TEMPORALLY';
   return (
       <SEO
-          pageTitle={pageTitle}
+          pageTitle="はじめから | TEMPORALLY"
       />
   )
 }

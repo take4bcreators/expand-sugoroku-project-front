@@ -126,45 +126,35 @@ export default ({data, location}: PlayingPageParentProps): JSX.Element => {
   );
 }
 
-
 export const Head = () => {
-  // const pageTitle: string = 'SUGOROKU!!';
-  // return (
-  //     <SEO
-  //         pageTitle={pageTitle}
-  //     />
-  // );
+  const playingState = localStorage.getItem(StorageKeys.PlayingState);
+  const stdao = new StorageDAO(localStorage);
+  const player = stdao.getCurrentPlayer();
+  const playerName = player?.name;
   
-  const [playingState, setPlayingState] = useState('');
-  useEffect(() => {
-    setPlayingState(localStorage.getItem(StorageKeys.PlayingState) ?? '');
-  }, []);
-  
-  let pageTitle = '';
+  const SITE_TITLE: string = 'TEMPORALLY';
+  let pageTitle = SITE_TITLE;
   switch (playingState) {
-    // case PlayingStates.decideOrder:
-    //   pageTitle = '順番決め | SUGOROKU!!';
-    //   break;
-    // case PlayingStates.standby:
-    //   pageTitle = '〇〇さんのターン | SUGOROKU!!';
-    //   break;
-    // case PlayingStates.dice:
-    //   pageTitle = 'サイコロ | SUGOROKU!!';
-    //   break;
-    // case PlayingStates.squareEvent:
-    //   pageTitle = 'マスイベント | SUGOROKU!!';
-    //   break;
-    // case PlayingStates.minigameReady:
-    //   pageTitle = 'ミニゲーム | SUGOROKU!!';
-    //   break;
-    // case PlayingStates.minigameResult:
-    //   pageTitle = 'ミニゲーム結果 | SUGOROKU!!';
-    //   break;
-    // case PlayingStates.ending:
-    //   pageTitle = '最終結果 | SUGOROKU!!';
-    //   break;
+    case PlayingStates.DecideOrder:
+      pageTitle = `順番決め | ${SITE_TITLE} `;
+      break;
+    case PlayingStates.Standby:
+    case PlayingStates.Dice:
+    case PlayingStates.SquareEvent:
+      if (typeof playerName !== 'undefined') {
+        pageTitle = `${playerName} | ${SITE_TITLE} `;
+      }
+      break;
+    case PlayingStates.MinigameReady:
+      pageTitle = `ミニゲーム | ${SITE_TITLE} `;
+      break;
+    case PlayingStates.MinigameResult:
+      pageTitle = `ミニゲーム結果 | ${SITE_TITLE} `;
+      break;
+    case PlayingStates.Ending:
+      pageTitle = `最終結果 | ${SITE_TITLE} `;
+      break;
     default:
-      pageTitle = 'SUGOROKU!!';
       break;
   }
   
