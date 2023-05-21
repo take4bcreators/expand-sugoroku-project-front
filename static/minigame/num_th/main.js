@@ -5,9 +5,9 @@ import { SugorokuConnection } from './SugorokuConnection.js';
 
 // 設定
 const FINISH_NUMBER = 15; // 終わる回数
-const S_RANK = '011.999'; // Sランクの秒数
-const A_RANK = '014.499'; // Aランクの秒数
-const B_RANK = '019.999'; // Bランクの秒数
+const S_RANK = '008.999'; // Sランクの秒数
+const A_RANK = '010.999'; // Aランクの秒数
+const B_RANK = '013.999'; // Bランクの秒数
 
 // すごろく連携モジュールをインスタンス化（召喚する）
 const sgcon = new SugorokuConnection();

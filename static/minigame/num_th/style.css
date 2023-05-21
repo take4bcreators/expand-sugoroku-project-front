@@ -243,7 +243,7 @@ body {
   align-items: center;
   flex-direction: column;
   width: 50vw;
-  height: 50vh;
+  height: 55vh;
   opacity: 1;
   transition: all 0.2s ease-in-out;
 }
@@ -254,16 +254,16 @@ body {
     height: 50vh;
   }
 }
-@media screen and (min-width: 520px) and (max-width: 959px) {
+@media screen and (min-width: 520px) and (max-width: 960px) {
   .popbox {
     width: 70vw;
-    height: 30vh;
+    height: 35vh;
   }
 }
 @media screen and (min-width: 960px) {
   .popbox {
     width: 50vw;
-    height: 50vh;
+    height: 55vh;
   }
 }
 .popbox li {
