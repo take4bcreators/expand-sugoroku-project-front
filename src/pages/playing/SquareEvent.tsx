@@ -193,7 +193,7 @@ export default (props : PlayingPageChildProps): JSX.Element => {
             <h1 className="p-square-event-card__name">
               {curLocationData.name}
             </h1>
-            <div className="p-square-event-card__info-container">
+            <div className="p-square-event-card__info-container p-square-event-card__info-container--safari">
               <p className="p-square-event-card__name-kana">
                 {curLocationData.name_kana}
               </p>
