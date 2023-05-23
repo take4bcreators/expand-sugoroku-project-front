@@ -164,10 +164,12 @@ _::-webkit-full-page-media, _:future, :root .p-square-event-card__info-container
     @include g.mq(tab) {
         height: 47vh;
         height: 47svh;
+        overflow: scroll;
     }
     @include g.mq(pc) {
         height: 45vh;
         height: 45svh;
+        overflow: scroll;
     }
 }
 

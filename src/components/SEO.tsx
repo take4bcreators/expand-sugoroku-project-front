@@ -1,16 +1,19 @@
 import React from 'react';
 
-type SEOType = {
+type Props = {
   pageTitle: string,
 }
 
-export default function SEO({pageTitle}: SEOType ) {
+export default ({pageTitle}: Props ) => {
   return (
     <>
       <body className="f-sg-body" />
+      
+      {/* page info */}
       <title>{pageTitle}</title>
+      <meta name="description" content="印刷した盤面とWEBツールを併せて遊ぶすごろく拡張ツール" />
       
-      
+      {/* icon */}
       <meta name="msapplication-square70x70logo" content="/icon/site-tile-70x70.png" />
       <meta name="msapplication-square150x150logo" content="/icon/site-tile-150x150.png" />
       <meta name="msapplication-wide310x150logo" content="/icon/site-tile-310x150.png" />

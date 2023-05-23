@@ -141,7 +141,6 @@ export default (): JSX.Element => {
     <>
       <PlayingLayout footerType="Normal">
         <main>
-          {/* {buildElem} */}
           <PlayerDataContainer />
           <div className="p-control-buttons-container">
             <div className="p-control-buttons">
