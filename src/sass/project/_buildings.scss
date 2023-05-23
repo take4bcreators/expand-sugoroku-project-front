@@ -1,0 +1,47 @@
+@use "../global" as g;
+
+$_buildings-width: 150px;
+
+.p-buildings {
+    width: $_buildings-width;
+    height: auto;
+    position: fixed;
+    left: 10vw;
+    top: 75vh;
+    top: 75svh;
+    z-index: g.$zindex-buildings;
+    svg {
+        width: $_buildings-width;
+        height: auto;
+    }
+}
+
+@include g.mq(pc) {
+    .p-buildings {
+        top: 65vh;
+    }
+}
+
+
+.p-buildings__building {
+    &--left {
+        fill: g.$color-building-left;
+        animation: building-scale-01 20s ease-in-out infinite;
+    }
+    &--center {
+        fill: g.$color-building-center;
+        animation: building-scale-01 14s ease-in-out infinite;
+    }
+    &--right {
+        fill: g.$color-building-right;
+        animation: building-scale-01 18s ease-in-out infinite;
+    }
+}
+
+@keyframes building-scale-01 {
+// Safari 対応のため、個々のプロパティではなく transform で指定する (SVGのみ)
+    0% {transform: translate(0, 0);}
+   50% {transform: translate(0, -30px);}
+  100% {transform: translate(0, 0);}
+}
+

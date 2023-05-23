@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+.p-playdata-board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 95vh;
+    height: 95svh;
+}

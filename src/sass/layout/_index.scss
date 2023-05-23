@@ -1,3 +1,5 @@
 // layout 管理用
 // layout 内に新しくパーシャルを作った場合は追記する
 @use "./header";
+@use "./wrapper";
+@use "./footer";

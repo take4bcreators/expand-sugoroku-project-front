@@ -7,8 +7,10 @@ import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import SvgButtonDice from '../../icon/svg/SvgButtonDice';
+import SvgButtonNext from '../../icon/svg/SvgButtonNext';
+import SvgButtonBack from '../../icon/svg/SvgButtonBack';
 import '../../sass/style.scss';
-
 
 
 export default (props : PlayingPageChildProps): JSX.Element => {
@@ -50,17 +52,25 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  // 表示する要素の初期化
-  let displayElem = (
+  // 表示する要素を定義
+  let CenterCircles = () => (
+    <div className="p-playing-decideorder-dices">
+      <div onClick={() => {setDiceNumber(sgmgr.rollDice())}} className="p-playing-decideorder-dices__image">
+        <SvgButtonDice />
+      </div>
+      <div className="p-playing-decideorder-dices__text">
+        押してサイコロをふる
+      </div>
+    </div>
+  );
+  let BackButton = () => (
     <>
-      <p onClick={() => {setDiceNumber(sgmgr.rollDice())}}>
-        →→ クリックでサイコロをふる ←←
-      </p>
       <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
-        ← 戻る
+        <SvgButtonBack />
       </Link>
     </>
   );
+  let NextGuide = () => <></>;
   
   // サイコロを振った後の表示と処理
   if (typeof diceNumber !== 'undefined') {
@@ -105,43 +115,52 @@ export default (props : PlayingPageChildProps): JSX.Element => {
     
     // データの状態が問題なければマスに進むボタンを設置
     if (nextLocationData.dataReady && typeof player !== 'undefined') {
-      displayElem = (
+      CenterCircles = () => (
         <>
-          <p>「 {diceNumber} 」</p>
-          <Link
-              to='/playing/'
-              onClick={() => {
-                // サイコロの出目をストレージに保存
-                localStorage.setItem(StorageKeys.PlayingLastDiceNum, diceNumber.toString());
-                
-                // 移動した後のプレイヤーの状態をストレージに保存
-                const nextPlayer = Object.assign({}, player);
-                nextPlayer.point += nextLocationData.point;
-                nextPlayer.skipcnt += nextLocationData.skip;
-                nextPlayer.isfinish = nextLocationData.isfinish;
-                nextPlayer.location = nextLocationData.location;
-                const updateResult = stdao.updateCurrentPlayer(nextPlayer);
-                // ユーザー情報UPDATEが問題ない場合は、シーンを更新する
-                if (updateResult) {
-                  sgmgr.moveScreenTo(PlayingStates.SquareEvent)
-                } else {
-                  console.error('[SGPJ] Failed to update user information.');
-                }
-              }}
-          >
-            マスに進む →→→
-          </Link>
+          <div className="p-playing-dice-numbercircle p-playing-dice-numbercircle--outer">
+            <div className="p-playing-dice-numbercircle p-playing-dice-numbercircle--semi-outer">
+              <div className="p-playing-dice-numbercircle p-playing-dice-numbercircle--inner">
+                {diceNumber}
+              </div>
+            </div>
+          </div>
         </>
       );
-    } else {
-      displayElem = (
-        <>
-          <p>エラーが発生しました</p>
-          <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Standby)}}>
-            ← 戻る
-          </Link>
-        </>
-      );
+      BackButton = () => <></>;
+      NextGuide = () => (
+        <Link
+          to='/playing/'
+          onClick={() => {
+            // サイコロの出目をストレージに保存
+            localStorage.setItem(StorageKeys.PlayingLastDiceNum, diceNumber.toString());
+            
+            // 移動した後のプレイヤーの状態をストレージに保存
+            const nextPlayer = Object.assign({}, player);
+            nextPlayer.point += nextLocationData.point;
+            nextPlayer.skipcnt += nextLocationData.skip;
+            nextPlayer.isfinish = nextLocationData.isfinish;
+            nextPlayer.location = nextLocationData.location;
+            const updateResult = stdao.updateCurrentPlayer(nextPlayer);
+            // ユーザー情報UPDATEが問題ない場合は、シーンを更新する
+            if (updateResult) {
+              sgmgr.moveScreenTo(PlayingStates.SquareEvent)
+            } else {
+              console.error('[SGPJ] Failed to update user information.');
+            }
+          }}
+        >
+          <div className="p-control-next-guide p-control-next-guide--dice-screen">
+            <div className="p-control-next-panel">
+              <div className="p-control-next-panel__text">
+                マスに進む
+              </div>
+            </div>
+            <div className="p-control-next-icon">
+              <SvgButtonNext />
+            </div>
+          </div>
+        </Link>
+      )
     }
   }
   
@@ -154,9 +173,8 @@ export default (props : PlayingPageChildProps): JSX.Element => {
   return (
     <>
       <main>
-        <section>
-          <h1>{player.name ?? ''} さんのターン</h1>
-          <div>
+        <div className="p-setup-player-panel p-setup-player-panel--short">
+          <div className="p-setup-player-icon p-setup-player-icon--short">
             <img
               src={playerIconSrc}
               alt="プレイヤーアイコン"
@@ -164,9 +182,21 @@ export default (props : PlayingPageChildProps): JSX.Element => {
               height="50"
             />
           </div>
-          <p>現在地：[{curLocationData.number}] {curLocationData.name}</p>
-          {displayElem}
+          <p className="p-setup-player-input p-setup-player-input--short">
+            {player.name ?? ''}
+          </p>
+        </div>
+        <section className="p-playing-decideorder-container">
+          <CenterCircles />
         </section>
+        <div className="p-control-buttons-container">
+          <div className="p-control-buttons">
+              <div className="p-control-button">
+                <BackButton />
+              </div>
+              <NextGuide />
+          </div>
+        </div>
       </main>
     </>
   )

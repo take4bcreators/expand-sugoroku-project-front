@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import { ProjectUtility as util } from '../../ts/module/ProjectUtility';
+import { AppConst } from '../../ts/config/const';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import PlayingLayout from '../../components/PlayingLayout';
+import SvgButtonExit from '../../icon/svg/SvgButtonExit';
+import SvgIconPoint from '../../icon/svg/SvgIconPoint';
 import '../../sass/style.scss';
-
 
 
 export default (_props : PlayingPageChildProps): JSX.Element => {
@@ -28,33 +32,90 @@ export default (_props : PlayingPageChildProps): JSX.Element => {
   }
   players.sort((a, b) => a.point - b.point).reverse();
   
-  // ランキング配列の取得
+  // 同点考慮済みの順位番号の取得
   const rankingArr = util.generateRankingArr(players.map(player => player.point));
+  
+  // 表示用に要素を組み立てる
+  const PlayerDataContainer = () => (
+    <section className="p-playdata-players-container">
+      {
+        players.map((player, index) => {
+          // プレイヤーアイコン情報の組み立て
+          let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + player.icon;
+          if (player.icon === '' || typeof player.icon === 'undefined') {
+            playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + AppConst.DEFAULT_PLAYER_ICON_FILE;
+          }
+          
+          // 順位番号を取得（同点考慮済み）
+          const rankingNumber = rankingArr[index];
+          
+          // 順位によって色を変化させるための CSS Class を設定
+          let colorChangeClass = '';
+          const colorChangeBaseClass = 'p-playing-stanby-playercard--';
+          switch (rankingNumber) {
+            case 1:
+              colorChangeClass = colorChangeBaseClass + 'gold';
+              break;
+            case 2:
+              colorChangeClass = colorChangeBaseClass+ 'silver';
+              break;
+            default:
+              break;
+          }
+          
+          return (
+            <div className={`p-playing-stanby-playercard ${colorChangeClass}`} key={index}>
+              <div className="p-playing-stanby-playercard__storeimage">
+              </div>
+              <div className="p-playing-stanby-playercard__info-containeres">
+                <div className="p-playing-stanby-playercard__icon">
+                  <div className="p-playing-stanby-playercard-icon">
+                    <img
+                      src={playerIconSrc}
+                      alt="プレイヤーアイコン"
+                      width="50"
+                      height="50"
+                    />
+                  </div>
+                </div>
+                <div className="p-playing-stanby-playercard__name">
+                  {player.name ?? ''}
+                </div>
+                <div className="p-playing-stanby-playercard__point">
+                  <div className="p-playing-stanby-playercard__point-icon">
+                    <SvgIconPoint />
+                  </div>
+                  <p className="p-playing-stanby-playercard__point-text">
+                    ×{player.point ?? ''}
+                  </p>
+                </div>
+                <div className="p-playing-stanby-playercard__ranktext">
+                  {`第 ${rankingNumber} 位`}
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </section>
+  );
   
   return (
     <>
-      <main>
-        <section>
-          <h1>結果発表！</h1>
-          <section>
-            {
-              players.map((player, index) => {
-                return (
-                  <section key={index}>
-                    <p>---------------------------------</p>
-                    <h1>{player.name} さん</h1>
-                    <ul>
-                      <li>順位：{rankingArr[index]} 位</li>
-                      <li>ポイント：{player.point} pt.</li>
-                    </ul>
-                    <p>---------------------------------</p>
-                  </section>
-                );
-              })
-            }
-          </section>
-        </section>
-      </main>
+      <PlayingLayout footerType="Normal">
+        <main>
+          <PlayerDataContainer />
+          <div className="p-control-buttons-container">
+            <div className="p-control-buttons">
+                <div className="p-control-button">
+                  <Link to='/'>
+                    <SvgButtonExit />
+                  </Link>
+                </div>
+            </div>
+          </div>
+        </main>
+      </PlayingLayout>
     </>
   );
 }

@@ -1,0 +1,57 @@
+@use "../global" as g;
+
+.p-splash-screen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+    background-color: g.$color-splash-screen-bg;
+    position: fixed;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.p-splash-screen-container.is-nonvisible {
+    opacity: 0;
+}
+
+.p-splash-screen-container.is-hide {
+    display: none;
+}
+
+.p-splash-screen-container__logo {
+    opacity: 0;
+    // transform: translateY(100px);
+    transform: scale(0.5);
+    // animation: splash-screen-logo-fadeup .5s ease-out .2s forwards;
+    animation: scale-up-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) forwards;
+}
+
+@keyframes splash-screen-logo-fadeup {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.p-splash-screen-container__logo svg {
+    width: 50vmin;
+}

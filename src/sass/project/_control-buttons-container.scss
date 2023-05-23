@@ -1,0 +1,12 @@
+@use "../global" as g;
+
+.p-control-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: fixed;
+    z-index: g.$zindex-control-buttons-container;
+    bottom: 5vh;
+    left: 0;
+}

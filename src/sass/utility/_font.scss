@@ -1,0 +1,12 @@
+@use "../global" as g;
+
+.u-font-page-title {
+    @include g.font-u-page-title;
+    font-size: 30px;
+    color: g.$color-u-font-page-title;
+    margin: 1em 0;
+}
+
+.u-font-small {
+    font-size: 8px;
+}

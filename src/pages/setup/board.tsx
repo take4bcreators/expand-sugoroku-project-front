@@ -4,8 +4,10 @@ import { Link, navigate } from 'gatsby';
 import StorageDAO from '../../ts/module/StorageDAO';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
+import SetupProgressTracker from '../../components/SetupProgressTracker';
+import SvgButtonExit from '../../icon/svg/SvgButtonExit';
+import SvgButtonNext from '../../icon/svg/SvgButtonNext';
 import '../../sass/style.scss';
-
 
 
 type ThisPageProps = {
@@ -50,43 +52,48 @@ export default ({ data }: ThisPageProps) => {
   
   return (
     <>
-      <main>
-        <div>
-          <div><em>1.ボード選択</em></div>
-          <div>2.プレイヤー情報入力</div>
-          <div>3.確認</div>
-        </div>
-        <section>
-          <h1>ボード選択</h1>
-          <form name="userForm">
-            {
-              boardIDs.map((boardID, index) => {
-                return (
-                  <label key={index} className="c-label">
+      <SetupProgressTracker length={3} current={0} />
+      <section>
+        <form name="userForm" className="p-setup-board-menu">
+          {
+            boardIDs.map((boardID, index) => {
+              return (
+                <label key={index} className="p-setup-board-menu-item">
+                  <span className="p-setup-board-menu-item__radio">
                     <input
                       type="radio"
                       name="boardradio"
-                      className="c-radio"
+                      className="p-setup-board-menu-radio"
                       defaultValue={boardNames[index]}
                       onChange={changeStateAndStorage}
                       checked={boardID === selectedBoard}
                       data-boardid={boardID}
                       key={index}
                     />
+                  </span>
+                  <span className="p-setup-board-menu-item__text">
                     {boardNames[index]}
-                  </label>
-                )
-              })
-            }
-            <button type="button" name="prevbtn" className="c-button">
-              <Link to='/'>戻る</Link>
-            </button>
-            <button type="button" name="nextbtn" className="c-button">
-              <span onClick={checkInput}>次のSTEPに進む</span>
-            </button>
-          </form>
-        </section>
-      </main>
+                  </span>
+                </label>
+              )
+            })
+          }
+        </form>
+        <div className="p-control-buttons-container">
+          <div className="p-control-buttons">
+              <div className="p-control-button">
+                <Link to='/'>
+                  <SvgButtonExit />
+                </Link>
+              </div>
+              <div className="p-control-button">
+                <span onClick={checkInput}>
+                  <SvgButtonNext />
+                </span>
+              </div>
+          </div>
+        </div>
+      </section>
     </>
-  )
+  );
 }

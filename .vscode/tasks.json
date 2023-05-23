@@ -20,6 +20,24 @@
         "problemMatcher": [],
       },
       {
+        "label": "gatsby develop (8010ポート版)",
+        "detail": "開発プレビュー用のサーバーを立ち上げます。ネットワーク内からのアクセスが可能です",
+        "icon": {
+          "color": "terminal.ansiYellow",
+          "id": "run-all"
+        },
+        "type": "shell",
+        "command": "gatsby",
+        "args": ["develop", "--host", "0.0.0.0", "--port", "8010", "--open"],
+        "group": "none",
+        "presentation": {
+          "reveal": "always",
+          "clear": true,
+          "echo": true
+        },
+        "problemMatcher": [],
+      },
+      {
         "label": "gatsby build",
         "detail": "本番用ファイルをpublicフォルダに出力します",
         "icon": {

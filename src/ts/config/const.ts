@@ -6,24 +6,35 @@ export namespace AppConst {
     
     /** ミニゲームのランクに応じたポイント */
     export const RANK_POINTS: Map<string, number> = new Map([
-        ['s', 50],
-        ['a', 30],
-        ['b', 10],
+        ['s', 80],
+        ['a', 50],
+        ['b', 30],
         ['c', 0]
+    ]);
+    
+    /** ミニゲームのランクに応じた背景色名の付与クラス */
+    export const RANK_COLOR_CLASS: Map<string, string> = new Map([
+        ['s', 'yellow'],
+        ['a', 'red'],
+        ['b', 'green'],
+        ['c', 'blue']
     ]);
     
     /** ゴールした時のポイント */
     export const GOAL_POINTS: Map<number, number> = new Map([
-        [1, 100],
-        [2, 50],
-        [3, 30],
+        [1, 130],
+        [2, 80],
+        [3, 40],
     ]);
     
     /** セットアップ時に表示するプレイヤー入力欄の数 */
     export const DEFAULT_SETUP_PLAYER_COUNT: number = 5;
     
+    /** 画像ファイルのあるディレクトリ（末尾の / は不要） */
+    export const STATIC_IMAGE_DIR: string = '/images';
+    
     /** プレイヤーアイコン用画像ファイルのあるディレクトリ（末尾の / は不要） */
-    export const PLAYER_ICON_DIR: string = '/images/playericon';
+    export const PLAYER_ICON_DIR: string = STATIC_IMAGE_DIR + '/playericon';
     
     /** プレイヤーアイコンに使用する画像ファイル名のリスト（拡張子を含む） */
     // note:
@@ -31,10 +42,11 @@ export namespace AppConst {
     //   GraphQLでの実装による自動更新も可能だが、表示順を制御したいためここで定義する形にする
     export const PLAYER_ICON_FILES: string[] = [
         'iconbu_sinpuru_na_inu_san.png',
-        'iconbu_sinpuru_na_kuma_san.png',
-        'iconbu_sinpuru_na_mikeneko_san_3.png',
         'iconbu_sinpuru_na_usagi_san.png',
+        'iconbu_sinpuru_na_mikeneko_san_3.png',
+        'iconbu_sinpuru_na_kuma_san.png',
         'iconbu_kitune_san.png',
+        'iconbu_yurui_pengin_san.png',
         'iconbu_ahiru_san.png',
         'iconbu_kaeru_san.png',
         'iconbu_osakana_san.png',

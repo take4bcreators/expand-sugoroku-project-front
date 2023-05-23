@@ -6,8 +6,16 @@ import SugorokuManager from '../../ts/module/SugorokuManager';
 import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import SvgButtonDice from '../../icon/svg/SvgButtonDice';
+import SvgButtonExit from '../../icon/svg/SvgButtonExit';
+import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
+import SvgButtonMap from '../../icon/svg/SvgButtonMap';
+import SvgIconPoint from '../../icon/svg/SvgIconPoint';
+import SvgIconLocation from '../../icon/svg/SvgIconLocation';
+import SvgIconLock from '../../icon/svg/SvgIconLock';
+import SvgButtonNext from '../../icon/svg/SvgButtonNext';
+import SvgObjectLocationbar from '../../icon/svg/SvgObjectLocationbar';
 import '../../sass/style.scss';
-
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
@@ -29,12 +37,23 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     return (<></>);
   }
   
-  // 表示用要素
-  let innerElem = (
-    <Link to='/playing/' onClick={() => {sgmgr.moveScreenTo(PlayingStates.Dice)}}>
-      → さいころをふる
-    </Link>
-  );
+  type nextButtonInfoType = {
+    linkTo: string,
+    onClick: () => void,
+    PanelText: () => JSX.Element,
+    ButtonSvg: () => JSX.Element,
+  }
+  let nextButtonInfo: nextButtonInfoType = {
+    linkTo: '/playing/',
+    onClick: () => {
+      sgmgr.moveScreenTo(PlayingStates.Dice)
+    },
+    PanelText: () => (<>さいころを<wbr />ふる</>),
+    ButtonSvg: () => <SvgButtonDice />,
+  };
+  
+  // 休み表示用マスク
+  let NoticeMask = () => <></>;
   
   // 現在のプレイヤーを取得
   const player = stdao.getCurrentPlayer();
@@ -45,32 +64,45 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   
   // 終了している場合は専用の表示を返す
   if (player.isfinish) {
-    innerElem = (
-      <>
-        <p>〜〜 ゴール済みです 〜〜</p>
-        <Link to='/playing/' onClick={() => {
-          stdao.updateNextOrderNum();
-          sgmgr.moveScreenTo(PlayingStates.Standby);
-        }}>
-          → 次の人へ進む
-        </Link>
-      </>
-    );
+    nextButtonInfo = {
+      linkTo: '/playing/',
+      onClick: () => {
+        stdao.updateNextOrderNum();
+        sgmgr.moveScreenTo(PlayingStates.Standby);
+      },
+      PanelText: () => (<>次の人へ<wbr />進む</>),
+      ButtonSvg: () => <SvgButtonNext />,
+    };
   }
   
-  // 終了している場合は専用の表示を返す
+  // 休みの場合のスキップ表示
   if (player.skipcnt > 0) {
-    innerElem = (
+    nextButtonInfo = {
+      linkTo: '/playing/',
+      onClick: () => {
+        stdao.decrementCurPlayerSkipCnt();
+        stdao.updateNextOrderNum();
+        sgmgr.moveScreenTo(PlayingStates.Standby);
+      },
+      PanelText: () => (<>次の人へ<wbr />進む</>),
+      ButtonSvg: () => <SvgButtonNext />,
+    };
+    
+    NoticeMask = () => (
       <>
-        <p>〜〜 このターンおやすみ中 〜〜</p>
-        <p>おやすみターン数：{player.skipcnt}</p>
-        <Link to='/playing/' onClick={() => {
-          stdao.updateNextOrderNum();
-          stdao.decrementCurPlayerSkipCnt();
-          sgmgr.moveScreenTo(PlayingStates.Standby);
-        }}>
-          → 次の人へ進む
-        </Link>
+        <div className="p-playing-stanby-playercard-mask">
+          <div className="p-playing-stanby-playercard-mask__icons">
+            <div className="p-playing-stanby-playercard-mask__icon">
+              <SvgIconLock />
+            </div>
+            <p className="p-playing-stanby-playercard-mask__count">
+              ×{player.skipcnt ?? ''}
+            </p>
+          </div>
+          <div className="p-playing-stanby-playercard-mask__text">
+            おやすみ中
+          </div>
+        </div>
       </>
     );
   }
@@ -80,11 +112,14 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     name: '',
     photo: '',
   };
+  let locationPercentage = 0;
   const board = stdao.getPlayingBoard();
   const playerLocation = player.location;
   if (typeof board !== 'undefined' && typeof playerLocation !== 'undefined') {
     curLocationData.name = board.square[playerLocation].store.name;
     curLocationData.photo = board.square[playerLocation].store.photo;
+    const boardGoalIndex = board.square.length - 1;
+    locationPercentage = playerLocation / boardGoalIndex;
   }
   
   // プレイヤーアイコン情報の組み立て
@@ -94,32 +129,96 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   }
   
   // 店画像表示のための要素の組み立て
-  let storeImage = (<img src={curLocationData.photo} alt="店舗の画像" />);
+  let StoreImage = () => (<img src={curLocationData.photo} alt="店舗の画像" />);
   if (curLocationData.photo === '') {
-    storeImage = (<></>);
+    StoreImage = () => <></>;
   }
   
   return (
-    <>
-      <main>
-        <section>
-          <h1>{player.name ?? ''} さんのターン</h1>
-          <div>
-            <img
-              src={playerIconSrc}
-              alt="プレイヤーアイコン"
-              width="50"
-              height="50"
-            />
+    <main>
+      <section className="p-playing-stanby-container">
+        <NoticeMask />
+        <div className="p-playing-stanby-playercard">
+          <div className="p-playing-stanby-playercard__storeimage">
+            <StoreImage />
           </div>
-          <p>現在地：[{playerLocation}] {curLocationData.name}</p>
-          <div>
-            {storeImage}
+          <div className="p-playing-stanby-playercard__info-containeres">
+            <div className="p-playing-stanby-playercard__icon">
+              <div className="p-playing-stanby-playercard-icon">
+                <img
+                  src={playerIconSrc}
+                  alt="プレイヤーアイコン"
+                  width="50"
+                  height="50"
+                />
+              </div>
+            </div>
+            <div className="p-playing-stanby-playercard__name">
+              {player.name ?? ''}
+            </div>
+            <div className="p-playing-stanby-playercard__point">
+              <div className="p-playing-stanby-playercard__point-icon">
+                <SvgIconPoint />
+              </div>
+              <p className="p-playing-stanby-playercard__point-text">
+                ×{player.point ?? ''}
+              </p>
+            </div>
+            <div className="p-playing-stanby-playercard__skip">
+              <div className="p-playing-stanby-playercard__skip-icon">
+                <SvgIconLock />
+              </div>
+              <p className="p-playing-stanby-playercard__skip-text">
+                ×{player.skipcnt ?? ''}
+              </p>
+            </div>
+            <div className="p-playing-stanby-playercard__location">
+              <div className="p-playing-stanby-playercard__location-icon">
+                <SvgIconLocation />
+              </div>
+              <p className="p-playing-stanby-playercard__location-text">
+                {curLocationData.name}
+              </p>
+            </div>
+            <div className="p-playing-stanby-playercard__locationbar">
+              <SvgObjectLocationbar progressPercentage={locationPercentage} />
+            </div>
           </div>
-          <p>現在のポイント： {player.point ?? ''}</p>
-          {innerElem}
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+      <div className="p-control-buttons-container">
+        <div className="p-control-buttons p-control-buttons--playing">
+          <div className="p-control-button-leftgroup">
+            <div className="p-control-button p-control-button-leftgroup__button">
+              <Link to='/'>
+                <SvgButtonExit />
+              </Link>
+            </div>
+            <div className="p-control-button p-control-button-leftgroup__button">
+              <Link to='../playdata/players'>
+                <SvgButtonPlayer />
+              </Link>
+            </div>
+            <div className="p-control-button p-control-button-leftgroup__button">
+              <Link to='../playdata/board'>
+                <SvgButtonMap />
+              </Link>
+            </div>
+          </div>
+          <Link to={nextButtonInfo.linkTo} onClick={nextButtonInfo.onClick}>
+            <div className="p-control-next-guide">
+              <div className="p-control-next-panel">
+                <div className="p-control-next-panel__text">
+                  <nextButtonInfo.PanelText />
+                </div>
+              </div>
+              <div className="p-control-next-icon p-control-next-icon--panel">
+                <nextButtonInfo.ButtonSvg />
+              </div>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </main>
   )
 }

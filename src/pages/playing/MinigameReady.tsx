@@ -8,8 +8,10 @@ import { AppConst } from '../../ts/config/const';
 import { PlayingStates } from '../../ts/config/PlayingStates';
 import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayingPageChildProps } from '../../ts/type/PlayingPageProps';
+import SvgButtonExit from '../../icon/svg/SvgButtonExit';
+import SvgButtonPlayer from '../../icon/svg/SvgButtonPlayer';
+import SvgButtonMap from '../../icon/svg/SvgButtonMap';
 import '../../sass/style.scss';
-
 
 
 export default (props: PlayingPageChildProps): JSX.Element => {
@@ -47,7 +49,7 @@ export default (props: PlayingPageChildProps): JSX.Element => {
     }
   }
   
-  // 今回止まったマスの情報を取得
+  // 止まったマスの情報を取得
   const curLocationData = {
     minigameName: '',
     minigameDetail: '',
@@ -70,26 +72,59 @@ export default (props: PlayingPageChildProps): JSX.Element => {
   return (
     <>
       <main>
-        <section>
-          <h1>{curLocationData.minigameName}</h1>
-          <p>{curLocationData.minigameDetail}</p>
-          <p>
-            <a onClick={() => {
-              const keyStr = util.createRandomString(8);
-              stdao.setItem(StorageKeys.PlayingLastMinigameKey, keyStr);
-              location.href = curLocationData.minigamePath + '?mode=sugoroku&key=' + keyStr;
-            }}>
-              →→ ミニゲームをはじめる ←←
-            </a>
-          </p>
-          <Link to='/playing/' onClick={() => {
-            stdao.setItem(StorageKeys.PlayingLastMinigameRank, 'c');
-            sgmgr.moveScreenTo(PlayingStates.MinigameResult);
-          }}>
-            ミニゲームをやらずに次へ進める
-          </Link>
+        <section className="p-playing-minigame-ready-container">
+          <div className="p-square-event-card p-square-event-card--pink">
+            <h1 className="p-square-event-card__name">
+              {curLocationData.minigameName}
+            </h1>
+            <div className="p-square-event-card__info-container p-square-event-card__info-container--minigame">
+              <p className="p-square-event-card__detail">
+                {curLocationData.minigameDetail}
+              </p>
+            </div>
+          </div>
+          <ul className="p-setup-board-menu p-setup-board-menu--button">
+            <li className="p-setup-board-menu-item p-setup-board-menu-item--large p-setup-board-menu-item--red">
+              <a onClick={() => {
+                const keyStr = util.createRandomString(8);
+                stdao.setItem(StorageKeys.PlayingLastMinigameKey, keyStr);
+                location.href = curLocationData.minigamePath + '?mode=sugoroku&key=' + keyStr;
+              }}>
+                ミニゲームをはじめる
+              </a>
+            </li>
+            <li className="p-setup-board-menu-item p-setup-board-menu-item--purple">
+              <Link to='/playing/' onClick={() => {
+                stdao.setItem(StorageKeys.PlayingLastMinigameRank, 'c');
+                sgmgr.moveScreenTo(PlayingStates.MinigameResult);
+              }}>
+                ミニゲームをやらずに次へ進める
+              </Link>
+            </li>
+          </ul>
         </section>
+        <div className="p-control-buttons-container">
+          <div className="p-control-buttons p-control-buttons--playing">
+            <div className="p-control-button-leftgroup">
+              <div className="p-control-button p-control-button-leftgroup__button">
+                <Link to='/'>
+                  <SvgButtonExit />
+                </Link>
+              </div>
+              <div className="p-control-button p-control-button-leftgroup__button">
+                <Link to='../playdata/players'>
+                  <SvgButtonPlayer />
+                </Link>
+              </div>
+              <div className="p-control-button p-control-button-leftgroup__button">
+                <Link to='../playdata/board'>
+                  <SvgButtonMap />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </>
-  )
+  );
 }

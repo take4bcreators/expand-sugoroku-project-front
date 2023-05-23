@@ -1,0 +1,58 @@
+@use "../global" as g;
+@use "sass:map";
+
+@function getvar($prop, $sp_tab_pc) {
+    $media-query-vars: (
+        height: (
+            sp: unquote('min(180px, 40vw)'),
+            tab: unquote('min(170px, 20vw)'),
+            pc: unquote('min(170px, 20vw)'),
+        ),
+    );
+    $height: map.get($media-query-vars, height, $sp_tab_pc);
+    $local-var-list: (
+        height: $height,
+        width: $height,
+        boader-size: calc($height * 0.1),
+        translate-y: calc($height * -0.5),
+    );
+    @return map.get($local-var-list, $prop);
+}
+
+.p-playing-stanby-playercard-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: getvar(width, sp);
+    height: getvar(height, sp);
+    border: getvar(boader-size, sp) solid g.$color-setup-player-icon-border;
+    border-radius: 50%;
+    background-color: g.$color-setup-player-icon-bg;
+    position: absolute;
+    top: 0;
+    translate: 0 getvar(translate-y, sp);
+    
+    @include g.mq(tab) {
+        width: getvar(width, tab);
+        height: getvar(height, tab);
+        border: getvar(boader-size, tab) solid g.$color-setup-player-icon-border;    
+        translate: 0 getvar(translate-y, tab);
+    }
+    @include g.mq(pc) {
+        width: getvar(width, pc);
+        height: getvar(height, pc);
+        border: getvar(boader-size, pc) solid g.$color-setup-player-icon-border;    
+        translate: 0 getvar(translate-y, pc);
+    }
+}
+
+.p-playing-stanby-playercard-icon img {
+    width: getvar(width, sp);
+    height: auto;
+    @include g.mq(tab) {
+        width: getvar(width, tab);
+    }
+    @include g.mq(pc) {
+        width: getvar(width, pc);
+    }
+}

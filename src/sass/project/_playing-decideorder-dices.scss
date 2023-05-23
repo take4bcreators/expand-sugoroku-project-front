@@ -1,0 +1,43 @@
+@use "../global" as g;
+
+$_svg-size: unquote('min(200px, 30vw)');
+$_text-margin-t: calc($_svg-size * 0.15);
+$_text-size: calc($_svg-size * 0.15);
+
+.p-playing-decideorder-dices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.p-playing-decideorder-dices__image svg {
+    height: $_svg-size;
+    width: $_svg-size;
+    filter: drop-shadow(10px 20px 50px rgba($color: #000, $alpha: 0.3));
+    cursor: pointer;
+    transition: scale .3s;
+    &:hover {
+        scale: 1.06;
+    }
+    animation: fluffy1 3s ease infinite;
+}
+
+// https://commte.net/6312
+@keyframes fluffy1 {
+    0% { transform:translateY(0) }
+    5% { transform:translateY(0) }
+    10% { transform:translateY(0) }
+    20% { transform:translateY(-15px) }
+    25% { transform:translateY(0) }
+    30% { transform:translateY(-15px) }
+    50% { transform:translateY(0) }
+    100% { transform:translateY(0) }
+  }
+
+.p-playing-decideorder-dices__text {
+    margin-top: $_text-margin-t;
+    color: g.$color-playing-decideorder-dices-text;
+    @include g.font-playing-decideorder-dices-text;
+    font-size: $_text-size;
+}

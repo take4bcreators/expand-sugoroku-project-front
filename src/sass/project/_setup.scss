@@ -1,0 +1,12 @@
+@use "../global" as g;
+
+.p-setup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    top: 50px;
+    position: relative; // z-index適用のために付与
+    z-index: g.$zindex-setup;
+}
