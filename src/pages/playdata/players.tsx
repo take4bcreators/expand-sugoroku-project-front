@@ -4,8 +4,13 @@ import { Link } from 'gatsby';
 import { AppConst } from '../../ts/config/const';
 import SEO from '../../components/SEO';
 import StorageDAO from '../../ts/module/StorageDAO';
+import PlayingLayout from '../../components/PlayingLayout';
+import SvgButtonBack from '../../icon/svg/SvgButtonBack';
+import SvgIconPoint from '../../icon/svg/SvgIconPoint';
+import SvgIconLocation from '../../icon/svg/SvgIconLocation';
+import SvgIconLock from '../../icon/svg/SvgIconLock';
+import SvgObjectLocationbar from '../../icon/svg/SvgObjectLocationbar';
 import '../../sass/style.scss';
-
 
 
 export default (): JSX.Element => {
@@ -40,25 +45,36 @@ export default (): JSX.Element => {
   }
   
   // 表示用に要素を組み立てる
-  const buildElem = (
-    <section>
+  const PlayerDataContainer = () => (
+    <section className="p-playdata-players-container">
       {
         players.map((player, index) => {
           // 現在の順番のプレイヤーで合った場合の表示
-          let curOrderMark = '';
+          let curOrderMarkClass = '';
           if (player.order === curOrderNum) {
-            curOrderMark = '★ ';
+            curOrderMarkClass = ' is-current-order';
           }
           
-          // 休みがあった場合の表示
-          let statusInformation = 'なし';
-          if (player.skipcnt > 0) {
-            statusInformation = 'あと ' + player.skipcnt + ' 回休み';
-          }
-          
-          // 現在の場所を取得
+          // 現在の場所の情報を取得
+          const curLocationData = {
+            name: '',
+            photo: '',
+          };
+          let locationPercentage = 0;
+          const board = stdao.getPlayingBoard();
           const playerLocation = player.location;
-          const playerLocationName = board.square[playerLocation].store.name;
+          if (typeof board !== 'undefined' && typeof playerLocation !== 'undefined') {
+            curLocationData.name = board.square[playerLocation].store.name;
+            curLocationData.photo = board.square[playerLocation].store.photo;
+            const boardGoalIndex = board.square.length - 1;
+            locationPercentage = playerLocation / boardGoalIndex;
+          }
+          
+          // 店画像表示のための要素の組み立て
+          let StoreImage = () => (<img src={curLocationData.photo} alt="店舗の画像" />);
+          if (curLocationData.photo === '') {
+            StoreImage = () => <></>;
+          }
           
           // プレイヤーアイコン情報の組み立て
           let playerIconSrc = AppConst.PLAYER_ICON_DIR + '/' + player.icon;
@@ -67,25 +83,54 @@ export default (): JSX.Element => {
           }
           
           return (
-            <section key={index}>
-              <p>---------------------------------</p>
-              <h1>{curOrderMark}{player.name} さん</h1>
-              <div>
-                <img
-                  src={playerIconSrc}
-                  alt="プレイヤーアイコン"
-                  width="50"
-                  height="50"
-                />
+            <div className="p-playing-stanby-playercard" key={index}>
+              <div className="p-playing-stanby-playercard__storeimage">
+                {/* {StoreImage} */}
+                <StoreImage />
               </div>
-              <ul>
-                <li>順番：{player.order + 1} 番目</li>
-                <li>ポイント：{player.point} pt.</li>
-                <li>現在地：[{playerLocation}] {playerLocationName}</li>
-                <li>ステータス：{statusInformation}</li>
-              </ul>
-              <p>---------------------------------</p>
-            </section>
+              <div className={'p-playing-stanby-playercard__info-containeres' + curOrderMarkClass}>
+                <div className="p-playing-stanby-playercard__icon">
+                  <div className="p-playing-stanby-playercard-icon">
+                    <img
+                      src={playerIconSrc}
+                      alt="プレイヤーアイコン"
+                      width="50"
+                      height="50"
+                    />
+                  </div>
+                </div>
+                <div className="p-playing-stanby-playercard__name">
+                  {player.name ?? ''}
+                </div>
+                <div className="p-playing-stanby-playercard__point">
+                  <div className="p-playing-stanby-playercard__point-icon">
+                    <SvgIconPoint />
+                  </div>
+                  <p className="p-playing-stanby-playercard__point-text">
+                    ×{player.point ?? ''}
+                  </p>
+                </div>
+                <div className="p-playing-stanby-playercard__skip">
+                  <div className="p-playing-stanby-playercard__skip-icon">
+                    <SvgIconLock />
+                  </div>
+                  <p className="p-playing-stanby-playercard__skip-text">
+                    ×{player.skipcnt ?? ''}
+                  </p>
+                </div>
+                <div className="p-playing-stanby-playercard__location">
+                  <div className="p-playing-stanby-playercard__location-icon">
+                    <SvgIconLocation />
+                  </div>
+                  <p className="p-playing-stanby-playercard__location-text">
+                    {curLocationData.name}
+                  </p>
+                </div>
+                <div className="p-playing-stanby-playercard__locationbar">
+                  <SvgObjectLocationbar progressPercentage={locationPercentage} />
+                </div>
+              </div>
+            </div>
           );
         })
       }
@@ -94,21 +139,28 @@ export default (): JSX.Element => {
   
   return (
     <>
-      <h1>プレイヤー情報</h1>
-      {buildElem}
-      <Link to="../../playing/">
-        すごろくに戻る
-      </Link>
+      <PlayingLayout footerType="Normal">
+        <main>
+          <PlayerDataContainer />
+          <div className="p-control-buttons-container">
+            <div className="p-control-buttons">
+                <div className="p-control-button">
+                  <Link to="../../playing/">
+                    <SvgButtonBack />
+                  </Link>
+                </div>
+            </div>
+          </div>
+        </main>
+      </PlayingLayout>
     </>
   );
 }
 
-
 export const Head = () => {
-  const pageTitle: string = 'プレイヤー情報';
   return (
       <SEO
-          pageTitle={pageTitle}
+          pageTitle="プレイヤー情報 | TEMPORALLY"
       />
   )
 }

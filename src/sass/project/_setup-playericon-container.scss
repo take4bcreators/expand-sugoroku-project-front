@@ -1,0 +1,22 @@
+@use "../global" as g;
+
+$_margin-t: 20px;
+$_svg-button-size: unquote('min(150px, 25vw)');
+$_margin-b: calc($_svg-button-size * 1.3);
+
+.p-setup-playericon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    margin: $_margin-t 0 $_margin-b;
+    z-index: g.$zindex-setup-playericon-container;
+    width: 85vw;
+    @include g.mq(tab) {
+        width: 70vw;
+    }
+    @include g.mq(pc) {
+        width: 50vw;
+    }
+}

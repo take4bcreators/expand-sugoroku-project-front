@@ -1,0 +1,10 @@
+@use "../global" as g;
+
+.p-boards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    padding: 40px 0 30vh 0;
+}

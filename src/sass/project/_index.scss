@@ -1,3 +1,78 @@
 // project 管理用
 // project 内に新しくパーシャルを作った場合は追記する
-// @use "./";
+@use "./buildings";
+@use "./hills";
+
+@use "./splash-screen-container";
+@use "./top";
+@use "./top-logo";
+@use "./top-menu-container";
+@use "./top-menu-item";
+
+@use "./setup";
+@use "./setup-logo";
+@use "./setup-progress-tracker";
+@use "./setup-board-menu";
+@use "./setup-board-menu-item";
+@use "./setup-player-container";
+@use "./setup-player-panel";
+@use "./setup-player-icon";
+@use "./setup-player-input";
+@use "./setup-playericon-container";
+@use "./setup-playericon-panel";
+@use "./setup-confirmation-container";
+
+@use "./control-buttons-container";
+@use "./control-buttons";
+@use "./control-button-leftgroup";
+@use "./control-button";
+@use "./control-next-guide";
+@use "./control-next-panel";
+@use "./control-next-icon";
+
+@use "./svg-button-next";
+@use "./svg-button-prev";
+@use "./svg-button-back";
+@use "./svg-button-exit";
+@use "./svg-button-dice";
+@use "./svg-button-map";
+@use "./svg-button-player";
+@use "./svg-icon-point";
+@use "./svg-icon-location";
+@use "./svg-icon-lock";
+@use "./svg-object-locationbar";
+@use "./svg-button-chess";
+@use "./svg-button-flag";
+@use "./svg-icon-notice";
+
+@use "./playing-decideorder-container";
+@use "./playing-decideorder-dices";
+@use "./playing-decideorder-player-panel-ordernumber";
+
+@use "./playing-stanby-container";
+@use "./playing-stanby-playercard";
+@use "./playing-stanby-playercard-mask";
+@use "./playing-stanby-playercard-icon";
+
+@use "./playing-dice-numbercircle";
+
+@use "./playdata-players-container";
+@use "./playdata-board-container";
+
+@use "./playing-square-event-container";
+
+@use "./playing-minigame-ready-container";
+
+@use "./square-event-card";
+
+@use "./store-info";
+
+@use "./center-icon-text-set";
+
+@use "./text-button";
+
+@use "./boards-container";
+@use "./minigames-container";
+
+@use "./text-box";
+

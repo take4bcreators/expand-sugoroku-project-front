@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    
+    <!-- ページタイトルの指定 -->
+    <title>時間ぴったりゲーム</title>
+
+    <!-- ファビコンの指定 -->
+    <link rel="icon" href="./img/favicon.ico" id="favicon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon-180x180.png">
+
+    <!-- 詳細の指定 -->
+    <meta name="description" content="ランダムな5.0～15.0までの目標タイムを見えない状態でピッタリを目指そう！近いほど高得点をゲット！">
+
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href="ress.css" />
+    
+    <!-- CSSの読み込み -->
+    <link rel='stylesheet' href='style.css'>
+    <!-- JSの読み込み -->
+    <script defer type="module" src='main.js'></script>
+    
+    <!-- Google Fonts の読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <!-- 目標タイム兼タイトル（大）-->
+    <div id="container" class="container">
+        <h1 id="title" class="title"></h1>
+
+        <!-- 目標タイム兼タイトル（小）-->
+        <div id="target" class="target hide"></div>
+
+        <!-- 時間を表示する場所 -->
+        <div id="time" class="time hide">00.000</div>
+        
+        <!-- 結果を表示する場所 -->
+        <div id="result" class="result"></div>
+        
+        <!-- ランクを表示する場所 -->
+        <div id="rank" class="rank"></div>
+        
+        <!-- ボタン郡 -->
+        <div id="buttons" class="buttons">
+            <div id="tap">タップしてはじめる</div>
+            <div id="start" class="start hide">START</div>
+            <div id="stop" class="stop hide">STOP</div>
+            <div id="sugoroku" class="sugoroku hide">もう1回はじめる</div>
+        </div>
+    </div>
+</body>
+</html>

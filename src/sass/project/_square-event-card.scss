@@ -1,0 +1,273 @@
+@use "../global" as g;
+@use "sass:map";
+
+@function getvar($prop, $sp_tab_pc: sp) {
+    $media-query-vars: (
+        // height: (
+        //     sp:  60vh,
+        //     tab: 50vh,
+        //     pc:  50vh,
+        // ),
+    );
+    // $height: map.get($media-query-vars, height, #{$sp_tab_pc});
+    $local-var-list: (
+        // height: $height,
+        radius: 30px,
+    );
+    @return map.get($local-var-list, $prop);
+}
+
+.p-square-event-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 93vw;
+    background-color: g.$color-square-event-card-border;
+    border-radius: getvar(radius);
+    @include g.font-playing-stanby-playercard;
+    box-shadow: 10px 20px 50px rgba($color: #000, $alpha: 0.3);
+    padding: 0 .5vw .5vw .5vw;
+    @include g.mq(tab) {
+        padding: 0;
+    }
+    @include g.mq(pc) {
+        padding: 0;
+    }
+    border: 10px solid g.$color-square-event-card-border;
+    animation: square-event-card-fadeup .5s forwards;
+    opacity: 0;
+}
+
+@keyframes square-event-card-fadeup {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.p-square-event-card--two-column {
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    @include g.mq(tab) {
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+    }
+    @include g.mq(pc) {
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+
+.p-square-event-card--pink {
+    background-color: g.$color-square-event-card-border-pink;
+    border-color: g.$color-square-event-card-border-pink;
+}
+
+.p-square-event-card--red {
+    background-color: g.$color-square-event-card-border-red;
+    border-color: g.$color-square-event-card-border-red;
+}
+
+.p-square-event-card--yellow {
+    background-color: g.$color-square-event-card-border-yellow;
+    border-color: g.$color-square-event-card-border-yellow;
+}
+
+.p-square-event-card--green {
+    background-color: g.$color-square-event-card-border-green;
+    border-color: g.$color-square-event-card-border-green;
+}
+
+.p-square-event-card--blue {
+    background-color: g.$color-square-event-card-border-blue;
+    border-color: g.$color-square-event-card-border-blue;
+}
+
+
+
+.p-square-event-card__name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    color: g.$color-square-event-card-title;
+    @include g.font-square-event-card-title;
+    font-size: 20px;
+    padding: .5em 1em 1em;
+    line-height: 1em;
+    @include g.mq(tab) {
+        line-height: initial;
+        font-size: 28px;
+        padding: 5px 1.5em 9px;
+    }
+    @include g.mq(pc) {
+        line-height: initial;
+        font-size: 28px;
+        padding: 5px 1.5em 9px;
+    }
+}
+
+.p-square-event-card__name--two-column {
+    padding: .3em 0 .5em;
+    width: 100%;
+    line-height: 1em;
+    @include g.mq(tab) {
+        padding: 1em .5em 1em;
+        width: 40vw;
+        line-height: 1em;
+    }
+    @include g.mq(pc) {
+        padding: 1em .5em 1em;
+        width: 40vw;
+        line-height: 1em;
+    }
+    svg {
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
+    }
+}
+
+.p-square-event-card__info-container {
+    background-color: g.$color-square-event-card-bg;
+    border-radius: getvar(radius);
+    padding: 10px 20px 20px;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    @include g.mq(tab) {
+        height: 100%;
+        grid-template-columns: 2fr 8fr;
+        grid-template-rows: 2em auto;
+        // grid-template-rows: 1fr 4fr;
+    }
+    @include g.mq(pc) {
+        height: 100%;
+        grid-template-columns: 2fr 8fr;
+        grid-template-rows: 2em auto;
+        // grid-template-rows: 1fr 4fr;
+    }
+}
+
+_::-webkit-full-page-media, _:future, :root .p-square-event-card__info-container--safari {
+    @include g.mq(tab) {
+        height: 47vh;
+        height: 47svh;
+        overflow: scroll;
+    }
+    @include g.mq(pc) {
+        height: 45vh;
+        height: 45svh;
+        overflow: scroll;
+    }
+}
+
+.p-square-event-card__info-container--two-column {
+    display: block;
+    margin: 0;
+    height: 100%;
+    font-size: 20px;
+    padding: .5em 1em;
+    color: g.$color-square-event-card-text;
+    text-align: center;
+    border-radius: calc(getvar(radius) * 0.7);
+    @include g.mq(tab) {
+        padding: 1.2em 0;
+        height: 100%;
+    }
+    @include g.mq(pc) {
+        padding: 1.2em 0;
+        height: 100%;
+    }
+}
+
+.p-square-event-card__info-container--minigame {
+    display: block;
+    padding: 20px;
+}
+
+.p-square-event-card__name-kana {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    // height: auto;
+    // height: 1em;
+    // height: inherit;
+    font-size: 12px;
+    @include g.font-square-event-card-text;
+    color: g.$color-square-event-card-text;
+    padding: 10px 0 15px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    @include g.mq(tab) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+    @include g.mq(pc) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+}
+
+.p-square-event-card__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // height: auto;
+    // height: 100%;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    @include g.mq(tab) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    @include g.mq(pc) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    img {
+        border: 10px solid g.$color-square-event-card-border;
+        border-radius: getvar(radius);
+    }
+    
+}
+
+.p-square-event-card__info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    @include g.font-square-event-card-text;
+    color: g.$color-square-event-card-text;
+    padding: 20px 0 0 0;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    @include g.mq(tab) {
+        justify-content: flex-start;
+        padding: 0 0 0 20px;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+    @include g.mq(pc) {
+        justify-content: flex-start;
+        padding: 0 0 0 20px;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+}

@@ -1,0 +1,17 @@
+@use "../global" as g;
+
+$_size: unquote('min(150px, 25vw)');
+
+.p-svg-icon-point {
+    width: $_size;
+    height: $_size;
+    &__color-group-base {
+        fill: g.$color-svg-icon-point-base;
+    }
+    &__color-group-accent {
+        fill: g.$color-svg-icon-point-accent;
+    }
+    &__color-group-text {
+        fill: g.$color-svg-icon-point-text;
+    }
+}

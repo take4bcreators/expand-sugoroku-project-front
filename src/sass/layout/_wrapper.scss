@@ -1,0 +1,16 @@
+@use "../global" as g;
+
+.l-wrapper {
+    background-color: g.$color-wrapper-bg;
+    width: auto;
+    height: 100vh;
+    height: 100svh;
+    // margin: 2vmin;
+    // border-radius: 1vw;
+    // @include g.size-wrapper;
+}
+
+.l-wrapper a {
+    color: inherit;
+    text-decoration: none;
+}

@@ -1,0 +1,55 @@
+@use "../global" as g;
+
+$_pt-width: unquote('min(240px, 30vw)');
+$_pt-circle-size: calc($_pt-width * 0.17);
+$_pt-circle-border-size: calc($_pt-circle-size * 0.14);
+$_pt-circle-shadow-size: calc($_pt-circle-size * 0.2);
+$_pt-bar-width: calc($_pt-width - $_pt-circle-size);
+$_pt-bar-height: calc($_pt-width * 0.07);
+$_pt-current-circle-size: calc($_pt-circle-size * 1.5);
+
+.p-setup-progress-tracker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.p-setup-progress-tracker__circlewrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: $_pt-width;
+}
+
+.p-setup-progress-tracker__circle {
+    border-radius: 50%;
+    border: $_pt-circle-border-size solid g.$color-setup-progress-tracker-border;
+    width: $_pt-circle-size;
+    height: $_pt-circle-size;
+    background-color: g.$color-setup-progress-tracker-inner;
+    position: relative; // z-index適用のために付与
+    z-index: g.$zindex-setup-progress-tracker__circle;
+}
+
+.p-setup-progress-tracker__circle.is-current {
+    box-shadow: 0 0 0 $_pt-circle-shadow-size g.$color-setup-progress-tracker-outer;
+    animation: scale-change 5s ease-in-out infinite;
+}
+
+@keyframes scale-change {
+    0% {scale: 0.85;}
+    50% {scale: 1.0;}
+    100% {scale: 0.85;}
+}
+
+.p-setup-progress-tracker__bar {
+    position: absolute;
+    z-index: g.$zindex-setup-progress-tracker__bar;
+    background-color: g.$color-setup-progress-tracker-border;
+    width: $_pt-bar-width;
+    height: $_pt-bar-height;
+    inset: auto 0;
+    margin: 0 auto;
+}

@@ -1,0 +1,18 @@
+@use "../global" as g;
+
+$_top-logo-height: unquote('min(80px, 15vw)');
+$_top-logo-margin: calc($_top-logo-height * 0.15);
+
+.p-top-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+    position: relative;
+}
+
+.p-top-logo svg {
+    height: $_top-logo-height;
+    width: auto;
+    margin: $_top-logo-margin 0;
+}

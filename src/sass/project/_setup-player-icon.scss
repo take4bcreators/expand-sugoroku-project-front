@@ -1,0 +1,21 @@
+@use "../global" as g;
+
+$_height: unquote('min(80px, 20vw)');
+$_width: $_height;
+$_boader-size: calc($_height * 0.1);
+
+.p-setup-player-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $_width;
+    height: $_height;
+    border: $_boader-size solid g.$color-setup-player-icon-border;
+    border-radius: 50%;
+    background-color: g.$color-setup-player-icon-bg;
+}
+
+.p-setup-player-icon--short {
+    width: calc($_width * 0.7);
+    height: calc($_height * 0.7);
+}

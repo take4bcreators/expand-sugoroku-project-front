@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+$_setup-logo-height: unquote('min(60px, 10vw)');
+$_setup-logo-margin: calc($_setup-logo-height * 0.15);
+
+.p-setup-logo svg {
+    height: $_setup-logo-height;
+    width: auto;
+    margin: $_setup-logo-margin 0;
+}
+

@@ -1,0 +1,67 @@
+@use "../setting" as s;
+
+// ----------------------
+// 使用時
+//   @include 名前
+// ----------------------
+
+
+@mixin font-top-menu {
+  font-family: s.$font-family-KosugiMaru;
+  font-weight: 400;
+}
+
+@mixin font-copyright {
+  font-family: s.$font-family-Roboto;
+  font-weight: 700;
+}
+
+@mixin font-setup-board {
+  font-family: s.$font-family-KosugiMaru;
+  font-weight: 400;
+}
+
+@mixin font-control-next-panel-text {
+  font-family: s.$font-family-KosugiMaru;
+  font-weight: 400;
+}
+
+@mixin font-playing-decideorder-dices-text {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}
+
+@mixin font-center-icon-text-set-text {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}
+
+@mixin font-playing-stanby-playercard {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}
+
+@mixin font-playing-dice-numbercircle {
+  font-family: s.$font-family-MPLUSRounded1c;
+  font-weight: 800;
+}
+
+@mixin font-square-event-card-title {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 700;
+}
+
+@mixin font-square-event-card-text {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 500;
+}
+
+@mixin font-u-page-title {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 900;
+}
+
+@mixin font-text-box {
+  font-family: s.$font-family-ZenMaruGothic;
+  font-weight: 500;
+}

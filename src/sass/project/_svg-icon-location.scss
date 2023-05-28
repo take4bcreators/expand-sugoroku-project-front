@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+$_size: unquote('min(150px, 25vw)');
+
+.p-svg-icon-location {
+    width: $_size;
+    height: $_size;
+    &__color {
+        fill: g.$color-svg-icon-location;
+    }
+}

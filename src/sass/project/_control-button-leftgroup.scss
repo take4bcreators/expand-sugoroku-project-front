@@ -1,0 +1,40 @@
+@use "../global" as g;
+
+.p-control-button-leftgroup {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%;
+    position: relative;
+    translate: 0 50%;
+    @include g.mq(tab) {
+        justify-content: space-between;
+        width: 32vw;
+        flex-wrap: nowrap;
+        translate: none;
+    }
+    @include g.mq(pc) {
+        justify-content: space-between;
+        width: 32vw;
+        flex-wrap: nowrap;
+        translate: none;
+    }
+}
+
+.p-control-button-leftgroup__button {
+    svg {
+        margin: 1vw;
+        width: 10vw;
+        height: 10vw;
+        @include g.mq(tab) {
+            margin: 0;
+            width: 9vw;
+            height: 9vw;
+        }
+        @include g.mq(pc) {
+            margin: 0;
+            width: 9vw;
+            height: 9vw;
+        }
+    }
+}

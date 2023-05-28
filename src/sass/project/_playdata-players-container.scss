@@ -1,0 +1,11 @@
+@use "../global" as g;
+
+.p-playdata-players-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    padding: 40px 0 30vh 0;
+}

@@ -4,7 +4,6 @@ import SEO from '../../components/SEO';
 import '../../sass/style.scss';
 
 
-
 export default () => {
   return (
     <>

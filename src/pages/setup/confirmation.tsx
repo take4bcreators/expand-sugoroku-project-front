@@ -7,8 +7,10 @@ import { StorageKeys } from '../../ts/config/StorageKeys';
 import type { PlayerInfo } from '../../ts/type/PlayerInfo';
 import type { AllBoardsJson } from '../../ts/type/AllBoardsJson';
 import '../../sass/style.scss'
+import SetupProgressTracker from '../../components/SetupProgressTracker';
+import SvgButtonPrev from '../../icon/svg/SvgButtonPrev';
+import SvgButtonNext from '../../icon/svg/SvgButtonNext';
 import { AppConst } from '../../ts/config/const';
-
 
 
 type ThisPageProps = {
@@ -119,49 +121,59 @@ export default ({ data }: ThisPageProps) => {
   
   return (
     <>
-      <main>
-        <div>
-          <div>1.ボード選択</div>
-          <div>2.プレイヤー情報入力</div>
-          <div><em>3.確認</em></div>
-        </div>
-        <section>
-          <h1>確認</h1>
-          <h2>ボード</h2>
-          <p>{selectedBoardName}</p>
-          <h2>プレイヤー</h2>
+      <SetupProgressTracker length={3} current={2} />
+      <section className="p-setup-confirmation-container">
+        <ul className="p-setup-confirmation-board">
+          <li className="p-setup-board-menu-item p-setup-board-menu-item--confirmation">
+            {selectedBoardName}
+          </li>
+        </ul>
+        <ul>
           {
             playerInfoList.map((playerInfo, index) => {
               return (
-                <div key={index}>
-                  <img
-                    src={AppConst.PLAYER_ICON_DIR + '/' + playerInfo.iconFile}
-                    alt="プレイヤーアイコン"
-                    width="50"
-                    height="50"
-                  />
-                  <p className='player'>
+                <li key={index} className="p-setup-player-panel p-setup-player-panel--confirmation">
+                  <div className="p-setup-player-icon">
+                    <img
+                      src={AppConst.PLAYER_ICON_DIR + '/' + playerInfo.iconFile}
+                      alt="プレイヤーアイコン"
+                      width="50"
+                      height="50"
+                    />
+                  </div>
+                  <p className="p-setup-player-input p-setup-player-input--confirmation">
                     {playerInfo.playerName}
                   </p>
-                </div>
+                </li>
               )
             })
           }
-        </section>
-        <form name="userForm">
-          <button type="button" name="prevbtn" className="c-button">
-            <Link to='./?state=player'>戻る</Link>
-          </button>
-          <button type="button" name="nextbtn" className="c-button">
-            <Link to='/playing/' onClick={() => {
-                saveNewGameData();
-                removeSetupData();
-            }}>
-              ゲームスタート！
+        </ul>
+      </section>
+      <div className="p-control-buttons-container">
+        <div className="p-control-buttons">
+          <div className="p-control-button">
+            <Link to='./?state=player'>
+              <SvgButtonPrev />
             </Link>
-          </button>
-        </form>
-      </main>
+          </div>
+          <Link to='/playing/' onClick={() => {
+            saveNewGameData();
+            removeSetupData();
+          }}>
+            <div className="p-control-next-guide">
+              <div className="p-control-next-panel">
+                <div className="p-control-next-panel__text">
+                  ゲーム<wbr />スタート！
+                </div>
+              </div>
+              <div className="p-control-next-icon">
+                <SvgButtonNext />
+              </div>
+            </div>
+          </Link>
+        </div>
+      </div>
     </>
-  )
+  );
 }
