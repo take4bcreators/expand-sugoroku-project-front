@@ -20,7 +20,6 @@ export const onRouteUpdate = ({ location, prevLocation }: OnRouteUpdateType) => 
   
   // それ以外のページの識別
   const splitPathArr = util.generateCleanArr(location.pathname.split('/'));
-  console.log(splitPathArr);
   switch (splitPathArr[1]) {
     case 'izakaya':
     case 'cafe':
