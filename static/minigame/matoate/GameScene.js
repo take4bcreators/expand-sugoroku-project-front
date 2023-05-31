@@ -57,7 +57,7 @@ export class GameScene extends Phaser.Scene {
         this.load.image('sky', 'assets/879604.jpg');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('bullet', 'assets/arrow.png');
-        this.load.image('dog', 'assets/犬のアイコン.png');
+        this.load.image('dog', 'assets/dog.png');
         this.load.image('target', 'assets/symbol042.png');
     }
     
