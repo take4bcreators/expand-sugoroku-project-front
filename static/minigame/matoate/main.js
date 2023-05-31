@@ -8,7 +8,7 @@ import { FinishScene } from './FinishScene.js'
 
 const config = {
     type: Phaser.AUTO,
-    parent: 'phaser-example',
+    parent: 'canvas',
     // width: 800,
     // height: 600,
     width: window.innerWidth,
